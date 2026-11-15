@@ -12,6 +12,11 @@ repository-code: "https://github.com/realtimshady16/sa-open-data"
 url: "https://github.com/realtimshady16/sa-open-data"
 version: 0.1.0
 date-released: 2026-11-15
+doi: 10.5281/zenodo.24241806
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.24241806
+    description: "Version DOI for v0.1.0. Concept DOI (all versions): 10.5281/zenodo.24241805"
 license: CC-BY-4.0
 abstract: >-
   Preserved copies of four South African public datasets, captured 2026-11-09 to

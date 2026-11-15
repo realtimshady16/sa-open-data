@@ -2,6 +2,7 @@
 
 [![Data: CC BY 4.0](https://img.shields.io/badge/data-CC%20BY%204.0-lightgrey)](LICENSE-DATA)
 [![Code: MIT](https://img.shields.io/badge/code-MIT-blue)](LICENSE)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24241806.svg)](https://doi.org/10.5281/zenodo.24241806)
 
 A small, verifiable archive of South African public datasets, captured **2026-11-09 to
 2026-11-10** while working on local-government politics and party performance. Published here
@@ -46,8 +47,15 @@ MANIFEST.json             size, sha256, row/record counts, source URL per data f
 
 ```
 Evertse, T. (2026). SA open data: preserved copies of South African local-government
-datasets (v0.1.0). https://github.com/realtimshady16/sa-open-data
+datasets (v0.1.0). Zenodo. https://doi.org/10.5281/zenodo.24241806
 ```
+
+That is the **version DOI**, which pins v0.1.0 and is the one to cite for a specific
+result. The **concept DOI** — <https://doi.org/10.5281/zenodo.24241805> — always resolves to
+the latest version and is what to cite when you mean the dataset generally.
+
+Both resolve through <https://zenodo.org/records/24241806>, which holds the archived snapshot
+of the v0.1.0 tag. Later commits on `main` are not part of that record.
 
 `CITATION.cff` is included so GitHub renders a citation widget. Tag `v0.1.0` is the citable
 release. If a DOI is minted later (Zenodo), this section gets updated — the tag is the
