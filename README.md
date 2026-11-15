@@ -40,6 +40,7 @@ docs/provenance.md        publisher, endpoint, capture date, live status, archiv
 docs/method.md            how each dataset was obtained, and where it is fragile
 docs/coverage-and-caveats.md   what the numbers are NOT
 docs/licence-decision.md  which licences were chosen and why
+SOURCES.md                a ledger: every SA source we know of, and whether we hold it
 MANIFEST.json             size, sha256, row/record counts, source URL per data file
 ```
 
@@ -89,6 +90,14 @@ Auditor-General, the IEC and Statistics South Africa from public money, and fact
 copyrightable. What is licensed here is the arrangement, the derived tables and the
 documentation. Someone could independently fetch the same numbers with no obligation to this
 repository, and that is correct.
+
+## What else exists, and what we don't have
+
+`SOURCES.md` is a ledger rather than a link list: every South African source encountered while
+building this, marked **✓ held**, **◐ partial**, **○ exists but not held** or **✗ unreachable**,
+with the date checked. It exists because a link list tells you the internet is big while a
+ledger tells you what is missing — and because several of the ✗ marks are failures of
+access, not absences of data.
 
 ## Data quality
 
