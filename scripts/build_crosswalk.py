@@ -21,6 +21,7 @@ Reads from a checkout of the sources; paths are set below.
 import csv
 import json
 import re
+import unicodedata
 from collections import defaultdict
 from pathlib import Path
 
@@ -34,16 +35,45 @@ STOP = {"district", "municipality", "local", "metropolitan", "metro", "city", "o
 PREFIX = re.compile(r"^\s*[A-Za-z]{2,4}\d{0,3}\s*-\s*")
 
 
+NUMWORDS = {"5": "five", "4": "four", "3": "three", "2": "two", "1": "one"}
+HONORIFIC = {"inkosi", "nkosi", "kosi"}
+
+
+def fold(s):
+    """Decompose accents, then drop the combining marks: 'Naudé' -> 'naude'."""
+    return "".join(c for c in unicodedata.normalize("NFKD", s)
+                   if not unicodedata.combining(c))
+
+
 def norm(s):
-    s = (s or "").strip()
+    s = fold((s or "").strip())
     s = PREFIX.sub("", s)
     s = s.lower()
     s = re.sub(r"\(.*?\)", " ", s)
     # delete punctuation rather than turning it into a space: "O.R. Tambo" -> "or tambo",
     # not "o r tambo", which is what broke the first attempt at district names.
-    s = re.sub(r"[^a-z0-9\s]", "", s)
-    return " ".join(w for w in s.split() if w not in STOP)
+    s = s.replace("-", " ").replace("/", " ")      # hyphens and slashes separate words
+    s = re.sub(r"[^a-z0-9\s]", "", s)              # dots and apostrophes are just deleted
+    words = [NUMWORDS.get(w, w) for w in s.split()]
+    return " ".join(w for w in words if w not in STOP and w not in HONORIFIC)
 
+
+
+# ---------------------------------------------------------------------------
+# Explicit aliases. Every entry is a mapping a person verified by looking at the
+# district's children in the spine, not a similarity score. Each carries its basis so
+# the reasoning survives; a key that stops matching prints a warning instead of rotting.
+ALIASES = {
+    "ingquza hill": ("EC153", "orthographic variant of Ngquza Hill (Municipal Money: 'Ngquza Hills')"),
+    "umtubatuba": ("KZN275", "honorific dropped: 'iNkosi uMtubatuba' vs 'Mtubatuba'"),
+    "umfolozi": ("KZN281", "'uMfolozi' vs 'Mfolozi' (u- prefix)"),
+    "fetakgomo tubatse": ("LIM476", "2016 merger: 'Fetakgomo Tubatse' vs 'Greater Tubatse/Fetakgomo'"),
+    "mbombela": ("MP326", "MP322 is an empty ghost row; MP326 is Mbombela and carries MM/IEC"),
+    "pixley ka seme": ("DC7", "type DM + Northern Cape; MP304 is a Mpumalanga local of the same name"),
+    "umgungundhlovu": ("DC22", "spelling: 'uMgungundhlovu' vs 'Umgungundlovu'"),
+    "umzimkulu": ("KZN435", "spelling: 'Umzimkulu' vs 'Umzimkhulu'"),
+    "dr nkosasana dlamini zuma": ("KZN436", "spelling: 'Nkosasana' vs 'Nkosazana'"),
+}
 
 def code_of(name):
     """IEC display names start with the demarcation code; strip it."""
@@ -122,12 +152,19 @@ def main():
         if meta.get("province"):
             prov = [c for c in cands if rows[c].get("province") == meta["province"]]
             cands = prov or cands
+        via_alias = False
+        if len(cands) != 1:
+            al = ALIASES.get(norm(e["name"]))
+            if al and not rows[al[0]].get("agsa_slug"):
+                cands = [al[0]]
+                via_alias = True
+                rows[al[0]]["alias_basis_agsa"] = al[1]
         if len(cands) == 1:
             rows[cands[0]]["agsa_slug"] = e["slug"]
             rows[cands[0]]["agsa_name"] = e["name"]
             rows[cands[0]]["agsa_type"] = e.get("type")
             rows[cands[0]]["agsa_district"] = meta.get("district")
-            rows[cands[0]]["match_method_agsa_slug"] = "name+province"
+            rows[cands[0]]["match_method_agsa_slug"] = "alias" if via_alias else "name+province"
         else:
             agsa_unmatched.append({"agsa_name": e["name"], "slug": e["slug"],
                                    "type": e.get("type"), "province": meta.get("province"),
@@ -141,10 +178,17 @@ def main():
             cands = sorted(set(name_loose.get(norm(p["municipality"]).replace(" ", ""), [])))
         if len(cands) > 1 and p.get("district"):
             cands = [c for c in cands if norm(rows[c].get("agsa_district") or "") == norm(p["district"])] or cands
+        via_alias = False
+        if len(cands) != 1:
+            al = ALIASES.get(norm(p["municipality"]))
+            if al and not rows[al[0]].get("p9115_name"):
+                cands = [al[0]]
+                via_alias = True
+                rows[al[0]]["alias_basis_p9115"] = al[1]
         if len(cands) == 1:
             rows[cands[0]]["p9115_name"] = p["municipality"]
             rows[cands[0]]["p9115_district"] = p.get("district")
-            rows[cands[0]]["match_method_p9115_name"] = "name"
+            rows[cands[0]]["match_method_p9115_name"] = "alias" if via_alias else "name"
         else:
             p9115_unmatched.append({"p9115_name": p["municipality"], "district": p.get("district"),
                                     "candidates": cands})
@@ -156,8 +200,20 @@ def main():
     # elimination -- not by string similarity. Recorded as its own match_method so the
     # inference is visible rather than looking like a name match that happened to work.
     def district_codes():
-        return {norm(r.get("oad_name") or ""): c
-                for c, r in rows.items() if r.get("oad_level") == "district"}
+        """District names in BOTH naming schemes.
+
+        OpenAdminData still carries the pre-2014 names for several districts (Cacadu for
+        Sarah Baartman, uThungulu for King Cetshwayo, Sisonke for Harry Gwala), so a map
+        built only from it silently fails to resolve the very districts where renames live.
+        """
+        m = {}
+        for c, r in rows.items():
+            if r.get("oad_level") != "district":
+                continue
+            for n in (r.get("oad_name"), (mm_by_code.get(c) or {}).get("name")):
+                if n:
+                    m[norm(n)] = c
+        return m
 
     def eliminate(unmatched, district_field, col, payload):
         dmap = district_codes()
@@ -197,7 +253,8 @@ def main():
     cols = ["code", "oad_id", "oad_name", "oad_level", "province", "parent_code", "status",
             "iec_2016_name", "iec_2021_name", "agsa_slug", "agsa_name", "agsa_type",
             "agsa_district", "p9115_name", "p9115_district",
-            "match_method_agsa_slug", "match_method_p9115_name"]
+            "match_method_agsa_slug", "match_method_p9115_name",
+            "alias_basis_agsa", "alias_basis_p9115"]
     ordered = sorted(rows.values(), key=lambda r: (r.get("oad_level") or "zz", r["code"]))
     with (out / "crosswalk.csv").open("w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=cols, extrasaction="ignore")
@@ -208,6 +265,10 @@ def main():
               open(out / "unmatched.json", "w"), indent=1)
 
     # ---- report ----------------------------------------------------------------
+    used = {r.get("alias_basis_agsa") for r in rows.values()} | {r.get("alias_basis_p9115") for r in rows.values()}
+    stale = [k for k, (c, basis) in ALIASES.items() if basis not in used]
+    if stale:
+        print(f"  WARNING: aliases that never fired (delete or fix): {stale}")
     n = len(ordered)
     def count(k):
         return sum(1 for r in ordered if r.get(k))

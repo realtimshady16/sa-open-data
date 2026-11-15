@@ -31,8 +31,8 @@ all 213 councils carry their code, including the eight metros (`BUF`, `CPT`, `EK
 | Municipal Money | **292** | 292 | exact code |
 | IEC 2016 | **213** | 213 | exact code (display-name prefix) |
 | IEC 2021 | **213** | 213 | exact code |
-| AGSA | **249** | 257 | name+province, then district elimination |
-| Stats SA P9115 | **249** | 257 | name, then district elimination |
+| AGSA | **257** | 257 | name+province, district elimination, then verified aliases |
+| Stats SA P9115 | **257** | 257 | same |
 
 ## Three tiers, in order, each recorded
 
@@ -47,26 +47,43 @@ all 213 councils carry their code, including the eight metros (`BUF`, `CPT`, `EK
 Anything still unmatched is written to `unmatched.json` with its candidates. **Nothing is
 guessed.** Municipal Money's code column is the spine; every other source is attached to it.
 
-## The eight exceptions, and what they are
+## The nine aliases, and how each was verified
 
-Both sources fail on the same eight, which is the useful part — it means it is one problem, not
-two.
+Nothing here is a similarity score. Each row was settled by looking at the district's
+children in the spine and finding the one entity the source must mean. The basis is stored
+per row (`alias_basis_agsa`, `alias_basis_p9115`) so the reasoning travels with the data.
 
-| Entity | District | Likely cause |
+| Source name | Code | Basis |
 |---|---|---|
-| Dr Beyers Naudé | Sarah Baartman | renamed (was Baviaans-adjacent amalgamation in 2016) |
-| Ingquza Hill | O.R. Tambo | renamed (formerly Qaukeni) |
-| uMfolozi | King Cetshwayo | renamed (formerly Mfolozi) |
-| Big 5 Hlabisa / The Big 5 Hlabisa | uMkhanyakude | numeral: OAD says "Big **Five** Hlabisa" |
-| iNkosi uMtubatuba | uMkhanyakude | spelling / honorific prefix |
-| Fetakgomo Tubatse / Fetakgomo-Tubatse | Sekhukhune | 2016 merger, hyphenation |
-| City of Mbombela | Ehlanzeni | **genuinely ambiguous**: candidates `MP322`, `MP326` (Umjindi was merged into Mbombela) |
-| Pixley Ka Seme District | Pixley Ka Seme - NC | **genuinely ambiguous**: `DC7` (Northern Cape district) vs `MP304` (a Mpumalanga local of the same name) |
-| uMgungundhlovu District | uMgungundhlovu | P9115 only; spelling |
-| Umzimkulu / Dr Nkosasana Dlamini Zuma | Harry Gwala | renamed (Umzimkulu → Dr Nkosazana Dlamini-Zuma) |
+| Ingquza Hill | `EC153` | orthographic variant of Ngquza Hill (Municipal Money: "Ngquza Hills") |
+| iNkosi uMtubatuba | `KZN275` | honorific dropped: "iNkosi uMtubatuba" vs "Mtubatuba" |
+| uMfolozi | `KZN281` | u- prefix: "uMfolozi" vs "Mfolozi" |
+| Fetakgomo Tubatse / Fetakgomo-Tubatse | `LIM476` | 2016 merger, vs "Greater Tubatse/Fetakgomo" |
+| City of Mbombela | `MP326` | `MP322` is an empty ghost row; `MP326` is Mbombela and carries MM/IEC |
+| Pixley Ka Seme District | `DC7` | type DM + Northern Cape; `MP304` is a Mpumalanga local of the same name |
+| uMgungundhlovu District | `DC22` | spelling, vs "Umgungundlovu" |
+| Umzimkulu | `KZN435` | spelling, vs "Umzimkhulu" |
+| Dr Nkosasana Dlamini Zuma | `KZN436` | spelling, vs "Nkosazana" |
 
-Two are real ambiguity and should stay unmatched until a human decides. The rest are renames
-that a person can settle in minutes — the tool lists them rather than picking.
+The script prints a warning if an alias stops matching anything, so a stale entry surfaces
+instead of quietly doing nothing.
+
+## Three normalisation bugs worth knowing
+
+Each of these silently under-matched before it was fixed, and each looks like a data problem
+rather than a code problem:
+
+1. **Hyphens deleted rather than spaced.** "Fetakgomo-Tubatse" became `fetakgomotubatse` while
+   "Fetakgomo Tubatse" stayed `fetakgomo tubatse`. Hyphens and slashes are word separators;
+   dots and apostrophes should just be deleted.
+2. **Accents deleted rather than folded.** "Naudé" became `naud`, which matches nothing.
+   Decompose (NFKD) and drop the combining marks instead.
+3. **Candidates not de-duplicated.** The same code arrived twice whenever the OpenAdminData and
+   Municipal Money names agreed, so every easy match looked ambiguous.
+
+Plus one structural one: **OpenAdminData's district names are pre-2014** (Cacadu, uThungulu,
+Sisonke), so a district map built only from it fails precisely where renames live. The map now
+considers both naming schemes.
 
 ## A caution about the spine source
 

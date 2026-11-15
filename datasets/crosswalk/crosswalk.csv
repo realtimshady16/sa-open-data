@@ -1,293 +1,293 @@
-code,oad_id,oad_name,oad_level,province,parent_code,status,iec_2016_name,iec_2021_name,agsa_slug,agsa_name,agsa_type,agsa_district,p9115_name,p9115_district,match_method_agsa_slug,match_method_p9115_name
-DC1,ZA101,West Coast,district,Western Cape,,live,,,9-west-coast-district,West Coast District,DM,West Coast,West Coast District Municipality,West Coast District Area,name+province,name
-DC10,ZA210,Cacadu,district,Eastern Cape,,live,,,1-sarah-baartman-district,Sarah Baartman District,DM,Sarah Baartman,Sarah Baartman District Municipality,Sarah Baartman District Area,name+province,name
-DC12,ZA212,Amathole,district,Eastern Cape,,live,,,1-amathole-district,Amathole District,DM,Amatole,Amathole District Municipality,Amathole District Area,name+province,name
-DC13,ZA213,Chris Hani,district,Eastern Cape,,live,,,1-chris-hani-district,Chris Hani District,DM,Chris Hani,Chris Hani District Municipality,Chris Hani District Area,name+province,name
-DC14,ZA214,Joe Gqabi,district,Eastern Cape,,live,,,1-joe-gqabi-district,Joe Gqabi District,DM,Joe Gqabi,Joe Gqabi District Municipality,Joe Gqabi District Area,name+province,name
-DC15,ZA215,O.R.Tambo,district,Eastern Cape,,live,,,1-or-tambo-district,OR Tambo District,DM,O.R. Tambo,O.R. Tambo District Municipality,O.R. Tambo District Area,name+province,name
-DC16,ZA416,Xhariep,district,Free State,,live,,,2-xhariep-district,Xhariep District,DM,Xhariep,Xhariep District Municipality,Xhariep District Area,name+province,name
-DC18,ZA418,Lejweleputswa,district,Free State,,live,,,2-lejweleputswa-district,Lejweleputswa District,DM,Lejweleputswa,Lejweleputswa District Municipality,Lejweleputswa District Area,name+province,name
-DC19,ZA419,Thabo Mofutsanyane,district,Free State,,live,,,2-thabo-mofutsanyana-district,Thabo Mofutsanyana District,DM,Thabo Mofutsanyana,Thabo Mofutsanyane District Municipality,Thabo Mofutsanyane District Area,name+province,name
-DC2,ZA102,Cape Winelands,district,Western Cape,,live,,,9-cape-winelands-district,Cape Winelands District,DM,Cape Winelands,Cape Winelands District Municipality,Cape Winelands District Area,name+province,name
-DC20,ZA420,Fezile Dabi,district,Free State,,live,,,2-fezile-dabi-district,Fezile Dabi District,DM,Fezile Dabi,Fezile Dabi District Municipality,Fezile Dabi District Area,name+province,name
-DC21,ZA521,Ugu,district,KwaZulu-Natal,,live,,,4-ugu-district,Ugu District,DM,Ugu,Ugu District Municipality,Ugu District Area,name+province,name
-DC22,ZA522,Umgungundlovu,district,KwaZulu-Natal,,live,,,4-umgungundlovu-district,Umgungundlovu District,DM,uMgungundlovu,,,name+province,
-DC23,ZA523,Uthukela,district,KwaZulu-Natal,,live,,,4-uthukela-district,uThukela District,DM,uThukela,uThukela District Municipality,uThukela District Area,name+province,name
-DC24,ZA524,Umzinyathi,district,KwaZulu-Natal,,live,,,4-umzinyathi-district,uMzinyathi District,DM,uMzinyathi,uMzinyathi District Municipality,uMzinyathi District Area,name+province,name
-DC25,ZA525,Amajuba,district,KwaZulu-Natal,,live,,,4-amajuba-district,Amajuba District,DM,Amajuba,Amajuba District Municipality,Amajuba District Area,name+province,name
-DC26,ZA526,Zululand,district,KwaZulu-Natal,,live,,,4-zululand-district,Zululand District,DM,Zululand,Zululand District Municipality,Zululand District Area,name+province,name
-DC27,ZA527,Umkhanyakude,district,KwaZulu-Natal,,live,,,4-umkhanyakude-district,uMkhanyakude District,DM,uMkhanyakude,uMkhanyakude District Municipality,uMkhanyakude District Area,name+province,name
-DC28,ZA528,Uthungulu,district,KwaZulu-Natal,,live,,,4-king-cetshwayo-district,King Cetshwayo District,DM,King Cetshwayo,King Cetshwayo District Municipality,King Cetshwayo District Area,name+province,name
-DC29,ZA529,iLembe,district,KwaZulu-Natal,,live,,,4-ilembe-district,Ilembe District,DM,iLembe,iLembe District Municipality,iLembe District Area,name+province,name
-DC3,ZA103,Overberg,district,Western Cape,,live,,,9-overberg-district,Overberg District,DM,Overberg,Overberg District Municipality,Overberg District Area,name+province,name
-DC30,ZA830,Gert Sibande,district,Mpumalanga,,live,,,6-gert-sibande-district,Gert Sibande District,DM,Gert Sibande,Gert Sibande District Municipality,Gert Sibande District Area,name+province,name
-DC31,ZA831,Nkangala,district,Mpumalanga,,live,,,6-nkangala-district,Nkangala District,DM,Nkangala,Nkangala District Municipality,Nkangala District Area,name+province,name
-DC32,ZA832,Ehlanzeni,district,Mpumalanga,,live,,,6-ehlanzeni-district,Ehlanzeni District,DM,Ehlanzeni,Ehlanzeni District Municipality,Ehlanzeni District Area,name+province,name
-DC33,ZA933,Mopani,district,Limpopo,,live,,,5-mopani-district,Mopani District,DM,Mopani,Mopani District Municipality,Mopani District Area,name+province,name
-DC34,ZA934,Vhembe,district,Limpopo,,live,,,5-vhembe-district,Vhembe District,DM,Vhembe,Vhembe District Municipality,Vhembe District Area,name+province,name
-DC35,ZA935,Capricorn,district,Limpopo,,live,,,5-capricorn-district,Capricorn District,DM,Capricorn,Capricorn District Municipality,Capricorn District Area,name+province,name
-DC36,ZA936,Waterberg,district,Limpopo,,live,,,5-waterberg-district,Waterberg District,DM,Waterberg,Waterberg District Municipality,Waterberg District Area,name+province,name
-DC37,ZA637,Bojanala,district,North West,,live,,,8-bojanala-district,Bojanala District,DM,Bojanala Platinum,Bojanala Platinum District Municipality,Bojanala Platinum District Area,name+province,name
-DC38,ZA638,Ngaka Modiri Molema,district,North West,,live,,,8-ngaka-modiri-molema-district,Ngaka Modiri Molema District,DM,Ngaka Modiri Molema,Ngaka Modiri Molema District Municipality,Ngaka Modiri Molema District Area,name+province,name
-DC39,ZA639,Dr Ruth Segomotsi Mompati,district,North West,,live,,,8-dr-ruth-s-mompati-district,Dr Ruth Segomotsi Mompati District,DM,Dr Ruth S Mompati,Dr Ruth Segomotsi Mompati District Municipality,Dr Ruth Segomotsi Mompati District Area,name+province,name
-DC4,ZA104,Eden,district,Western Cape,,live,,,9-garden-route-district,Garden Route District,DM,Garden Route,Garden Route District Municipality,Garden Route District Area,name+province,name
-DC40,ZA640,Dr Kenneth Kaunda,district,North West,,live,,,8-dr-kenneth-kaunda-district,Dr Kenneth Kaunda District,DM,Dr Kenneth Kaunda,Dr Kenneth Kaunda District Municipality,Dr Kenneth Kaunda District Area,name+province,name
-DC42,ZA742,Sedibeng,district,Gauteng,,live,,,3-sedibeng-district,Sedibeng District,DM,Sedibeng,Sedibeng District Municipality,Sedibeng District Area,name+province,name
-DC43,ZA543,Sisonke,district,KwaZulu-Natal,,live,,,4-harry-gwala-district,Harry Gwala District,DM,Harry Gwala,Harry Gwala District Municipality,Harry Gwala District Area,name+province,name
-DC44,ZA244,Alfred Nzo,district,Eastern Cape,,live,,,1-alfred-nzo-district,Alfred Nzo District,DM,Alfred Nzo,Alfred Nzo District Municipality,Alfred Nzo District Area,name+province,name
-DC45,ZA345,John Taolo Gaetsewe,district,Nothern Cape,,live,,,7-john-taolo-gaetsewe-district,John Taolo Gaetsewe District,DM,John Taolo Gaetsewe,John Taolo Gaetsewe District Municipality,John Taolo Gaetsewe District Area,name+province,name
-DC47,ZA947,Sekhukhune,district,Limpopo,,live,,,5-sekhukhune-district,Sekhukhune District,DM,Sekhukhune,Sekhukhune District Municipality,Sekhukhune District Area,name+province,name
-DC48,ZA748,West Rand,district,Gauteng,,live,,,3-west-rand-district,West Rand District,DM,West Rand,West Rand District Municipality,West Rand District Area,name+province,name
-DC5,ZA105,Central Karoo,district,Western Cape,,live,,,9-central-karoo-district,Central Karoo District,DM,Central Karoo,Central Karoo District Municipality,Central Karoo District Area,name+province,name
-DC6,ZA306,Namakwa,district,Nothern Cape,,live,,,7-namakwa-district,Namakwa District,DM,Namakwa,Namakwa District Municipality,Namakwa District Area,name+province,name
-DC7,ZA307,Pixley ka Seme,district,Nothern Cape,,live,,,,,,,,,,
-DC8,ZA308,Z F Mgcawu,district,Nothern Cape,,live,,,7-zf-mgcawu-district,ZF Mgcawu District,DM,ZF Mgcawu District,ZF Mgcawu District Municipality,ZF Mgcawu District Area,name+province,name
-DC9,ZA309,Frances Baard,district,Nothern Cape,,live,,,7-frances-baard-district,Frances Baard District,DM,Frances Baard,Frances Baard District Municipality,Frances Baard District Area,name+province,name
-EC101,ZA2101,Dr Beyers Naude,local,Eastern Cape,DC10,live,EC101 - Camdeboo,EC101 - Dr. Beyers Naude,,,,,Dr. Beyers Naude Local Municipality,Sarah Baartman District Area,,name
-EC102,ZA2102,Blue Crane Route,local,Eastern Cape,DC10,live,EC102 - Blue Crane Route,EC102 - Blue Crane Route,1-blue-crane-route,Blue Crane Route,LM,Sarah Baartman,Blue Crane Route Local Municipality,Sarah Baartman District Area,name+province,name
-EC104,ZA2104,Makana,local,Eastern Cape,DC10,live,EC104 - Makana,EC104 - Makana,1-makana,Makana,LM,Sarah Baartman,Makana Local Municipality,Sarah Baartman District Area,name+province,name
-EC105,ZA2105,Ndlambe,local,Eastern Cape,DC10,live,EC105 - Ndlambe,EC105 - Ndlambe,1-ndlambe,Ndlambe,LM,Sarah Baartman,Ndlambe Local Municipality,Sarah Baartman District Area,name+province,name
-EC106,ZA2106,Sundays River Valley,local,Eastern Cape,DC10,live,EC106 - Sundays River Valley,EC106 - Sundays River Valley,1-sundays-river-valley,Sundays River Valley,LM,Sarah Baartman,Sunday's River Valley Local Municipality,Sarah Baartman District Area,name+province,name
-EC108,ZA2108,Kouga,local,Eastern Cape,DC10,live,EC108 - Kouga,EC108 - Kouga,1-kouga,Kouga,LM,Sarah Baartman,Kouga Local Municipality,Sarah Baartman District Area,name+province,name
-EC109,ZA2109,Kou-Kamma,local,Eastern Cape,DC10,live,EC109 - Kou-Kamma,EC109 - Kou-Kamma,1-kou-kamma,Kou-Kamma,LM,Sarah Baartman,Kou-Kamma Local Municipality,Sarah Baartman District Area,name+province,name
-EC121,ZA2121,Mbhashe,local,Eastern Cape,DC12,live,EC121 - Mbhashe,EC121 - Mbhashe,1-mbhashe,Mbhashe,LM,Amatole,Mbhashe Local Municipality,Amathole District Area,name+province,name
-EC122,ZA2122,Mnquma,local,Eastern Cape,DC12,live,EC122 - Mnquma,EC122 - Mnquma,1-mnquma,Mnquma,LM,Amatole,Mnquma Local Municipality,Amathole District Area,name+province,name
-EC123,ZA2123,Great Kei,local,Eastern Cape,DC12,live,EC123 - Great Kei,EC123 - Great Kei,1-great-kei,Great Kei,LM,Amatole,Great Kei Local Municipality,Amathole District Area,name+province,name
-EC124,ZA2124,Amahlathi,local,Eastern Cape,DC12,live,EC124 - Amahlathi,EC124 - Amahlathi,1-amahlati,Amahlathi,LM,Amatole,Amahlathi Local Municipality,Amathole District Area,name+province,name
-EC126,ZA2126,Ngqushwa,local,Eastern Cape,DC12,live,EC126 - Ngqushwa,EC126 - Ngqushwa,1-ngqushwa,Ngqushwa,LM,Amatole,Ngqushwa Local Municipality,Amathole District Area,name+province,name
-EC129,ZA2129,Raymond Mhlaba,local,Eastern Cape,DC12,live,EC129 - Nkonkobe/Nxuba,EC129 - Raymond Mhlaba,1-raymond-mhlaba,Raymond Mhlaba,LM,Amatole,Raymond Mhlaba Local Municipality,Amathole District Area,name+province,name
-EC131,ZA2131,Inxuba Yethemba,local,Eastern Cape,DC13,live,EC131 - Inxuba Yethemba,EC131 - Inxuba Yethemba,1-inxuba-yethemba,Inxuba Yethemba,LM,Chris Hani,Inxuba Yethemba Local Municipality,Chris Hani District Area,name+province,name
-EC135,ZA2135,Intsika Yethu,local,Eastern Cape,DC13,live,EC135 - Intsika Yethu,EC135 - Intsika Yethu,1-intsika-yethu,Vuyisile Mini,LM,Chris Hani,Intsika Yethu Local Municipality,Chris Hani District Area,name+province,name
-EC136,ZA2136,Emalahleni,local,Eastern Cape,DC13,live,EC136 - Emalahleni,EC136 - Emalahleni,1-emalahleni,Emalahleni,LM,Chris Hani,Emalahleni Local Municipality,Chris Hani District Area,name+province,name
-EC137,ZA2137,Engcobo,local,Eastern Cape,DC13,live,EC137 - Engcobo,EC137 - Engcobo,1-engcobo,DR AB Xuma,LM,Chris Hani,Dr. AB Xuma Local Municipality,Chris Hani District Area,name+province,name
-EC138,ZA2138,Sakhisizwe,local,Eastern Cape,DC13,live,EC138 - Sakhisizwe,EC138 - Sakhisizwe,1-sakhisizwe,Sakhisizwe,LM,Chris Hani,Sakhisizwe Local Municipality,Chris Hani District Area,name+province,name
-EC139,ZA2139,Enoch Mgijima,local,Eastern Cape,DC13,live,EC139 - Tsolwana/Inkwanca/Lukanji,EC139 - Enoch Mgijima,1-enoch-mgijima,Enoch Mgijima,ICM,Chris Hani,Enoch Mgijima Local Municipality,Chris Hani District Area,name+province,name
-EC141,ZA2141,Elundini,local,Eastern Cape,DC14,live,EC141 - Elundini,EC141 - Elundini,1-elundini,Elundini,LM,Joe Gqabi,Elundini Local Municipality,Joe Gqabi District Area,name+province,name
-EC142,ZA2142,Senqu,local,Eastern Cape,DC14,live,EC142 - Senqu,EC142 - Senqu,1-senqu,Senqu,LM,Joe Gqabi,Senqu Local Municipality,Joe Gqabi District Area,name+province,name
-EC145,ZA2145,Walter Sisulu,local,Eastern Cape,DC14,live,EC145 - Maletswai/Gariep,EC145 - Walter Sisulu,1-walter-sisulu,Walter Sisulu,LM,Joe Gqabi,Walter Sisulu Local Municipality,Joe Gqabi District Area,name+province,name
-EC153,ZA2153,Ngquza Hill,local,Eastern Cape,DC15,live,EC153 - Ngquza Hill,EC153 - Ngquza Hill,,,,,Ngquza Hill Local Municipality,O.R. Tambo District Area,,name
-EC154,ZA2154,Port St Johns,local,Eastern Cape,DC15,live,EC154 - Port St Johns,EC154 - Port St Johns,1-port-st-johns,Port St Johns,LM,O.R. Tambo,Port St Johns Local Municipality,O.R. Tambo District Area,name+province,name
-EC155,ZA2155,Nyandeni,local,Eastern Cape,DC15,live,EC155 - Nyandeni,EC155 - Nyandeni,1-nyandeni,Nyandeni,LM,O.R. Tambo,Nyandeni Local Municipality,O.R. Tambo District Area,name+province,name
-EC156,ZA2156,Mhlontlo,local,Eastern Cape,DC15,live,EC156 - Mhlontlo,EC156 - Mhlontlo,1-mhlontlo,Kumkani Mhlontlo,LM,O.R. Tambo,Mhlontlo Local Municipality,O.R. Tambo District Area,name+province,name
-EC157,ZA2157,King Sabata Dalindyebo,local,Eastern Cape,DC15,live,EC157 - King Sabata Dalindyebo,EC157 - King Sabata Dalindyebo,1-king-sabata-dalindyebo,King Sabata Dalindyebo,ICM,O.R. Tambo,King Sabata Dalindyebo Local Municipality,O.R. Tambo District Area,name+province,name
-EC441,ZA2441,Matatiele,local,Eastern Cape,DC44,live,EC441 - Matatiele,EC441 - Matatiele,1-matatiele,Matatiele,LM,Alfred Nzo,Matatiele Local Municipality,Alfred Nzo District Area,name+province,name
-EC442,ZA2442,Umzimvubu,local,Eastern Cape,DC44,live,EC442 - Umzimvubu,EC442 - Umzimvubu,1-umzimvubu,Umzimvubu,LM,Alfred Nzo,Umzimvubu Local Municipality,Alfred Nzo District Area,name+province,name
-EC443,ZA2443,Mbizana,local,Eastern Cape,DC44,live,EC443 - Mbizana,EC443 - Winnie Madikizela-Mandela,1-winnie-madikizela-mandela,Winnie Madikizela-Mandela,LM,Alfred Nzo,Mbizana Local Municipality,Alfred Nzo District Area,name+province,name
-EC444,ZA2444,Ntabankulu,local,Eastern Cape,DC44,live,EC444 - Ntabankulu,EC444 - Ntabankulu,1-ntabankulu,Ntabankulu,LM,Alfred Nzo,Ntabankulu Local Municipality,Alfred Nzo District Area,name+province,name
-FS161,ZA4161,Letsemeng,local,Free State,DC16,live,FS161 - Letsemeng,FS161 - Letsemeng,2-letsemeng,Letsemeng,LM,Xhariep,Letsemeng Local Municipality,Xhariep District Area,name+province,name
-FS162,ZA4162,Kopanong,local,Free State,DC16,live,FS162 - Kopanong,FS162 - Kopanong,2-kopanong,Kopanong,LM,Xhariep,Kopanong Local Municipality,Xhariep District Area,name+province,name
-FS163,ZA4163,Mohokare,local,Free State,DC16,live,FS163 - Mohokare,FS163 - Mohokare,2-mohokare,Mohokare,LM,Xhariep,Mohokare Local Municipality,Xhariep District Area,name+province,name
-FS181,ZA4181,Masilonyana,local,Free State,DC18,live,FS181 - Masilonyana,FS181 - Masilonyana,2-masilonyana,Masilonyana,LM,Lejweleputswa,Masilonyana Local Municipality,Lejweleputswa District Area,name+province,name
-FS182,ZA4182,Tokologo,local,Free State,DC18,live,FS182 - Tokologo,FS182 - Tokologo,2-tokologo,Tokologo,LM,Lejweleputswa,Tokologo Local Municipality,Lejweleputswa District Area,name+province,name
-FS183,ZA4183,Tswelopele,local,Free State,DC18,live,FS183 - Tswelopele,FS183 - Tswelopele,2-tswelopele,Tswelopele,LM,Lejweleputswa,Tswelopele Local Municipality,Lejweleputswa District Area,name+province,name
-FS184,ZA4184,Matjhabeng,local,Free State,DC18,live,FS184 - Matjhabeng,FS184 - Matjhabeng,2-matjhabeng,Matjhabeng,ICM,Lejweleputswa,Matjhabeng Local Municipality,Lejweleputswa District Area,name+province,name
-FS185,ZA4185,Nala,local,Free State,DC18,live,FS185 - Nala,FS185 - Nala,2-nala,Nala,LM,Lejweleputswa,Nala Local Municipality,Lejweleputswa District Area,name+province,name
-FS191,ZA4191,Setsoto,local,Free State,DC19,live,FS191 - Setsoto,FS191 - Setsoto,2-setsoto,Setsoto,LM,Thabo Mofutsanyana,Setsoto Local Municipality,Thabo Mofutsanyane District Area,name+province,name
-FS192,ZA4192,Dihlabeng,local,Free State,DC19,live,FS192 - Dihlabeng,FS192 - Dihlabeng,2-dihlabeng,Dihlabeng,LM,Thabo Mofutsanyana,Dihlabeng Local Municipality,Thabo Mofutsanyane District Area,name+province,name
-FS193,ZA4193,Nketoana,local,Free State,DC19,live,FS193 - Nketoana,FS193 - Nketoana,2-nketoana,Nketoana,LM,Thabo Mofutsanyana,Nketoana Local Municipality,Thabo Mofutsanyane District Area,name+province,name
-FS194,ZA4194,Maluti a Phofung,local,Free State,DC19,live,FS194 - Maluti a Phofung,FS194 - Maluti a Phofung,2-maluti-a-phofung,Maluti-A-Phofung,ICM,Thabo Mofutsanyana,Maluti-A-Phofung Local Municipality,Thabo Mofutsanyane District Area,name+province,name
-FS195,ZA4195,Phumelela,local,Free State,DC19,live,FS195 - Phumelela,FS195 - Phumelela,2-phumelela,Phumelela,LM,Thabo Mofutsanyana,Phumelela Local Municipality,Thabo Mofutsanyane District Area,name+province,name
-FS196,ZA4196,Mantsopa,local,Free State,DC19,live,FS196 - Mantsopa,FS196 - Mantsopa,2-mantsopa,Mantsopa,LM,Thabo Mofutsanyana,Mantsopa Local Municipality,Thabo Mofutsanyane District Area,name+province,name
-FS201,ZA4201,Moqhaka,local,Free State,DC20,live,FS201 - Moqhaka,FS201 - Moqhaka,2-moqhaka,Moqhaka,LM,Fezile Dabi,Moqhaka Local Municipality,Fezile Dabi District Area,name+province,name
-FS203,ZA4203,Ngwathe,local,Free State,DC20,live,FS203 - Ngwathe,FS203 - Ngwathe,2-ngwathe,Ngwathe,LM,Fezile Dabi,Ngwathe Local Municipality,Fezile Dabi District Area,name+province,name
-FS204,ZA4204,Metsimaholo,local,Free State,DC20,live,FS204 - Metsimaholo,FS204 - Metsimaholo,2-metsimaholo,Metsimaholo,ICM,Fezile Dabi,Metsimaholo Local Municipality,Fezile Dabi District Area,name+province,name
-FS205,ZA4205,Mafube,local,Free State,DC20,live,FS205 - Mafube,FS205 - Mafube,2-mafube,Mafube,LM,Fezile Dabi,Mafube Local Municipality,Fezile Dabi District Area,name+province,name
-GT421,ZA7421,Emfuleni,local,Gauteng,DC42,live,GT421 - Emfuleni,GT421 - Emfuleni,3-emfuleni,Emfuleni,ICM,Sedibeng,Emfuleni Local Municipality,Sedibeng District Area,name+province,name
-GT422,ZA7422,Midvaal,local,Gauteng,DC42,live,GT422 - Midvaal,GT422 - Midvaal,3-midvaal,Midvaal,LM,Sedibeng,Midvaal Local Municipality,Sedibeng District Area,name+province,name
-GT423,ZA7423,Lesedi,local,Gauteng,DC42,live,GT423 - Lesedi,GT423 - Lesedi,3-lesedi,Lesedi,LM,Sedibeng,Lesedi Local Municipality,Sedibeng District Area,name+province,name
-GT481,ZA7481,Mogale City,local,Gauteng,DC48,live,GT481 - Mogale City,GT481 - Mogale City,3-mogale-city,Mogale City,ICM,West Rand,Mogale City Local Municipality,West Rand District Area,name+province,name
-GT484,ZA7484,Merafong City,local,Gauteng,DC48,live,GT484 - Merafong City,GT484 - Merafong City,3-merafong-city,Merafong City,ICM,West Rand,Merafong City Local Municipality,West Rand District Area,name+province,name
-GT485,ZA7485,Rand West City,local,Gauteng,DC48,live,GT485 - Randfontein/Westonaria,GT485 - Rand West City,3-rand-west-city,Rand West City,ICM,West Rand,Rand West Local Municipality,West Rand District Area,name+province,name
-KZN212,ZA5212,Umdoni,local,KwaZulu-Natal,DC21,live,KZN212 - Umdoni,KZN212 - uMdoni,4-umdoni,uMdoni,LM,Ugu,Umdoni Local Municipality,Ugu District Area,name+province,name
-KZN213,ZA5213,Umzumbe,local,KwaZulu-Natal,DC21,live,KZN213 - Umzumbe,KZN213 - uMzumbe,4-umzumbe,Umzumbe,LM,Ugu,Umzumbe Local Municipality,Ugu District Area,name+province,name
-KZN214,ZA5214,uMuziwabantu,local,KwaZulu-Natal,DC21,live,KZN214 - UMuziwabantu,KZN214 - uMuziwabantu,4-umuziwabantu,Umuziwabantu,LM,Ugu,uMuziwabantu Local Municipality,Ugu District Area,name+province,name
-KZN216,ZA5216,Ray Nkonyeni,local,KwaZulu-Natal,DC21,live,KZN216 - Hibiscus Coast,KZN216 - Ray Nkonyeni,4-ray-nkonyeni,Ray Nkonyeni,ICM,Ugu,Ray Nkonyeni Local Municipality,Ugu District Area,name+province,name
-KZN221,ZA5221,uMshwathi,local,KwaZulu-Natal,DC22,live,KZN221 - uMshwathi,KZN221 - uMshwathi,4-umshwathi,uMshwathi,LM,uMgungundlovu,uMshwathi Local Municipality,uMgungundhlovu District Area,name+province,name
-KZN222,ZA5222,uMngeni,local,KwaZulu-Natal,DC22,live,KZN222 - uMngeni,KZN222 - uMngeni,4-umngeni,uMngeni,LM,uMgungundlovu,uMngeni Local Municipality,uMgungundhlovu District Area,name+province,name
-KZN223,ZA5223,Mpofana,local,KwaZulu-Natal,DC22,live,KZN223 - Mooi Mpofana,KZN223 - Mpofana,4-mpofana,Mpofana,LM,uMgungundlovu,Mpofana Local Municipality,uMgungundhlovu District Area,name+province,name
-KZN224,ZA5224,Impendle,local,KwaZulu-Natal,DC22,live,KZN224 - Impendle,KZN224 - iMpendle,4-impendle,Impendle,LM,uMgungundlovu,Impendle Local Municipality,uMgungundhlovu District Area,name+province,name
-KZN225,ZA5225,The Msunduzi,local,KwaZulu-Natal,DC22,live,KZN225 - Msunduzi,KZN225 - Msunduzi,4-msunduzi,Msunduzi,ICM,uMgungundlovu,Msunduzi Local Municipality,uMgungundhlovu District Area,name+province,name
-KZN226,ZA5226,Mkhambathini,local,KwaZulu-Natal,DC22,live,KZN226 - Mkhambathini,KZN226 - Mkhambathini,4-mkhambathini,Mkhambathini,LM,uMgungundlovu,Mkhambathini Local Municipality,uMgungundhlovu District Area,name+province,name
-KZN227,ZA5227,Richmond,local,KwaZulu-Natal,DC22,live,KZN227 - Richmond,KZN227 - Richmond,4-richmond,Richmond,LM,uMgungundlovu,Richmond Local Municipality,uMgungundhlovu District Area,name+province,name
-KZN235,ZA5235,Okhahlamba,local,KwaZulu-Natal,DC23,live,KZN235 - Okhahlamba,KZN235 - Okhahlamba,4-okhahlamba,Okhahlamba,LM,uThukela,Okhahlamba Local Municipality,uThukela District Area,name+province,name
-KZN237,ZA5237,Inkosi Langalibalele,local,KwaZulu-Natal,DC23,live,KZN237 - Estcourt/Loskop,KZN237 - iNkosi Langalibalele,4-inkosi-langalibalele,Inkosi Langalibalele,LM,uThukela,Inkosi Langalibalele Local Municipality,uThukela District Area,name+province,name
-KZN238,ZA5238,Alfred Duma,local,KwaZulu-Natal,DC23,live,KZN238 - Ladysmith/Waaihoek,KZN238 - Alfred Duma,4-alfred-duma,Alfred Duma,ICM,uThukela,Alfred Duma Local Municipality,uThukela District Area,name+province,name
-KZN241,ZA5241,Endumeni,local,KwaZulu-Natal,DC24,live,KZN241 - Endumeni,KZN241 - eNdumeni,4-endumeni,Endumeni,LM,uMzinyathi,Endumeni Local Municipality,uMzinyathi District Area,name+province,name
-KZN242,ZA5242,Nqutu,local,KwaZulu-Natal,DC24,live,KZN242 - Nqutu,KZN242 - Nqutu,4-nquthu,Nquthu,LM,uMzinyathi,Nquthu Local Municipality,uMzinyathi District Area,name+province,name
-KZN244,ZA5244,Msinga,local,KwaZulu-Natal,DC24,live,KZN244 - Msinga,KZN244 - uMsinga,4-msinga,uMsinga,LM,uMzinyathi,Msinga Local Municipality,uMzinyathi District Area,district-elimination,name
-KZN245,ZA5245,Umvoti,local,KwaZulu-Natal,DC24,live,KZN245 - Umvoti,KZN245 - uMvoti,4-umvoti,Umvoti,LM,uMzinyathi,Umvoti Local Municipality,uMzinyathi District Area,name+province,name
-KZN252,ZA5252,Newcastle,local,KwaZulu-Natal,DC25,live,KZN252 - Newcastle,KZN252 - Newcastle,4-newcastle,Newcastle,ICM,Amajuba,Newcastle Local Municipality,Amajuba District Area,name+province,name
-KZN253,ZA5253,Emadlangeni,local,KwaZulu-Natal,DC25,live,KZN253 - eMadlangeni,KZN253 - eMadlangeni,4-emadlangeni,eMadlangeni,LM,Amajuba,eMadlangeni Local Municipality,Amajuba District Area,name+province,name
-KZN254,ZA5254,Dannhauser,local,KwaZulu-Natal,DC25,live,KZN254 - Dannhauser,KZN254 - Dannhauser,4-dannhauser,Dannhauser,LM,Amajuba,Dannhauser Local Municipality,Amajuba District Area,name+province,name
-KZN261,ZA5261,eDumbe,local,KwaZulu-Natal,DC26,live,KZN261 - eDumbe,KZN261 - eDumbe,4-edumbe,eDumbe,LM,Zululand,eDumbe Local Municipality,Zululand District Area,name+province,name
-KZN262,ZA5262,uPhongolo,local,KwaZulu-Natal,DC26,live,KZN262 - UPhongolo,KZN262 - uPhongolo,4-uphongolo,uPhongolo,LM,Zululand,uPhongolo Local Municipality,Zululand District Area,name+province,name
-KZN263,ZA5263,Abaqulusi,local,KwaZulu-Natal,DC26,live,KZN263 - Abaqulusi,KZN263 - AbaQulusi,4-abaqulusi,AbaQulusi,LM,Zululand,Abaqulusi Local Municipality,Zululand District Area,name+province,name
-KZN265,ZA5265,Nongoma,local,KwaZulu-Natal,DC26,live,KZN265 - Nongoma,KZN265 - Nongoma,4-nongoma,Nongoma,LM,Zululand,Nongoma Local Municipality,Zululand District Area,name+province,name
-KZN266,ZA5266,Ulundi,local,KwaZulu-Natal,DC26,live,KZN266 - Ulundi,KZN266 - Ulundi,4-ulundi,Ulundi,LM,Zululand,Ulundi Local Municipality,Zululand District Area,name+province,name
-KZN271,ZA5271,Umhlabuyalingana,local,KwaZulu-Natal,DC27,live,KZN271 - Umhlabuyalingana,KZN271 - uMhlabuyalingana,4-umhlabuyalingana,uMhlabuyalingana,LM,uMkhanyakude,uMhlabuyalingana Local Municipality,uMkhanyakude District Area,name+province,name
-KZN272,ZA5272,Jozini,local,KwaZulu-Natal,DC27,live,KZN272 - Jozini,KZN272 - Jozini,4-jozini,Jozini,LM,uMkhanyakude,Jozini Local Municipality,uMkhanyakude District Area,name+province,name
-KZN275,ZA5275,Mtubatuba,local,KwaZulu-Natal,DC27,live,KZN275 - Mtubatuba,KZN275 - Mtubatuba,,,,,Mtubatuba Local Municipality,uMkhanyakude District Area,,name
-KZN276,ZA5276,Big Five Hlabisa,local,KwaZulu-Natal,DC27,live,KZN276 - Hluhluwe/Somkele,KZN276 - Big Five Hlabisa,,,,,,,,
-KZN281,ZA5281,Mfolozi,local,KwaZulu-Natal,DC28,live,KZN281 - Mfolozi,KZN281 - uMfolozi,,,,,,,,
-KZN282,ZA5282,uMhlathuze,local,KwaZulu-Natal,DC28,live,KZN282 - uMhlathuze,KZN282 - uMhlathuze,4-umhlathuze,City of uMhlathuze,ICM,King Cetshwayo,uMhlathuze Local Municipality,King Cetshwayo District Area,name+province,name
-KZN284,ZA5284,uMlalazi,local,KwaZulu-Natal,DC28,live,KZN284 - uMlalazi,KZN284 - uMlalazi,4-umlalazi,uMlalazi,LM,King Cetshwayo,uMlalazi Local Municipality,King Cetshwayo District Area,name+province,name
-KZN285,ZA5285,Mthonjaneni,local,KwaZulu-Natal,DC28,live,KZN285 - Mthonjaneni,KZN285 - Mthonjaneni,4-mthonjaneni,Mthonjaneni,LM,King Cetshwayo,Mthonjaneni Local Municipality,King Cetshwayo District Area,name+province,name
-KZN286,ZA5286,Nkandla,local,KwaZulu-Natal,DC28,live,KZN286 - Nkandla,KZN286 - Nkandla,4-nkandla,Nkandla,LM,King Cetshwayo,Nkandla Local Municipality,King Cetshwayo District Area,name+province,name
-KZN291,ZA5291,Mandeni,local,KwaZulu-Natal,DC29,live,KZN291 - Mandeni,KZN291 - Mandeni,4-mandeni,Mandeni,LM,iLembe,Mandeni Local Municipality,iLembe District Area,name+province,name
-KZN292,ZA5292,KwaDukuza,local,KwaZulu-Natal,DC29,live,KZN292 - KwaDukuza,KZN292 - KwaDukuza,4-kwadukuza,KwaDukuza,ICM,iLembe,KwaDukuza Local Municipality,iLembe District Area,name+province,name
-KZN293,ZA5293,Ndwedwe,local,KwaZulu-Natal,DC29,live,KZN293 - Ndwedwe,KZN293 - Ndwedwe,4-ndwedwe,Ndwedwe,LM,iLembe,Ndwedwe Local Municipality,iLembe District Area,name+province,name
-KZN294,ZA5294,Maphumulo,local,KwaZulu-Natal,DC29,live,KZN294 - Maphumulo,KZN294 - Maphumulo,4-maphumulo,Maphumulo,LM,iLembe,Maphumulo Local Municipality,iLembe District Area,name+province,name
-KZN433,ZA5433,Greater Kokstad,local,KwaZulu-Natal,DC43,live,KZN433 - Greater Kokstad,KZN433 - Greater Kokstad,4-greater-kokstad,Greater Kokstad,LM,Harry Gwala,Greater Kokstad Local Municipality,Harry Gwala District Area,name+province,name
-KZN434,ZA5434,Ubuhlebezwe,local,KwaZulu-Natal,DC43,live,KZN434 - Ubuhlebezwe,KZN434 - uBuhlebezwe,4-ubuhlebezwe,Johannes Phumani Phungula,LM,Harry Gwala,Ubuhlebezwe Local Municipality,Harry Gwala District Area,name+province,name
-KZN435,ZA5435,Umzimkhulu,local,KwaZulu-Natal,DC43,live,KZN435 - Umzimkhulu,KZN435 - uMzimkhulu,4-umzimkhulu,uMzimkhulu,LM,Harry Gwala,,,name+province,
-KZN436,ZA5436,Dr Nkosazana Dlamini Zuma,local,KwaZulu-Natal,DC43,live,KZN436 - Creighton/Underberg,KZN436 - Dr. Nkosazana Dlamini Zuma,4-dr-nkosazana-dlamini-zuma,Dr Nkosazana Dlamini Zuma,LM,Harry Gwala,,,name+province,
-LIM331,ZA9331,Greater Giyani,local,Limpopo,DC33,live,LIM331 - Greater Giyani,LIM331 - Greater Giyani,5-greater-giyani,Greater Giyani,ICM,Mopani,Greater Giyani Local Municipality,Mopani District Area,name+province,name
-LIM332,ZA9332,Greater Letaba,local,Limpopo,DC33,live,LIM332 - Greater Letaba,LIM332 - Greater Letaba,5-greater-letaba,Greater Letaba,LM,Mopani,Greater Letaba Local Municipality,Mopani District Area,name+province,name
-LIM333,ZA9333,Greater Tzaneen,local,Limpopo,DC33,live,LIM333 - Greater Tzaneen,LIM333 - Greater Tzaneen,5-greater-tzaneen,Greater Tzaneen,ICM,Mopani,Greater Tzaneen Local Municipality,Mopani District Area,name+province,name
-LIM334,ZA9334,Ba-Phalaborwa,local,Limpopo,DC33,live,LIM334 - Ba-Phalaborwa,LIM334 - Ba-Phalaborwa,5-ba-phalaborwa,Ba-Phalaborwa,ICM,Mopani,Ba-Phalaborwa Local Municipality,Mopani District Area,name+province,name
-LIM335,ZA9335,Maruleng,local,Limpopo,DC33,live,LIM335 - Maruleng,LIM335 - Maruleng,5-maruleng,Maruleng,LM,Mopani,Maruleng Local Municipality,Mopani District Area,name+province,name
-LIM341,ZA9341,Musina,local,Limpopo,DC34,live,LIM341 - Musina,LIM341 - Musina,5-musina,Musina,LM,Vhembe,Musina Local Municipality,Vhembe District Area,name+province,name
-LIM343,ZA9343,Thulamela,local,Limpopo,DC34,live,LIM343 - Thulamela,LIM343 - Thulamela,5-thulamela,Thulamela,ICM,Vhembe,Thulamela Local Municipality,Vhembe District Area,name+province,name
-LIM344,ZA9344,Makhado,local,Limpopo,DC34,live,LIM344 - Makhado,LIM344 - Makhado,5-makhado,Makhado,ICM,Vhembe,Makhado Local Municipality,Vhembe District Area,name+province,name
-LIM345,ZA9345,Collins Chabane,local,Limpopo,DC34,live,LIM345 - New Municipality,LIM345 - Collins Chabane,5-collins-chabane,Collins Chabane,LM,Vhembe,Collins Chabane Local Municipality,Vhembe District Area,name+province,name
-LIM351,ZA9351,Blouberg,local,Limpopo,DC35,live,LIM351 - Blouberg,LIM351 - Blouberg,5-blouberg,Blouberg,LM,Capricorn,Blouberg Local Municipality,Capricorn District Area,name+province,name
-LIM353,ZA9353,Molemole,local,Limpopo,DC35,live,LIM353 - Molemole,LIM353 - Molemole,5-molemole,Molemole,LM,Capricorn,Molemole Local Municipality,Capricorn District Area,name+province,name
-LIM354,ZA9354,Polokwane,local,Limpopo,DC35,live,LIM354 - Polokwane,LIM354 - Polokwane,5-polokwane,Polokwane,ICM,Capricorn,Polokwane Local Municipality,Capricorn District Area,name+province,name
-LIM355,ZA9355,Lepele-Nkumpi,local,Limpopo,DC35,live,LIM355 - Lepele-Nkumpi,LIM355 - Lepele-Nkumpi,5-lepelle-nkumpi,Lepelle-Nkumpi,LM,Capricorn,Lepelle-Nkumpi Local Municipality,Capricorn District Area,name+province,name
-LIM361,ZA9361,Thabazimbi,local,Limpopo,DC36,live,LIM361 - Thabazimbi,LIM361 - Thabazimbi,5-thabazimbi,Thabazimbi,LM,Waterberg,Thabazimbi Local Municipality,Waterberg District Area,name+province,name
-LIM362,ZA9362,Lephalale,local,Limpopo,DC36,live,LIM362 - Lephalale,LIM362 - Lephalale,5-lephalale,Lephalale,ICM,Waterberg,Lephalale Local Municipality,Waterberg District Area,name+province,name
-LIM366,ZA9366,Bela-Bela,local,Limpopo,DC36,live,LIM366 - Bela-Bela,LIM366 - Bela-Bela,5-bela-bela,Bela-Bela,LM,Waterberg,Bela-Bela Local Municipality,Waterberg District Area,name+province,name
-LIM367,ZA9367,Mogalakwena,local,Limpopo,DC36,live,LIM367 - Mogalakwena,LIM367 - Mogalakwena,5-mogalakwena,Mogalakwena,ICM,Waterberg,Mogalakwena Local Municipality,Waterberg District Area,name+province,name
-LIM368,ZA9368,Modimolle/Mookgophong,local,Limpopo,DC36,live,LIM368 - Modimolle/Mookgopong,LIM368 - Modimolle-Mookgophong,5-modimolle-mookgophong,Modimolle Mookgophong,LM,Waterberg,Modimolle-Mookgopong Local Municipality,Waterberg District Area,name+province,name
-LIM471,ZA9471,Ephraim Mogale,local,Limpopo,DC47,live,LIM471 - Ephraim Mogale,LIM471 - Ephraim Mogale,5-ephraim-mogale,Ephraim Mogale,LM,Sekhukhune,Ephraim Mogale Local Municipality,Sekhukhune District Area,name+province,name
-LIM472,ZA9472,Elias Motsoaledi,local,Limpopo,DC47,live,LIM472 - Elias Motsoaledi,LIM472 - Elias Motsoaledi,5-elias-motsoaledi-greater-groblersdal,Elias Motsoaledi,LM,Sekhukhune,Elias Motsoaledi Local Municipality,Sekhukhune District Area,name+province,name
-LIM473,ZA9473,Makhuduthamaga,local,Limpopo,DC47,live,LIM473 - Makhuduthamaga,LIM473 - Makhuduthamaga,5-makhudutamaga,Makhuduthamaga,LM,Sekhukhune,Makhuduthamaga Local Municipality,Sekhukhune District Area,name+province,name
-LIM476,ZA9476,Greater Tubatse/Fetakgomo,local,Limpopo,DC47,live,LIM476 - Greater Tubatse/Fetakgomo,LIM476 - Fetakgomo Tubatse,,,,,,,,
-MP301,ZA8301,Chief Albert Luthuli,local,Mpumalanga,DC30,live,MP301 - Chief Albert Luthuli,MP301 - Chief Albert Luthuli,6-chief-albert-luthuli,Chief Albert Luthuli,LM,Gert Sibande,Albert Luthuli Local Municipality,Gert Sibande District Area,name+province,name
-MP302,ZA8302,Msukaligwa,local,Mpumalanga,DC30,live,MP302 - Msukaligwa,MP302 - Msukaligwa,6-msukaligwa,Msukaligwa,LM,Gert Sibande,Msukaligwa Local Municipality,Gert Sibande District Area,name+province,name
-MP303,ZA8303,Mkhondo,local,Mpumalanga,DC30,live,MP303 - Mkhondo,MP303 - Mkhondo,6-mkhondo,Mkhondo,LM,Gert Sibande,Mkhondo Local Municipality,Gert Sibande District Area,name+province,name
-MP304,ZA8304,Dr Pixley Ka Isaka Seme,local,Mpumalanga,DC30,live,MP304 - Dr Pixley Ka Isaka Seme,MP304 - Dr Pixley Ka Isaka Seme,6-dr-pixley-ka-isaka-seme,Dr Pixley ka Isaka Seme,LM,Gert Sibande,Dr. Pixley Ka Isaka Seme Local Municipality,Gert Sibande District Area,name+province,name
-MP305,ZA8305,Lekwa,local,Mpumalanga,DC30,live,MP305 - Lekwa,MP305 - Lekwa,6-lekwa,Lekwa,LM,Gert Sibande,Lekwa Local Municipality,Gert Sibande District Area,name+province,name
-MP306,ZA8306,Dipaleseng,local,Mpumalanga,DC30,live,MP306 - Dipaleseng,MP306 - Dipaleseng,6-dipaleseng,Dipaleseng,LM,Gert Sibande,Dipaleseng Local Municipality,Gert Sibande District Area,name+province,name
-MP307,ZA8307,Govan Mbeki,local,Mpumalanga,DC30,live,MP307 - Govan Mbeki,MP307 - Govan Mbeki,6-govan-mbeki,Govan Mbeki,ICM,Gert Sibande,Govan Mbeki Local Municipality,Gert Sibande District Area,name+province,name
-MP311,ZA8311,Victor Khanye,local,Mpumalanga,DC31,live,MP311 - Victor Khanye,MP311 - Victor Khanye,6-victor-khanye,Victor Khanye,LM,Nkangala,Victor Khanye Local Municipality,Nkangala District Area,name+province,name
-MP312,ZA8312,Emalahleni,local,Mpumalanga,DC31,live,MP312 - Emalahleni,MP312 - Emalahleni,6-emalahleni,Emalahleni,ICM,Nkangala,Emalahleni Local Municipality,Nkangala District Area,name+province,name
-MP313,ZA8313,Steve Tshwete,local,Mpumalanga,DC31,live,MP313 - Steve Tshwete,MP313 - Steve Tshwete,6-steve-tshwete,Steve Tshwete,ICM,Nkangala,Steve Tshwete Local Municipality,Nkangala District Area,name+province,name
-MP314,ZA8314,Emakhazeni,local,Mpumalanga,DC31,live,MP314 - Emakhazeni,MP314 - Emakhazeni,6-emakhazeni,Emakhazeni,LM,Nkangala,Emakhazeni Local Municipality,Nkangala District Area,name+province,name
-MP315,ZA8315,Thembisile,local,Mpumalanga,DC31,live,MP315 - Thembisile Hani,MP315 - Thembisile Hani,6-thembisile-hani,Thembisile Hani,LM,Nkangala,Thembisile Local Municipality,Nkangala District Area,name+province,name
-MP316,ZA8316,Dr JS Moroka,local,Mpumalanga,DC31,live,MP316 - Dr JS Moroka,MP316 - Dr JS Moroka,6-dr-js-moroka,Dr JS Moroka,LM,Nkangala,Dr JS Moroka Local Municipality,Nkangala District Area,name+province,name
-MP321,ZA8321,Thaba Chweu,local,Mpumalanga,DC32,live,MP321 - Thaba Chweu,MP321 - Thaba Chweu,6-thaba-chweu,Thaba Chweu,LM,Ehlanzeni,Thaba Chweu Local Municipality,Ehlanzeni District Area,name+province,name
-MP324,ZA8324,Nkomazi,local,Mpumalanga,DC32,live,MP324 - Nkomazi,MP324 - Nkomazi,6-nkomazi,Nkomazi,ICM,Ehlanzeni,Nkomazi Local Municipality,Ehlanzeni District Area,name+province,name
-MP325,ZA8325,Bushbuckridge,local,Mpumalanga,DC32,live,MP325 - Bushbuckridge,MP325 - Bushbuckridge,6-bushbuckridge,Bushbuckridge,ICM,Ehlanzeni,Bushbuckridge Local Municipality,Ehlanzeni District Area,name+province,name
-MP326,ZA8326,Mbombela,local,Mpumalanga,DC32,live,MP326 - Mbombela/Umjindi,MP326 - City of Mbombela,,,,,,,,
-NC061,ZA3061,Richtersveld,local,Nothern Cape,DC6,live,NC061 - RICHTERSVELD,NC061 - RICHTERSVELD,7-richtersveld,Richtersveld,LM,Namakwa,Richtersveld Local Municipality,Namakwa District Area,name+province,name
-NC062,ZA3062,Nama Khoi,local,Nothern Cape,DC6,live,NC062 - NAMA KHOI,NC062 - NAMA KHOI,7-nama-khoi,Nama Khoi,LM,Namakwa,Nama Khoi Local Municipality,Namakwa District Area,name+province,name
-NC064,ZA3064,Kamiesberg,local,Nothern Cape,DC6,live,NC064 - KAMIESBERG,NC064 - KAMIESBERG,7-kamiesberg,Kamiesberg,LM,Namakwa,Kamiesberg Local Municipality,Namakwa District Area,name+province,name
-NC065,ZA3065,Hantam,local,Nothern Cape,DC6,live,NC065 - HANTAM,NC065 - HANTAM,7-hantam,Hantam,LM,Namakwa,Hantam Local Municipality,Namakwa District Area,name+province,name
-NC066,ZA3066,Karoo Hoogland,local,Nothern Cape,DC6,live,NC066 - KAROO HOOGLAND,NC066 - KAROO HOOGLAND,7-karoo-hoogland,Karoo Hoogland,LM,Namakwa,Karoo Hoogland Local Municipality,Namakwa District Area,name+province,name
-NC067,ZA3067,Khâi-Ma,local,Nothern Cape,DC6,live,NC067 - KHâI-MA,NC067 - KHâI-MA,7-khai-ma,Khai-Ma,LM,Namakwa,Khâi-Ma Local Municipality,Namakwa District Area,name+province,name
-NC071,ZA3071,Ubuntu,local,Nothern Cape,DC7,live,NC071 - UBUNTU,NC071 - UBUNTU,7-ubuntu,Ubuntu,LM,Pixley Ka Seme - NC,Ubuntu Local Municipality,Pixley Ka Seme District Area,name+province,name
-NC072,ZA3072,Umsobomvu,local,Nothern Cape,DC7,live,NC072 - UMSOBOMVU,NC072 - UMSOBOMVU,7-umsobomvu,Umsobomvu,LM,Pixley Ka Seme - NC,Umsobomvu Local Municipality,Pixley Ka Seme District Area,name+province,name
-NC073,ZA3073,Emthanjeni,local,Nothern Cape,DC7,live,NC073 - EMTHANJENI,NC073 - EMTHANJENI,7-emthanjeni,Emthanjeni,LM,Pixley Ka Seme - NC,Emthanjeni Local Municipality,Pixley Ka Seme District Area,name+province,name
-NC074,ZA3074,Kareeberg,local,Nothern Cape,DC7,live,NC074 - KAREEBERG,NC074 - KAREEBERG,7-kareeberg,Kareeberg,LM,Pixley Ka Seme - NC,Kareeberg Local Municipality,Pixley Ka Seme District Area,name+province,name
-NC075,ZA3075,Renosterberg,local,Nothern Cape,DC7,live,NC075 - RENOSTERBERG,NC075 - RENOSTERBERG,7-renosterberg,Renosterberg,LM,Pixley Ka Seme - NC,Renosterberg Local Municipality,Pixley Ka Seme District Area,name+province,name
-NC076,ZA3076,Thembelihle,local,Nothern Cape,DC7,live,NC076 - THEMBELIHLE,NC076 - THEMBELIHLE,7-thembelihle,Thembelihle,LM,Pixley Ka Seme - NC,Thembelihle Local Municipality,Pixley Ka Seme District Area,name+province,name
-NC077,ZA3077,Siyathemba,local,Nothern Cape,DC7,live,NC077 - SIYATHEMBA,NC077 - SIYATHEMBA,7-siyathemba,Siyathemba,LM,Pixley Ka Seme - NC,Siyathemba Local Municipality,Pixley Ka Seme District Area,name+province,name
-NC078,ZA3078,Siyancuma,local,Nothern Cape,DC7,live,NC078 - SIYANCUMA,NC078 - SIYANCUMA,7-siyancuma,Siyancuma,LM,Pixley Ka Seme - NC,Siyancuma Local Municipality,Pixley Ka Seme District Area,name+province,name
-NC082,ZA3082,Kai Garib,local,Nothern Cape,DC8,live,NC082 - KAI !GARIB,NC082 - KAI !GARIB,7-kai-garib,Kai !Garib,LM,ZF Mgcawu District,Kai !Garib Local Municipality,ZF Mgcawu District Area,name+province,name
-NC084,ZA3084,Kheis,local,Nothern Cape,DC8,live,NC084 - !KHEIS,NC084 - !KHEIS,7-kheis,!Kheis,LM,ZF Mgcawu District,!Kheis Local Municipality,ZF Mgcawu District Area,name+province,name
-NC085,ZA3085,Tsantsabane,local,Nothern Cape,DC8,live,NC085 - TSANTSABANE,NC085 - TSANTSABANE,7-tsantsabane,Tsantsabane,LM,ZF Mgcawu District,Tsantsabane Local Municipality,ZF Mgcawu District Area,name+province,name
-NC086,ZA3086,Kgatelopele,local,Nothern Cape,DC8,live,NC086 - KGATELOPELE,NC086 - KGATELOPELE,7-kgatelopele,Kgatelopele,LM,ZF Mgcawu District,Kgatelopele Local Municipality,ZF Mgcawu District Area,name+province,name
-NC087,ZA3087,Dawid Kruiper,local,Nothern Cape,DC8,live,NC087 - //Khara Hais/Mier,NC087 - Dawid Kruiper,7-dawid-kruiper,Dawid Kruiper,LM,ZF Mgcawu District,Dawid Kruiper Local Municipality,ZF Mgcawu District Area,name+province,name
-NC091,ZA3091,Sol Plaatjie,local,Nothern Cape,DC9,live,NC091 - Sol Plaatje,NC091 - Sol Plaatje,7-sol-plaatje,Sol Plaatje,ICM,Frances Baard,Sol Plaatjie Local Municipality,Frances Baard District Area,name+province,name
-NC092,ZA3092,Dikgatlong,local,Nothern Cape,DC9,live,NC092 - Dikgatlong,NC092 - Dikgatlong,7-dikgatlong,Dikgatlong,LM,Frances Baard,Dikgatlong Local Municipality,Frances Baard District Area,name+province,name
-NC093,ZA3093,Magareng,local,Nothern Cape,DC9,live,NC093 - Magareng,NC093 - Magareng,7-magareng,Magareng,LM,Frances Baard,Magareng Local Municipality,Frances Baard District Area,name+province,name
-NC094,ZA3094,Phokwane,local,Nothern Cape,DC9,live,NC094 - Phokwane,NC094 - Phokwane,7-phokwane,Phokwane,LM,Frances Baard,Phokwane Local Municipality,Frances Baard District Area,name+province,name
-NC451,ZA3451,Joe Morolong,local,Nothern Cape,DC45,live,NC451 - Joe Morolong,NC451 - Joe Morolong,7-joe-morolong,Joe Morolong,LM,John Taolo Gaetsewe,Joe Morolong Local Municipality,John Taolo Gaetsewe District Area,name+province,name
-NC452,ZA3452,Ga-Segonyana,local,Nothern Cape,DC45,live,NC452 - GA-SEGONYANA,NC452 - GA-SEGONYANA,7-ga-segonyana,Ga-Segonyana,LM,John Taolo Gaetsewe,Ga-Segonyana Local Municipality,John Taolo Gaetsewe District Area,name+province,name
-NC453,ZA3453,Gamagara,local,Nothern Cape,DC45,live,NC453 - GAMAGARA,NC453 - GAMAGARA,7-gamagara,Gamagara,LM,John Taolo Gaetsewe,Gamagara Local Municipality,John Taolo Gaetsewe District Area,name+province,name
-NW371,ZA6371,Moretele,local,North West,DC37,live,NW371 - Moretele,NW371 - Moretele,8-moretele,Moretele,LM,Bojanala Platinum,Moretele Local Municipality,Bojanala Platinum District Area,name+province,name
-NW372,ZA6372,Local Municipality of Madibeng,local,North West,DC37,live,NW372 - Madibeng,NW372 - Madibeng,8-madibeng,Madibeng,ICM,Bojanala Platinum,Madibeng Local Municipality,Bojanala Platinum District Area,name+province,name
-NW373,ZA6373,Rustenburg,local,North West,DC37,live,NW373 - Rustenburg,NW373 - Rustenburg,8-rustenburg,Rustenburg,ICM,Bojanala Platinum,Rustenburg Local Municipality,Bojanala Platinum District Area,name+province,name
-NW374,ZA6374,Kgetlengrivier,local,North West,DC37,live,NW374 - Kgetlengrivier,NW374 - Kgetlengrivier,8-kgetlengrivier,Kgetlengrivier,LM,Bojanala Platinum,Kgetlengrivier Local Municipality,Bojanala Platinum District Area,name+province,name
-NW375,ZA6375,Moses Kotane,local,North West,DC37,live,NW375 - Moses Kotane,NW375 - Moses Kotane,8-moses-kotane,Moses Kotane,LM,Bojanala Platinum,Moses Kotane Local Municipality,Bojanala Platinum District Area,name+province,name
-NW381,ZA6381,Ratlou,local,North West,DC38,live,NW381 - Ratlou,NW381 - Ratlou,8-ratlou,Ratlou,LM,Ngaka Modiri Molema,Ratlou Local Municipality,Ngaka Modiri Molema District Area,name+province,name
-NW382,ZA6382,Tswaing,local,North West,DC38,live,NW382 - Tswaing,NW382 - Tswaing,8-tswaing,Tswaing,LM,Ngaka Modiri Molema,Tswaing Local Municipality,Ngaka Modiri Molema District Area,name+province,name
-NW383,ZA6383,Mafikeng,local,North West,DC38,live,NW383 - Mafikeng,NW383 - Mafikeng,8-mahikeng,Mahikeng,ICM,Ngaka Modiri Molema,Mahikeng Local Municipality,Ngaka Modiri Molema District Area,district-elimination,district-elimination
-NW384,ZA6384,Ditsobotla,local,North West,DC38,live,NW384 - Ditsobotla,NW384 - Ditsobotla,8-ditsobotla,Ditsobotla,LM,Ngaka Modiri Molema,Ditsobotla Local Municipality,Ngaka Modiri Molema District Area,name+province,name
-NW385,ZA6385,Ramotshere Moiloa,local,North West,DC38,live,NW385 - Ramotshere Moiloa,NW385 - Ramotshere Moiloa,8-ramotshere-moiloa,Ramotshere Moiloa,LM,Ngaka Modiri Molema,Ramotshere Moiloa Local Municipality,Ngaka Modiri Molema District Area,name+province,name
-NW392,ZA6392,Naledi,local,North West,DC39,live,NW392 - Naledi,NW392 - Naledi,8-naledi,Naledi,LM,Dr Ruth S Mompati,Naledi Local Municipality,Dr Ruth Segomotsi Mompati District Area,name+province,district-elimination
-NW393,ZA6393,Mamusa,local,North West,DC39,live,NW393 - Mamusa,NW393 - Mamusa,8-mamusa,Mamusa,LM,Dr Ruth S Mompati,Mamusa Local Municipality,Dr Ruth Segomotsi Mompati District Area,name+province,name
-NW394,ZA6394,Greater Taung,local,North West,DC39,live,NW394 - Greater Taung,NW394 - Greater Taung,8-greater-taung,Greater Taung,LM,Dr Ruth S Mompati,Greater Taung Local Municipality,Dr Ruth Segomotsi Mompati District Area,name+province,name
-NW396,ZA6396,Lekwa-Teemane,local,North West,DC39,live,NW396 - Lekwa-Teemane,NW396 - Lekwa-Teemane,8-lekwa-teemane,Lekwa-Teemane,LM,Dr Ruth S Mompati,Lekwa-Teemane Local Municipality,Dr Ruth Segomotsi Mompati District Area,name+province,name
-NW397,ZA6397,Kagisano/Molopo,local,North West,DC39,live,NW397 - Ganyesa/Pomfret,NW397 - Ganyesa/Pomfret,8-kagisano-molopo,Kagisano-Molopo,LM,Dr Ruth S Mompati,Kagisano-Molopo Local Municipality,Dr Ruth Segomotsi Mompati District Area,name+province,name
-NW403,ZA6403,City of Matlosana,local,North West,DC40,live,NW403 - Matlosana,NW403 - Matlosana,8-matlosana,City of Matlosana,ICM,Dr Kenneth Kaunda,City of Matlosana Local Municipality,Dr Kenneth Kaunda District Area,name+province,name
-NW404,ZA6404,Maquassi Hills,local,North West,DC40,live,NW404 - Maquassi Hills,NW404 - Maquassi Hills,8-maquassi-hills,Maquassi Hills,LM,Dr Kenneth Kaunda,Maquassi Hills Local Municipality,Dr Kenneth Kaunda District Area,name+province,name
-NW405,ZA6405,Ventersdorp/Tlokwe,local,North West,DC40,live,NW405 - Ventersdorp/Tlokwe,NW405 - JB Marks,8-jb-marks,JB Marks,ICM,Dr Kenneth Kaunda,JB Marks Local Municipality,Dr Kenneth Kaunda District Area,name+province,name
-WC011,ZA1011,Matzikama,local,Western Cape,DC1,live,WC011 - Matzikama,WC011 - Matzikama,9-matzikama,Matzikama,LM,West Coast,Matzikama Local Municipality,West Coast District Area,name+province,name
-WC012,ZA1012,Cederberg,local,Western Cape,DC1,live,WC012 - Cederberg,WC012 - Cederberg,9-cederberg,Cederberg,LM,West Coast,Cederberg Local Municipality,West Coast District Area,name+province,name
-WC013,ZA1013,Bergrivier,local,Western Cape,DC1,live,WC013 - Bergrivier,WC013 - Bergrivier,9-bergriver,Bergrivier,LM,West Coast,Bergrivier Local Municipality,West Coast District Area,name+province,name
-WC014,ZA1014,Saldanha Bay,local,Western Cape,DC1,live,WC014 - Saldanha Bay,WC014 - Saldanha Bay,9-saldanha-bay,Saldanha Bay,LM,West Coast,Saldanha Bay Local Municipality,West Coast District Area,name+province,name
-WC015,ZA1015,Swartland,local,Western Cape,DC1,live,WC015 - Swartland,WC015 - Swartland,9-swartland,Swartland,LM,West Coast,Swartland Local Municipality,West Coast District Area,name+province,name
-WC022,ZA1022,Witzenberg,local,Western Cape,DC2,live,WC022 - Witzenberg,WC022 - Witzenberg,9-witzenberg,Witzenberg,LM,Cape Winelands,Witzenberg Local Municipality,Cape Winelands District Area,name+province,name
-WC023,ZA1023,Drakenstein,local,Western Cape,DC2,live,WC023 - Drakenstein,WC023 - Drakenstein,9-drakenstein,Drakenstein,ICM,Cape Winelands,Drakenstein Local Municipality,Cape Winelands District Area,name+province,name
-WC024,ZA1024,Stellenbosch,local,Western Cape,DC2,live,WC024 - Stellenbosch,WC024 - Stellenbosch,9-stellenbosch,Stellenbosch,ICM,Cape Winelands,Stellenbosch Local Municipality,Cape Winelands District Area,name+province,name
-WC025,ZA1025,Breede Valley,local,Western Cape,DC2,live,WC025 - Breede Valley,WC025 - Breede Valley,9-breede-valley,Breede Valley,LM,Cape Winelands,Breede Valley Local Municipality,Cape Winelands District Area,name+province,name
-WC026,ZA1026,Langeberg,local,Western Cape,DC2,live,WC026 - Langeberg,WC026 - Langeberg,9-langeberg,Langeberg,LM,Cape Winelands,Langeberg Local Municipality,Cape Winelands District Area,name+province,name
-WC031,ZA1031,Theewaterskloof,local,Western Cape,DC3,live,WC031 - Theewaterskloof,WC031 - Theewaterskloof,9-theewaterskloof,Theewaterskloof,LM,Overberg,Theewaterskloof Local Municipality,Overberg District Area,name+province,name
-WC032,ZA1032,Overstrand,local,Western Cape,DC3,live,WC032 - Overstrand,WC032 - Overstrand,9-overstrand,Overstrand,LM,Overberg,Overstrand Local Municipality,Overberg District Area,name+province,name
-WC033,ZA1033,Cape Agulhas,local,Western Cape,DC3,live,WC033 - Cape Agulhas,WC033 - Cape Agulhas,9-cape-agulhas,Cape Agulhas,LM,Overberg,Cape Agulhas Local Municipality,Overberg District Area,name+province,name
-WC034,ZA1034,Swellendam,local,Western Cape,DC3,live,WC034 - Swellendam,WC034 - Swellendam,9-swellendam,Swellendam,LM,Overberg,Swellendam Local Municipality,Overberg District Area,name+province,name
-WC041,ZA1041,Kannaland,local,Western Cape,DC4,live,WC041 - Kannaland,WC041 - Kannaland,9-kannaland,Kannaland,LM,Garden Route,Kannaland Local Municipality,Garden Route District Area,name+province,name
-WC042,ZA1042,Hessequa,local,Western Cape,DC4,live,WC042 - Hessequa,WC042 - Hessequa,9-hessequa,Hessequa,LM,Garden Route,Hessequa Local Municipality,Garden Route District Area,name+province,name
-WC043,ZA1043,Mossel Bay,local,Western Cape,DC4,live,WC043 - Mossel Bay,WC043 - Mossel Bay,9-mossel-bay,Mossel Bay,LM,Garden Route,Mossel Bay Local Municipality,Garden Route District Area,name+province,name
-WC044,ZA1044,George,local,Western Cape,DC4,live,WC044 - George,WC044 - George,9-george,George,ICM,Garden Route,George Local Municipality,Garden Route District Area,name+province,name
-WC045,ZA1045,Oudtshoorn,local,Western Cape,DC4,live,WC045 - Oudtshoorn,WC045 - Oudtshoorn,9-oudtshoorn,Oudtshoorn,LM,Garden Route,Oudtshoorn Local Municipality,Garden Route District Area,name+province,name
-WC047,ZA1047,Bitou,local,Western Cape,DC4,live,WC047 - Bitou,WC047 - Bitou,9-bitou,Bitou,LM,Garden Route,Bitou Local Municipality,Garden Route District Area,name+province,name
-WC048,ZA1048,Knysna,local,Western Cape,DC4,live,WC048 - Knysna,WC048 - Knysna,9-knysna,Knysna,LM,Garden Route,Knysna Local Municipality,Garden Route District Area,name+province,name
-WC051,ZA1051,Laingsburg,local,Western Cape,DC5,live,WC051 - Laingsburg,WC051 - Laingsburg,9-laingsburg,Laingsburg,LM,Central Karoo,Laingsburg Local Municipality,Central Karoo District Area,name+province,name
-WC052,ZA1052,Prince Albert,local,Western Cape,DC5,live,WC052 - Prince Albert,WC052 - Prince Albert,9-prince-albert,Prince Albert,LM,Central Karoo,Prince Albert Local Municipality,Central Karoo District Area,name+province,name
-WC053,ZA1053,Beaufort West,local,Western Cape,DC5,live,WC053 - Beaufort West,WC053 - Beaufort West,9-beaufort-west,Beaufort West,LM,Central Karoo,Beaufort West Local Municipality,Central Karoo District Area,name+province,name
-BUF,ZA2920,Buffalo City,metro,Eastern Cape,BUF,live,BUF - Buffalo City,BUF - Buffalo City,1-buffalo-city-metro,Buffalo City Metro,MET,Buffalo City Metro,Buffalo City Metropolitan Municipality,Buffalo City Metropolitan Area,name+province,name
-CPT,ZA1910,City of Cape Town,metro,Western Cape,CPT,live,CPT - City of Cape Town,CPT - City of Cape Town,9-city-of-cape-town-metro,City of Cape Town Metro,MET,Cape Town Metro,City of Cape Town Metropolitan Municipality,City of Cape Town Metropolitan Area,name+province,name
-EKU,ZA7970,Ekurhuleni,metro,Gauteng,EKU,live,EKU - Ekurhuleni,EKU - Ekurhuleni,3-city-of-ekurhuleni-metro,City of Ekurhuleni Metro,MET,Ekurhuleni Metro,City of Ekurhuleni Metropolitan Municipality,City of Ekurhuleni Metropolitan Area,name+province,name
-ETH,ZA5950,eThekwini,metro,KwaZulu-Natal,ETH,live,ETH - eThekwini,ETH - eThekwini,4-ethekwini-metro,eThekwini Metropolitan,MET,eThekwini Metro,eThekwini Metropolitan Municipality,eThekwini Metropolitan Area,name+province,name
-JHB,ZA7980,City of Johannesburg,metro,Gauteng,JHB,live,JHB - City of Johannesburg,JHB - City of Johannesburg,3-city-of-johannesburg-metro,City of Johannesburg Metro,MET,Johannesburg Metro,City of Johannesburg Metropolitan Municipality,City of Johannesburg Metropolitan Area,name+province,name
-MAN,ZA4940,Mangaung,metro,Free State,MAN,live,MAN - Mangaung,MAN - Mangaung,2-mangaung-metro,Mangaung Metro,MET,Mangaung,Mangaung Metropolitan Municipality,Mangaung Metropolitan Area,name+province,name
-NMA,ZA2930,Nelson Mandela Bay,metro,Eastern Cape,NMA,live,NMA - Nelson Mandela Bay,NMA - Nelson Mandela Bay,1-nelson-mandela-bay-metro,Nelson Mandela Bay Metro,MET,Nelson Mandela Metro,Nelson Mandela Bay Metropolitan Municipality,Nelson Mandela Bay Metropolitan Area,name+province,name
-TSH,ZA7990,City of Tshwane,metro,Gauteng,TSH,live,TSH - Tshwane Metro,TSH - City of Tshwane,3-city-of-tshwane-metro,City of Tshwane Metro,MET,Tshwane Metro,City of Tshwane Metropolitan Municipality,City of Tshwane Metropolitan Area,name+province,name
-EC103,,,municipality,Eastern Cape,DC10,disestablished,,,,,,,,,,
-EC107,,,municipality,Eastern Cape,DC10,disestablished,,,,,,,,,,
-EC127,,,municipality,Eastern Cape,DC12,disestablished,,,,,,,,,,
-EC128,,,municipality,Eastern Cape,DC12,disestablished,,,,,,,,,,
-EC132,,,municipality,Eastern Cape,DC13,disestablished,,,,,,,,,,
-EC133,,,municipality,Eastern Cape,DC13,disestablished,,,,,,,,,,
-EC134,,,municipality,Eastern Cape,DC13,disestablished,,,,,,,,,,
-EC143,,,municipality,Eastern Cape,DC14,disestablished,,,,,,,,,,
-EC144,,,municipality,Eastern Cape,DC14,disestablished,,,,,,,,,,
-FS164,,,municipality,Free State,DC16,disestablished,,,,,,,,,,
-GT482,,,municipality,Gauteng,DC48,disestablished,,,,,,,,,,
-GT483,,,municipality,Gauteng,DC48,disestablished,,,,,,,,,,
-KZN211,,,municipality,KwaZulu-Natal,DC21,disestablished,,,,,,,,,,
-KZN215,,,municipality,KwaZulu-Natal,DC21,disestablished,,,,,,,,,,
-KZN232,,,municipality,KwaZulu-Natal,DC23,disestablished,,,,,,,,,,
-KZN233,,,municipality,KwaZulu-Natal,DC23,disestablished,,,,,,,,,,
-KZN234,,,municipality,KwaZulu-Natal,DC23,disestablished,,,,,,,,,,
-KZN236,,,municipality,KwaZulu-Natal,DC23,disestablished,,,,,,,,,,
-KZN273,,,municipality,KwaZulu-Natal,DC27,disestablished,,,,,,,,,,
-KZN274,,,municipality,KwaZulu-Natal,DC27,disestablished,,,,,,,,,,
-KZN283,,,municipality,KwaZulu-Natal,DC28,disestablished,,,,,,,,,,
-KZN431,,,municipality,KwaZulu-Natal,DC43,disestablished,,,,,,,,,,
-KZN432,,,municipality,KwaZulu-Natal,DC43,disestablished,,,,,,,,,,
-LIM342,,,municipality,Limpopo,DC34,disestablished,,,,,,,,,,
-LIM352,,,municipality,Limpopo,DC35,disestablished,,,,,,,,,,
-LIM364,,,municipality,Limpopo,DC36,disestablished,,,,,,,,,,
-LIM365,,,municipality,Limpopo,DC36,disestablished,,,,,,,,,,
-LIM474,,,municipality,Limpopo,DC47,disestablished,,,,,,,,,,
-LIM475,,,municipality,Limpopo,DC47,disestablished,,,,,,,,,,
-MP322,,,municipality,Mpumalanga,DC32,disestablished,,,,,,,,,,
-MP323,,,municipality,Mpumalanga,DC32,disestablished,,,,,,,,,,
-NC081,,,municipality,Northern Cape,DC8,disestablished,,,,,,,,,,
-NC083,,,municipality,Northern Cape,DC8,disestablished,,,,,,,,,,
-NW401,,,municipality,North West,DC40,disestablished,,,,,,,,,,
-NW402,,,municipality,North West,DC40,disestablished,,,,,,,,,,
+code,oad_id,oad_name,oad_level,province,parent_code,status,iec_2016_name,iec_2021_name,agsa_slug,agsa_name,agsa_type,agsa_district,p9115_name,p9115_district,match_method_agsa_slug,match_method_p9115_name,alias_basis_agsa,alias_basis_p9115
+DC1,ZA101,West Coast,district,Western Cape,,live,,,9-west-coast-district,West Coast District,DM,West Coast,West Coast District Municipality,West Coast District Area,name+province,name,,
+DC10,ZA210,Cacadu,district,Eastern Cape,,live,,,1-sarah-baartman-district,Sarah Baartman District,DM,Sarah Baartman,Sarah Baartman District Municipality,Sarah Baartman District Area,name+province,name,,
+DC12,ZA212,Amathole,district,Eastern Cape,,live,,,1-amathole-district,Amathole District,DM,Amatole,Amathole District Municipality,Amathole District Area,name+province,name,,
+DC13,ZA213,Chris Hani,district,Eastern Cape,,live,,,1-chris-hani-district,Chris Hani District,DM,Chris Hani,Chris Hani District Municipality,Chris Hani District Area,name+province,name,,
+DC14,ZA214,Joe Gqabi,district,Eastern Cape,,live,,,1-joe-gqabi-district,Joe Gqabi District,DM,Joe Gqabi,Joe Gqabi District Municipality,Joe Gqabi District Area,name+province,name,,
+DC15,ZA215,O.R.Tambo,district,Eastern Cape,,live,,,1-or-tambo-district,OR Tambo District,DM,O.R. Tambo,O.R. Tambo District Municipality,O.R. Tambo District Area,name+province,name,,
+DC16,ZA416,Xhariep,district,Free State,,live,,,2-xhariep-district,Xhariep District,DM,Xhariep,Xhariep District Municipality,Xhariep District Area,name+province,name,,
+DC18,ZA418,Lejweleputswa,district,Free State,,live,,,2-lejweleputswa-district,Lejweleputswa District,DM,Lejweleputswa,Lejweleputswa District Municipality,Lejweleputswa District Area,name+province,name,,
+DC19,ZA419,Thabo Mofutsanyane,district,Free State,,live,,,2-thabo-mofutsanyana-district,Thabo Mofutsanyana District,DM,Thabo Mofutsanyana,Thabo Mofutsanyane District Municipality,Thabo Mofutsanyane District Area,name+province,name,,
+DC2,ZA102,Cape Winelands,district,Western Cape,,live,,,9-cape-winelands-district,Cape Winelands District,DM,Cape Winelands,Cape Winelands District Municipality,Cape Winelands District Area,name+province,name,,
+DC20,ZA420,Fezile Dabi,district,Free State,,live,,,2-fezile-dabi-district,Fezile Dabi District,DM,Fezile Dabi,Fezile Dabi District Municipality,Fezile Dabi District Area,name+province,name,,
+DC21,ZA521,Ugu,district,KwaZulu-Natal,,live,,,4-ugu-district,Ugu District,DM,Ugu,Ugu District Municipality,Ugu District Area,name+province,name,,
+DC22,ZA522,Umgungundlovu,district,KwaZulu-Natal,,live,,,4-umgungundlovu-district,Umgungundlovu District,DM,uMgungundlovu,uMgungundhlovu District Municipality,uMgungundhlovu District Area,name+province,alias,,spelling: 'uMgungundhlovu' vs 'Umgungundlovu'
+DC23,ZA523,Uthukela,district,KwaZulu-Natal,,live,,,4-uthukela-district,uThukela District,DM,uThukela,uThukela District Municipality,uThukela District Area,name+province,name,,
+DC24,ZA524,Umzinyathi,district,KwaZulu-Natal,,live,,,4-umzinyathi-district,uMzinyathi District,DM,uMzinyathi,uMzinyathi District Municipality,uMzinyathi District Area,name+province,name,,
+DC25,ZA525,Amajuba,district,KwaZulu-Natal,,live,,,4-amajuba-district,Amajuba District,DM,Amajuba,Amajuba District Municipality,Amajuba District Area,name+province,name,,
+DC26,ZA526,Zululand,district,KwaZulu-Natal,,live,,,4-zululand-district,Zululand District,DM,Zululand,Zululand District Municipality,Zululand District Area,name+province,name,,
+DC27,ZA527,Umkhanyakude,district,KwaZulu-Natal,,live,,,4-umkhanyakude-district,uMkhanyakude District,DM,uMkhanyakude,uMkhanyakude District Municipality,uMkhanyakude District Area,name+province,name,,
+DC28,ZA528,Uthungulu,district,KwaZulu-Natal,,live,,,4-king-cetshwayo-district,King Cetshwayo District,DM,King Cetshwayo,King Cetshwayo District Municipality,King Cetshwayo District Area,name+province,name,,
+DC29,ZA529,iLembe,district,KwaZulu-Natal,,live,,,4-ilembe-district,Ilembe District,DM,iLembe,iLembe District Municipality,iLembe District Area,name+province,name,,
+DC3,ZA103,Overberg,district,Western Cape,,live,,,9-overberg-district,Overberg District,DM,Overberg,Overberg District Municipality,Overberg District Area,name+province,name,,
+DC30,ZA830,Gert Sibande,district,Mpumalanga,,live,,,6-gert-sibande-district,Gert Sibande District,DM,Gert Sibande,Gert Sibande District Municipality,Gert Sibande District Area,name+province,name,,
+DC31,ZA831,Nkangala,district,Mpumalanga,,live,,,6-nkangala-district,Nkangala District,DM,Nkangala,Nkangala District Municipality,Nkangala District Area,name+province,name,,
+DC32,ZA832,Ehlanzeni,district,Mpumalanga,,live,,,6-ehlanzeni-district,Ehlanzeni District,DM,Ehlanzeni,Ehlanzeni District Municipality,Ehlanzeni District Area,name+province,name,,
+DC33,ZA933,Mopani,district,Limpopo,,live,,,5-mopani-district,Mopani District,DM,Mopani,Mopani District Municipality,Mopani District Area,name+province,name,,
+DC34,ZA934,Vhembe,district,Limpopo,,live,,,5-vhembe-district,Vhembe District,DM,Vhembe,Vhembe District Municipality,Vhembe District Area,name+province,name,,
+DC35,ZA935,Capricorn,district,Limpopo,,live,,,5-capricorn-district,Capricorn District,DM,Capricorn,Capricorn District Municipality,Capricorn District Area,name+province,name,,
+DC36,ZA936,Waterberg,district,Limpopo,,live,,,5-waterberg-district,Waterberg District,DM,Waterberg,Waterberg District Municipality,Waterberg District Area,name+province,name,,
+DC37,ZA637,Bojanala,district,North West,,live,,,8-bojanala-district,Bojanala District,DM,Bojanala Platinum,Bojanala Platinum District Municipality,Bojanala Platinum District Area,name+province,name,,
+DC38,ZA638,Ngaka Modiri Molema,district,North West,,live,,,8-ngaka-modiri-molema-district,Ngaka Modiri Molema District,DM,Ngaka Modiri Molema,Ngaka Modiri Molema District Municipality,Ngaka Modiri Molema District Area,name+province,name,,
+DC39,ZA639,Dr Ruth Segomotsi Mompati,district,North West,,live,,,8-dr-ruth-s-mompati-district,Dr Ruth Segomotsi Mompati District,DM,Dr Ruth S Mompati,Dr Ruth Segomotsi Mompati District Municipality,Dr Ruth Segomotsi Mompati District Area,name+province,name,,
+DC4,ZA104,Eden,district,Western Cape,,live,,,9-garden-route-district,Garden Route District,DM,Garden Route,Garden Route District Municipality,Garden Route District Area,name+province,name,,
+DC40,ZA640,Dr Kenneth Kaunda,district,North West,,live,,,8-dr-kenneth-kaunda-district,Dr Kenneth Kaunda District,DM,Dr Kenneth Kaunda,Dr Kenneth Kaunda District Municipality,Dr Kenneth Kaunda District Area,name+province,name,,
+DC42,ZA742,Sedibeng,district,Gauteng,,live,,,3-sedibeng-district,Sedibeng District,DM,Sedibeng,Sedibeng District Municipality,Sedibeng District Area,name+province,name,,
+DC43,ZA543,Sisonke,district,KwaZulu-Natal,,live,,,4-harry-gwala-district,Harry Gwala District,DM,Harry Gwala,Harry Gwala District Municipality,Harry Gwala District Area,name+province,name,,
+DC44,ZA244,Alfred Nzo,district,Eastern Cape,,live,,,1-alfred-nzo-district,Alfred Nzo District,DM,Alfred Nzo,Alfred Nzo District Municipality,Alfred Nzo District Area,name+province,name,,
+DC45,ZA345,John Taolo Gaetsewe,district,Nothern Cape,,live,,,7-john-taolo-gaetsewe-district,John Taolo Gaetsewe District,DM,John Taolo Gaetsewe,John Taolo Gaetsewe District Municipality,John Taolo Gaetsewe District Area,name+province,name,,
+DC47,ZA947,Sekhukhune,district,Limpopo,,live,,,5-sekhukhune-district,Sekhukhune District,DM,Sekhukhune,Sekhukhune District Municipality,Sekhukhune District Area,name+province,name,,
+DC48,ZA748,West Rand,district,Gauteng,,live,,,3-west-rand-district,West Rand District,DM,West Rand,West Rand District Municipality,West Rand District Area,name+province,name,,
+DC5,ZA105,Central Karoo,district,Western Cape,,live,,,9-central-karoo-district,Central Karoo District,DM,Central Karoo,Central Karoo District Municipality,Central Karoo District Area,name+province,name,,
+DC6,ZA306,Namakwa,district,Nothern Cape,,live,,,7-namakwa-district,Namakwa District,DM,Namakwa,Namakwa District Municipality,Namakwa District Area,name+province,name,,
+DC7,ZA307,Pixley ka Seme,district,Nothern Cape,,live,,,7-pixley-ka-seme-district,Pixley Ka Seme District,DM,Pixley Ka Seme - NC,Pixley Ka Seme District Municipality,Pixley Ka Seme District Area,alias,alias,type DM + Northern Cape; MP304 is a Mpumalanga local of the same name,type DM + Northern Cape; MP304 is a Mpumalanga local of the same name
+DC8,ZA308,Z F Mgcawu,district,Nothern Cape,,live,,,7-zf-mgcawu-district,ZF Mgcawu District,DM,ZF Mgcawu District,ZF Mgcawu District Municipality,ZF Mgcawu District Area,name+province,name,,
+DC9,ZA309,Frances Baard,district,Nothern Cape,,live,,,7-frances-baard-district,Frances Baard District,DM,Frances Baard,Frances Baard District Municipality,Frances Baard District Area,name+province,name,,
+EC101,ZA2101,Dr Beyers Naude,local,Eastern Cape,DC10,live,EC101 - Camdeboo,EC101 - Dr. Beyers Naude,1-dr-beyers-naude,Dr Beyers Naudé,LM,Sarah Baartman,Dr. Beyers Naude Local Municipality,Sarah Baartman District Area,name+province,name,,
+EC102,ZA2102,Blue Crane Route,local,Eastern Cape,DC10,live,EC102 - Blue Crane Route,EC102 - Blue Crane Route,1-blue-crane-route,Blue Crane Route,LM,Sarah Baartman,Blue Crane Route Local Municipality,Sarah Baartman District Area,name+province,name,,
+EC104,ZA2104,Makana,local,Eastern Cape,DC10,live,EC104 - Makana,EC104 - Makana,1-makana,Makana,LM,Sarah Baartman,Makana Local Municipality,Sarah Baartman District Area,name+province,name,,
+EC105,ZA2105,Ndlambe,local,Eastern Cape,DC10,live,EC105 - Ndlambe,EC105 - Ndlambe,1-ndlambe,Ndlambe,LM,Sarah Baartman,Ndlambe Local Municipality,Sarah Baartman District Area,name+province,name,,
+EC106,ZA2106,Sundays River Valley,local,Eastern Cape,DC10,live,EC106 - Sundays River Valley,EC106 - Sundays River Valley,1-sundays-river-valley,Sundays River Valley,LM,Sarah Baartman,Sunday's River Valley Local Municipality,Sarah Baartman District Area,name+province,name,,
+EC108,ZA2108,Kouga,local,Eastern Cape,DC10,live,EC108 - Kouga,EC108 - Kouga,1-kouga,Kouga,LM,Sarah Baartman,Kouga Local Municipality,Sarah Baartman District Area,name+province,name,,
+EC109,ZA2109,Kou-Kamma,local,Eastern Cape,DC10,live,EC109 - Kou-Kamma,EC109 - Kou-Kamma,1-kou-kamma,Kou-Kamma,LM,Sarah Baartman,Kou-Kamma Local Municipality,Sarah Baartman District Area,name+province,name,,
+EC121,ZA2121,Mbhashe,local,Eastern Cape,DC12,live,EC121 - Mbhashe,EC121 - Mbhashe,1-mbhashe,Mbhashe,LM,Amatole,Mbhashe Local Municipality,Amathole District Area,name+province,name,,
+EC122,ZA2122,Mnquma,local,Eastern Cape,DC12,live,EC122 - Mnquma,EC122 - Mnquma,1-mnquma,Mnquma,LM,Amatole,Mnquma Local Municipality,Amathole District Area,name+province,name,,
+EC123,ZA2123,Great Kei,local,Eastern Cape,DC12,live,EC123 - Great Kei,EC123 - Great Kei,1-great-kei,Great Kei,LM,Amatole,Great Kei Local Municipality,Amathole District Area,name+province,name,,
+EC124,ZA2124,Amahlathi,local,Eastern Cape,DC12,live,EC124 - Amahlathi,EC124 - Amahlathi,1-amahlati,Amahlathi,LM,Amatole,Amahlathi Local Municipality,Amathole District Area,name+province,name,,
+EC126,ZA2126,Ngqushwa,local,Eastern Cape,DC12,live,EC126 - Ngqushwa,EC126 - Ngqushwa,1-ngqushwa,Ngqushwa,LM,Amatole,Ngqushwa Local Municipality,Amathole District Area,name+province,name,,
+EC129,ZA2129,Raymond Mhlaba,local,Eastern Cape,DC12,live,EC129 - Nkonkobe/Nxuba,EC129 - Raymond Mhlaba,1-raymond-mhlaba,Raymond Mhlaba,LM,Amatole,Raymond Mhlaba Local Municipality,Amathole District Area,name+province,name,,
+EC131,ZA2131,Inxuba Yethemba,local,Eastern Cape,DC13,live,EC131 - Inxuba Yethemba,EC131 - Inxuba Yethemba,1-inxuba-yethemba,Inxuba Yethemba,LM,Chris Hani,Inxuba Yethemba Local Municipality,Chris Hani District Area,name+province,name,,
+EC135,ZA2135,Intsika Yethu,local,Eastern Cape,DC13,live,EC135 - Intsika Yethu,EC135 - Intsika Yethu,1-intsika-yethu,Vuyisile Mini,LM,Chris Hani,Intsika Yethu Local Municipality,Chris Hani District Area,name+province,name,,
+EC136,ZA2136,Emalahleni,local,Eastern Cape,DC13,live,EC136 - Emalahleni,EC136 - Emalahleni,1-emalahleni,Emalahleni,LM,Chris Hani,Emalahleni Local Municipality,Chris Hani District Area,name+province,name,,
+EC137,ZA2137,Engcobo,local,Eastern Cape,DC13,live,EC137 - Engcobo,EC137 - Engcobo,1-engcobo,DR AB Xuma,LM,Chris Hani,Dr. AB Xuma Local Municipality,Chris Hani District Area,name+province,name,,
+EC138,ZA2138,Sakhisizwe,local,Eastern Cape,DC13,live,EC138 - Sakhisizwe,EC138 - Sakhisizwe,1-sakhisizwe,Sakhisizwe,LM,Chris Hani,Sakhisizwe Local Municipality,Chris Hani District Area,name+province,name,,
+EC139,ZA2139,Enoch Mgijima,local,Eastern Cape,DC13,live,EC139 - Tsolwana/Inkwanca/Lukanji,EC139 - Enoch Mgijima,1-enoch-mgijima,Enoch Mgijima,ICM,Chris Hani,Enoch Mgijima Local Municipality,Chris Hani District Area,name+province,name,,
+EC141,ZA2141,Elundini,local,Eastern Cape,DC14,live,EC141 - Elundini,EC141 - Elundini,1-elundini,Elundini,LM,Joe Gqabi,Elundini Local Municipality,Joe Gqabi District Area,name+province,name,,
+EC142,ZA2142,Senqu,local,Eastern Cape,DC14,live,EC142 - Senqu,EC142 - Senqu,1-senqu,Senqu,LM,Joe Gqabi,Senqu Local Municipality,Joe Gqabi District Area,name+province,name,,
+EC145,ZA2145,Walter Sisulu,local,Eastern Cape,DC14,live,EC145 - Maletswai/Gariep,EC145 - Walter Sisulu,1-walter-sisulu,Walter Sisulu,LM,Joe Gqabi,Walter Sisulu Local Municipality,Joe Gqabi District Area,name+province,name,,
+EC153,ZA2153,Ngquza Hill,local,Eastern Cape,DC15,live,EC153 - Ngquza Hill,EC153 - Ngquza Hill,1-ingquza-hill,Ingquza Hill,LM,O.R. Tambo,Ngquza Hill Local Municipality,O.R. Tambo District Area,alias,name,orthographic variant of Ngquza Hill (Municipal Money: 'Ngquza Hills'),
+EC154,ZA2154,Port St Johns,local,Eastern Cape,DC15,live,EC154 - Port St Johns,EC154 - Port St Johns,1-port-st-johns,Port St Johns,LM,O.R. Tambo,Port St Johns Local Municipality,O.R. Tambo District Area,name+province,name,,
+EC155,ZA2155,Nyandeni,local,Eastern Cape,DC15,live,EC155 - Nyandeni,EC155 - Nyandeni,1-nyandeni,Nyandeni,LM,O.R. Tambo,Nyandeni Local Municipality,O.R. Tambo District Area,name+province,name,,
+EC156,ZA2156,Mhlontlo,local,Eastern Cape,DC15,live,EC156 - Mhlontlo,EC156 - Mhlontlo,1-mhlontlo,Kumkani Mhlontlo,LM,O.R. Tambo,Mhlontlo Local Municipality,O.R. Tambo District Area,name+province,name,,
+EC157,ZA2157,King Sabata Dalindyebo,local,Eastern Cape,DC15,live,EC157 - King Sabata Dalindyebo,EC157 - King Sabata Dalindyebo,1-king-sabata-dalindyebo,King Sabata Dalindyebo,ICM,O.R. Tambo,King Sabata Dalindyebo Local Municipality,O.R. Tambo District Area,name+province,name,,
+EC441,ZA2441,Matatiele,local,Eastern Cape,DC44,live,EC441 - Matatiele,EC441 - Matatiele,1-matatiele,Matatiele,LM,Alfred Nzo,Matatiele Local Municipality,Alfred Nzo District Area,name+province,name,,
+EC442,ZA2442,Umzimvubu,local,Eastern Cape,DC44,live,EC442 - Umzimvubu,EC442 - Umzimvubu,1-umzimvubu,Umzimvubu,LM,Alfred Nzo,Umzimvubu Local Municipality,Alfred Nzo District Area,name+province,name,,
+EC443,ZA2443,Mbizana,local,Eastern Cape,DC44,live,EC443 - Mbizana,EC443 - Winnie Madikizela-Mandela,1-winnie-madikizela-mandela,Winnie Madikizela-Mandela,LM,Alfred Nzo,Mbizana Local Municipality,Alfred Nzo District Area,name+province,name,,
+EC444,ZA2444,Ntabankulu,local,Eastern Cape,DC44,live,EC444 - Ntabankulu,EC444 - Ntabankulu,1-ntabankulu,Ntabankulu,LM,Alfred Nzo,Ntabankulu Local Municipality,Alfred Nzo District Area,name+province,name,,
+FS161,ZA4161,Letsemeng,local,Free State,DC16,live,FS161 - Letsemeng,FS161 - Letsemeng,2-letsemeng,Letsemeng,LM,Xhariep,Letsemeng Local Municipality,Xhariep District Area,name+province,name,,
+FS162,ZA4162,Kopanong,local,Free State,DC16,live,FS162 - Kopanong,FS162 - Kopanong,2-kopanong,Kopanong,LM,Xhariep,Kopanong Local Municipality,Xhariep District Area,name+province,name,,
+FS163,ZA4163,Mohokare,local,Free State,DC16,live,FS163 - Mohokare,FS163 - Mohokare,2-mohokare,Mohokare,LM,Xhariep,Mohokare Local Municipality,Xhariep District Area,name+province,name,,
+FS181,ZA4181,Masilonyana,local,Free State,DC18,live,FS181 - Masilonyana,FS181 - Masilonyana,2-masilonyana,Masilonyana,LM,Lejweleputswa,Masilonyana Local Municipality,Lejweleputswa District Area,name+province,name,,
+FS182,ZA4182,Tokologo,local,Free State,DC18,live,FS182 - Tokologo,FS182 - Tokologo,2-tokologo,Tokologo,LM,Lejweleputswa,Tokologo Local Municipality,Lejweleputswa District Area,name+province,name,,
+FS183,ZA4183,Tswelopele,local,Free State,DC18,live,FS183 - Tswelopele,FS183 - Tswelopele,2-tswelopele,Tswelopele,LM,Lejweleputswa,Tswelopele Local Municipality,Lejweleputswa District Area,name+province,name,,
+FS184,ZA4184,Matjhabeng,local,Free State,DC18,live,FS184 - Matjhabeng,FS184 - Matjhabeng,2-matjhabeng,Matjhabeng,ICM,Lejweleputswa,Matjhabeng Local Municipality,Lejweleputswa District Area,name+province,name,,
+FS185,ZA4185,Nala,local,Free State,DC18,live,FS185 - Nala,FS185 - Nala,2-nala,Nala,LM,Lejweleputswa,Nala Local Municipality,Lejweleputswa District Area,name+province,name,,
+FS191,ZA4191,Setsoto,local,Free State,DC19,live,FS191 - Setsoto,FS191 - Setsoto,2-setsoto,Setsoto,LM,Thabo Mofutsanyana,Setsoto Local Municipality,Thabo Mofutsanyane District Area,name+province,name,,
+FS192,ZA4192,Dihlabeng,local,Free State,DC19,live,FS192 - Dihlabeng,FS192 - Dihlabeng,2-dihlabeng,Dihlabeng,LM,Thabo Mofutsanyana,Dihlabeng Local Municipality,Thabo Mofutsanyane District Area,name+province,name,,
+FS193,ZA4193,Nketoana,local,Free State,DC19,live,FS193 - Nketoana,FS193 - Nketoana,2-nketoana,Nketoana,LM,Thabo Mofutsanyana,Nketoana Local Municipality,Thabo Mofutsanyane District Area,name+province,name,,
+FS194,ZA4194,Maluti a Phofung,local,Free State,DC19,live,FS194 - Maluti a Phofung,FS194 - Maluti a Phofung,2-maluti-a-phofung,Maluti-A-Phofung,ICM,Thabo Mofutsanyana,Maluti-A-Phofung Local Municipality,Thabo Mofutsanyane District Area,name+province,name,,
+FS195,ZA4195,Phumelela,local,Free State,DC19,live,FS195 - Phumelela,FS195 - Phumelela,2-phumelela,Phumelela,LM,Thabo Mofutsanyana,Phumelela Local Municipality,Thabo Mofutsanyane District Area,name+province,name,,
+FS196,ZA4196,Mantsopa,local,Free State,DC19,live,FS196 - Mantsopa,FS196 - Mantsopa,2-mantsopa,Mantsopa,LM,Thabo Mofutsanyana,Mantsopa Local Municipality,Thabo Mofutsanyane District Area,name+province,name,,
+FS201,ZA4201,Moqhaka,local,Free State,DC20,live,FS201 - Moqhaka,FS201 - Moqhaka,2-moqhaka,Moqhaka,LM,Fezile Dabi,Moqhaka Local Municipality,Fezile Dabi District Area,name+province,name,,
+FS203,ZA4203,Ngwathe,local,Free State,DC20,live,FS203 - Ngwathe,FS203 - Ngwathe,2-ngwathe,Ngwathe,LM,Fezile Dabi,Ngwathe Local Municipality,Fezile Dabi District Area,name+province,name,,
+FS204,ZA4204,Metsimaholo,local,Free State,DC20,live,FS204 - Metsimaholo,FS204 - Metsimaholo,2-metsimaholo,Metsimaholo,ICM,Fezile Dabi,Metsimaholo Local Municipality,Fezile Dabi District Area,name+province,name,,
+FS205,ZA4205,Mafube,local,Free State,DC20,live,FS205 - Mafube,FS205 - Mafube,2-mafube,Mafube,LM,Fezile Dabi,Mafube Local Municipality,Fezile Dabi District Area,name+province,name,,
+GT421,ZA7421,Emfuleni,local,Gauteng,DC42,live,GT421 - Emfuleni,GT421 - Emfuleni,3-emfuleni,Emfuleni,ICM,Sedibeng,Emfuleni Local Municipality,Sedibeng District Area,name+province,name,,
+GT422,ZA7422,Midvaal,local,Gauteng,DC42,live,GT422 - Midvaal,GT422 - Midvaal,3-midvaal,Midvaal,LM,Sedibeng,Midvaal Local Municipality,Sedibeng District Area,name+province,name,,
+GT423,ZA7423,Lesedi,local,Gauteng,DC42,live,GT423 - Lesedi,GT423 - Lesedi,3-lesedi,Lesedi,LM,Sedibeng,Lesedi Local Municipality,Sedibeng District Area,name+province,name,,
+GT481,ZA7481,Mogale City,local,Gauteng,DC48,live,GT481 - Mogale City,GT481 - Mogale City,3-mogale-city,Mogale City,ICM,West Rand,Mogale City Local Municipality,West Rand District Area,name+province,name,,
+GT484,ZA7484,Merafong City,local,Gauteng,DC48,live,GT484 - Merafong City,GT484 - Merafong City,3-merafong-city,Merafong City,ICM,West Rand,Merafong City Local Municipality,West Rand District Area,name+province,name,,
+GT485,ZA7485,Rand West City,local,Gauteng,DC48,live,GT485 - Randfontein/Westonaria,GT485 - Rand West City,3-rand-west-city,Rand West City,ICM,West Rand,Rand West Local Municipality,West Rand District Area,name+province,name,,
+KZN212,ZA5212,Umdoni,local,KwaZulu-Natal,DC21,live,KZN212 - Umdoni,KZN212 - uMdoni,4-umdoni,uMdoni,LM,Ugu,Umdoni Local Municipality,Ugu District Area,name+province,name,,
+KZN213,ZA5213,Umzumbe,local,KwaZulu-Natal,DC21,live,KZN213 - Umzumbe,KZN213 - uMzumbe,4-umzumbe,Umzumbe,LM,Ugu,Umzumbe Local Municipality,Ugu District Area,name+province,name,,
+KZN214,ZA5214,uMuziwabantu,local,KwaZulu-Natal,DC21,live,KZN214 - UMuziwabantu,KZN214 - uMuziwabantu,4-umuziwabantu,Umuziwabantu,LM,Ugu,uMuziwabantu Local Municipality,Ugu District Area,name+province,name,,
+KZN216,ZA5216,Ray Nkonyeni,local,KwaZulu-Natal,DC21,live,KZN216 - Hibiscus Coast,KZN216 - Ray Nkonyeni,4-ray-nkonyeni,Ray Nkonyeni,ICM,Ugu,Ray Nkonyeni Local Municipality,Ugu District Area,name+province,name,,
+KZN221,ZA5221,uMshwathi,local,KwaZulu-Natal,DC22,live,KZN221 - uMshwathi,KZN221 - uMshwathi,4-umshwathi,uMshwathi,LM,uMgungundlovu,uMshwathi Local Municipality,uMgungundhlovu District Area,name+province,name,,
+KZN222,ZA5222,uMngeni,local,KwaZulu-Natal,DC22,live,KZN222 - uMngeni,KZN222 - uMngeni,4-umngeni,uMngeni,LM,uMgungundlovu,uMngeni Local Municipality,uMgungundhlovu District Area,name+province,name,,
+KZN223,ZA5223,Mpofana,local,KwaZulu-Natal,DC22,live,KZN223 - Mooi Mpofana,KZN223 - Mpofana,4-mpofana,Mpofana,LM,uMgungundlovu,Mpofana Local Municipality,uMgungundhlovu District Area,name+province,name,,
+KZN224,ZA5224,Impendle,local,KwaZulu-Natal,DC22,live,KZN224 - Impendle,KZN224 - iMpendle,4-impendle,Impendle,LM,uMgungundlovu,Impendle Local Municipality,uMgungundhlovu District Area,name+province,name,,
+KZN225,ZA5225,The Msunduzi,local,KwaZulu-Natal,DC22,live,KZN225 - Msunduzi,KZN225 - Msunduzi,4-msunduzi,Msunduzi,ICM,uMgungundlovu,Msunduzi Local Municipality,uMgungundhlovu District Area,name+province,name,,
+KZN226,ZA5226,Mkhambathini,local,KwaZulu-Natal,DC22,live,KZN226 - Mkhambathini,KZN226 - Mkhambathini,4-mkhambathini,Mkhambathini,LM,uMgungundlovu,Mkhambathini Local Municipality,uMgungundhlovu District Area,name+province,name,,
+KZN227,ZA5227,Richmond,local,KwaZulu-Natal,DC22,live,KZN227 - Richmond,KZN227 - Richmond,4-richmond,Richmond,LM,uMgungundlovu,Richmond Local Municipality,uMgungundhlovu District Area,name+province,name,,
+KZN235,ZA5235,Okhahlamba,local,KwaZulu-Natal,DC23,live,KZN235 - Okhahlamba,KZN235 - Okhahlamba,4-okhahlamba,Okhahlamba,LM,uThukela,Okhahlamba Local Municipality,uThukela District Area,name+province,name,,
+KZN237,ZA5237,Inkosi Langalibalele,local,KwaZulu-Natal,DC23,live,KZN237 - Estcourt/Loskop,KZN237 - iNkosi Langalibalele,4-inkosi-langalibalele,Inkosi Langalibalele,LM,uThukela,Inkosi Langalibalele Local Municipality,uThukela District Area,name+province,name,,
+KZN238,ZA5238,Alfred Duma,local,KwaZulu-Natal,DC23,live,KZN238 - Ladysmith/Waaihoek,KZN238 - Alfred Duma,4-alfred-duma,Alfred Duma,ICM,uThukela,Alfred Duma Local Municipality,uThukela District Area,name+province,name,,
+KZN241,ZA5241,Endumeni,local,KwaZulu-Natal,DC24,live,KZN241 - Endumeni,KZN241 - eNdumeni,4-endumeni,Endumeni,LM,uMzinyathi,Endumeni Local Municipality,uMzinyathi District Area,name+province,name,,
+KZN242,ZA5242,Nqutu,local,KwaZulu-Natal,DC24,live,KZN242 - Nqutu,KZN242 - Nqutu,4-nquthu,Nquthu,LM,uMzinyathi,Nquthu Local Municipality,uMzinyathi District Area,name+province,name,,
+KZN244,ZA5244,Msinga,local,KwaZulu-Natal,DC24,live,KZN244 - Msinga,KZN244 - uMsinga,4-msinga,uMsinga,LM,uMzinyathi,Msinga Local Municipality,uMzinyathi District Area,district-elimination,name,,
+KZN245,ZA5245,Umvoti,local,KwaZulu-Natal,DC24,live,KZN245 - Umvoti,KZN245 - uMvoti,4-umvoti,Umvoti,LM,uMzinyathi,Umvoti Local Municipality,uMzinyathi District Area,name+province,name,,
+KZN252,ZA5252,Newcastle,local,KwaZulu-Natal,DC25,live,KZN252 - Newcastle,KZN252 - Newcastle,4-newcastle,Newcastle,ICM,Amajuba,Newcastle Local Municipality,Amajuba District Area,name+province,name,,
+KZN253,ZA5253,Emadlangeni,local,KwaZulu-Natal,DC25,live,KZN253 - eMadlangeni,KZN253 - eMadlangeni,4-emadlangeni,eMadlangeni,LM,Amajuba,eMadlangeni Local Municipality,Amajuba District Area,name+province,name,,
+KZN254,ZA5254,Dannhauser,local,KwaZulu-Natal,DC25,live,KZN254 - Dannhauser,KZN254 - Dannhauser,4-dannhauser,Dannhauser,LM,Amajuba,Dannhauser Local Municipality,Amajuba District Area,name+province,name,,
+KZN261,ZA5261,eDumbe,local,KwaZulu-Natal,DC26,live,KZN261 - eDumbe,KZN261 - eDumbe,4-edumbe,eDumbe,LM,Zululand,eDumbe Local Municipality,Zululand District Area,name+province,name,,
+KZN262,ZA5262,uPhongolo,local,KwaZulu-Natal,DC26,live,KZN262 - UPhongolo,KZN262 - uPhongolo,4-uphongolo,uPhongolo,LM,Zululand,uPhongolo Local Municipality,Zululand District Area,name+province,name,,
+KZN263,ZA5263,Abaqulusi,local,KwaZulu-Natal,DC26,live,KZN263 - Abaqulusi,KZN263 - AbaQulusi,4-abaqulusi,AbaQulusi,LM,Zululand,Abaqulusi Local Municipality,Zululand District Area,name+province,name,,
+KZN265,ZA5265,Nongoma,local,KwaZulu-Natal,DC26,live,KZN265 - Nongoma,KZN265 - Nongoma,4-nongoma,Nongoma,LM,Zululand,Nongoma Local Municipality,Zululand District Area,name+province,name,,
+KZN266,ZA5266,Ulundi,local,KwaZulu-Natal,DC26,live,KZN266 - Ulundi,KZN266 - Ulundi,4-ulundi,Ulundi,LM,Zululand,Ulundi Local Municipality,Zululand District Area,name+province,name,,
+KZN271,ZA5271,Umhlabuyalingana,local,KwaZulu-Natal,DC27,live,KZN271 - Umhlabuyalingana,KZN271 - uMhlabuyalingana,4-umhlabuyalingana,uMhlabuyalingana,LM,uMkhanyakude,uMhlabuyalingana Local Municipality,uMkhanyakude District Area,name+province,name,,
+KZN272,ZA5272,Jozini,local,KwaZulu-Natal,DC27,live,KZN272 - Jozini,KZN272 - Jozini,4-jozini,Jozini,LM,uMkhanyakude,Jozini Local Municipality,uMkhanyakude District Area,name+province,name,,
+KZN275,ZA5275,Mtubatuba,local,KwaZulu-Natal,DC27,live,KZN275 - Mtubatuba,KZN275 - Mtubatuba,4-mtubatuba,iNkosi uMtubatuba,LM,uMkhanyakude,Mtubatuba Local Municipality,uMkhanyakude District Area,alias,name,honorific dropped: 'iNkosi uMtubatuba' vs 'Mtubatuba',
+KZN276,ZA5276,Big Five Hlabisa,local,KwaZulu-Natal,DC27,live,KZN276 - Hluhluwe/Somkele,KZN276 - Big Five Hlabisa,4-big-5-hlabisa,Big 5 Hlabisa,LM,uMkhanyakude,The Big 5 Hlabisa Local Municipality,uMkhanyakude District Area,name+province,name,,
+KZN281,ZA5281,Mfolozi,local,KwaZulu-Natal,DC28,live,KZN281 - Mfolozi,KZN281 - uMfolozi,4-mfolozi,uMfolozi,LM,King Cetshwayo,uMfolozi Local Municipality,King Cetshwayo District Area,alias,alias,'uMfolozi' vs 'Mfolozi' (u- prefix),'uMfolozi' vs 'Mfolozi' (u- prefix)
+KZN282,ZA5282,uMhlathuze,local,KwaZulu-Natal,DC28,live,KZN282 - uMhlathuze,KZN282 - uMhlathuze,4-umhlathuze,City of uMhlathuze,ICM,King Cetshwayo,uMhlathuze Local Municipality,King Cetshwayo District Area,name+province,name,,
+KZN284,ZA5284,uMlalazi,local,KwaZulu-Natal,DC28,live,KZN284 - uMlalazi,KZN284 - uMlalazi,4-umlalazi,uMlalazi,LM,King Cetshwayo,uMlalazi Local Municipality,King Cetshwayo District Area,name+province,name,,
+KZN285,ZA5285,Mthonjaneni,local,KwaZulu-Natal,DC28,live,KZN285 - Mthonjaneni,KZN285 - Mthonjaneni,4-mthonjaneni,Mthonjaneni,LM,King Cetshwayo,Mthonjaneni Local Municipality,King Cetshwayo District Area,name+province,name,,
+KZN286,ZA5286,Nkandla,local,KwaZulu-Natal,DC28,live,KZN286 - Nkandla,KZN286 - Nkandla,4-nkandla,Nkandla,LM,King Cetshwayo,Nkandla Local Municipality,King Cetshwayo District Area,name+province,name,,
+KZN291,ZA5291,Mandeni,local,KwaZulu-Natal,DC29,live,KZN291 - Mandeni,KZN291 - Mandeni,4-mandeni,Mandeni,LM,iLembe,Mandeni Local Municipality,iLembe District Area,name+province,name,,
+KZN292,ZA5292,KwaDukuza,local,KwaZulu-Natal,DC29,live,KZN292 - KwaDukuza,KZN292 - KwaDukuza,4-kwadukuza,KwaDukuza,ICM,iLembe,KwaDukuza Local Municipality,iLembe District Area,name+province,name,,
+KZN293,ZA5293,Ndwedwe,local,KwaZulu-Natal,DC29,live,KZN293 - Ndwedwe,KZN293 - Ndwedwe,4-ndwedwe,Ndwedwe,LM,iLembe,Ndwedwe Local Municipality,iLembe District Area,name+province,name,,
+KZN294,ZA5294,Maphumulo,local,KwaZulu-Natal,DC29,live,KZN294 - Maphumulo,KZN294 - Maphumulo,4-maphumulo,Maphumulo,LM,iLembe,Maphumulo Local Municipality,iLembe District Area,name+province,name,,
+KZN433,ZA5433,Greater Kokstad,local,KwaZulu-Natal,DC43,live,KZN433 - Greater Kokstad,KZN433 - Greater Kokstad,4-greater-kokstad,Greater Kokstad,LM,Harry Gwala,Greater Kokstad Local Municipality,Harry Gwala District Area,name+province,name,,
+KZN434,ZA5434,Ubuhlebezwe,local,KwaZulu-Natal,DC43,live,KZN434 - Ubuhlebezwe,KZN434 - uBuhlebezwe,4-ubuhlebezwe,Johannes Phumani Phungula,LM,Harry Gwala,Ubuhlebezwe Local Municipality,Harry Gwala District Area,name+province,name,,
+KZN435,ZA5435,Umzimkhulu,local,KwaZulu-Natal,DC43,live,KZN435 - Umzimkhulu,KZN435 - uMzimkhulu,4-umzimkhulu,uMzimkhulu,LM,Harry Gwala,Umzimkulu Local Municipality,Harry Gwala District Area,name+province,alias,,spelling: 'Umzimkulu' vs 'Umzimkhulu'
+KZN436,ZA5436,Dr Nkosazana Dlamini Zuma,local,KwaZulu-Natal,DC43,live,KZN436 - Creighton/Underberg,KZN436 - Dr. Nkosazana Dlamini Zuma,4-dr-nkosazana-dlamini-zuma,Dr Nkosazana Dlamini Zuma,LM,Harry Gwala,Dr. Nkosasana Dlamini Zuma Local Municipality,Harry Gwala District Area,name+province,alias,,spelling: 'Nkosasana' vs 'Nkosazana'
+LIM331,ZA9331,Greater Giyani,local,Limpopo,DC33,live,LIM331 - Greater Giyani,LIM331 - Greater Giyani,5-greater-giyani,Greater Giyani,ICM,Mopani,Greater Giyani Local Municipality,Mopani District Area,name+province,name,,
+LIM332,ZA9332,Greater Letaba,local,Limpopo,DC33,live,LIM332 - Greater Letaba,LIM332 - Greater Letaba,5-greater-letaba,Greater Letaba,LM,Mopani,Greater Letaba Local Municipality,Mopani District Area,name+province,name,,
+LIM333,ZA9333,Greater Tzaneen,local,Limpopo,DC33,live,LIM333 - Greater Tzaneen,LIM333 - Greater Tzaneen,5-greater-tzaneen,Greater Tzaneen,ICM,Mopani,Greater Tzaneen Local Municipality,Mopani District Area,name+province,name,,
+LIM334,ZA9334,Ba-Phalaborwa,local,Limpopo,DC33,live,LIM334 - Ba-Phalaborwa,LIM334 - Ba-Phalaborwa,5-ba-phalaborwa,Ba-Phalaborwa,ICM,Mopani,Ba-Phalaborwa Local Municipality,Mopani District Area,name+province,name,,
+LIM335,ZA9335,Maruleng,local,Limpopo,DC33,live,LIM335 - Maruleng,LIM335 - Maruleng,5-maruleng,Maruleng,LM,Mopani,Maruleng Local Municipality,Mopani District Area,name+province,name,,
+LIM341,ZA9341,Musina,local,Limpopo,DC34,live,LIM341 - Musina,LIM341 - Musina,5-musina,Musina,LM,Vhembe,Musina Local Municipality,Vhembe District Area,name+province,name,,
+LIM343,ZA9343,Thulamela,local,Limpopo,DC34,live,LIM343 - Thulamela,LIM343 - Thulamela,5-thulamela,Thulamela,ICM,Vhembe,Thulamela Local Municipality,Vhembe District Area,name+province,name,,
+LIM344,ZA9344,Makhado,local,Limpopo,DC34,live,LIM344 - Makhado,LIM344 - Makhado,5-makhado,Makhado,ICM,Vhembe,Makhado Local Municipality,Vhembe District Area,name+province,name,,
+LIM345,ZA9345,Collins Chabane,local,Limpopo,DC34,live,LIM345 - New Municipality,LIM345 - Collins Chabane,5-collins-chabane,Collins Chabane,LM,Vhembe,Collins Chabane Local Municipality,Vhembe District Area,name+province,name,,
+LIM351,ZA9351,Blouberg,local,Limpopo,DC35,live,LIM351 - Blouberg,LIM351 - Blouberg,5-blouberg,Blouberg,LM,Capricorn,Blouberg Local Municipality,Capricorn District Area,name+province,name,,
+LIM353,ZA9353,Molemole,local,Limpopo,DC35,live,LIM353 - Molemole,LIM353 - Molemole,5-molemole,Molemole,LM,Capricorn,Molemole Local Municipality,Capricorn District Area,name+province,name,,
+LIM354,ZA9354,Polokwane,local,Limpopo,DC35,live,LIM354 - Polokwane,LIM354 - Polokwane,5-polokwane,Polokwane,ICM,Capricorn,Polokwane Local Municipality,Capricorn District Area,name+province,name,,
+LIM355,ZA9355,Lepele-Nkumpi,local,Limpopo,DC35,live,LIM355 - Lepele-Nkumpi,LIM355 - Lepele-Nkumpi,5-lepelle-nkumpi,Lepelle-Nkumpi,LM,Capricorn,Lepelle-Nkumpi Local Municipality,Capricorn District Area,name+province,name,,
+LIM361,ZA9361,Thabazimbi,local,Limpopo,DC36,live,LIM361 - Thabazimbi,LIM361 - Thabazimbi,5-thabazimbi,Thabazimbi,LM,Waterberg,Thabazimbi Local Municipality,Waterberg District Area,name+province,name,,
+LIM362,ZA9362,Lephalale,local,Limpopo,DC36,live,LIM362 - Lephalale,LIM362 - Lephalale,5-lephalale,Lephalale,ICM,Waterberg,Lephalale Local Municipality,Waterberg District Area,name+province,name,,
+LIM366,ZA9366,Bela-Bela,local,Limpopo,DC36,live,LIM366 - Bela-Bela,LIM366 - Bela-Bela,5-bela-bela,Bela-Bela,LM,Waterberg,Bela-Bela Local Municipality,Waterberg District Area,name+province,name,,
+LIM367,ZA9367,Mogalakwena,local,Limpopo,DC36,live,LIM367 - Mogalakwena,LIM367 - Mogalakwena,5-mogalakwena,Mogalakwena,ICM,Waterberg,Mogalakwena Local Municipality,Waterberg District Area,name+province,name,,
+LIM368,ZA9368,Modimolle/Mookgophong,local,Limpopo,DC36,live,LIM368 - Modimolle/Mookgopong,LIM368 - Modimolle-Mookgophong,5-modimolle-mookgophong,Modimolle Mookgophong,LM,Waterberg,Modimolle-Mookgopong Local Municipality,Waterberg District Area,name+province,name,,
+LIM471,ZA9471,Ephraim Mogale,local,Limpopo,DC47,live,LIM471 - Ephraim Mogale,LIM471 - Ephraim Mogale,5-ephraim-mogale,Ephraim Mogale,LM,Sekhukhune,Ephraim Mogale Local Municipality,Sekhukhune District Area,name+province,name,,
+LIM472,ZA9472,Elias Motsoaledi,local,Limpopo,DC47,live,LIM472 - Elias Motsoaledi,LIM472 - Elias Motsoaledi,5-elias-motsoaledi-greater-groblersdal,Elias Motsoaledi,LM,Sekhukhune,Elias Motsoaledi Local Municipality,Sekhukhune District Area,name+province,name,,
+LIM473,ZA9473,Makhuduthamaga,local,Limpopo,DC47,live,LIM473 - Makhuduthamaga,LIM473 - Makhuduthamaga,5-makhudutamaga,Makhuduthamaga,LM,Sekhukhune,Makhuduthamaga Local Municipality,Sekhukhune District Area,name+province,name,,
+LIM476,ZA9476,Greater Tubatse/Fetakgomo,local,Limpopo,DC47,live,LIM476 - Greater Tubatse/Fetakgomo,LIM476 - Fetakgomo Tubatse,5-fetakgomo-tubatse,Fetakgomo Tubatse,ICM,Sekhukhune,Fetakgomo-Tubatse Local Municipality,Sekhukhune District Area,alias,alias,2016 merger: 'Fetakgomo Tubatse' vs 'Greater Tubatse/Fetakgomo',2016 merger: 'Fetakgomo Tubatse' vs 'Greater Tubatse/Fetakgomo'
+MP301,ZA8301,Chief Albert Luthuli,local,Mpumalanga,DC30,live,MP301 - Chief Albert Luthuli,MP301 - Chief Albert Luthuli,6-chief-albert-luthuli,Chief Albert Luthuli,LM,Gert Sibande,Albert Luthuli Local Municipality,Gert Sibande District Area,name+province,name,,
+MP302,ZA8302,Msukaligwa,local,Mpumalanga,DC30,live,MP302 - Msukaligwa,MP302 - Msukaligwa,6-msukaligwa,Msukaligwa,LM,Gert Sibande,Msukaligwa Local Municipality,Gert Sibande District Area,name+province,name,,
+MP303,ZA8303,Mkhondo,local,Mpumalanga,DC30,live,MP303 - Mkhondo,MP303 - Mkhondo,6-mkhondo,Mkhondo,LM,Gert Sibande,Mkhondo Local Municipality,Gert Sibande District Area,name+province,name,,
+MP304,ZA8304,Dr Pixley Ka Isaka Seme,local,Mpumalanga,DC30,live,MP304 - Dr Pixley Ka Isaka Seme,MP304 - Dr Pixley Ka Isaka Seme,6-dr-pixley-ka-isaka-seme,Dr Pixley ka Isaka Seme,LM,Gert Sibande,Dr. Pixley Ka Isaka Seme Local Municipality,Gert Sibande District Area,name+province,name,,
+MP305,ZA8305,Lekwa,local,Mpumalanga,DC30,live,MP305 - Lekwa,MP305 - Lekwa,6-lekwa,Lekwa,LM,Gert Sibande,Lekwa Local Municipality,Gert Sibande District Area,name+province,name,,
+MP306,ZA8306,Dipaleseng,local,Mpumalanga,DC30,live,MP306 - Dipaleseng,MP306 - Dipaleseng,6-dipaleseng,Dipaleseng,LM,Gert Sibande,Dipaleseng Local Municipality,Gert Sibande District Area,name+province,name,,
+MP307,ZA8307,Govan Mbeki,local,Mpumalanga,DC30,live,MP307 - Govan Mbeki,MP307 - Govan Mbeki,6-govan-mbeki,Govan Mbeki,ICM,Gert Sibande,Govan Mbeki Local Municipality,Gert Sibande District Area,name+province,name,,
+MP311,ZA8311,Victor Khanye,local,Mpumalanga,DC31,live,MP311 - Victor Khanye,MP311 - Victor Khanye,6-victor-khanye,Victor Khanye,LM,Nkangala,Victor Khanye Local Municipality,Nkangala District Area,name+province,name,,
+MP312,ZA8312,Emalahleni,local,Mpumalanga,DC31,live,MP312 - Emalahleni,MP312 - Emalahleni,6-emalahleni,Emalahleni,ICM,Nkangala,Emalahleni Local Municipality,Nkangala District Area,name+province,name,,
+MP313,ZA8313,Steve Tshwete,local,Mpumalanga,DC31,live,MP313 - Steve Tshwete,MP313 - Steve Tshwete,6-steve-tshwete,Steve Tshwete,ICM,Nkangala,Steve Tshwete Local Municipality,Nkangala District Area,name+province,name,,
+MP314,ZA8314,Emakhazeni,local,Mpumalanga,DC31,live,MP314 - Emakhazeni,MP314 - Emakhazeni,6-emakhazeni,Emakhazeni,LM,Nkangala,Emakhazeni Local Municipality,Nkangala District Area,name+province,name,,
+MP315,ZA8315,Thembisile,local,Mpumalanga,DC31,live,MP315 - Thembisile Hani,MP315 - Thembisile Hani,6-thembisile-hani,Thembisile Hani,LM,Nkangala,Thembisile Local Municipality,Nkangala District Area,name+province,name,,
+MP316,ZA8316,Dr JS Moroka,local,Mpumalanga,DC31,live,MP316 - Dr JS Moroka,MP316 - Dr JS Moroka,6-dr-js-moroka,Dr JS Moroka,LM,Nkangala,Dr JS Moroka Local Municipality,Nkangala District Area,name+province,name,,
+MP321,ZA8321,Thaba Chweu,local,Mpumalanga,DC32,live,MP321 - Thaba Chweu,MP321 - Thaba Chweu,6-thaba-chweu,Thaba Chweu,LM,Ehlanzeni,Thaba Chweu Local Municipality,Ehlanzeni District Area,name+province,name,,
+MP324,ZA8324,Nkomazi,local,Mpumalanga,DC32,live,MP324 - Nkomazi,MP324 - Nkomazi,6-nkomazi,Nkomazi,ICM,Ehlanzeni,Nkomazi Local Municipality,Ehlanzeni District Area,name+province,name,,
+MP325,ZA8325,Bushbuckridge,local,Mpumalanga,DC32,live,MP325 - Bushbuckridge,MP325 - Bushbuckridge,6-bushbuckridge,Bushbuckridge,ICM,Ehlanzeni,Bushbuckridge Local Municipality,Ehlanzeni District Area,name+province,name,,
+MP326,ZA8326,Mbombela,local,Mpumalanga,DC32,live,MP326 - Mbombela/Umjindi,MP326 - City of Mbombela,6-city-of-mbombela,City of Mbombela,ICM,Ehlanzeni,City of Mbombela Local Municipality,Ehlanzeni District Area,alias,name,MP322 is an empty ghost row; MP326 is Mbombela and carries MM/IEC,
+NC061,ZA3061,Richtersveld,local,Nothern Cape,DC6,live,NC061 - RICHTERSVELD,NC061 - RICHTERSVELD,7-richtersveld,Richtersveld,LM,Namakwa,Richtersveld Local Municipality,Namakwa District Area,name+province,name,,
+NC062,ZA3062,Nama Khoi,local,Nothern Cape,DC6,live,NC062 - NAMA KHOI,NC062 - NAMA KHOI,7-nama-khoi,Nama Khoi,LM,Namakwa,Nama Khoi Local Municipality,Namakwa District Area,name+province,name,,
+NC064,ZA3064,Kamiesberg,local,Nothern Cape,DC6,live,NC064 - KAMIESBERG,NC064 - KAMIESBERG,7-kamiesberg,Kamiesberg,LM,Namakwa,Kamiesberg Local Municipality,Namakwa District Area,name+province,name,,
+NC065,ZA3065,Hantam,local,Nothern Cape,DC6,live,NC065 - HANTAM,NC065 - HANTAM,7-hantam,Hantam,LM,Namakwa,Hantam Local Municipality,Namakwa District Area,name+province,name,,
+NC066,ZA3066,Karoo Hoogland,local,Nothern Cape,DC6,live,NC066 - KAROO HOOGLAND,NC066 - KAROO HOOGLAND,7-karoo-hoogland,Karoo Hoogland,LM,Namakwa,Karoo Hoogland Local Municipality,Namakwa District Area,name+province,name,,
+NC067,ZA3067,Khâi-Ma,local,Nothern Cape,DC6,live,NC067 - KHâI-MA,NC067 - KHâI-MA,7-khai-ma,Khai-Ma,LM,Namakwa,Khâi-Ma Local Municipality,Namakwa District Area,name+province,name,,
+NC071,ZA3071,Ubuntu,local,Nothern Cape,DC7,live,NC071 - UBUNTU,NC071 - UBUNTU,7-ubuntu,Ubuntu,LM,Pixley Ka Seme - NC,Ubuntu Local Municipality,Pixley Ka Seme District Area,name+province,name,,
+NC072,ZA3072,Umsobomvu,local,Nothern Cape,DC7,live,NC072 - UMSOBOMVU,NC072 - UMSOBOMVU,7-umsobomvu,Umsobomvu,LM,Pixley Ka Seme - NC,Umsobomvu Local Municipality,Pixley Ka Seme District Area,name+province,name,,
+NC073,ZA3073,Emthanjeni,local,Nothern Cape,DC7,live,NC073 - EMTHANJENI,NC073 - EMTHANJENI,7-emthanjeni,Emthanjeni,LM,Pixley Ka Seme - NC,Emthanjeni Local Municipality,Pixley Ka Seme District Area,name+province,name,,
+NC074,ZA3074,Kareeberg,local,Nothern Cape,DC7,live,NC074 - KAREEBERG,NC074 - KAREEBERG,7-kareeberg,Kareeberg,LM,Pixley Ka Seme - NC,Kareeberg Local Municipality,Pixley Ka Seme District Area,name+province,name,,
+NC075,ZA3075,Renosterberg,local,Nothern Cape,DC7,live,NC075 - RENOSTERBERG,NC075 - RENOSTERBERG,7-renosterberg,Renosterberg,LM,Pixley Ka Seme - NC,Renosterberg Local Municipality,Pixley Ka Seme District Area,name+province,name,,
+NC076,ZA3076,Thembelihle,local,Nothern Cape,DC7,live,NC076 - THEMBELIHLE,NC076 - THEMBELIHLE,7-thembelihle,Thembelihle,LM,Pixley Ka Seme - NC,Thembelihle Local Municipality,Pixley Ka Seme District Area,name+province,name,,
+NC077,ZA3077,Siyathemba,local,Nothern Cape,DC7,live,NC077 - SIYATHEMBA,NC077 - SIYATHEMBA,7-siyathemba,Siyathemba,LM,Pixley Ka Seme - NC,Siyathemba Local Municipality,Pixley Ka Seme District Area,name+province,name,,
+NC078,ZA3078,Siyancuma,local,Nothern Cape,DC7,live,NC078 - SIYANCUMA,NC078 - SIYANCUMA,7-siyancuma,Siyancuma,LM,Pixley Ka Seme - NC,Siyancuma Local Municipality,Pixley Ka Seme District Area,name+province,name,,
+NC082,ZA3082,Kai Garib,local,Nothern Cape,DC8,live,NC082 - KAI !GARIB,NC082 - KAI !GARIB,7-kai-garib,Kai !Garib,LM,ZF Mgcawu District,Kai !Garib Local Municipality,ZF Mgcawu District Area,name+province,name,,
+NC084,ZA3084,Kheis,local,Nothern Cape,DC8,live,NC084 - !KHEIS,NC084 - !KHEIS,7-kheis,!Kheis,LM,ZF Mgcawu District,!Kheis Local Municipality,ZF Mgcawu District Area,name+province,name,,
+NC085,ZA3085,Tsantsabane,local,Nothern Cape,DC8,live,NC085 - TSANTSABANE,NC085 - TSANTSABANE,7-tsantsabane,Tsantsabane,LM,ZF Mgcawu District,Tsantsabane Local Municipality,ZF Mgcawu District Area,name+province,name,,
+NC086,ZA3086,Kgatelopele,local,Nothern Cape,DC8,live,NC086 - KGATELOPELE,NC086 - KGATELOPELE,7-kgatelopele,Kgatelopele,LM,ZF Mgcawu District,Kgatelopele Local Municipality,ZF Mgcawu District Area,name+province,name,,
+NC087,ZA3087,Dawid Kruiper,local,Nothern Cape,DC8,live,NC087 - //Khara Hais/Mier,NC087 - Dawid Kruiper,7-dawid-kruiper,Dawid Kruiper,LM,ZF Mgcawu District,Dawid Kruiper Local Municipality,ZF Mgcawu District Area,name+province,name,,
+NC091,ZA3091,Sol Plaatjie,local,Nothern Cape,DC9,live,NC091 - Sol Plaatje,NC091 - Sol Plaatje,7-sol-plaatje,Sol Plaatje,ICM,Frances Baard,Sol Plaatjie Local Municipality,Frances Baard District Area,name+province,name,,
+NC092,ZA3092,Dikgatlong,local,Nothern Cape,DC9,live,NC092 - Dikgatlong,NC092 - Dikgatlong,7-dikgatlong,Dikgatlong,LM,Frances Baard,Dikgatlong Local Municipality,Frances Baard District Area,name+province,name,,
+NC093,ZA3093,Magareng,local,Nothern Cape,DC9,live,NC093 - Magareng,NC093 - Magareng,7-magareng,Magareng,LM,Frances Baard,Magareng Local Municipality,Frances Baard District Area,name+province,name,,
+NC094,ZA3094,Phokwane,local,Nothern Cape,DC9,live,NC094 - Phokwane,NC094 - Phokwane,7-phokwane,Phokwane,LM,Frances Baard,Phokwane Local Municipality,Frances Baard District Area,name+province,name,,
+NC451,ZA3451,Joe Morolong,local,Nothern Cape,DC45,live,NC451 - Joe Morolong,NC451 - Joe Morolong,7-joe-morolong,Joe Morolong,LM,John Taolo Gaetsewe,Joe Morolong Local Municipality,John Taolo Gaetsewe District Area,name+province,name,,
+NC452,ZA3452,Ga-Segonyana,local,Nothern Cape,DC45,live,NC452 - GA-SEGONYANA,NC452 - GA-SEGONYANA,7-ga-segonyana,Ga-Segonyana,LM,John Taolo Gaetsewe,Ga-Segonyana Local Municipality,John Taolo Gaetsewe District Area,name+province,name,,
+NC453,ZA3453,Gamagara,local,Nothern Cape,DC45,live,NC453 - GAMAGARA,NC453 - GAMAGARA,7-gamagara,Gamagara,LM,John Taolo Gaetsewe,Gamagara Local Municipality,John Taolo Gaetsewe District Area,name+province,name,,
+NW371,ZA6371,Moretele,local,North West,DC37,live,NW371 - Moretele,NW371 - Moretele,8-moretele,Moretele,LM,Bojanala Platinum,Moretele Local Municipality,Bojanala Platinum District Area,name+province,name,,
+NW372,ZA6372,Local Municipality of Madibeng,local,North West,DC37,live,NW372 - Madibeng,NW372 - Madibeng,8-madibeng,Madibeng,ICM,Bojanala Platinum,Madibeng Local Municipality,Bojanala Platinum District Area,name+province,name,,
+NW373,ZA6373,Rustenburg,local,North West,DC37,live,NW373 - Rustenburg,NW373 - Rustenburg,8-rustenburg,Rustenburg,ICM,Bojanala Platinum,Rustenburg Local Municipality,Bojanala Platinum District Area,name+province,name,,
+NW374,ZA6374,Kgetlengrivier,local,North West,DC37,live,NW374 - Kgetlengrivier,NW374 - Kgetlengrivier,8-kgetlengrivier,Kgetlengrivier,LM,Bojanala Platinum,Kgetlengrivier Local Municipality,Bojanala Platinum District Area,name+province,name,,
+NW375,ZA6375,Moses Kotane,local,North West,DC37,live,NW375 - Moses Kotane,NW375 - Moses Kotane,8-moses-kotane,Moses Kotane,LM,Bojanala Platinum,Moses Kotane Local Municipality,Bojanala Platinum District Area,name+province,name,,
+NW381,ZA6381,Ratlou,local,North West,DC38,live,NW381 - Ratlou,NW381 - Ratlou,8-ratlou,Ratlou,LM,Ngaka Modiri Molema,Ratlou Local Municipality,Ngaka Modiri Molema District Area,name+province,name,,
+NW382,ZA6382,Tswaing,local,North West,DC38,live,NW382 - Tswaing,NW382 - Tswaing,8-tswaing,Tswaing,LM,Ngaka Modiri Molema,Tswaing Local Municipality,Ngaka Modiri Molema District Area,name+province,name,,
+NW383,ZA6383,Mafikeng,local,North West,DC38,live,NW383 - Mafikeng,NW383 - Mafikeng,8-mahikeng,Mahikeng,ICM,Ngaka Modiri Molema,Mahikeng Local Municipality,Ngaka Modiri Molema District Area,district-elimination,district-elimination,,
+NW384,ZA6384,Ditsobotla,local,North West,DC38,live,NW384 - Ditsobotla,NW384 - Ditsobotla,8-ditsobotla,Ditsobotla,LM,Ngaka Modiri Molema,Ditsobotla Local Municipality,Ngaka Modiri Molema District Area,name+province,name,,
+NW385,ZA6385,Ramotshere Moiloa,local,North West,DC38,live,NW385 - Ramotshere Moiloa,NW385 - Ramotshere Moiloa,8-ramotshere-moiloa,Ramotshere Moiloa,LM,Ngaka Modiri Molema,Ramotshere Moiloa Local Municipality,Ngaka Modiri Molema District Area,name+province,name,,
+NW392,ZA6392,Naledi,local,North West,DC39,live,NW392 - Naledi,NW392 - Naledi,8-naledi,Naledi,LM,Dr Ruth S Mompati,Naledi Local Municipality,Dr Ruth Segomotsi Mompati District Area,name+province,district-elimination,,
+NW393,ZA6393,Mamusa,local,North West,DC39,live,NW393 - Mamusa,NW393 - Mamusa,8-mamusa,Mamusa,LM,Dr Ruth S Mompati,Mamusa Local Municipality,Dr Ruth Segomotsi Mompati District Area,name+province,name,,
+NW394,ZA6394,Greater Taung,local,North West,DC39,live,NW394 - Greater Taung,NW394 - Greater Taung,8-greater-taung,Greater Taung,LM,Dr Ruth S Mompati,Greater Taung Local Municipality,Dr Ruth Segomotsi Mompati District Area,name+province,name,,
+NW396,ZA6396,Lekwa-Teemane,local,North West,DC39,live,NW396 - Lekwa-Teemane,NW396 - Lekwa-Teemane,8-lekwa-teemane,Lekwa-Teemane,LM,Dr Ruth S Mompati,Lekwa-Teemane Local Municipality,Dr Ruth Segomotsi Mompati District Area,name+province,name,,
+NW397,ZA6397,Kagisano/Molopo,local,North West,DC39,live,NW397 - Ganyesa/Pomfret,NW397 - Ganyesa/Pomfret,8-kagisano-molopo,Kagisano-Molopo,LM,Dr Ruth S Mompati,Kagisano-Molopo Local Municipality,Dr Ruth Segomotsi Mompati District Area,name+province,name,,
+NW403,ZA6403,City of Matlosana,local,North West,DC40,live,NW403 - Matlosana,NW403 - Matlosana,8-matlosana,City of Matlosana,ICM,Dr Kenneth Kaunda,City of Matlosana Local Municipality,Dr Kenneth Kaunda District Area,name+province,name,,
+NW404,ZA6404,Maquassi Hills,local,North West,DC40,live,NW404 - Maquassi Hills,NW404 - Maquassi Hills,8-maquassi-hills,Maquassi Hills,LM,Dr Kenneth Kaunda,Maquassi Hills Local Municipality,Dr Kenneth Kaunda District Area,name+province,name,,
+NW405,ZA6405,Ventersdorp/Tlokwe,local,North West,DC40,live,NW405 - Ventersdorp/Tlokwe,NW405 - JB Marks,8-jb-marks,JB Marks,ICM,Dr Kenneth Kaunda,JB Marks Local Municipality,Dr Kenneth Kaunda District Area,name+province,name,,
+WC011,ZA1011,Matzikama,local,Western Cape,DC1,live,WC011 - Matzikama,WC011 - Matzikama,9-matzikama,Matzikama,LM,West Coast,Matzikama Local Municipality,West Coast District Area,name+province,name,,
+WC012,ZA1012,Cederberg,local,Western Cape,DC1,live,WC012 - Cederberg,WC012 - Cederberg,9-cederberg,Cederberg,LM,West Coast,Cederberg Local Municipality,West Coast District Area,name+province,name,,
+WC013,ZA1013,Bergrivier,local,Western Cape,DC1,live,WC013 - Bergrivier,WC013 - Bergrivier,9-bergriver,Bergrivier,LM,West Coast,Bergrivier Local Municipality,West Coast District Area,name+province,name,,
+WC014,ZA1014,Saldanha Bay,local,Western Cape,DC1,live,WC014 - Saldanha Bay,WC014 - Saldanha Bay,9-saldanha-bay,Saldanha Bay,LM,West Coast,Saldanha Bay Local Municipality,West Coast District Area,name+province,name,,
+WC015,ZA1015,Swartland,local,Western Cape,DC1,live,WC015 - Swartland,WC015 - Swartland,9-swartland,Swartland,LM,West Coast,Swartland Local Municipality,West Coast District Area,name+province,name,,
+WC022,ZA1022,Witzenberg,local,Western Cape,DC2,live,WC022 - Witzenberg,WC022 - Witzenberg,9-witzenberg,Witzenberg,LM,Cape Winelands,Witzenberg Local Municipality,Cape Winelands District Area,name+province,name,,
+WC023,ZA1023,Drakenstein,local,Western Cape,DC2,live,WC023 - Drakenstein,WC023 - Drakenstein,9-drakenstein,Drakenstein,ICM,Cape Winelands,Drakenstein Local Municipality,Cape Winelands District Area,name+province,name,,
+WC024,ZA1024,Stellenbosch,local,Western Cape,DC2,live,WC024 - Stellenbosch,WC024 - Stellenbosch,9-stellenbosch,Stellenbosch,ICM,Cape Winelands,Stellenbosch Local Municipality,Cape Winelands District Area,name+province,name,,
+WC025,ZA1025,Breede Valley,local,Western Cape,DC2,live,WC025 - Breede Valley,WC025 - Breede Valley,9-breede-valley,Breede Valley,LM,Cape Winelands,Breede Valley Local Municipality,Cape Winelands District Area,name+province,name,,
+WC026,ZA1026,Langeberg,local,Western Cape,DC2,live,WC026 - Langeberg,WC026 - Langeberg,9-langeberg,Langeberg,LM,Cape Winelands,Langeberg Local Municipality,Cape Winelands District Area,name+province,name,,
+WC031,ZA1031,Theewaterskloof,local,Western Cape,DC3,live,WC031 - Theewaterskloof,WC031 - Theewaterskloof,9-theewaterskloof,Theewaterskloof,LM,Overberg,Theewaterskloof Local Municipality,Overberg District Area,name+province,name,,
+WC032,ZA1032,Overstrand,local,Western Cape,DC3,live,WC032 - Overstrand,WC032 - Overstrand,9-overstrand,Overstrand,LM,Overberg,Overstrand Local Municipality,Overberg District Area,name+province,name,,
+WC033,ZA1033,Cape Agulhas,local,Western Cape,DC3,live,WC033 - Cape Agulhas,WC033 - Cape Agulhas,9-cape-agulhas,Cape Agulhas,LM,Overberg,Cape Agulhas Local Municipality,Overberg District Area,name+province,name,,
+WC034,ZA1034,Swellendam,local,Western Cape,DC3,live,WC034 - Swellendam,WC034 - Swellendam,9-swellendam,Swellendam,LM,Overberg,Swellendam Local Municipality,Overberg District Area,name+province,name,,
+WC041,ZA1041,Kannaland,local,Western Cape,DC4,live,WC041 - Kannaland,WC041 - Kannaland,9-kannaland,Kannaland,LM,Garden Route,Kannaland Local Municipality,Garden Route District Area,name+province,name,,
+WC042,ZA1042,Hessequa,local,Western Cape,DC4,live,WC042 - Hessequa,WC042 - Hessequa,9-hessequa,Hessequa,LM,Garden Route,Hessequa Local Municipality,Garden Route District Area,name+province,name,,
+WC043,ZA1043,Mossel Bay,local,Western Cape,DC4,live,WC043 - Mossel Bay,WC043 - Mossel Bay,9-mossel-bay,Mossel Bay,LM,Garden Route,Mossel Bay Local Municipality,Garden Route District Area,name+province,name,,
+WC044,ZA1044,George,local,Western Cape,DC4,live,WC044 - George,WC044 - George,9-george,George,ICM,Garden Route,George Local Municipality,Garden Route District Area,name+province,name,,
+WC045,ZA1045,Oudtshoorn,local,Western Cape,DC4,live,WC045 - Oudtshoorn,WC045 - Oudtshoorn,9-oudtshoorn,Oudtshoorn,LM,Garden Route,Oudtshoorn Local Municipality,Garden Route District Area,name+province,name,,
+WC047,ZA1047,Bitou,local,Western Cape,DC4,live,WC047 - Bitou,WC047 - Bitou,9-bitou,Bitou,LM,Garden Route,Bitou Local Municipality,Garden Route District Area,name+province,name,,
+WC048,ZA1048,Knysna,local,Western Cape,DC4,live,WC048 - Knysna,WC048 - Knysna,9-knysna,Knysna,LM,Garden Route,Knysna Local Municipality,Garden Route District Area,name+province,name,,
+WC051,ZA1051,Laingsburg,local,Western Cape,DC5,live,WC051 - Laingsburg,WC051 - Laingsburg,9-laingsburg,Laingsburg,LM,Central Karoo,Laingsburg Local Municipality,Central Karoo District Area,name+province,name,,
+WC052,ZA1052,Prince Albert,local,Western Cape,DC5,live,WC052 - Prince Albert,WC052 - Prince Albert,9-prince-albert,Prince Albert,LM,Central Karoo,Prince Albert Local Municipality,Central Karoo District Area,name+province,name,,
+WC053,ZA1053,Beaufort West,local,Western Cape,DC5,live,WC053 - Beaufort West,WC053 - Beaufort West,9-beaufort-west,Beaufort West,LM,Central Karoo,Beaufort West Local Municipality,Central Karoo District Area,name+province,name,,
+BUF,ZA2920,Buffalo City,metro,Eastern Cape,BUF,live,BUF - Buffalo City,BUF - Buffalo City,1-buffalo-city-metro,Buffalo City Metro,MET,Buffalo City Metro,Buffalo City Metropolitan Municipality,Buffalo City Metropolitan Area,name+province,name,,
+CPT,ZA1910,City of Cape Town,metro,Western Cape,CPT,live,CPT - City of Cape Town,CPT - City of Cape Town,9-city-of-cape-town-metro,City of Cape Town Metro,MET,Cape Town Metro,City of Cape Town Metropolitan Municipality,City of Cape Town Metropolitan Area,name+province,name,,
+EKU,ZA7970,Ekurhuleni,metro,Gauteng,EKU,live,EKU - Ekurhuleni,EKU - Ekurhuleni,3-city-of-ekurhuleni-metro,City of Ekurhuleni Metro,MET,Ekurhuleni Metro,City of Ekurhuleni Metropolitan Municipality,City of Ekurhuleni Metropolitan Area,name+province,name,,
+ETH,ZA5950,eThekwini,metro,KwaZulu-Natal,ETH,live,ETH - eThekwini,ETH - eThekwini,4-ethekwini-metro,eThekwini Metropolitan,MET,eThekwini Metro,eThekwini Metropolitan Municipality,eThekwini Metropolitan Area,name+province,name,,
+JHB,ZA7980,City of Johannesburg,metro,Gauteng,JHB,live,JHB - City of Johannesburg,JHB - City of Johannesburg,3-city-of-johannesburg-metro,City of Johannesburg Metro,MET,Johannesburg Metro,City of Johannesburg Metropolitan Municipality,City of Johannesburg Metropolitan Area,name+province,name,,
+MAN,ZA4940,Mangaung,metro,Free State,MAN,live,MAN - Mangaung,MAN - Mangaung,2-mangaung-metro,Mangaung Metro,MET,Mangaung,Mangaung Metropolitan Municipality,Mangaung Metropolitan Area,name+province,name,,
+NMA,ZA2930,Nelson Mandela Bay,metro,Eastern Cape,NMA,live,NMA - Nelson Mandela Bay,NMA - Nelson Mandela Bay,1-nelson-mandela-bay-metro,Nelson Mandela Bay Metro,MET,Nelson Mandela Metro,Nelson Mandela Bay Metropolitan Municipality,Nelson Mandela Bay Metropolitan Area,name+province,name,,
+TSH,ZA7990,City of Tshwane,metro,Gauteng,TSH,live,TSH - Tshwane Metro,TSH - City of Tshwane,3-city-of-tshwane-metro,City of Tshwane Metro,MET,Tshwane Metro,City of Tshwane Metropolitan Municipality,City of Tshwane Metropolitan Area,name+province,name,,
+EC103,,,municipality,Eastern Cape,DC10,disestablished,,,,,,,,,,,,
+EC107,,,municipality,Eastern Cape,DC10,disestablished,,,,,,,,,,,,
+EC127,,,municipality,Eastern Cape,DC12,disestablished,,,,,,,,,,,,
+EC128,,,municipality,Eastern Cape,DC12,disestablished,,,,,,,,,,,,
+EC132,,,municipality,Eastern Cape,DC13,disestablished,,,,,,,,,,,,
+EC133,,,municipality,Eastern Cape,DC13,disestablished,,,,,,,,,,,,
+EC134,,,municipality,Eastern Cape,DC13,disestablished,,,,,,,,,,,,
+EC143,,,municipality,Eastern Cape,DC14,disestablished,,,,,,,,,,,,
+EC144,,,municipality,Eastern Cape,DC14,disestablished,,,,,,,,,,,,
+FS164,,,municipality,Free State,DC16,disestablished,,,,,,,,,,,,
+GT482,,,municipality,Gauteng,DC48,disestablished,,,,,,,,,,,,
+GT483,,,municipality,Gauteng,DC48,disestablished,,,,,,,,,,,,
+KZN211,,,municipality,KwaZulu-Natal,DC21,disestablished,,,,,,,,,,,,
+KZN215,,,municipality,KwaZulu-Natal,DC21,disestablished,,,,,,,,,,,,
+KZN232,,,municipality,KwaZulu-Natal,DC23,disestablished,,,,,,,,,,,,
+KZN233,,,municipality,KwaZulu-Natal,DC23,disestablished,,,,,,,,,,,,
+KZN234,,,municipality,KwaZulu-Natal,DC23,disestablished,,,,,,,,,,,,
+KZN236,,,municipality,KwaZulu-Natal,DC23,disestablished,,,,,,,,,,,,
+KZN273,,,municipality,KwaZulu-Natal,DC27,disestablished,,,,,,,,,,,,
+KZN274,,,municipality,KwaZulu-Natal,DC27,disestablished,,,,,,,,,,,,
+KZN283,,,municipality,KwaZulu-Natal,DC28,disestablished,,,,,,,,,,,,
+KZN431,,,municipality,KwaZulu-Natal,DC43,disestablished,,,,,,,,,,,,
+KZN432,,,municipality,KwaZulu-Natal,DC43,disestablished,,,,,,,,,,,,
+LIM342,,,municipality,Limpopo,DC34,disestablished,,,,,,,,,,,,
+LIM352,,,municipality,Limpopo,DC35,disestablished,,,,,,,,,,,,
+LIM364,,,municipality,Limpopo,DC36,disestablished,,,,,,,,,,,,
+LIM365,,,municipality,Limpopo,DC36,disestablished,,,,,,,,,,,,
+LIM474,,,municipality,Limpopo,DC47,disestablished,,,,,,,,,,,,
+LIM475,,,municipality,Limpopo,DC47,disestablished,,,,,,,,,,,,
+MP322,,,municipality,Mpumalanga,DC32,disestablished,,,,,,,,,,,,
+MP323,,,municipality,Mpumalanga,DC32,disestablished,,,,,,,,,,,,
+NC081,,,municipality,Northern Cape,DC8,disestablished,,,,,,,,,,,,
+NC083,,,municipality,Northern Cape,DC8,disestablished,,,,,,,,,,,,
+NW401,,,municipality,North West,DC40,disestablished,,,,,,,,,,,,
+NW402,,,municipality,North West,DC40,disestablished,,,,,,,,,,,,
