@@ -71,7 +71,7 @@ distinction cost me three wrong claims in one evening.
 | SARB | Reserve Bank | Rates, reserves, BoP, time series | Portal query → CSV/XLSX | ○ | 200 (direct CSV paths are not guessable) |
 | SARS tax statistics | SARS / Treasury | Income tax distribution, wage brackets | Annual PDF + Excel | ○ | 200 (person-level microdata gated) |
 | Stats SA publications | Statistics South Africa | CPI, GDP, QLFS, census | Workbooks | ◐ P9115 only | 200, Incapsula |
-| DataFirst | UCT | Microdata: census, QLFS, GHS, NIDS | Stata/SPSS/CSV | ○ | free account + data-use agreement |
+| DataFirst | UCT | Microdata: census, QLFS, GHS, NIDS | Stata/SPSS/CSV | ○ | 200 — free account + data-use agreement |
 | Land Portal | Land Portal Foundation | Land governance index | Web | ○ | 200 (deeds are paid) |
 
 ## Language and corpora
