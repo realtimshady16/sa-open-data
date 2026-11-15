@@ -1,0 +1,122 @@
+{
+ "agsa_unmatched": [
+  {
+   "agsa_name": "Dr Beyers Naud\u00e9",
+   "slug": "1-dr-beyers-naude",
+   "type": "LM",
+   "province": "Eastern Cape",
+   "district": "Sarah Baartman",
+   "candidates": []
+  },
+  {
+   "agsa_name": "Ingquza Hill",
+   "slug": "1-ingquza-hill",
+   "type": "LM",
+   "province": "Eastern Cape",
+   "district": "O.R. Tambo",
+   "candidates": []
+  },
+  {
+   "agsa_name": "Pixley Ka Seme District",
+   "slug": "7-pixley-ka-seme-district",
+   "type": "DM",
+   "province": "Northern Cape",
+   "district": "Pixley Ka Seme - NC",
+   "candidates": [
+    "DC7",
+    "MP304"
+   ]
+  },
+  {
+   "agsa_name": "uMfolozi",
+   "slug": "4-mfolozi",
+   "type": "LM",
+   "province": "KwaZulu-Natal",
+   "district": "King Cetshwayo",
+   "candidates": []
+  },
+  {
+   "agsa_name": "Big 5 Hlabisa",
+   "slug": "4-big-5-hlabisa",
+   "type": "LM",
+   "province": "KwaZulu-Natal",
+   "district": "uMkhanyakude",
+   "candidates": []
+  },
+  {
+   "agsa_name": "iNkosi uMtubatuba",
+   "slug": "4-mtubatuba",
+   "type": "LM",
+   "province": "KwaZulu-Natal",
+   "district": "uMkhanyakude",
+   "candidates": []
+  },
+  {
+   "agsa_name": "City of Mbombela",
+   "slug": "6-city-of-mbombela",
+   "type": "ICM",
+   "province": "Mpumalanga",
+   "district": "Ehlanzeni",
+   "candidates": [
+    "MP322",
+    "MP326"
+   ]
+  },
+  {
+   "agsa_name": "Fetakgomo Tubatse",
+   "slug": "5-fetakgomo-tubatse",
+   "type": "ICM",
+   "province": "Limpopo",
+   "district": "Sekhukhune",
+   "candidates": []
+  }
+ ],
+ "p9115_unmatched": [
+  {
+   "p9115_name": "uMfolozi Local Municipality",
+   "district": "King Cetshwayo District Area",
+   "candidates": []
+  },
+  {
+   "p9115_name": "uMgungundhlovu District Municipality",
+   "district": "uMgungundhlovu District Area",
+   "candidates": []
+  },
+  {
+   "p9115_name": "Umzimkulu Local Municipality",
+   "district": "Harry Gwala District Area",
+   "candidates": []
+  },
+  {
+   "p9115_name": "Dr. Nkosasana Dlamini Zuma Local Municipality",
+   "district": "Harry Gwala District Area",
+   "candidates": []
+  },
+  {
+   "p9115_name": "Pixley Ka Seme District Municipality",
+   "district": "Pixley Ka Seme District Area",
+   "candidates": [
+    "DC7",
+    "MP304"
+   ]
+  },
+  {
+   "p9115_name": "The Big 5 Hlabisa Local Municipality",
+   "district": "uMkhanyakude District Area",
+   "candidates": []
+  },
+  {
+   "p9115_name": "City of Mbombela Local Municipality",
+   "district": "Ehlanzeni District Area",
+   "candidates": [
+    "MP322",
+    "MP326"
+   ]
+  },
+  {
+   "p9115_name": "Fetakgomo-Tubatse Local Municipality",
+   "district": "Sekhukhune District Area",
+   "candidates": []
+  }
+ ]
+}
