@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use these data, cite them as below. The underlying statistics are
+  produced by National Treasury, the Auditor-General, the IEC and Statistics South
+  Africa; cite them too where you can."
+title: "SA open data: preserved copies of South African local-government datasets"
+type: dataset
+authors:
+  - family-names: Evertse
+    given-names: Tim
+    affiliation: University of Cape Town
+repository-code: "https://github.com/realtimshady16/sa-open-data"
+url: "https://github.com/realtimshady16/sa-open-data"
+version: 0.1.0
+date-released: 2026-11-15
+license: CC-BY-4.0
+abstract: >-
+  Preserved copies of four South African public datasets, captured 2026-11-09 to
+  2026-11-10: 292 Municipal Money municipal financial profiles (National Treasury),
+  257x8 municipal audit outcomes (Auditor-General, MFMA 2024-25), council composition
+  after the 2016 and 2021 elections (IEC), and free basic services per municipality
+  (Stats SA P9115). Two of the sources are year-stamped or unstable and are not
+  archived elsewhere, which is why this copy exists. Includes provenance, a sha256
+  manifest, and unmodified fetchers.
+keywords:
+  - South Africa
+  - local government
+  - municipal finance
+  - audit outcomes
+  - elections
+  - open data
+  - data preservation

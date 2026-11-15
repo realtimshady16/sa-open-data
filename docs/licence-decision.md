@@ -1,4 +1,22 @@
-# Licence options — decision pending
+# Licence decision
+
+**Decided 2026-11-15: CC BY 4.0 for the data, MIT for the code.**
+
+Why: this exists to be used by people who will never read a licence — a journalist on deadline,
+an honours student, a council official. Attribution-only is the option that produces reuse
+rather than correspondence. ODbL (share-alike on the database) was the runner-up and was
+rejected knowingly: it buys "improvements stay public" at the cost of some commercial users and
+more support questions than this project will ever staff.
+
+Files: `LICENSE` (MIT, covers `scripts/`), `LICENSE-DATA` (CC BY 4.0, covers `datasets/`),
+`CITATION.cff`. Release tag: `v0.1.0`.
+
+What follows is the reasoning as written *before* the decision, kept because it is the record of
+what the alternatives cost.
+
+---
+
+# Licence options (as considered)
 
 Nothing is licensed yet. Until a `LICENSE` file exists, default copyright applies and nobody may
 redistribute this. **Do not treat this repository as reusable until this is decided.**
