@@ -220,6 +220,30 @@ published as data — which is worth knowing before a project assumes they are.
    went.
 6. **PMG questions** — the only place ministers answer in writing, on the record, by date.
 
+## How this was collected, so it can be collected again
+
+**Record entry points, not file URLs.** Three publishers taught this in one day:
+
+- **DBE links files through `LinkClick.aspx?fileticket=<hash>`** — the ticket is a content hash,
+  not an address. A saved list of 794 ticket URLs is worthless in a year; the *page* is stable.
+  The recipe is: fetch the page, re-derive links by their **label** (`"School Performance Report"`).
+- **Stats SA's P-series landing pages** return a ~1 KB Incapsula challenge to a script, while the
+  file paths under `/publications/` are open. Know the path pattern; don't crawl the index.
+- **PACSA's live site** answers every PDF path with its homepage (same byte count, `text/html`) —
+  a soft 404. Only the Internet Archive captures are real.
+
+**Then always re-probe.** `api.elections.org.za/api/v1/` returned 200 on 9 November 2026 and 404
+on 15 November 2026. A URL is a claim about the present, not a fact.
+
+**Politeness that worked:** one request at a time, 5 seconds apart, a descriptive User-Agent with
+a contact URL. Zero 429s across ~40 requests at that pace; throttling only appeared when something
+hammered (AGSA at 0.15 s/request cost 18 of 257 auditees; Wayback content fetches need shallow
+passes 30 minutes apart, not deep retries).
+
+**Never authenticate as a person.** DataFirst microdata is downloaded by the named researcher and
+parsed locally. A data-use agreement is signed by a human; a script logging in on their behalf
+sits outside its terms and taints the provenance of everything built downstream.
+
 ## What is held locally
 
 Collected documents live in `~/thinking/.raw/collections/` with a `manifest.csv` (sha256, bytes,
