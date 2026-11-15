@@ -99,6 +99,58 @@ licensing ranges from CC0 to unlicensed, which means all rights reserved.
 | Wayback Save Page Now | Push a live URL into the archive — the archive is passive by default | ✓ 11 URLs pushed 2026-11-15 |
 | Zenodo | DOI minting from a GitHub release | ✓ `v0.1.0` → `10.5281/zenodo.24241806` |
 
+## Household spending, and where the money actually goes
+
+South Africa measures this twice over, badly and well: **surveys** that ask households what they
+spend (accurate for the poor, under-reported for the rich, and systematically silent on alcohol,
+gambling and anything shameful), and **industry and regulator series** that count the money as it
+arrives (accurate in aggregate, blind to who spent it). Any honest picture triangulates the two,
+and knows which one is speaking.
+
+| Source | Publisher | What it holds | Access | Held | Status |
+|---|---|---|---|---|---|
+| **Income & Expenditure Survey (P0100)** | Stats SA | **The spine.** Household spending by COICOP category, income, and grant receipt. Editions 2005/06, 2010/11, 2015/16, 2022/23 | Report PDFs + microdata | ○ | 200 — microdata on DataFirst (200, free account + data-use agreement) |
+| Household final consumption expenditure | Stats SA (GDP release) | Quarterly spending by category, aggregate | Excel from GDP release | ○ | — |
+| CPI and its **weights** (P0141) | Stats SA | Monthly prices, and the basket weights that are themselves a spending-share estimate | Excel / PDF | ○ | 200 |
+| General Household Survey (P0318) | Stats SA | Grant receipt, services access, ICT use in households | Microdata | ○ | — |
+| Living conditions / NIDS | Stats SA / UCT | Panel welfare, food poverty, grant dependence | Microdata | ○ | — |
+| Retail trade sales (P6242.1) | Stats SA | Monthly retail turnover by category | Excel | ○ | 200 |
+
+### Grants and social security
+
+| Source | Publisher | What it holds | Access | Status |
+|---|---|---|---|---|
+| SASSA | South African Social Security Agency | Beneficiary numbers by grant type and province, expenditure, payment dates | Web + reports | 200 — but **paths churn** (the obvious `/statistical-reports/` URL 404s) |
+| Social protection vote | National Treasury | Budget allocation, including SRD grant | Budget documents | — |
+| SASSA annual report | SASSA | Audited spend and beneficiary counts | PDF | — |
+
+### The discretionary categories, counted rather than asked
+
+| Category | Source | What it holds | Access | Status |
+|---|---|---|---|---|
+| Gambling | National Gambling Board | Gross gaming revenue by province and mode (casino, betting, LPM) | Reports | 200 |
+| Alcohol & tobacco | SARS excise | Duty collected — a hard, monthly proxy for volume | Web | 200 |
+| Vehicles | NAAMSA | Monthly new vehicle sales by segment — the cleanest monthly series in the country | Web / releases | 200 |
+| Broadcast & streaming | ICASA | State of the ICT Sector: subscription TV, internet penetration, data prices | Report PDF | 200 |
+| Electricity | NERSA · Eskom | Tariffs, sales volumes; Eskom data portal has generation and demand | Web / CSV | 200 both |
+| Fuel | SAPIA · DMRE | Volumes by product; regulated prices | Web | **403** to curl (exists) |
+| Insurance & savings | ASISA · SARB | Industry flows; household debt and saving in the Quarterly Bulletin | Web / PDF | 200 both |
+| Financial inclusion | FinMark Trust (FinScope) | Who has a bank account, credit, insurance | Survey reports | 200 |
+| Medicines | Code4SA `medicine-price-registry` | Single Exit Price mechanism, with an API | GitHub | Apache-2.0 |
+| Food | PMBEJD · NAMC · CPI food group | Monthly basket (held), farm-gate spreads, headline prices | PDF / API | PMBEJD **✓ held** |
+
+### What this combination can and cannot say
+
+- **Can:** the shape of household spending by category, for 2005/06 → 2022/23, and monthly
+  movement in the price of that same basket. Grant dependence by household. Gaming revenue and
+  excise as independent checks on the "shameful" categories.
+- **Cannot:** who spent it. IES is a survey with a five-year gap; retail trade and excise have no
+  income dimension; SASSA knows recipients but not their other spending.
+- **The honest warning:** survey and industry numbers disagree by construction. Under-reporting is
+  not noise, it is pattern — alcohol and gambling are under-stated in surveys, and province-level
+  industry totals double-count between operators. Triangulate, then say which leg you're standing
+  on.
+
 ---
 
 ## Gaps, ranked by what they cost us
