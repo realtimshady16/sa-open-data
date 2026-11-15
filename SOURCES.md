@@ -109,9 +109,9 @@ and knows which one is speaking.
 
 | Source | Publisher | What it holds | Access | Held | Status |
 |---|---|---|---|---|---|
-| **Income & Expenditure Survey (P0100)** | Stats SA | **The spine.** Household spending by COICOP category, income, and grant receipt. Editions 2005/06, 2010/11, 2015/16, 2022/23 | Report PDFs + microdata | ○ | 200 — microdata on DataFirst (200, free account + data-use agreement) |
+| **Income & Expenditure Survey (P0100)** | Stats SA | **The spine.** Household spending by COICOP category, income, and grant receipt. Editions 2005/06, 2010/11, 2015/16, 2022/23 | Report PDFs + microdata | **✓** report held (348 pp); microdata ○ | 200 — `publications/P0100/P01002022.pdf`; microdata on DataFirst (200, free account) |
 | Household final consumption expenditure | Stats SA (GDP release) | Quarterly spending by category, aggregate | Excel from GDP release | ○ | — |
-| CPI and its **weights** (P0141) | Stats SA | Monthly prices, and the basket weights that are themselves a spending-share estimate | Excel / PDF | ○ | 200 |
+| CPI and its **weights** (P0141) | Stats SA | Monthly prices, and the basket weights that are themselves a spending-share estimate | Excel / PDF | **✓** Dec 2025 release + the 2025 basket/weights presentation | 200 |
 | General Household Survey (P0318) | Stats SA | Grant receipt, services access, ICT use in households | Microdata | ○ | — |
 | Living conditions / NIDS | Stats SA / UCT | Panel welfare, food poverty, grant dependence | Microdata | ○ | — |
 | Retail trade sales (P6242.1) | Stats SA | Monthly retail turnover by category | Excel | ○ | 200 |
@@ -120,7 +120,7 @@ and knows which one is speaking.
 
 | Source | Publisher | What it holds | Access | Status |
 |---|---|---|---|---|
-| SASSA | South African Social Security Agency | Beneficiary numbers by grant type and province, expenditure, payment dates | Web + reports | 200 — but **paths churn** (the obvious `/statistical-reports/` URL 404s) |
+| SASSA | South African Social Security Agency | Beneficiary numbers by grant type and province, expenditure, payment dates | Web + reports | **✓** Social assistance report, Jun 2026 (123 pp) | 200 — but **paths churn** (the obvious `/statistical-reports/` URL 404s) |
 | Social protection vote | National Treasury | Budget allocation, including SRD grant | Budget documents | — |
 | SASSA annual report | SASSA | Audited spend and beneficiary counts | PDF | — |
 
@@ -128,10 +128,11 @@ and knows which one is speaking.
 
 | Category | Source | What it holds | Access | Status |
 |---|---|---|---|---|
-| Gambling | National Gambling Board | Gross gaming revenue by province and mode (casino, betting, LPM) | Reports | 200 |
-| Alcohol & tobacco | SARS excise | Duty collected — a hard, monthly proxy for volume | Web | 200 |
-| Vehicles | NAAMSA | Monthly new vehicle sales by segment — the cleanest monthly series in the country | Web / releases | 200 |
-| Broadcast & streaming | ICASA | State of the ICT Sector: subscription TV, internet penetration, data prices | Report PDF | 200 |
+| Gambling | National Gambling Board | Gross gaming revenue by province and mode (casino, betting, LPM) | Reports | **✓** `Summary: Gambling Sector Performance FY2024-25` (49 pp, 121 GGR mentions) — **not** the annual report, which carries none | 200 |
+| Gambling (provincial) | Gauteng Gambling Board · WCGRB | Province-level GGR, licences, enforcement | Annual reports | **✓** GGB 2024/25 (140 pp), WCGRB 2023/24 (156 pp) | 200 |
+| Alcohol & tobacco · fuel | SARS | Excise and fuel-levy collections by product | Annual **workbooks** (chapter zips) | **✓** Tax Statistics 2025 ch.1 and ch.6 | 200 |
+| Vehicles | NAAMSA | Monthly new vehicle sales by segment — the cleanest monthly series in the country | Web / releases | **✓** Oct 2026 release + flash stats | 200 |
+| Broadcast & streaming | ICASA | State of the ICT Sector: subscription TV, internet penetration, data prices | Report PDF | **✓** 2025 and 2026 editions | 200 |
 | Electricity | NERSA · Eskom | Tariffs, sales volumes; Eskom data portal has generation and demand | Web / CSV | 200 both |
 | Fuel | SAPIA · DMRE | Volumes by product; regulated prices | Web | **403** to curl (exists) |
 | Insurance & savings | ASISA · SARB | Industry flows; household debt and saving in the Quarterly Bulletin | Web / PDF | 200 both |
@@ -165,6 +166,19 @@ and knows which one is speaking.
 5. **Procurement** (eTenders) — audit says the books were wrong; tenders say where the money
    went.
 6. **PMG questions** — the only place ministers answer in writing, on the record, by date.
+
+## What is held locally
+
+Collected documents live in `~/thinking/.raw/collections/` with a `manifest.csv` (sha256, bytes,
+HTTP status, publisher, timestamp). **Not published in this repository**, deliberately: these are
+third-party documents under their own copyright — the same category as the manifesto corpus. The
+tables extracted from them are ours to publish; the PDFs are not.
+
+Fetched 2026-11-15 at one request every 5 s with a descriptive User-Agent: Stats SA IES 2022/23 ·
+CPI Dec 2025 + 2025 weights · SASSA social assistance Jun 2026 · ICASA ICT sector 2025 and 2026 ·
+NGB gambling performance 2024-25 · GGB and WCGRB annual reports · SARS Tax Statistics 2025
+chapters 1 and 6 · NAAMSA Oct 2026. **Zero 429s at that pace** — the throttling only appears when
+something hammers.
 
 ## Adding a row
 
