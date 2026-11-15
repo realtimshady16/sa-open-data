@@ -1,0 +1,258 @@
+municipality,district,identified,benef_water,benef_electricity,benef_sanitation,benef_waste,coverage_water,coverage_electricity,coverage_sanitation,coverage_waste
+Saldanha Bay Local Municipality,West Coast District Area,8664.0,8110.0,8410.0,8016.0,8664.0,0.9361,0.9707,0.9252,1.0
+Matzikama Local Municipality,West Coast District Area,2660.0,2660.0,2660.0,2660.0,2660.0,1.0,1.0,1.0,1.0
+West Coast District Municipality,West Coast District Area,20.0,20.0,15.0,15.0,15.0,1.0,0.75,0.75,0.75
+Swartland Local Municipality,West Coast District Area,9205.0,9189.0,8422.0,8856.0,9205.0,0.9983,0.9149,0.9621,1.0
+Cederberg Local Municipality,West Coast District Area,2397.0,2397.0,2250.0,2330.0,2395.0,1.0,0.9387,0.972,0.9992
+Bergrivier Local Municipality,West Coast District Area,1983.0,1898.0,1983.0,1695.0,1902.0,0.9571,1.0,0.8548,0.9592
+Overstrand Local Municipality,Overberg District Area,1491.0,1491.0,1491.0,1491.0,1491.0,1.0,1.0,1.0,1.0
+Overberg District Municipality,Overberg District Area,0.0,0.0,0.0,0.0,0.0,,,,
+Cape Agulhas Local Municipality,Overberg District Area,3214.0,3214.0,3214.0,3214.0,3214.0,1.0,1.0,1.0,1.0
+Theewaterskloof Local Municipality,Overberg District Area,6473.0,6336.0,6336.0,6347.0,6396.0,0.9788,0.9788,0.9805,0.9881
+Swellendam Local Municipality,Overberg District Area,2339.0,2339.0,2339.0,2339.0,2339.0,1.0,1.0,1.0,1.0
+Bitou Local Municipality,Garden Route District Area,4132.0,4132.0,4132.0,4132.0,4132.0,1.0,1.0,1.0,1.0
+Oudtshoorn Local Municipality,Garden Route District Area,7384.0,7040.0,7193.0,6819.0,6819.0,0.9534,0.9741,0.9235,0.9235
+Mossel Bay Local Municipality,Garden Route District Area,13337.0,10267.0,13337.0,9949.0,10368.0,0.7698,1.0,0.746,0.7774
+Garden Route District Municipality,Garden Route District Area,0.0,0.0,0.0,0.0,0.0,,,,
+Kannaland Local Municipality,Garden Route District Area,2250.0,2173.0,2250.0,2173.0,2173.0,0.9658,1.0,0.9658,0.9658
+George Local Municipality,Garden Route District Area,14878.0,10488.0,14878.0,10228.0,10318.0,0.7049,1.0,0.6875,0.6935
+Hessequa Local Municipality,Garden Route District Area,5348.0,4944.0,5348.0,4995.0,5046.0,0.9245,1.0,0.934,0.9435
+Knysna Local Municipality,Garden Route District Area,1837.0,1837.0,1535.0,1837.0,1837.0,1.0,0.8356,1.0,1.0
+Drakenstein Local Municipality,Cape Winelands District Area,15210.0,15210.0,15210.0,15210.0,15210.0,1.0,1.0,1.0,1.0
+Stellenbosch Local Municipality,Cape Winelands District Area,5744.0,5744.0,5744.0,5744.0,5744.0,1.0,1.0,1.0,1.0
+Witzenberg Local Municipality,Cape Winelands District Area,3105.0,3105.0,3105.0,3105.0,3105.0,1.0,1.0,1.0,1.0
+Cape Winelands District Municipality,Cape Winelands District Area,0.0,0.0,0.0,0.0,0.0,,,,
+Langeberg Local Municipality,Cape Winelands District Area,6043.0,6034.0,6040.0,6033.0,6043.0,0.9985,0.9995,0.9983,1.0
+Breede Valley Local Municipality,Cape Winelands District Area,7999.0,7999.0,7999.0,7999.0,7999.0,1.0,1.0,1.0,1.0
+Central Karoo District Municipality,Central Karoo District Area,0.0,0.0,0.0,0.0,0.0,,,,
+Prince Albert Local Municipality,Central Karoo District Area,1266.0,1266.0,1266.0,1266.0,1266.0,1.0,1.0,1.0,1.0
+Laingsburg Local Municipality,Central Karoo District Area,470.0,464.0,352.0,458.0,470.0,0.9872,0.7489,0.9745,1.0
+Beaufort West Local Municipality,Central Karoo District Area,4593.0,4593.0,4593.0,4593.0,4593.0,1.0,1.0,1.0,1.0
+City of Cape Town Metropolitan Municipality,City of Cape Town Metropolitan Area,186520.0,186520.0,186520.0,186520.0,186520.0,1.0,1.0,1.0,1.0
+Inxuba Yethemba Local Municipality,Chris Hani District Area,3565.0,0.0,3565.0,0.0,3565.0,0.0,1.0,0.0,1.0
+Chris Hani District Municipality,Chris Hani District Area,13076.0,13076.0,0.0,13076.0,0.0,1.0,0.0,1.0,0.0
+Intsika Yethu Local Municipality,Chris Hani District Area,4578.0,0.0,4578.0,0.0,9.0,0.0,1.0,0.0,0.002
+Dr. AB Xuma Local Municipality,Chris Hani District Area,2946.0,0.0,2946.0,0.0,1283.0,0.0,1.0,0.0,0.4355
+Enoch Mgijima Local Municipality,Chris Hani District Area,2220.0,0.0,2220.0,0.0,2220.0,0.0,1.0,0.0,1.0
+Emalahleni Local Municipality,Chris Hani District Area,5054.0,0.0,2484.0,0.0,357.0,0.0,0.4915,0.0,0.0706
+Sakhisizwe Local Municipality,Chris Hani District Area,3708.0,0.0,3708.0,0.0,382.0,0.0,1.0,0.0,0.103
+Senqu Local Municipality,Joe Gqabi District Area,7383.0,0.0,6733.0,0.0,2405.0,0.0,0.912,0.0,0.3257
+Joe Gqabi District Municipality,Joe Gqabi District Area,4833.0,4833.0,0.0,4355.0,0.0,1.0,0.0,0.9011,0.0
+Elundini Local Municipality,Joe Gqabi District Area,5049.0,0.0,5049.0,0.0,884.0,0.0,1.0,0.0,0.1751
+Walter Sisulu Local Municipality,Joe Gqabi District Area,6999.0,0.0,4528.0,0.0,6999.0,0.0,0.6469,0.0,1.0
+Ndlambe Local Municipality,Sarah Baartman District Area,7960.0,7960.0,5789.0,3689.0,7553.0,1.0,0.7273,0.4634,0.9489
+Dr. Beyers Naude Local Municipality,Sarah Baartman District Area,6076.0,6014.0,6014.0,5858.0,6076.0,0.9898,0.9898,0.9641,1.0
+Kou-Kamma Local Municipality,Sarah Baartman District Area,1363.0,1258.0,1363.0,1258.0,1258.0,0.923,1.0,0.923,0.923
+Sarah Baartman District Municipality,Sarah Baartman District Area,0.0,0.0,0.0,0.0,0.0,,,,
+Sunday's River Valley Local Municipality,Sarah Baartman District Area,2487.0,2441.0,2253.0,2441.0,2487.0,0.9815,0.9059,0.9815,1.0
+Kouga Local Municipality,Sarah Baartman District Area,7558.0,7558.0,7426.0,7558.0,7558.0,1.0,0.9825,1.0,1.0
+Makana Local Municipality,Sarah Baartman District Area,6629.0,6178.0,1740.0,6620.0,6629.0,0.932,0.2625,0.9986,1.0
+Blue Crane Route Local Municipality,Sarah Baartman District Area,3561.0,3561.0,3561.0,3561.0,3561.0,1.0,1.0,1.0,1.0
+Port St Johns Local Municipality,O.R. Tambo District Area,4200.0,0.0,4200.0,0.0,444.0,0.0,1.0,0.0,0.1057
+O.R. Tambo District Municipality,O.R. Tambo District Area,4418.0,4418.0,0.0,4418.0,0.0,1.0,0.0,1.0,0.0
+King Sabata Dalindyebo Local Municipality,O.R. Tambo District Area,23742.0,0.0,13342.0,0.0,860.0,0.0,0.562,0.0,0.0362
+Nyandeni Local Municipality,O.R. Tambo District Area,1800.0,0.0,1800.0,0.0,0.0,0.0,1.0,0.0,0.0
+Ngquza Hill Local Municipality,O.R. Tambo District Area,7504.0,0.0,7504.0,0.0,2193.0,0.0,1.0,0.0,0.2922
+Mhlontlo Local Municipality,O.R. Tambo District Area,3067.0,0.0,2055.0,0.0,265.0,0.0,0.67,0.0,0.0864
+Great Kei Local Municipality,Amathole District Area,1739.0,0.0,1288.0,0.0,1739.0,0.0,0.7407,0.0,1.0
+Amathole District Municipality,Amathole District Area,1597.0,1597.0,0.0,1597.0,0.0,1.0,0.0,1.0,0.0
+Mnquma Local Municipality,Amathole District Area,10528.0,0.0,10528.0,0.0,140.0,0.0,1.0,0.0,0.0133
+Amahlathi Local Municipality,Amathole District Area,3581.0,0.0,3581.0,0.0,472.0,0.0,1.0,0.0,0.1318
+Mbhashe Local Municipality,Amathole District Area,4789.0,0.0,1710.0,0.0,4789.0,0.0,0.3571,0.0,1.0
+Ngqushwa Local Municipality,Amathole District Area,8044.0,0.0,7491.0,0.0,1992.0,0.0,0.9313,0.0,0.2476
+Raymond Mhlaba Local Municipality,Amathole District Area,19144.0,0.0,17096.0,0.0,2047.0,0.0,0.893,0.0,0.1069
+Matatiele Local Municipality,Alfred Nzo District Area,15256.0,0.0,3402.0,0.0,920.0,0.0,0.223,0.0,0.0603
+Ntabankulu Local Municipality,Alfred Nzo District Area,6642.0,0.0,2471.0,0.0,355.0,0.0,0.372,0.0,0.0534
+Mbizana Local Municipality,Alfred Nzo District Area,18400.0,0.0,3953.0,0.0,743.0,0.0,0.2148,0.0,0.0404
+Alfred Nzo District Municipality,Alfred Nzo District Area,35214.0,35214.0,0.0,35214.0,0.0,1.0,0.0,1.0,0.0
+Umzimvubu Local Municipality,Alfred Nzo District Area,5356.0,0.0,1136.0,0.0,0.0,0.0,0.2121,0.0,0.0
+Buffalo City Metropolitan Municipality,Buffalo City Metropolitan Area,52432.0,52432.0,52432.0,32135.0,45945.0,1.0,1.0,0.6129,0.8763
+Nelson Mandela Bay Metropolitan Municipality,Nelson Mandela Bay Metropolitan Area,45612.0,43548.0,33818.0,44581.0,41238.0,0.9547,0.7414,0.9774,0.9041
+Gamagara Local Municipality,John Taolo Gaetsewe District Area,1619.0,1619.0,1619.0,1619.0,1619.0,1.0,1.0,1.0,1.0
+Ga-Segonyana Local Municipality,John Taolo Gaetsewe District Area,3161.0,3161.0,3161.0,406.0,406.0,1.0,1.0,0.1284,0.1284
+John Taolo Gaetsewe District Municipality,John Taolo Gaetsewe District Area,0.0,0.0,0.0,0.0,0.0,,,,
+Joe Morolong Local Municipality,John Taolo Gaetsewe District Area,5990.0,1995.0,5990.0,488.0,488.0,0.3331,1.0,0.0815,0.0815
+Siyathemba Local Municipality,Pixley Ka Seme District Area,1980.0,1980.0,1980.0,1427.0,1980.0,1.0,1.0,0.7207,1.0
+Siyancuma Local Municipality,Pixley Ka Seme District Area,4777.0,4777.0,4777.0,4777.0,4777.0,1.0,1.0,1.0,1.0
+Pixley Ka Seme District Municipality,Pixley Ka Seme District Area,0.0,0.0,0.0,0.0,0.0,,,,
+Renosterberg Local Municipality,Pixley Ka Seme District Area,926.0,926.0,926.0,926.0,926.0,1.0,1.0,1.0,1.0
+Thembelihle Local Municipality,Pixley Ka Seme District Area,771.0,771.0,771.0,771.0,711.0,1.0,1.0,1.0,0.9222
+Umsobomvu Local Municipality,Pixley Ka Seme District Area,1913.0,1913.0,1913.0,1913.0,1913.0,1.0,1.0,1.0,1.0
+Kareeberg Local Municipality,Pixley Ka Seme District Area,994.0,994.0,945.0,834.0,994.0,1.0,0.9507,0.839,1.0
+Ubuntu Local Municipality,Pixley Ka Seme District Area,1219.0,1219.0,1219.0,1219.0,1219.0,1.0,1.0,1.0,1.0
+Emthanjeni Local Municipality,Pixley Ka Seme District Area,3299.0,3299.0,3299.0,3299.0,3299.0,1.0,1.0,1.0,1.0
+Frances Baard District Municipality,Frances Baard District Area,0.0,0.0,0.0,0.0,0.0,,,,
+Dikgatlong Local Municipality,Frances Baard District Area,713.0,713.0,713.0,713.0,713.0,1.0,1.0,1.0,1.0
+Magareng Local Municipality,Frances Baard District Area,270.0,270.0,270.0,270.0,270.0,1.0,1.0,1.0,1.0
+Sol Plaatjie Local Municipality,Frances Baard District Area,12033.0,12033.0,12033.0,12033.0,12033.0,1.0,1.0,1.0,1.0
+Phokwane Local Municipality,Frances Baard District Area,1554.0,1332.0,1215.0,1554.0,1554.0,0.8571,0.7819,1.0,1.0
+Tsantsabane Local Municipality,ZF Mgcawu District Area,723.0,723.0,723.0,723.0,723.0,1.0,1.0,1.0,1.0
+ZF Mgcawu District Municipality,ZF Mgcawu District Area,0.0,0.0,0.0,0.0,0.0,,,,
+Kgatelopele Local Municipality,ZF Mgcawu District Area,1993.0,1993.0,1707.0,1733.0,1733.0,1.0,0.8565,0.8695,0.8695
+!Kheis Local Municipality,ZF Mgcawu District Area,964.0,964.0,964.0,964.0,964.0,1.0,1.0,1.0,1.0
+Kai !Garib Local Municipality,ZF Mgcawu District Area,4660.0,2701.0,4196.0,2363.0,2873.0,0.5796,0.9004,0.5071,0.6165
+Dawid Kruiper Local Municipality,ZF Mgcawu District Area,9544.0,9544.0,9544.0,9544.0,9544.0,1.0,1.0,1.0,1.0
+Khâi-Ma Local Municipality,Namakwa District Area,1915.0,1915.0,1626.0,1915.0,1915.0,1.0,0.8491,1.0,1.0
+Richtersveld Local Municipality,Namakwa District Area,1206.0,1206.0,1206.0,1206.0,1206.0,1.0,1.0,1.0,1.0
+Hantam Local Municipality,Namakwa District Area,4756.0,4756.0,2802.0,4756.0,4756.0,1.0,0.5892,1.0,1.0
+Namakwa District Municipality,Namakwa District Area,0.0,0.0,0.0,0.0,0.0,,,,
+Nama Khoi Local Municipality,Namakwa District Area,5507.0,5507.0,5507.0,5507.0,5507.0,1.0,1.0,1.0,1.0
+Kamiesberg Local Municipality,Namakwa District Area,1295.0,1295.0,1288.0,302.0,1295.0,1.0,0.9946,0.2332,1.0
+Karoo Hoogland Local Municipality,Namakwa District Area,1090.0,1090.0,1090.0,1090.0,1090.0,1.0,1.0,1.0,1.0
+Thabo Mofutsanyane District Municipality,Thabo Mofutsanyane District Area,0.0,0.0,0.0,0.0,0.0,,,,
+Maluti-A-Phofung Local Municipality,Thabo Mofutsanyane District Area,4164.0,4164.0,4164.0,4164.0,4164.0,1.0,1.0,1.0,1.0
+Mantsopa Local Municipality,Thabo Mofutsanyane District Area,1173.0,1173.0,1173.0,1173.0,1173.0,1.0,1.0,1.0,1.0
+Setsoto Local Municipality,Thabo Mofutsanyane District Area,7187.0,7187.0,7187.0,7187.0,7187.0,1.0,1.0,1.0,1.0
+Nketoana Local Municipality,Thabo Mofutsanyane District Area,4835.0,4621.0,4007.0,4835.0,4815.0,0.9557,0.8287,1.0,0.9959
+Dihlabeng Local Municipality,Thabo Mofutsanyane District Area,5687.0,5687.0,5687.0,5687.0,5687.0,1.0,1.0,1.0,1.0
+Phumelela Local Municipality,Thabo Mofutsanyane District Area,1653.0,1653.0,1653.0,1653.0,1653.0,1.0,1.0,1.0,1.0
+Letsemeng Local Municipality,Xhariep District Area,2716.0,2716.0,2716.0,2716.0,2716.0,1.0,1.0,1.0,1.0
+Kopanong Local Municipality,Xhariep District Area,1841.0,1841.0,1841.0,1841.0,1841.0,1.0,1.0,1.0,1.0
+Mohokare Local Municipality,Xhariep District Area,1184.0,1184.0,1184.0,1184.0,1184.0,1.0,1.0,1.0,1.0
+Xhariep District Municipality,Xhariep District Area,0.0,0.0,0.0,0.0,0.0,,,,
+Masilonyana Local Municipality,Lejweleputswa District Area,3800.0,3800.0,3800.0,3800.0,3800.0,1.0,1.0,1.0,1.0
+Tokologo Local Municipality,Lejweleputswa District Area,1452.0,1452.0,1452.0,1452.0,1452.0,1.0,1.0,1.0,1.0
+Matjhabeng Local Municipality,Lejweleputswa District Area,21786.0,21786.0,21786.0,21786.0,21786.0,1.0,1.0,1.0,1.0
+Nala Local Municipality,Lejweleputswa District Area,6672.0,6672.0,6672.0,6672.0,6672.0,1.0,1.0,1.0,1.0
+Lejweleputswa District Municipality,Lejweleputswa District Area,0.0,0.0,0.0,0.0,0.0,,,,
+Tswelopele Local Municipality,Lejweleputswa District Area,4919.0,4260.0,4919.0,4260.0,4260.0,0.866,1.0,0.866,0.866
+Mafube Local Municipality,Fezile Dabi District Area,3700.0,3700.0,3700.0,3700.0,3700.0,1.0,1.0,1.0,1.0
+Moqhaka Local Municipality,Fezile Dabi District Area,13138.0,13138.0,13138.0,13138.0,13138.0,1.0,1.0,1.0,1.0
+Ngwathe Local Municipality,Fezile Dabi District Area,12260.0,12260.0,12260.0,12260.0,12260.0,1.0,1.0,1.0,1.0
+Metsimaholo Local Municipality,Fezile Dabi District Area,7362.0,7362.0,7362.0,7362.0,7362.0,1.0,1.0,1.0,1.0
+Fezile Dabi District Municipality,Fezile Dabi District Area,0.0,0.0,0.0,0.0,0.0,,,,
+Mangaung Metropolitan Municipality,Mangaung Metropolitan Area,66812.0,66812.0,66812.0,66812.0,66812.0,1.0,1.0,1.0,1.0
+Mthonjaneni Local Municipality,King Cetshwayo District Area,3046.0,0.0,3046.0,0.0,72.0,0.0,1.0,0.0,0.0236
+King Cetshwayo District Municipality,King Cetshwayo District Area,642.0,642.0,0.0,395.0,0.0,1.0,0.0,0.6153,0.0
+uMfolozi Local Municipality,King Cetshwayo District Area,2611.0,0.0,1499.0,0.0,2611.0,0.0,0.5741,0.0,1.0
+Nkandla Local Municipality,King Cetshwayo District Area,1077.0,0.0,1077.0,0.0,0.0,0.0,1.0,0.0,0.0
+uMlalazi Local Municipality,King Cetshwayo District Area,7483.0,0.0,7483.0,0.0,7483.0,0.0,1.0,0.0,1.0
+uMhlathuze Local Municipality,King Cetshwayo District Area,1304.0,1304.0,690.0,1304.0,1304.0,1.0,0.5291,1.0,1.0
+Impendle Local Municipality,uMgungundhlovu District Area,2097.0,0.0,2097.0,0.0,0.0,0.0,1.0,0.0,0.0
+Msunduzi Local Municipality,uMgungundhlovu District Area,6713.0,6713.0,2157.0,6713.0,6713.0,1.0,0.3213,1.0,1.0
+uMngeni Local Municipality,uMgungundhlovu District Area,1546.0,0.0,1546.0,0.0,1546.0,0.0,1.0,0.0,1.0
+Mpofana Local Municipality,uMgungundhlovu District Area,0.0,0.0,0.0,0.0,0.0,,,,
+Richmond Local Municipality,uMgungundhlovu District Area,460.0,0.0,456.0,0.0,460.0,0.0,0.9913,0.0,1.0
+Mkhambathini Local Municipality,uMgungundhlovu District Area,300.0,0.0,300.0,0.0,0.0,0.0,1.0,0.0,0.0
+uMshwathi Local Municipality,uMgungundhlovu District Area,2537.0,0.0,1244.0,0.0,2537.0,0.0,0.4903,0.0,1.0
+uMgungundhlovu District Municipality,uMgungundhlovu District Area,6735.0,3182.0,0.0,3182.0,0.0,0.4725,0.0,0.4725,0.0
+Ubuhlebezwe Local Municipality,Harry Gwala District Area,117.0,0.0,117.0,0.0,99.0,0.0,1.0,0.0,0.8462
+Umzimkulu Local Municipality,Harry Gwala District Area,2119.0,0.0,1864.0,0.0,255.0,0.0,0.8797,0.0,0.1203
+Greater Kokstad Local Municipality,Harry Gwala District Area,5169.0,0.0,5169.0,0.0,4365.0,0.0,1.0,0.0,0.8445
+Harry Gwala District Municipality,Harry Gwala District Area,3066.0,3066.0,0.0,3066.0,0.0,1.0,0.0,1.0,0.0
+Dr. Nkosasana Dlamini Zuma Local Municipality,Harry Gwala District Area,1075.0,0.0,1047.0,0.0,28.0,0.0,0.974,0.0,0.026
+iLembe District Municipality,iLembe District Area,2065.0,2065.0,0.0,2065.0,0.0,1.0,0.0,1.0,0.0
+Mandeni Local Municipality,iLembe District Area,72.0,0.0,63.0,0.0,72.0,0.0,0.875,0.0,1.0
+KwaDukuza Local Municipality,iLembe District Area,8979.0,0.0,8979.0,0.0,8979.0,0.0,1.0,0.0,1.0
+Maphumulo Local Municipality,iLembe District Area,6023.0,0.0,6023.0,0.0,0.0,0.0,1.0,0.0,0.0
+Ndwedwe Local Municipality,iLembe District Area,538.0,0.0,538.0,0.0,54.0,0.0,1.0,0.0,0.1004
+Ulundi Local Municipality,Zululand District Area,4574.0,0.0,4574.0,0.0,1805.0,0.0,1.0,0.0,0.3946
+eDumbe Local Municipality,Zululand District Area,167.0,0.0,167.0,0.0,0.0,0.0,1.0,0.0,0.0
+Zululand District Municipality,Zululand District Area,92.0,92.0,0.0,92.0,0.0,1.0,0.0,1.0,0.0
+Nongoma Local Municipality,Zululand District Area,247.0,0.0,247.0,0.0,3.0,0.0,1.0,0.0,0.0121
+Abaqulusi Local Municipality,Zululand District Area,4939.0,3435.0,4939.0,3435.0,3435.0,0.6955,1.0,0.6955,0.6955
+uPhongolo Local Municipality,Zululand District Area,4347.0,0.0,1200.0,0.0,0.0,0.0,0.2761,0.0,0.0
+Ugu District Municipality,Ugu District Area,1605.0,1605.0,0.0,1532.0,0.0,1.0,0.0,0.9545,0.0
+uMuziwabantu Local Municipality,Ugu District Area,6995.0,0.0,6995.0,0.0,1619.0,0.0,1.0,0.0,0.2315
+Umzumbe Local Municipality,Ugu District Area,1650.0,0.0,1650.0,0.0,536.0,0.0,1.0,0.0,0.3248
+Umdoni Local Municipality,Ugu District Area,1734.0,0.0,1734.0,0.0,850.0,0.0,1.0,0.0,0.4902
+Ray Nkonyeni Local Municipality,Ugu District Area,2228.0,0.0,1735.0,0.0,493.0,0.0,0.7787,0.0,0.2213
+Mtubatuba Local Municipality,uMkhanyakude District Area,98.0,0.0,86.0,0.0,98.0,0.0,0.8776,0.0,1.0
+Jozini Local Municipality,uMkhanyakude District Area,574.0,0.0,120.0,0.0,574.0,0.0,0.2091,0.0,1.0
+uMkhanyakude District Municipality,uMkhanyakude District Area,17717.0,17717.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0
+uMhlabuyalingana Local Municipality,uMkhanyakude District Area,284.0,0.0,284.0,0.0,284.0,0.0,1.0,0.0,1.0
+The Big 5 Hlabisa Local Municipality,uMkhanyakude District Area,663.0,0.0,663.0,0.0,0.0,0.0,1.0,0.0,0.0
+Okhahlamba Local Municipality,uThukela District Area,3016.0,0.0,1824.0,0.0,1192.0,0.0,0.6048,0.0,0.3952
+uThukela District Municipality,uThukela District Area,1373.0,1373.0,0.0,1373.0,0.0,1.0,0.0,1.0,0.0
+Alfred Duma Local Municipality,uThukela District Area,1510.0,0.0,1510.0,0.0,1510.0,0.0,1.0,0.0,1.0
+Inkosi Langalibalele Local Municipality,uThukela District Area,1324.0,0.0,1324.0,0.0,1324.0,0.0,1.0,0.0,1.0
+Umvoti Local Municipality,uMzinyathi District Area,1116.0,0.0,1015.0,0.0,1008.0,0.0,0.9095,0.0,0.9032
+Nquthu Local Municipality,uMzinyathi District Area,5562.0,0.0,5562.0,0.0,109.0,0.0,1.0,0.0,0.0196
+Msinga Local Municipality,uMzinyathi District Area,467.0,0.0,250.0,0.0,467.0,0.0,0.5353,0.0,1.0
+uMzinyathi District Municipality,uMzinyathi District Area,3201.0,3201.0,0.0,3201.0,0.0,1.0,0.0,1.0,0.0
+Endumeni Local Municipality,uMzinyathi District Area,2008.0,0.0,2008.0,0.0,2008.0,0.0,1.0,0.0,1.0
+Newcastle Local Municipality,Amajuba District Area,8431.0,7103.0,8431.0,6368.0,8079.0,0.8425,1.0,0.7553,0.9582
+Amajuba District Municipality,Amajuba District Area,256.0,256.0,0.0,256.0,0.0,1.0,0.0,1.0,0.0
+eMadlangeni Local Municipality,Amajuba District Area,154.0,0.0,154.0,0.0,154.0,0.0,1.0,0.0,1.0
+Dannhauser Local Municipality,Amajuba District Area,1282.0,0.0,1162.0,0.0,120.0,0.0,0.9064,0.0,0.0936
+eThekwini Metropolitan Municipality,eThekwini Metropolitan Area,924690.0,599478.0,230000.0,446400.0,316117.0,0.6483,0.2487,0.4828,0.3419
+Dr Ruth Segomotsi Mompati District Municipality,Dr Ruth Segomotsi Mompati District Area,0.0,0.0,0.0,0.0,0.0,,,,
+Mamusa Local Municipality,Dr Ruth Segomotsi Mompati District Area,5168.0,5168.0,5168.0,5168.0,5168.0,1.0,1.0,1.0,1.0
+Lekwa-Teemane Local Municipality,Dr Ruth Segomotsi Mompati District Area,7776.0,7776.0,7776.0,7776.0,7776.0,1.0,1.0,1.0,1.0
+Naledi Local Municipality,Dr Ruth Segomotsi Mompati District Area,4181.0,4181.0,4181.0,4181.0,4181.0,1.0,1.0,1.0,1.0
+Kagisano-Molopo Local Municipality,Dr Ruth Segomotsi Mompati District Area,1634.0,0.0,1634.0,0.0,0.0,0.0,1.0,0.0,0.0
+Greater Taung Local Municipality,Dr Ruth Segomotsi Mompati District Area,3713.0,594.0,3713.0,594.0,594.0,0.16,1.0,0.16,0.16
+Bojanala Platinum District Municipality,Bojanala Platinum District Area,0.0,0.0,0.0,0.0,0.0,,,,
+Moses Kotane Local Municipality,Bojanala Platinum District Area,10580.0,10580.0,10580.0,10580.0,10580.0,1.0,1.0,1.0,1.0
+Madibeng Local Municipality,Bojanala Platinum District Area,1002.0,802.0,1002.0,802.0,802.0,0.8004,1.0,0.8004,0.8004
+Rustenburg Local Municipality,Bojanala Platinum District Area,1516.0,1443.0,773.0,1516.0,1318.0,0.9518,0.5099,1.0,0.8694
+Kgetlengrivier Local Municipality,Bojanala Platinum District Area,1625.0,1625.0,1625.0,1625.0,1625.0,1.0,1.0,1.0,1.0
+Moretele Local Municipality,Bojanala Platinum District Area,11118.0,11118.0,9230.0,0.0,11118.0,1.0,0.8302,0.0,1.0
+JB Marks Local Municipality,Dr Kenneth Kaunda District Area,14696.0,13104.0,14696.0,10011.0,12701.0,0.8917,1.0,0.6812,0.8642
+Dr Kenneth Kaunda District Municipality,Dr Kenneth Kaunda District Area,0.0,0.0,0.0,0.0,0.0,,,,
+City of Matlosana Local Municipality,Dr Kenneth Kaunda District Area,17497.0,17497.0,17497.0,17497.0,17497.0,1.0,1.0,1.0,1.0
+Maquassi Hills Local Municipality,Dr Kenneth Kaunda District Area,1523.0,1523.0,1523.0,1523.0,1523.0,1.0,1.0,1.0,1.0
+Ngaka Modiri Molema District Municipality,Ngaka Modiri Molema District Area,0.0,0.0,0.0,0.0,0.0,,,,
+Ditsobotla Local Municipality,Ngaka Modiri Molema District Area,8003.0,7580.0,1958.0,5701.0,6290.0,0.9471,0.2447,0.7124,0.786
+Tswaing Local Municipality,Ngaka Modiri Molema District Area,1233.0,1233.0,1233.0,1233.0,1233.0,1.0,1.0,1.0,1.0
+Ramotshere Moiloa Local Municipality,Ngaka Modiri Molema District Area,11090.0,1216.0,4703.0,1533.0,1533.0,0.1096,0.4241,0.1382,0.1382
+Mahikeng Local Municipality,Ngaka Modiri Molema District Area,10024.0,10024.0,10024.0,10024.0,10024.0,1.0,1.0,1.0,1.0
+Ratlou Local Municipality,Ngaka Modiri Molema District Area,9776.0,0.0,9776.0,0.0,0.0,0.0,1.0,0.0,0.0
+Sedibeng District Municipality,Sedibeng District Area,0.0,0.0,0.0,0.0,0.0,,,,
+Lesedi Local Municipality,Sedibeng District Area,5175.0,5175.0,5175.0,5175.0,5175.0,1.0,1.0,1.0,1.0
+Midvaal Local Municipality,Sedibeng District Area,5545.0,5545.0,5545.0,5545.0,5545.0,1.0,1.0,1.0,1.0
+Emfuleni Local Municipality,Sedibeng District Area,90384.0,90384.0,90384.0,90384.0,90384.0,1.0,1.0,1.0,1.0
+Rand West Local Municipality,West Rand District Area,10726.0,10726.0,10726.0,10726.0,10726.0,1.0,1.0,1.0,1.0
+West Rand District Municipality,West Rand District Area,0.0,0.0,0.0,0.0,0.0,,,,
+Mogale City Local Municipality,West Rand District Area,6739.0,6739.0,6739.0,6739.0,6739.0,1.0,1.0,1.0,1.0
+Merafong City Local Municipality,West Rand District Area,2468.0,2468.0,2468.0,2468.0,2468.0,1.0,1.0,1.0,1.0
+City of Ekurhuleni Metropolitan Municipality,City of Ekurhuleni Metropolitan Area,105000.0,105000.0,105000.0,105000.0,105000.0,1.0,1.0,1.0,1.0
+City of Tshwane Metropolitan Municipality,City of Tshwane Metropolitan Area,123594.0,123594.0,123594.0,123594.0,123594.0,1.0,1.0,1.0,1.0
+City of Johannesburg Metropolitan Municipality,City of Johannesburg Metropolitan Area,22470.0,13231.0,7783.0,15022.0,22370.0,0.5888,0.3464,0.6685,0.9955
+Emalahleni Local Municipality,Nkangala District Area,5600.0,5600.0,5600.0,5600.0,5600.0,1.0,1.0,1.0,1.0
+Nkangala District Municipality,Nkangala District Area,0.0,0.0,0.0,0.0,0.0,,,,
+Victor Khanye Local Municipality,Nkangala District Area,5466.0,5466.0,5466.0,5466.0,5466.0,1.0,1.0,1.0,1.0
+Dr JS Moroka Local Municipality,Nkangala District Area,6700.0,6700.0,6700.0,6700.0,6700.0,1.0,1.0,1.0,1.0
+Emakhazeni Local Municipality,Nkangala District Area,3718.0,3718.0,3718.0,3718.0,3718.0,1.0,1.0,1.0,1.0
+Thembisile Local Municipality,Nkangala District Area,132.0,132.0,132.0,0.0,0.0,1.0,1.0,0.0,0.0
+Steve Tshwete Local Municipality,Nkangala District Area,8343.0,6594.0,7260.0,8343.0,8148.0,0.7904,0.8702,1.0,0.9766
+Nkomazi Local Municipality,Ehlanzeni District Area,20986.0,20986.0,11400.0,20986.0,20986.0,1.0,0.5432,1.0,1.0
+Ehlanzeni District Municipality,Ehlanzeni District Area,0.0,0.0,0.0,0.0,0.0,,,,
+Thaba Chweu Local Municipality,Ehlanzeni District Area,2810.0,2810.0,2810.0,2810.0,2810.0,1.0,1.0,1.0,1.0
+Bushbuckridge Local Municipality,Ehlanzeni District Area,3430.0,3430.0,3430.0,3430.0,3430.0,1.0,1.0,1.0,1.0
+City of Mbombela Local Municipality,Ehlanzeni District Area,8100.0,8100.0,8100.0,3445.0,3445.0,1.0,1.0,0.4253,0.4253
+Lekwa Local Municipality,Gert Sibande District Area,1422.0,1422.0,1422.0,1422.0,1422.0,1.0,1.0,1.0,1.0
+Albert Luthuli Local Municipality,Gert Sibande District Area,1248.0,1248.0,1248.0,1248.0,1248.0,1.0,1.0,1.0,1.0
+Gert Sibande District Municipality,Gert Sibande District Area,0.0,0.0,0.0,0.0,0.0,,,,
+Msukaligwa Local Municipality,Gert Sibande District Area,3629.0,3629.0,3629.0,3629.0,3629.0,1.0,1.0,1.0,1.0
+Dr. Pixley Ka Isaka Seme Local Municipality,Gert Sibande District Area,2314.0,2314.0,2314.0,2314.0,2314.0,1.0,1.0,1.0,1.0
+Govan Mbeki Local Municipality,Gert Sibande District Area,9510.0,9510.0,8116.0,9510.0,9510.0,1.0,0.8534,1.0,1.0
+Dipaleseng Local Municipality,Gert Sibande District Area,631.0,631.0,631.0,631.0,631.0,1.0,1.0,1.0,1.0
+Mkhondo Local Municipality,Gert Sibande District Area,2704.0,2704.0,2704.0,2704.0,2704.0,1.0,1.0,1.0,1.0
+Collins Chabane Local Municipality,Vhembe District Area,7033.0,0.0,7033.0,0.0,89.0,0.0,1.0,0.0,0.0127
+Musina Local Municipality,Vhembe District Area,3052.0,0.0,3052.0,0.0,3052.0,0.0,1.0,0.0,1.0
+Thulamela Local Municipality,Vhembe District Area,4462.0,0.0,4462.0,0.0,1988.0,0.0,1.0,0.0,0.4455
+Makhado Local Municipality,Vhembe District Area,3034.0,0.0,3034.0,0.0,3034.0,0.0,1.0,0.0,1.0
+Vhembe District Municipality,Vhembe District Area,55072.0,55072.0,0.0,17374.0,0.0,1.0,0.0,0.3155,0.0
+Greater Tzaneen Local Municipality,Mopani District Area,626.0,0.0,70.0,0.0,626.0,0.0,0.1118,0.0,1.0
+Ba-Phalaborwa Local Municipality,Mopani District Area,1605.0,0.0,419.0,0.0,334.0,0.0,0.2611,0.0,0.2081
+Greater Giyani Local Municipality,Mopani District Area,6834.0,0.0,6834.0,0.0,390.0,0.0,1.0,0.0,0.0571
+Mopani District Municipality,Mopani District Area,37447.0,37447.0,0.0,5359.0,0.0,1.0,0.0,0.1431,0.0
+Maruleng Local Municipality,Mopani District Area,896.0,0.0,896.0,0.0,0.0,0.0,1.0,0.0,0.0
+Greater Letaba Local Municipality,Mopani District Area,1279.0,0.0,1279.0,0.0,26.0,0.0,1.0,0.0,0.0203
+Waterberg District Municipality,Waterberg District Area,0.0,0.0,0.0,0.0,0.0,,,,
+Thabazimbi Local Municipality,Waterberg District Area,601.0,601.0,601.0,601.0,601.0,1.0,1.0,1.0,1.0
+Bela-Bela Local Municipality,Waterberg District Area,5201.0,5201.0,5201.0,5201.0,5201.0,1.0,1.0,1.0,1.0
+Lephalale Local Municipality,Waterberg District Area,2498.0,2498.0,1864.0,2498.0,2249.0,1.0,0.7462,1.0,0.9003
+Mogalakwena Local Municipality,Waterberg District Area,1861.0,1861.0,1861.0,1861.0,1861.0,1.0,1.0,1.0,1.0
+Modimolle-Mookgopong Local Municipality,Waterberg District Area,6674.0,6674.0,6674.0,6674.0,6674.0,1.0,1.0,1.0,1.0
+Elias Motsoaledi Local Municipality,Sekhukhune District Area,3805.0,0.0,3805.0,0.0,0.0,0.0,1.0,0.0,0.0
+Ephraim Mogale Local Municipality,Sekhukhune District Area,912.0,0.0,912.0,0.0,0.0,0.0,1.0,0.0,0.0
+Sekhukhune District Municipality,Sekhukhune District Area,0.0,0.0,0.0,0.0,0.0,,,,
+Makhuduthamaga Local Municipality,Sekhukhune District Area,6903.0,0.0,6903.0,0.0,700.0,0.0,1.0,0.0,0.1014
+Fetakgomo-Tubatse Local Municipality,Sekhukhune District Area,2500.0,0.0,2500.0,0.0,0.0,0.0,1.0,0.0,0.0
+Capricorn District Municipality,Capricorn District Area,5240.0,5240.0,0.0,5240.0,0.0,1.0,0.0,1.0,0.0
+Molemole Local Municipality,Capricorn District Area,2016.0,0.0,2016.0,0.0,153.0,0.0,1.0,0.0,0.0759
+Polokwane Local Municipality,Capricorn District Area,6629.0,6629.0,6629.0,6629.0,6629.0,1.0,1.0,1.0,1.0
+Blouberg Local Municipality,Capricorn District Area,6461.0,0.0,129.0,0.0,129.0,0.0,0.02,0.0,0.02
+Lepelle-Nkumpi Local Municipality,Capricorn District Area,2040.0,0.0,2040.0,0.0,408.0,0.0,1.0,0.0,0.2

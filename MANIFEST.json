@@ -1,0 +1,101 @@
+{
+ "generated": "2026-11-15",
+ "captured": "2026-11-09 to 2026-11-10",
+ "files": [
+  {
+   "path": "datasets/municipal-money/municipal-profiles-2026-11-10.json",
+   "bytes": 19110589,
+   "sha256": "1a27cb22a26cc7e3d0e76d56fc9de90227b2f80c1ffe445a85a0f1749087273a",
+   "publisher": "National Treasury via Municipal Money / OpenUp",
+   "captured": "2026-11-10",
+   "source_url": "https://municipalmoney.gov.za/api/municipality-profile/?limit=150&offset={0,150}",
+   "records": 292
+  },
+  {
+   "path": "datasets/municipal-money/municipalities-2026-11-10.csv",
+   "bytes": 76047,
+   "sha256": "ce87aadfe723202b84a3bf211d3a79ca504242750b73094072494a60031a8456",
+   "publisher": "derived from the two files above + geography",
+   "captured": "2026-11-10",
+   "rows": 292
+  },
+  {
+   "path": "datasets/municipal-money/indicators-long-2026-11-10.csv",
+   "bytes": 1134897,
+   "sha256": "a6f251b1e336a90ef217f06b9d2691ce38d0a82be7bbe2c094fb2cce67aec321",
+   "publisher": "derived from municipal-profiles",
+   "captured": "2026-11-10",
+   "rows": 21538
+  },
+  {
+   "path": "datasets/municipal-money/geography-2026-11-10.json",
+   "bytes": 217707,
+   "sha256": "f05dcab23bc231785f9a19d9fe2393ef4d3894898127e71620a08ec50417a70e",
+   "publisher": "Municipal Money / OpenUp",
+   "captured": "2026-11-10",
+   "source_url": "https://municipalmoney.gov.za/api/geography/geography/",
+   "records": 292
+  },
+  {
+   "path": "datasets/agsa-audit-outcomes/audit-opinions-2026-11-10.json",
+   "bytes": 573761,
+   "sha256": "71d47b1d020c0f481214ce903a845bb913b130289c8513032d9ff7f87fa39ee8",
+   "publisher": "Auditor-General of South Africa, MFMA 2024-25 site",
+   "captured": "2026-11-10",
+   "source_url": "https://mfma-2025.agsa.co.za/api/municipalities/{slug}",
+   "records": 257
+  },
+  {
+   "path": "datasets/agsa-audit-outcomes/audit-opinions-2026-11-10.csv",
+   "bytes": 151705,
+   "sha256": "5808366be41fc9204818769814de17b18e280861c1ee211f0b31fd942902c2c4",
+   "publisher": "derived from audit-opinions json",
+   "captured": "2026-11-10",
+   "rows": 2056
+  },
+  {
+   "path": "datasets/agsa-audit-outcomes/allauditees-2026-11-10.json",
+   "bytes": 173052,
+   "sha256": "fb930449daa87f009933a0f64cb5b8ce76c88d3ddbeb0ccb2661f747068e10e8",
+   "publisher": "Auditor-General of South Africa",
+   "captured": "2026-11-10",
+   "source_url": "https://mfma-2025.agsa.co.za/api/allauditees",
+   "keys": 5
+  },
+  {
+   "path": "datasets/iec-councils/councils-2016.json",
+   "bytes": 191566,
+   "sha256": "3f099131d848cf694fc178b3c23b0de771a3b9e02de54ea9f360098c43b9d78e",
+   "publisher": "Electoral Commission of South Africa",
+   "captured": "2026-11-09",
+   "source_url": "results.elections.org.za (see scripts/sweep_iec_municipalities.py)",
+   "records": 213
+  },
+  {
+   "path": "datasets/iec-councils/councils-2021.json",
+   "bytes": 233927,
+   "sha256": "2ede772468d4642fb2d6922b1cb4c528b366048773022748021a2fd363c91e66",
+   "publisher": "Electoral Commission of South Africa",
+   "captured": "2026-11-09",
+   "source_url": "results.elections.org.za (see scripts)",
+   "records": 213
+  },
+  {
+   "path": "datasets/stats-sa-p9115/fbs-2023.json",
+   "bytes": 92444,
+   "sha256": "456fd62723901b7d888195cad7474df85b0d5672febc9d4541ce3eff2d460214",
+   "publisher": "Statistics South Africa, P9115",
+   "captured": "2026-11-09",
+   "source_url": "https://www.statssa.gov.za/publications/P9115/ (Table 12 of the 2022/23 unit-data workbook)",
+   "records": 257
+  },
+  {
+   "path": "datasets/stats-sa-p9115/fbs-2023.csv",
+   "bytes": 27598,
+   "sha256": "76efcb4a11b53f885d537f4450891b720fc31aa50a0cb1b5103bc814dd660049",
+   "publisher": "derived from fbs-2023.json",
+   "captured": "2026-11-09",
+   "rows": 257
+  }
+ ]
+}
