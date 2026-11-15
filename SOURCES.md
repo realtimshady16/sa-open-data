@@ -99,6 +99,27 @@ licensing ranges from CC0 to unlicensed, which means all rights reserved.
 | Wayback Save Page Now | Push a live URL into the archive — the archive is passive by default | ✓ 11 URLs pushed 2026-11-15 |
 | Zenodo | DOI minting from a GitHub release | ✓ `v0.1.0` → `10.5281/zenodo.24241806` |
 
+## Prices — the three indices that anchor everything else
+
+| Source | Publisher | What it holds | Access | Held | Status |
+|---|---|---|---|---|---|
+| **CPI history** (P0141) | Stats SA | Monthly headline and group index numbers **from 1980 to present** (Dec 2024 = 100) in one 3-page file | PDF table | **✓** `prices/cpi-history` | 200 |
+| CPI monthly release | Stats SA | Headline, group and category inflation, contributions | PDF | **✓** Dec 2025 | 200 |
+| CPI basket and weights | Stats SA | The 2025 weights — themselves a spending-share estimate | PDF | **✓** 2025 presentation | 200 |
+| **PPI** (P0142.1) | Stats SA | Producer prices, monthly, by industry | PDF, 15 pp | **✓** Jul 2026 | 200 |
+| **RPPI** (P0160) | Stats SA | Residential property prices, monthly, by metropolitan area | PDF, 12 pp | **✓** May 2026 | 200 |
+| RPPI experimental series (D0160) | Stats SA / SARB / IMF | The earlier experimental index | PDF | ○ | superseded by P0160 |
+| House price indices (private) | ABSA · FNB · Pam Golding | Alternative measures with longer histories | Reports | ○ | commercial |
+
+**Why held together.** CPI turns nominal series into real ones; PPI says where cost pressure
+originates; RPPI prices the largest asset most households will ever hold, and the one carrying the
+debt in SARB's household figures.
+
+**The trap.** CPI was substantially recompiled in **January 2009** and re-based (currently
+Dec 2024 = 100). Series crossing those breaks must be rebased, not concatenated — the history
+file says so on its own first page, and it is the same mistake the municipal boundary series
+offers anyone who doesn't read the notes.
+
 ## Household spending, and where the money actually goes
 
 South Africa measures this twice over, badly and well: **surveys** that ask households what they
