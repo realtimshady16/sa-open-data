@@ -39,7 +39,7 @@ deliberate reading of the rule, not an oversight.
 | Status at capture | HTTP 200 after retry; **0 failures** in the final file |
 | **Status at reprobe 2026-11-15** | `mfma-2025.agsa.co.za/` → **200**; `/api/allauditees` → **200**; `mfma-2024.agsa.co.za/` → **200**; **`mfma-2026` does not resolve (DNS NXDOMAIN)**; `agsa.co.za` → 200 |
 | Licence stated by publisher | none |
-| Wayback | **one capture only:** `mfma-2025.agsa.co.za/` at 2026-07-10 (landing page), and `mfma-2024.agsa.co.za/` at 2026-07-16. **No API captures.** A check of `agsa.co.za` PDF captures returned an Internet Archive "Temporarily Offline" error — that question is unanswered, not answered negatively |
+| Wayback | **363 unique URLs** under `mfma-2025.agsa.co.za` (domain query), of which exactly **4 are API endpoints**: `allauditees`, `homepagedata`, `navbar-x`, `pages/overview`. **No captures of `/api/municipalities/{slug}`** — so the auditee list is recoverable and the audit opinions are not. Detail and the methodology error that produced the earlier claim: `docs/archive-audit.md` |
 
 **This is the dataset with the shortest expected life.** The site is year-stamped, the API
 carries no stable identifier outside it, and the archive has only the front door.

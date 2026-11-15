@@ -20,8 +20,8 @@ The 2026 public record of South African local government has three legs:
 | Source | Publisher | Archive status (checked 2026-11-15) |
 |---|---|---|
 | Municipal Money | National Treasury / OpenUp | live and stable; no bulk preservation needed |
-| AGSA MFMA audit outcomes | Auditor-General | **year-stamped site** (`mfma-2025`). Wayback holds exactly one capture: the landing page. The API is not archived. `mfma-2026` does not yet resolve — when it does, this data goes with the old host |
-| IEC council results | Electoral Commission | `results.elections.org.za` is live, but Wayback holds **no usable captures** — one 302 from 2021 and a page of 404s. The `/api/v1/` path the scripts used returned **404 on reprobe** |
+| AGSA MFMA audit outcomes | Auditor-General | **year-stamped site** (`mfma-2025`). Wayback holds **363 URLs** — the shell plus 4 API endpoints — but **none of the 257 per-municipality opinion responses**. `mfma-2026` does not yet resolve. See `docs/archive-audit.md` |
+| IEC council results | Electoral Commission | 1,042 Wayback captures from 2026, but **zero under `api/`** — and the captures are mostly Cloudflare challenge pages, i.e. the bot defence rather than the results. The `/api/v1/` path returned **404 on reprobe** |
 | Stats SA P9115 | Statistics South Africa | live and **well archived** — unit-data workbooks captured 2019–2024 |
 
 So the AGSA audit sweep (257 auditees × 8 periods) and the IEC council compositions exist in
