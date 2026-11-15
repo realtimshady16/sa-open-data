@@ -152,6 +152,38 @@ and knows which one is speaking.
   industry totals double-count between operators. Triangulate, then say which leg you're standing
   on.
 
+## Schooling and higher education
+
+Added 2026-11-15. Two departments, one funding agency, and a set of things that are simply not
+published as data — which is worth knowing before a project assumes they are.
+
+| Source | Publisher | What it holds | Access | Held | Status |
+|---|---|---|---|---|---|
+| **Master List of Schools** (EMIS) | DBE, via DataFirst | Every school: name, phase, quintile, address, learner and educator counts | Microdata | ○ | DataFirst catalogue 985, free account |
+| **NSC examinations 2008–2025, school level** | DBE, via DataFirst | Per-school matric results, derived from the "343" reports | Microdata | ○ | DataFirst catalogue 685 |
+| NSC 2024 school performance report | DBE | Per-school performance, five-year view | PDF | **✓** 155 pp | 200 |
+| DBE annual report 2024/25 | DBE | Programme performance, learner numbers, NSNP, infrastructure | PDF | **✓** 203 pp | 200 |
+| Statistics on post-school education 2023 | DHET | Enrolment, graduates, throughput, dropouts by institution | PDF | **✓** 156 pp | 200 |
+| HEMIS | DHET | The higher-education management information system behind the statistics above | Portal | ○ | not openly downloadable |
+| NSFAS | NSFAS | Funded students, disbursements, annual reports, APPs | Web + PDF | ✗ | **TLS certificate verify failed** — same failure as the Demarcation Board |
+| CAPS / NCS Grades R–12 | DBE | The curriculum itself, per subject, per phase | PDF | ○ | `education.gov.za/Curriculum/` |
+| National School Nutrition Programme | DBE | Meals, schools, budget | PDF reports | ○ | latest public annual report located is 2011/12 |
+| NEIMS school infrastructure | DBE | Water, sanitation, electricity, classrooms per school | **Not openly downloadable** | ○ | report-level only |
+| School fees and exemptions | SGBs / provincial | Fees are set per school by governing bodies | **Not published centrally** | ✗ as data | the gap nobody mentions |
+| Teacher and psychologist establishment | DBE / provinces | Posts per school, learner-support staff | Not published as a series | ✗ as data | the second gap |
+
+### What this actually means
+
+- **The spine is the Master List of Schools** — one row per school, joined to NSC results by
+  EMIS number. That join is the education equivalent of the municipal crosswalk, and it is
+  available today behind a free DataFirst account.
+- **Infrastructure is the weak leg.** NEIMS is the system, but what circulates publicly is
+  analysis of it, not the dataset. Any "schools without water" claim is circulating someone
+  else's extraction.
+- **Two things people ask about are not data at all**: fees (set per school, published in
+  governing-body minutes if anywhere) and learner-support staffing (psychologists, social
+  workers). Both are real absences, not access failures.
+
 ---
 
 ## Gaps, ranked by what they cost us
