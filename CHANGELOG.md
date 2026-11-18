@@ -5,6 +5,16 @@ exist on GitHub only, so cite them by URL until a Zenodo release is published. D
 not changed since v0.1.0 except for the crosswalk added in v0.2.0 — later releases are
 documentation, a derived join, and corrections.
 
+## Unreleased — after v0.3.0, 2026-11-18
+
+- **`SOURCES.md` corrected in five rows** after a session in the collections tree: the Master
+  List of Schools is held (DBE-direct, 2024 national + 2026 provinces) and parsed, not a DataFirst
+  dependency; school-level NSC is held as 13 reports with one parsed, so catalogue 685 is dropped;
+  PACSA is 11 of 45 rather than 2; SAFOODS is held at 1,362 rows with analysis-only terms rather
+  than "terms unverified"; and PMBEJD is marked private-use-only.
+- **A rights preamble in the ledger:** *held is not publishable*, and nothing in this repository
+  derives from the two sources marked private use only.
+
 ## v0.3.0 — 2026-11-18
 
 Documentation and integrity release. No captured dataset changed.
