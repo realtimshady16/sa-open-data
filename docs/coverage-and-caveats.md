@@ -7,16 +7,26 @@ Read before quoting a number.
 Municipal Money serves **292** municipal profiles. The AGSA auditee list has **257**.
 
 ```
-292 = 248 municipalities (211 live + 37 disestablished) + 44 districts
+292 profiles = 248 municipalities + 44 districts
+248 municipalities = 205 local + 8 metro + 35 disestablished (Municipal Money says 37 — see below)
 257 auditees = 166 local (LM) + 39 (ICM) + 44 district (DM) + 8 metro (MET)
 ```
 
-The 37 disestablished entities are the pre-2016 composites — Baviaans, Nxuba, Tsolwana and
+The disestablished entities are the pre-2016 composites — Baviaans, Nxuba, Tsolwana and
 friends — which still carry audit history up to about 2015. They are useful for time series
 and wrong for any current count. Join on code; never on row count.
 
-**Open reconciliation:** 211 live municipalities is 203 local + 8 metro, against the standard
-205 local. Two short, most likely the 2026 demarcation changes. Unresolved.
+**Resolved 2026-11-18 — Municipal Money's `is_disestablished` flag is not a liveness flag.**
+It is set for entities that *changed boundary*, not only for entities that ceased to exist.
+Two live Limpopo locals carry it: **LIM343 Thulamela** (land lost and gained) and **LIM344
+Makhado** (land lost). Both are plainly operating, and both have current population figures
+(575,929 and 502,452) and current audit opinions in this repository. Subtract them and the
+population reconciles exactly to the statutory picture: **205 local + 44 district + 8 metro =
+257 live**, 35 genuinely disestablished (37 − 2). This is why `datasets/crosswalk/crosswalk.csv`
+carries its own `status` column rather than copying Municipal Money's flag. Counting
+`is_disestablished == "False"` gives 255 and is wrong; counting provinces and levels gives 257.
+The earlier note in this file claimed a two-municipality shortfall "most likely the 2026
+demarcation changes" — the shortfall was this flag, not a demarcation event.
 
 ## Two municipalities are called Emalahleni
 

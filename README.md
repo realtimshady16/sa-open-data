@@ -35,46 +35,56 @@ datasets/
   agsa-audit-outcomes/    257 auditees × 8 periods = 2,056 audit opinions          (888 KB)
   iec-councils/           council composition after the 2016 and 2021 elections     (420 KB)
   stats-sa-p9115/         free basic services per municipality (P9115 Table 12)     (120 KB)
+  crosswalk/              292 rows × 5 sources' keys — the join, not a matching job  (60 KB)
 scripts/                  the fetchers and derivations, unmodified
+tools/build_site.py       the static view: one page per municipality (output ignored)
 docs/provenance.md        publisher, endpoint, capture date, live status, archive status
 docs/method.md            how each dataset was obtained, and where it is fragile
 docs/coverage-and-caveats.md   what the numbers are NOT
+docs/archive-audit.md     what the Internet Archive actually holds of these sources
 docs/licence-decision.md  which licences were chosen and why
 SOURCES.md                a ledger: every SA source we know of, and whether we hold it
 MANIFEST.json             size, sha256, row/record counts, source URL per data file
+CHANGELOG.md              what changed in each release
+```
+
+## The static view
+
+`tools/build_site.py` renders one HTML page per municipality — finance, audit history, council
+composition, free basic services, joined through the crosswalk — plus an index, with no server
+and no network at build time. It writes to `site/`, which is git-ignored: **the site is a view
+of the data, not part of the record.** Rebuild it any time:
+
+```bash
+python3 tools/build_site.py && python3 -m http.server -d site 8000
 ```
 
 ## Cite it
 
-```
-Evertse, T. (2026). SA open data: preserved copies of South African local-government
-datasets (v0.1.0). Zenodo. https://doi.org/10.5281/zenodo.24241806
-```
+The repository and the DOI are not the same object, and the difference matters:
 
-That is the **version DOI**, which pins v0.1.0 and is the one to cite for a specific
-result. The **concept DOI** — <https://doi.org/10.5281/zenodo.24241805> — always resolves to
-the latest version and is what to cite when you mean the dataset generally.
+| | Covers | How to cite |
+|---|---|---|
+| **DOI `10.5281/zenodo.24241806`** | the archived snapshot of **v0.1.0** only | `Evertse, T. (2026). SA open data: preserved copies of South African local-government datasets (v0.1.0). Zenodo. https://doi.org/10.5281/zenodo.24241806` |
+| **Concept DOI `10.5281/zenodo.24241805`** | always the latest *published* version | same, without a version number |
+| **Tags `v0.1.1` … `v0.3.0`** | later work — the crosswalk, the coverage correction, `SOURCES.md` | cite by tag: `github.com/realtimshady16/sa-open-data/tree/v0.3.0` |
 
-Both resolve through <https://zenodo.org/records/24241806>, which holds the archived snapshot
-of the v0.1.0 tag. Later commits on `main` are not part of that record.
+No Zenodo release exists for `v0.1.1`, `v0.2.0`, `v0.2.1` or `v0.3.0`. They are on GitHub with
+tags and checksums but **without a DOI**, so a citation that names one of them must give the
+tag URL. Publishing a release at `v0.3.0` would give the ledger, the crosswalk and the coverage
+correction their own version DOI; the `.zenodo.json` in this tree is already prepared for it.
 
-`CITATION.cff` is included so GitHub renders a citation widget. Tag `v0.1.0` is the citable
-release. If a DOI is minted later (Zenodo), this section gets updated — the tag is the
-permanent handle until then.
+`CITATION.cff` is included so GitHub renders a citation widget, and it names the **concept**
+DOI, because the widget sits on `main` and `main` is newer than the archived record.
 
 ## Verify it
 
-Every **data** file's sha256 is in `MANIFEST.json`. To check the tree matches what was
-published:
+Every **data** file's sha256 is in `MANIFEST.json`, and `tools/check_manifest.py` re-checks the
+tree *and* reports any data file that is not listed, so the manifest cannot silently fall behind
+the datasets:
 
 ```bash
-python3 - <<'PY'
-import hashlib, json
-man = json.load(open("MANIFEST.json"))
-bad = [e["path"] for e in man["files"]
-       if hashlib.sha256(open(e["path"], "rb").read()).hexdigest() != e["sha256"]]
-print("ok" if not bad else f"{len(bad)} mismatched: {bad}")
-PY
+python3 tools/check_manifest.py
 ```
 
 ## Licence
@@ -106,12 +116,18 @@ difference between 292 profiles and 257 auditees, two municipalities called Emal
 sign convention on capital spending, and the fact that a null indicator means *not computed*,
 never zero. Read it before quoting a number.
 
-## Possible additions, not promises
+## What is next, and what it is not
 
-- A static HTML view — one page per municipality, no server, so it survives the CDN changing.
-- A small chart layer over the indicator time series, generated at build time.
-- Ward-level anything: not currently available anywhere clean.
-- A demarcation crosswalk, once someone publishes a maintained one.
+The installed parts are done: five datasets, the crosswalk, the ledger, the site generator.
+What is genuinely missing, in the order the gaps bite:
 
-Nothing here is on a schedule. The repository's job is to still be accurate in 2031, which
-argues for fewer moving parts rather than more.
+- **Ward-level anything.** Not available anywhere clean. This is the largest hole in the
+  municipal picture and it is a data-absence, not a build-absence.
+- **Transaction-level municipal spending.** Exists only in mSCOA machinery that is not public.
+- **Coalition agreements for the 138 hung councils.** Political documents, not datasets, and
+  the reason the largest-party column is described as a blunt proxy.
+- **A second demarcation crosswalk, when boundaries move again.** Municipal Money's
+  `is_disestablished` flag is already wrong for two live Limpopo locals (see
+  `docs/coverage-and-caveats.md`), which is why the crosswalk carries its own status column.
+- **Anything with a refresh cadence.** Deliberately absent. The repository's job is to still be
+  accurate in 2031, which argues for fewer moving parts rather than more.

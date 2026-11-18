@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-15",
+ "generated": "2026-11-18",
  "captured": "2026-11-09 to 2026-11-10",
  "files": [
   {
@@ -96,6 +96,26 @@
    "publisher": "derived from fbs-2023.json",
    "captured": "2026-11-09",
    "rows": 257
+  },
+  {
+   "path": "datasets/crosswalk/crosswalk.csv",
+   "bytes": 56937,
+   "sha256": "0f641f17070eb6c96142f4265bf77ef9ee2e5afce881b96dcde36648da5cd8b8",
+   "publisher": "this repository (derivation: Municipal Money × IEC × AGSA × Stats SA P9115 × open-admin-data)",
+   "captured": "2026-11-15",
+   "source_url": "https://github.com/realtimshady16/sa-open-data/tree/main/datasets/crosswalk",
+   "records": 292,
+   "note": "one row per municipal entity, all five sources' keys"
+  },
+  {
+   "path": "datasets/crosswalk/unmatched.json",
+   "bytes": 49,
+   "sha256": "e7214c740ecfc84222a4652afd4f9d69cbb5573c289ab23aaaff16270eea1667",
+   "publisher": "this repository (derivation: Municipal Money × IEC × AGSA × Stats SA P9115 × open-admin-data)",
+   "captured": "2026-11-15",
+   "source_url": "https://github.com/realtimshady16/sa-open-data/tree/main/datasets/crosswalk",
+   "records": 0,
+   "note": "residuals left unmatched on purpose; empty for AGSA and P9115 as of 2026-11-18"
   }
  ]
 }

@@ -82,6 +82,29 @@ because its terms are unstated and because the numbers are reproducible from the
 
 ---
 
+## 5. Municipal identifier crosswalk (derived, 2026-11-15)
+
+Not captured from a publisher. Built by `scripts/build_crosswalk.py` from the four sources
+above plus open-admin-data's South African administrative divisions (CC BY 4.0, working fork
+at `oss/south-africa-administrative-divisions`), used as a spine and not redistributed.
+
+| | |
+|---|---|
+| Publisher | this repository (derivation) |
+| Inputs | Municipal Money `code`; IEC display-name prefix; AGSA slug + name; P9115 name + district; OpenAdminData `name.local` |
+| Built | 2026-11-15 |
+| Records | 292 rows: 257 live (8 metro, 205 local, 44 district) + 35 disestablished |
+| Method | exact code where the source carries one (MM 292/292, IEC 213/213); name match then district elimination for AGSA 249/257 and P9115 249/257; the remainder listed in `unmatched.json`, not guessed |
+| Status | derived from the inputs, so it is only as current as the 2026-11-10 capture |
+| Stability | OpenAdminData's **names** are stale (`DC10` still "Cacadu"); its codes and hierarchy are good. Municipal Money's `is_disestablished` is a boundary-change flag, not a liveness flag — see `docs/coverage-and-caveats.md` |
+
+Any future dataset that carries a demarcation code, a municipal name, or an EMIS/ward parent
+should join here rather than re-matching. `unmatched.json` is empty for AGSA and P9115 as of
+2026-11-18 — the eight residuals were resolved by hand and recorded in the crosswalk's own
+README, which is the place they would reappear if a source changes shape.
+
+---
+
 ## What was not published here, and why
 
 - **Party manifestos** (328 MB of PDFs and OCR text held locally). Third-party documents
