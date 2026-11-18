@@ -20,6 +20,11 @@ point of the date column. See `docs/archive-audit.md` for why.
 Every ✗ in this file was verified as a failure, not inferred from an empty result. That
 distinction cost me three wrong claims in one evening.
 
+**Held is not the same as publishable.** Two rows below say *private use only*: we hold the
+documents, analyse them, and do not redistribute them or tables derived from them without the
+publisher's written permission. Nothing in this repository is derived from those sources. A
+ledger that cannot say that is a liability, so it says it.
+
 ---
 
 ## Local government — the core
@@ -45,9 +50,9 @@ distinction cost me three wrong claims in one evening.
 
 | Source | Publisher | What it holds | Access | Held | Where | Status |
 |---|---|---|---|---|---|---|
-| Household Affordability Index | PMBEJD | Monthly food basket: ~44 items × 7 areas, 2,550–2,780 price values per report | PDF, 129 links, **Aug 2018 → present** | **✓** 117 docs + text | `~/thinking/.raw/food/pmbejd` | 200 |
-| Food Price Barometer | PACSA (predecessor to PMBEJD) | The same basket from **2012** onward; the series changes hands here | PDF, Wayback only | **◐** 2 of 45 | same tree, `pacsa/` | **429 rate-limited**; manifest of 45 captures written |
-| SAFOODS | SAMRC | South African food composition database | Via MRC | ○ | — | terms unverified |
+| Household Affordability Index | PMBEJD | Monthly food basket: ~44 items × 7 areas, 2,550–2,780 price values per report | PDF, 129 links, **Aug 2018 → present** | **✓** 117 docs + text | `~/thinking/.raw/food/pmbejd` | 200; **private use only** — publishing extracted price tables needs PMBEJD's written yes |
+| Food Price Barometer | PACSA (predecessor to PMBEJD) | The same basket from **2012** onward; the series changes hands here | PDF, Wayback only | **◐** 11 of 45 | same tree, `pacsa/` | **429 rate-limited**; manifest of 45 captures written |
+| SAFOODS | SAMRC | South African food composition database | Web app (ASP.NET form) | **◐** 1,362 rows harvested, 16 groups | `thinking/.raw/collections/extracted/safoods-composition.csv` | 200; **analysis only** — site says no commercial use, SAMRC requires written permission to reproduce. Advertised 1,869 items vs 1,362 harvested: unexplained |
 | FoodFinder | SAMRC | Intake and labelling analysis built on SAFOODS | **Paid annual licence** | ✗ not free | — | verified paid |
 | Food Price Monitor | NAMC | Farm-gate to retail price spreads | PDF / XLSX | ○ | — | 200 |
 | Open Food Facts | Open Food Facts | Product barcodes, ingredients, nutrition | Bulk + API | ○ | — | data ODbL, code AGPL |
@@ -180,8 +185,8 @@ published as data — which is worth knowing before a project assumes they are.
 
 | Source | Publisher | What it holds | Access | Held | Status |
 |---|---|---|---|---|---|
-| **Master List of Schools** (EMIS) | DBE, via DataFirst | Every school: name, phase, quintile, address, learner and educator counts | Microdata | ○ | DataFirst catalogue 985, free account |
-| **NSC examinations 2008–2025, school level** | DBE, via DataFirst | Per-school matric results, derived from the "343" reports | Microdata | ○ | DataFirst catalogue 685 |
+| **Master List of Schools** (EMIS) | DBE (direct); DataFirst catalogue 985 has the same list | Every school: name, phase, quintile, district/circuit with IDs, institution type, ownership, status, and in 2024 also GPS, school level, Section 21 status | XLSX per province | **✓** 2024 Term 1 (national + 9 provinces) and 2026 Term 1 (9 provinces, **no national file**) | `thinking/.raw/collections/inbox/education/emis-masterlist` | 200; **parsed 2026-11-18** into `extracted/emis-masterlist.csv` (25,368 + 25,430 rows, 28 misaligned source rows quarantined) |
+| **NSC examinations 2008–2025, school level** | DBE (reports); DataFirst catalogue 685 has the microdata | Per-school matric results, derived from the "343" reports | PDF (13 annual reports) + microdata | **◐** all 13 reports; 1 parsed | `thinking/.raw/collections/files/nsc` | **DataFirst not needed** — the reports are held; the gap is the per-era parser (three layouts) |
 | NSC 2024 school performance report | DBE | Per-school performance, five-year view | PDF | **✓** 155 pp | 200 |
 | DBE annual report 2024/25 | DBE | Programme performance, learner numbers, NSNP, infrastructure | PDF | **✓** 203 pp | 200 |
 | Statistics on post-school education 2023 | DHET | Enrolment, graduates, throughput, dropouts by institution | PDF | **✓** 156 pp | 200 |
