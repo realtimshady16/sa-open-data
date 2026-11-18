@@ -20,10 +20,12 @@ point of the date column. See `docs/archive-audit.md` for why.
 Every ✗ in this file was verified as a failure, not inferred from an empty result. That
 distinction cost me three wrong claims in one evening.
 
-**Held is not the same as publishable.** Two rows below say *private use only*: we hold the
-documents, analyse them, and do not redistribute them or tables derived from them without the
-publisher's written permission. Nothing in this repository is derived from those sources. A
-ledger that cannot say that is a liability, so it says it.
+**Held is not the same as publishable, and permission is recorded rather than assumed.** Rows
+marked *private use only* mean we hold the documents and do not redistribute them or tables derived
+from them. Where a publisher has granted reuse, the row says so, with the date and the condition:
+PMBEJD granted non-profit reuse of a derived price table on 2026-11-18, conditional on crediting
+them and with a sample of the intended use. Nothing in this repository is derived from a source
+whose terms are unresolved.
 
 ---
 
@@ -50,7 +52,7 @@ ledger that cannot say that is a liability, so it says it.
 
 | Source | Publisher | What it holds | Access | Held | Where | Status |
 |---|---|---|---|---|---|---|
-| Household Affordability Index | PMBEJD | Monthly food basket: ~44 items × 7 areas, 2,550–2,780 price values per report | PDF, 129 links, **Aug 2018 → present** | **✓** 117 docs + text | `~/thinking/.raw/food/pmbejd` | 200; **private use only** — publishing extracted price tables needs PMBEJD's written yes |
+| Household Affordability Index | PMBEJD | Monthly food basket: ~44 items × 7 areas, 2,550–2,780 price values per report | PDF, 129 links, **Aug 2018 → present** | **✓** 117 docs + text | `~/thinking/.raw/food/pmbejd` | 200; **written permission granted 2026-11-18** for non-profit reuse of a derived price table with PMBEJD credited; a sample of the intended use was requested and sent. No commercial use without a conversation; the PDFs are never redistributed |
 | Food Price Barometer | PACSA (predecessor to PMBEJD) | The same basket from **2012** onward; the series changes hands here | PDF, Wayback only | **◐** 11 of 45 | same tree, `pacsa/` | **429 rate-limited**; manifest of 45 captures written |
 | SAFOODS | SAMRC | South African food composition database | Web app (ASP.NET form) | **◐** 1,362 rows harvested, 16 groups | `thinking/.raw/collections/extracted/safoods-composition.csv` | 200; **analysis only** — site says no commercial use, SAMRC requires written permission to reproduce. Advertised 1,869 items vs 1,362 harvested: unexplained |
 | FoodFinder | SAMRC | Intake and labelling analysis built on SAFOODS | **Paid annual licence** | ✗ not free | — | verified paid |
