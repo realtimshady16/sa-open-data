@@ -61,7 +61,7 @@ td.nw{white-space:nowrap}
 .empty{padding:1.4rem .5rem;color:var(--dim)}
 
 /* cards: content height, never stretched to the tallest sibling */
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(17rem,1fr));gap:.9rem;
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(11.5rem,1fr));gap:.9rem;
       margin:1rem 0;align-items:start}
 .card{border:1px solid var(--line);padding:.8rem .9rem;border-radius:3px;background:var(--card)}
 .card .v{font-size:1.45rem;font-variant-numeric:tabular-nums;line-height:1.2}
@@ -95,6 +95,7 @@ footer{margin-top:3rem;padding-top:1rem;border-top:1px solid var(--line);
   table.wide td:nth-child(4)::before{content:"pop "}
   table.wide td:nth-child(7)::before{content:"cash "}
   table.wide td:nth-child(7)::after{content:""}
+  .grid{grid-template-columns:1fr}
   .card .cap{font-size:.82rem}
 }
 """
