@@ -10,6 +10,16 @@ documentation, a derived join, and corrections.
 - **The static view is published** at `https://realtimshady16.github.io/sa-open-data/`, built by
   `.github/workflows/pages.yml` from `datasets/` on every push. `site/` stays git-ignored, so
   the view is still not part of the record. No captured dataset changed.
+- **The site got a usability pass, and two data columns were withdrawn.** The index now filters
+  and sorts client-side (a few dozen lines of inline JS, no network), abbreviates party names,
+  colours audit outcomes at three levels instead of two ("clean with notes" was being shown as
+  bad), and stacks to one line per municipality on a phone. On municipality pages the five metric
+  cards no longer stretch to the tallest sibling. **Withdrawn: the "books reliable?" and "books
+  useful?" columns.** AGSA's `information_reliable` / `information_useful` flags do not track the
+  audit opinion — 263 "unqualified with no findings" periods are flagged unreliable and 447
+  "qualified" ones flagged reliable — so printing them beside a verdict asserted something about
+  the financial statements that the source does not say. The fields remain in the data files.
+  No captured dataset changed.
 - **A defect in that view, fixed before publishing:** 44 district pages rendered a missing IEC
   council record as "— seats up for election in 2021 … no party holds more than half, so a
   coalition had to be formed", i.e. it asserted a hung council from absent data. District

@@ -19,35 +19,84 @@ D = ROOT / "datasets"
 OUT = ROOT / "site"
 
 CSS = """
-:root{--bg:#141110;--fg:#e8ded2;--dim:#a89684;--line:#2e2723;--acc:#c9743a;--ok:#6d8f6a;--bad:#a8503f}
+:root{--bg:#141110;--fg:#e8ded2;--dim:#a89684;--line:#2e2723;--acc:#c9743a;
+      --ok:#7d9f74;--warn:#c9a24a;--bad:#b8543f;--card:#1a1614}
 *{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--fg);
      font:17px/1.65 ui-serif,Georgia,"Iowan Old Style",serif;padding:2rem 1.25rem 5rem}
-main{max-width:60rem;margin:0 auto}
+main{max-width:62rem;margin:0 auto}
 a{color:var(--acc);text-decoration:none;border-bottom:1px solid rgba(201,116,58,.35)}
 a:hover{border-bottom-color:var(--acc)}
-h1{font-size:2.1rem;line-height:1.15;margin:.2rem 0 1.4rem;letter-spacing:-.02em}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+h1{font-size:clamp(1.6rem,4vw,2.1rem);line-height:1.15;margin:.2rem 0 1.4rem;letter-spacing:-.02em}
 h2{font-size:.78rem;text-transform:uppercase;letter-spacing:.14em;color:var(--dim);
    margin:2.6rem 0 .7rem;font-family:ui-sans-serif,system-ui,sans-serif;font-weight:600}
 .kicker{color:var(--dim);font-size:.8rem;text-transform:uppercase;letter-spacing:.16em;
         font-family:ui-sans-serif,system-ui,sans-serif}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+
+/* tables: a sticky head, tabular figures, and no row-height jitter from wrapping */
+.tablewrap{overflow-x:auto;margin:0 -.25rem}
 table{width:100%;border-collapse:collapse;font-size:.95rem}
-th,td{text-align:left;padding:.45rem .5rem;border-bottom:1px solid var(--line);vertical-align:top}
-th{color:var(--dim);font-weight:600;font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;
-   font-family:ui-sans-serif,system-ui,sans-serif}
+th,td{text-align:left;padding:.42rem .45rem;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--dim);font-weight:600;font-size:.74rem;text-transform:uppercase;letter-spacing:.1em;
+   font-family:ui-sans-serif,system-ui,sans-serif;position:sticky;top:0;background:var(--bg);
+   box-shadow:0 1px 0 var(--line);z-index:2;white-space:nowrap}
+th[data-sort]{cursor:pointer;user-select:none}
+th[data-sort]:hover{color:var(--fg)}
+th[data-sort]::after{content:"↕";opacity:.3;margin-left:.35em;font-size:.9em}
+th[data-sort].asc::after{content:"↑";opacity:1}
+th[data-sort].desc::after{content:"↓";opacity:1}
 td.num{text-align:right;font-variant-numeric:tabular-nums}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));gap:1rem;margin:1rem 0}
-.card{border:1px solid var(--line);padding:.8rem .9rem;border-radius:3px}
-.card .v{font-size:1.5rem;font-variant-numeric:tabular-nums}
-.card .l{color:var(--dim);font-size:.74rem;text-transform:uppercase;letter-spacing:.1em}
+tbody tr:hover{background:var(--card)}
+td.nw{white-space:nowrap}
+
+/* index controls */
+.controls{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap;margin:1rem 0 .6rem}
+.controls input{flex:1 1 16rem;min-width:12rem;background:var(--card);border:1px solid var(--line);
+  color:var(--fg);font:inherit;font-size:.95rem;padding:.5rem .7rem;border-radius:3px}
+.controls input::placeholder{color:var(--dim)}
+.count{color:var(--dim);font-size:.85rem;font-variant-numeric:tabular-nums}
+.empty{padding:1.4rem .5rem;color:var(--dim)}
+
+/* cards: content height, never stretched to the tallest sibling */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(17rem,1fr));gap:.9rem;
+      margin:1rem 0;align-items:start}
+.card{border:1px solid var(--line);padding:.8rem .9rem;border-radius:3px;background:var(--card)}
+.card .v{font-size:1.45rem;font-variant-numeric:tabular-nums;line-height:1.2}
+.card .l{color:var(--dim);font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;margin-top:.2rem}
+.card .cap{color:var(--dim);font-size:.8rem;line-height:1.45;margin-top:.5rem}
 .note{color:var(--dim);font-size:.88rem;border-left:2px solid var(--line);padding-left:.9rem}
-.ok{color:var(--ok)}.bad{color:var(--bad)}
-.card .cap{color:var(--dim);font-size:.78rem;line-height:1.4;margin-top:.35rem}
-.dim{color:var(--dim)}
+.ok{color:var(--ok)}.warn{color:var(--warn)}.bad{color:var(--bad)}.dim{color:var(--dim)}
 details{margin:1rem 0;border:1px solid var(--line);border-radius:3px;padding:.6rem .8rem}
 summary{cursor:pointer;color:var(--acc);font-size:.9rem}
 footer{margin-top:3rem;padding-top:1rem;border-top:1px solid var(--line);
        color:var(--dim);font-size:.82rem}
+
+/* Narrow screens: seven columns cannot fit a phone, and horizontal scrolling hides the two
+   columns that matter. Below 640px each row becomes a name and one line of facts instead. */
+@media (max-width:640px){
+  body{padding:1.25rem .9rem 4rem;font-size:16px}
+  th,td{padding:.4rem .35rem;font-size:.88rem}
+  .controls input{flex:1 1 100%}
+  .tablewrap{overflow-x:visible;margin:0}
+  table.wide thead, table.wide thead th{display:none}
+  table.wide th[data-sort]::after{content:none}
+  table.wide, table.wide tbody, table.wide tr, table.wide td{display:block;width:auto}
+  table.wide tr{padding:.6rem 0;border-bottom:1px solid var(--line)}
+  table.wide tr:hover{background:transparent}
+  table.wide td{border:none;padding:0;text-align:left;white-space:normal}
+  table.wide td:first-child{font-size:1.02rem;line-height:1.3}
+  table.wide td:nth-child(2){margin-top:.1rem}
+  table.wide td:nth-child(n+2){display:inline;font-size:.84rem;color:var(--dim)}
+  table.wide td:nth-child(3){display:none}                 /* category: not useful on a phone */
+  table.wide td:nth-child(n+2)::after{content:" · ";color:var(--line)}
+  table.wide td:nth-child(4)::before{content:"pop "}
+  table.wide td:nth-child(7)::before{content:"cash "}
+  table.wide td:nth-child(7)::after{content:""}
+  .card .cap{font-size:.82rem}
+}
 """
 
 
@@ -61,7 +110,7 @@ OPINION_GUIDE = {
         ("Clean", "ok",
          "The auditors found nothing wrong. The rarest outcome and the one to look for."),
     "unqualified with findings":
-        ("Clean, with notes", "ok",
+        ("Clean, with notes", "warn",
          "The numbers are fair, but the auditors found problems worth mentioning — often "
          "how money was spent rather than whether it was counted correctly."),
     "qualified":
@@ -108,6 +157,129 @@ def esc(v):
     return html.escape("" if v is None else str(v))
 
 
+# The index is 257 rows of full party names, most of which wrap and make every row a different
+# height. Abbreviate, and keep the full name in the title attribute so nothing is lost.
+PARTY_ABBREV = {
+    "african national congress": "ANC",
+    "democratic alliance": "DA",
+    "economic freedom fighters": "EFF",
+    "inkatha freedom party": "IFP",
+    "freedom front plus": "FF+",
+    "vryheidsfront plus": "FF+",
+    "patriotic alliance": "PA",
+    "african christian democratic party": "ACDP",
+    "congress of the people": "COPE",
+    "united democratic movement": "UDM",
+    "national freedom party": "NFP",
+    "pan africanist congress of azania": "PAC",
+    "african transformation movement": "ATM",
+    "cape coloured congress": "CCC",
+    "good": "GOOD",
+    "african independent congress": "AIC",
+    "minority front": "MF",
+    "al jama-ah": "AL JAMA-AH",
+    "african people's convention": "APC",
+    "azanian people's organisation": "AZAPO",
+    "bolsheviks party of south africa": "BPSA",
+    "independent civic organisation of south africa": "ICOSA",
+    "socialist revolutionary workers party": "SRWP",
+}
+
+
+def prettify(name):
+    """Title case, but the small words stay small: 'Organisation of South Africa'."""
+    small = {"of", "the", "and", "for", "in", "on", "a", "an"}
+    words = name.replace("_", " ").title().split()
+    return " ".join(w.lower() if i and w.lower() in small else w
+                    for i, w in enumerate(words))
+
+
+def party(name):
+    """Abbreviated party label plus the full name for the hover title."""
+    if not name:
+        return "—", ""
+    full = prettify(name)
+    ab = PARTY_ABBREV.get(full.lower())
+    return (ab, full) if ab else (full, full)
+
+
+def audit_class(opinion):
+    """Three levels, not two: findings-only is not the same as qualified."""
+    o = (opinion or "").lower()
+    if not o:
+        return "dim"
+    if o.startswith("unqualified with no"):
+        return "ok"
+    if o.startswith("unqualified with findings"):
+        return "warn"
+    return "bad"
+
+
+def verdict_of(opinion):
+    """The plain-language label for an audit opinion, plus its colour class."""
+    key = (opinion or "").lower().replace(" of opinion", "").strip()
+    for k, (label, cls, _help) in OPINION_GUIDE.items():
+        if key.startswith(k):
+            return label, cls
+    return (opinion or "—"), audit_class(opinion)
+
+
+def cash_class(v):
+    try:
+        f = float(v)
+    except (TypeError, ValueError):
+        return ""
+    return "bad" if f < 1 else ("warn" if f < 3 else "")
+
+
+# Two dozen lines of vanilla JS: filter the 257 rows, sort a column, keep the count honest.
+# Inline and dependency-free, because the whole point is that this page works with no server.
+INDEX_JS = """
+const rows = [...document.querySelectorAll('tbody#rows tr')];
+const q = document.getElementById('q');
+const count = document.getElementById('count');
+const empty = document.getElementById('empty');
+let shown = rows.length;
+
+function apply() {
+  const needle = q.value.trim().toLowerCase();
+  shown = 0;
+  for (const tr of rows) {
+    const hit = !needle || tr.dataset.search.includes(needle);
+    tr.hidden = !hit;
+    if (hit) shown++;
+  }
+  count.textContent = needle ? shown + ' of ' + rows.length + ' shown' : rows.length + ' municipalities';
+  empty.hidden = shown > 0;
+}
+q.addEventListener('input', apply);
+apply();
+
+document.querySelectorAll('th[data-sort]').forEach(th => {
+  th.addEventListener('click', () => {
+    const i = +th.dataset.sort, numeric = th.dataset.num === '1';
+    const dir = th.classList.contains('asc') ? -1 : 1;
+    document.querySelectorAll('th[data-sort]').forEach(o => o.classList.remove('asc','desc'));
+    th.classList.add(dir === 1 ? 'asc' : 'desc');
+    const body = document.getElementById('rows');
+    rows.sort((a, b) => {
+      const av = a.children[i].dataset.v ?? a.children[i].textContent.trim().replace(/[,\u2014]/g,'');
+      const bv = b.children[i].dataset.v ?? b.children[i].textContent.trim().replace(/[,\u2014]/g,'');
+      if (numeric) {
+        const an = parseFloat(av), bn = parseFloat(bv);
+        if (isNaN(an) && isNaN(bn)) return 0;
+        if (isNaN(an)) return 1;            // blanks sort last in both directions
+        if (isNaN(bn)) return -1;
+        return (an - bn) * dir;
+      }
+      return av.localeCompare(bv) * dir;
+    });
+    for (const tr of rows) body.appendChild(tr);
+  });
+});
+"""
+
+
 def num(v, dp=1, suffix=""):
     if v in (None, "", "None"):
         return "—"
@@ -149,17 +321,33 @@ def main():
         op = (ags.get("opinions") or [{}])
         latest = next((o for o in reversed(op) if o.get("audit_opinion")), {})
         opinion = latest.get("audit_opinion") or ""
-        klass = "ok" if opinion.startswith("Unqualified with no") else ("bad" if opinion else "")
-        rows.append(f"""<tr><td><a href="{slug}.html">{esc(r['oad_name'] or r['code'])}</a></td>
-<td>{esc(r['province'])}</td><td>{esc(m.get('category') or '')}</td>
-<td>{num(m.get('population'), 0)}</td>
-<td>{esc((co.get('largest_party') or '—').title().replace('African National Congress','ANC').replace('Democratic Alliance','DA').replace('Economic Freedom Party','EFF'))}</td>
-<td class="{klass}">{esc(opinion)}</td>
-<td class="num">{num(i.get('cash_coverage'))}</td></tr>""")
+        p_ab, p_full = party(co.get("largest_party"))
+        cash = i.get("cash_coverage")
+        name = r["oad_name"] or r["code"]
+        v_label, v_class = verdict_of(opinion)
+        search = " ".join((name, r.get("province") or "", m.get("category") or "",
+                           p_ab, p_full, opinion, v_label)).lower()
+        rows.append(
+            f'<tr data-search="{esc(search)}">'
+            f'<td><a href="{slug}.html">{esc(name)}</a></td>'
+            f'<td class="nw dim">{esc(r["province"])}</td>'
+            f'<td class="nw">{esc(m.get("category") or "—")}</td>'
+            f'<td class="num" data-v="{esc(m.get("population") or "")}">{num(m.get("population"), 0)}</td>'
+            f'<td class="nw" data-v="{esc(p_full)}">{esc(p_ab) if p_ab != p_full else esc(p_full)}</td>'
+            f'<td class="nw {v_class}" title="{esc(opinion)}" data-v="{esc(opinion)}">'
+            f'{esc(v_label)}</td>'
+            f'<td class="num {cash_class(cash)}" data-v="{esc(cash or "")}">{num(cash)}</td>'
+            f'</tr>')
+
+    def th(i, label, num_col=False, extra=""):
+        return (f'<th data-sort="{i}"' + (' data-num="1"' if num_col else '') +
+                (f' {extra}' if extra else '') + f'>{label}</th>')
 
     index = f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>South African municipalities — {len(cards)} places, one table</title>
+<meta name="description" content="Finance, audit outcomes and 2021 election results for every
+South African municipality, from published sources. No ranking, no scores, no causal claims.">
 <style>{CSS}</style></head><body><main>
 <div class="kicker">SA open data · local view</div>
 <h1>Every South African municipality,<br>and what its books say</h1>
@@ -167,52 +355,64 @@ def main():
 Municipal Money (finance, 2024), the Auditor-General (outcomes to 2024-25), the IEC
 (largest party after 2021) and Stats SA (free basic services). Captured 9–10 November 2026.
 No causal claims — see the caveats on any page.</p>
-<h2>How to read this</h2>
+<details><summary>How to read this</summary>
 <div class="note">
 <p><strong>One row per municipality.</strong> "Metro" is a big city that governs itself;
 "local" is a town or district municipality's child; "district" sits above several locals and
 shares services like water and roads between them.</p>
 <p><strong>Largest party</strong> is who won the most seats in 2021 — not necessarily who
-governs. If no party holds more than half, a coalition or minority government ran the place.</p>
+governs. If no party holds more than half, a coalition or minority government ran the place.
+Districts are not directly elected, so their rows show a dash.</p>
 <p><strong>Latest audit</strong> is the Auditor-General's verdict on the books. "Clean" is
 unqualified with no findings; anything else means the auditors found a problem, and the
 <a href="key.html">key</a> explains each verdict in one line.</p>
 <p><strong>Cash</strong> is how many months the municipality could keep paying its bills from
-cash if income stopped. Under one month is a crisis.</p>
-</div>
+cash if income stopped. Under one month is a crisis. It is a point-in-time figure and a
+municipality can hold cash it cannot spend freely, so treat outliers as a question, not a
+grade.</p>
+</div></details>
 
-<h2>{len(cards)} live entities</h2>
-<table><thead><tr><th>Municipality</th><th>Province</th><th>Cat</th><th class="num">Population</th>
-<th>Largest party (2021)</th><th>Latest audit</th><th class="num">Cash (months)</th></tr></thead>
-<tbody>{''.join(rows)}</tbody></table>
-<footer><a href="key.html">How to read this</a> · Data CC BY 4.0 · code MIT ·
+<h2>Pick a municipality</h2>
+<div class="controls">
+  <input id="q" type="search" placeholder="Filter by name, province, party or audit outcome"
+         aria-label="Filter municipalities" autocomplete="off">
+  <span class="count" id="count">{len(cards)} municipalities</span>
+</div>
+<div class="tablewrap">
+<table class="wide" style="font-size:.9rem"><thead><tr>
+{th(0, "Municipality")}{th(1, "Province")}{th(2, "Cat")}
+{th(3, "Population", True)}{th(4, "Party (2021)")}{th(5, "Latest audit")}
+{th(6, "Cash (months)", True)}
+</tr></thead><tbody id="rows">{''.join(rows)}</tbody></table>
+</div>
+<p class="empty" id="empty" hidden>No municipality matches that. Try a province, a party, or
+part of a name.</p>
+<footer><a href="key.html">How to read this</a> · data CC BY 4.0 · code MIT ·
 <a href="https://github.com/realtimshady16/sa-open-data">source</a></footer>
-</main></body></html>"""
+</main><script>{INDEX_JS}</script></body></html>"""
     (OUT / "index.html").write_text(index)
 
     # ---- one page per entity -------------------------------------------------
     for slug, r, m, ags, co, i in cards:
         ops = sorted((o for o in (ags.get("opinions") or []) if o.get("audit_opinion")),
                      key=lambda o: o.get("period") or "")
-        def verdict(op):
-            key = (op or "").lower().replace(" of opinion", "").strip()
-            for k, (label, cls, _help) in OPINION_GUIDE.items():
-                if key.startswith(k):
-                    return label, cls
-            return op or "—", "dim"
 
+        # The source also carries information_reliable / information_useful flags. They are not
+        # in the render: across 2 056 audit periods they do not track the opinion at all (263
+        # "unqualified with no findings" periods are flagged unreliable, 447 "qualified" ones are
+        # flagged reliable), so labelling them "books reliable / useful" asserts something the
+        # source does not say. The columns are still in datasets/ for anyone who knows the code.
         op_rows = "".join(
-            f"<tr><td>{esc(o['period'])}</td>"
-            f"<td class=\"{verdict(o['audit_opinion'])[1]}\">{esc(verdict(o['audit_opinion'])[0])}</td>"
-            f"<td>{esc('yes' if (o.get('information_reliable') or '').lower().startswith('y') else 'no' if o.get('information_reliable') else '')}</td>"
-            f"<td>{esc('yes' if (o.get('information_useful') or '').lower().startswith('y') else 'no' if o.get('information_useful') else '')}</td>"
+            f"<tr><td class=\"nw\">{esc(o['period'])}</td>"
+            f"<td class=\"nw {verdict_of(o['audit_opinion'])[1]}\">{esc(verdict_of(o['audit_opinion'])[0])}</td>"
             f"<td class=\"dim\">{esc(o['audit_opinion'])}</td></tr>" for o in ops)
         legend_rows = "".join(
             f"<tr><td class=\"{cls}\"><strong>{label}</strong></td><td>{esc(help_text)}</td></tr>"
             for label, cls, help_text in OPINION_GUIDE.values())
         parties = sorted((co.get("parties") or []), key=lambda p: -(p.get("total") or 0))[:5]
         party_rows = "".join(
-            f"<tr><td>{esc((p['party'] or '').title())}</td><td class=\"num\">{p.get('total')}</td></tr>"
+            f"<tr><td>{esc((p['party'] or '').title())}</td>"
+            f"<td class=\"num nw\">{p.get('total')}</td></tr>"
             for p in parties)
         cards_html = "".join(
             f'<div class="card"><div class="v">{num(i.get(k), 1, METRIC_HELP[k][1])}</div>'
@@ -231,7 +431,9 @@ The largest party was <strong>{esc((co.get('largest_party') or '—').title())}<
 with {esc(co.get('largest_seats') or '—')} seats.</p>
 <p class="note">Largest party is <em>not</em> the same as the governing party in a hung council.
 The mayor can come from a smaller coalition partner.</p>
-<table><thead><tr><th>Party</th><th class="num">Seats</th></tr></thead><tbody>{party_rows}</tbody></table>"""
+<div class="tablewrap" style="max-width:26rem">
+<table><thead><tr><th>Party</th><th class="num">Seats</th></tr></thead><tbody>{party_rows}</tbody></table>
+</div>"""
         else:
             governing_html = """<p>District councils are not directly elected. Under the Municipal
 Structures Act 117 of 1998, 60% of their seats are filled by councillors delegated from the
@@ -243,6 +445,8 @@ their own page and their own 2021 result.</p>"""
         page = f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{esc(r['oad_name'])} — finance, audit, government</title>
+<meta name="description" content="{esc(r['oad_name'])}: {esc(r['province'])}, audit outcomes and
+2021 election result from published sources. Finance year 2024, audits to 2024-25.">
 <style>{CSS}</style></head><body><main>
 <div class="kicker"><a href="index.html">← all municipalities</a> · <a href="key.html">key</a> · {esc(r['code'])} · {esc(r['oad_level'])}</div>
 <h1>{esc(r['oad_name'] or r['code'])}</h1>
@@ -257,13 +461,17 @@ expenditure (higher is worse). Capital vs budget is a signed variance — negati
 budget was underspent. A blank means not computed, never zero.</p>
 
 <h2>Audit outcomes</h2>
-<table><thead><tr><th>Year</th><th>Verdict</th><th>Books reliable?</th><th>Books useful?</th>
-<th class="dim">Auditor's words</th></tr></thead>
-<tbody>{op_rows or '<tr><td colspan="5">No audited periods in this capture.</td></tr>'}</tbody></table>
+<div class="tablewrap">
+<table><thead><tr><th>Year</th><th>Verdict</th><th>Auditor's words</th></tr></thead>
+<tbody>{op_rows or '<tr><td colspan="3">No audited periods in this capture.</td></tr>'}</tbody></table>
+</div>
 <details><summary>What the verdicts mean</summary>
 <table><tbody>{legend_rows}</tbody></table></details>
-<p class="note">"Reliable" asks whether the numbers can be trusted; "useful" asks whether the
-report is good enough to plan with. A municipality can be reliable but not useful.</p>
+<p class="note">One row per financial year, oldest first. "Auditor's words" is the
+unmodified phrase from the Auditor-General's release; the verdict beside it is the same phrase
+translated. The source also flags whether reported <em>performance</em> information was reliable
+and useful — it is in the data files, but it is not shown here, because a flag that does not
+track the audit opinion would read as a judgement on the financial statements.</p>
 
 <h2>Who governs</h2>
 {governing_html}
@@ -307,9 +515,12 @@ services between them — water, roads, disaster management. 44 of them.</td></t
 they are worth knowing because they are the clearest single signal of whether a municipality is
 functioning.</p>
 <table><tbody>{opinion_rows}</tbody></table>
-<p class="note">Two extra columns on each page: <strong>reliable</strong> asks whether the numbers
-can be trusted, <strong>useful</strong> asks whether the report is good enough to plan with. A
-municipality can be reliable but not useful.</p>
+<p class="note">The Auditor-General's data also carries two flags, <strong>reliable</strong> and
+<strong>useful</strong>, about reported performance information. They are in the data files but
+<em>not</em> shown on these pages: across 2 056 audit periods they do not track the opinion at all
+(263 "unqualified with no findings" periods are flagged unreliable; 447 "qualified" ones are
+flagged reliable), so printing them beside a verdict would read as a judgement on the financial
+statements. A blank everywhere else means not computed, never zero.</p>
 
 <h2>The five money numbers</h2>
 <table><tbody>{metric_rows}</tbody></table>
