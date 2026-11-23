@@ -59,6 +59,24 @@ of the data, not part of the record.** Rebuild it any time:
 python3 tools/build_site.py && python3 -m http.server -d site 8000
 ```
 
+It is published at **https://realtimshady16.github.io/sa-open-data/** by
+`.github/workflows/pages.yml`, which runs the same command on every push that touches
+`datasets/` or the generator and deploys the output as a Pages artefact. `site/` is not
+committed, so the published bytes are always a build of the data in the tree — and can be
+reproduced locally with the one command above.
+
+## What the site says, and what it refuses to say
+
+One page per live municipality: five money numbers with a plain-language caption on each, the
+Auditor-General's verdicts by year with a key, and who won the 2021 election. It is deliberately
+not a ranking, not a score, and not a causal claim — poor audit outcomes, weak finances and
+party control share causes and none of them explains another. `key.html` states the limits.
+
+44 district municipalities have no council record because **district councils are not directly
+elected**: 60% of their seats come from delegations of the local municipalities inside them and
+40% by proportional representation (Municipal Structures Act 117 of 1998). Their pages say that
+rather than showing an empty result.
+
 ## Cite it
 
 The repository and the DOI are not the same object, and the difference matters:

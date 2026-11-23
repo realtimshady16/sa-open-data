@@ -153,7 +153,7 @@ def main():
         rows.append(f"""<tr><td><a href="{slug}.html">{esc(r['oad_name'] or r['code'])}</a></td>
 <td>{esc(r['province'])}</td><td>{esc(m.get('category') or '')}</td>
 <td>{num(m.get('population'), 0)}</td>
-<td>{esc((co.get('largest_party') or '').title().replace('African National Congress','ANC').replace('Democratic Alliance','DA').replace('Economic Freedom Party','EFF'))}</td>
+<td>{esc((co.get('largest_party') or '—').title().replace('African National Congress','ANC').replace('Democratic Alliance','DA').replace('Economic Freedom Party','EFF'))}</td>
 <td class="{klass}">{esc(opinion)}</td>
 <td class="num">{num(i.get('cash_coverage'))}</td></tr>""")
 
@@ -221,6 +221,25 @@ cash if income stopped. Under one month is a crisis.</p>
             for k in ("cash_coverage", "uifw_expenditure", "repairs_maintenance_spending",
                       "current_debtors_collection_rate", "capital_budget_spending"))
 
+        # 44 district municipalities have no IEC council record, because district councils are
+        # not directly contested. Rendering that absence with the local-municipality template
+        # used to print "— seats" and assert a hung council that never existed.
+        if co:
+            governing_html = f"""<p>{esc(co.get('total_seats') or '—')} seats up for election in 2021.
+{'One party holds more than half, so it governs alone.' if co.get('majority') else 'No party holds more than half, so a coalition or a minority government had to be formed.'}
+The largest party was <strong>{esc((co.get('largest_party') or '—').title())}</strong>
+with {esc(co.get('largest_seats') or '—')} seats.</p>
+<p class="note">Largest party is <em>not</em> the same as the governing party in a hung council.
+The mayor can come from a smaller coalition partner.</p>
+<table><thead><tr><th>Party</th><th class="num">Seats</th></tr></thead><tbody>{party_rows}</tbody></table>"""
+        else:
+            governing_html = """<p>District councils are not directly elected. Under the Municipal
+Structures Act 117 of 1998, 60% of their seats are filled by councillors delegated from the
+local municipalities inside the district and 40% by proportional representation.</p>
+<p class="note">The council dataset used here records councils contested directly, so districts
+are not in it. This page therefore reports no largest party — that is a gap in the source, not
+a hung council and not zero seats. The local municipalities inside this district each have
+their own page and their own 2021 result.</p>"""
         page = f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{esc(r['oad_name'])} — finance, audit, government</title>
@@ -247,13 +266,7 @@ budget was underspent. A blank means not computed, never zero.</p>
 report is good enough to plan with. A municipality can be reliable but not useful.</p>
 
 <h2>Who governs</h2>
-<p>{esc(co.get('total_seats') or '—')} seats up for election in 2021.
-{'One party holds more than half, so it governs alone.' if co.get('majority') else 'No party holds more than half, so a coalition or a minority government had to be formed.'}
-The largest party was <strong>{esc((co.get('largest_party') or '—').title())}</strong>
-with {esc(co.get('largest_seats') or '—')} seats.</p>
-<p class="note">Largest party is <em>not</em> the same as the governing party in a hung council.
-The mayor can come from a smaller coalition partner.</p>
-<table><thead><tr><th>Party</th><th class="num">Seats</th></tr></thead><tbody>{party_rows}</tbody></table>
+{governing_html}
 
 <footer>Sources: National Treasury / Municipal Money · Auditor-General (MFMA 2024-25) ·
 IEC · Stats SA P9115. Captured 2026-11-10. Largest party is not the governing party in a
@@ -306,6 +319,11 @@ municipality can be reliable but not useful.</p>
 alone. If not, the council is <em>hung</em> and a coalition or minority arrangement forms — which
 is why the largest party and the governing party can differ. In 2021, 70 of 213 councils were
 hung.</p>
+<p class="note"><strong>District municipalities are the exception.</strong> Their councils are not
+elected directly: 60% of the seats are filled by councillors delegated from the local
+municipalities inside the district and 40% by proportional representation, so the direct-election
+dataset these pages use does not cover them. Their pages say so instead of showing an empty
+result.</p>
 
 <h2>What this is not</h2>
 <ul>

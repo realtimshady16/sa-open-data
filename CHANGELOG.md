@@ -7,6 +7,15 @@ documentation, a derived join, and corrections.
 
 ## Unreleased — after v0.3.0, 2026-11-18
 
+- **The static view is published** at `https://realtimshady16.github.io/sa-open-data/`, built by
+  `.github/workflows/pages.yml` from `datasets/` on every push. `site/` stays git-ignored, so
+  the view is still not part of the record. No captured dataset changed.
+- **A defect in that view, fixed before publishing:** 44 district pages rendered a missing IEC
+  council record as "— seats up for election in 2021 … no party holds more than half, so a
+  coalition had to be formed", i.e. it asserted a hung council from absent data. District
+  councils are not directly elected (60% delegations from the local municipalities, 40% PR,
+  Municipal Structures Act 117 of 1998), so those pages now say that instead.
+
 - **`SOURCES.md` corrected in five rows** after a session in the collections tree: the Master
   List of Schools is held (DBE-direct, 2024 national + 2026 provinces) and parsed, not a DataFirst
   dependency; school-level NSC is held as 13 reports with one parsed, so catalogue 685 is dropped;
