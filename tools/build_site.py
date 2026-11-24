@@ -38,7 +38,7 @@ h2{font-size:.78rem;text-transform:uppercase;letter-spacing:.14em;color:var(--di
 .mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
 
 /* tables: a sticky head, tabular figures, and no row-height jitter from wrapping */
-.tablewrap{overflow-x:auto;margin:0 -.25rem}
+.tablewrap{overflow:visible;margin:0 -.25rem}
 table{width:100%;border-collapse:collapse;font-size:.95rem}
 th,td{text-align:left;padding:.42rem .45rem;border-bottom:1px solid var(--line);vertical-align:top}
 th{color:var(--dim);font-weight:600;font-size:.74rem;text-transform:uppercase;letter-spacing:.1em;
@@ -86,7 +86,7 @@ footer{margin-top:3rem;padding-top:1rem;border-top:1px solid var(--line);
 
 /* Narrow screens: seven columns cannot fit a phone, and horizontal scrolling hides the two
    columns that matter. Below 640px each row becomes a name and one line of facts instead. */
-@media (max-width:1050px){
+@media (max-width:640px){
   body{padding:1.25rem .9rem 4rem;font-size:16px}
   th,td{padding:.4rem .35rem;font-size:.88rem}
   .controls input{flex:1 1 100%}
@@ -96,6 +96,7 @@ footer{margin-top:3rem;padding-top:1rem;border-top:1px solid var(--line);
   table.wide th[data-sort]::after{content:none}
   table.wide, table.wide tbody, table.wide tr, table.wide td{display:block;width:auto}
   table.wide tr{padding:.6rem 0;border-bottom:1px solid var(--line)}
+  table.wide tr[hidden]{display:none}
   table.wide tr:hover{background:transparent}
   table.wide td{border:none;padding:0;text-align:left;white-space:normal}
   table.wide td:first-child{font-size:1.02rem;line-height:1.3}
@@ -110,10 +111,11 @@ footer{margin-top:3rem;padding-top:1rem;border-top:1px solid var(--line);
   table.wide td:nth-child(5)::before{content:"party "}
   table.wide td:nth-child(6)::before{content:"audit "}
   table.wide td:nth-child(7)::before{content:"cash "}
+  table.wide td:nth-child(7){white-space:nowrap}
   table.wide td:nth-child(7)::after{content:""}
   .card .cap{font-size:.82rem}
+  .grid{grid-template-columns:1fr}
 }
-@media (max-width:640px){.grid{grid-template-columns:1fr}}
 """
 
 
@@ -236,6 +238,8 @@ def audit_class(opinion):
 def verdict_of(opinion):
     """The plain-language label for an audit opinion, plus its colour class."""
     key = (opinion or "").lower().replace(" of opinion", "").strip()
+    if "not finalised" in key or "not finalized" in key:
+        return OPINION_GUIDE["outstanding"][:2]
     for k, (label, cls, _help) in OPINION_GUIDE.items():
         if key.startswith(k):
             return label, cls
@@ -278,7 +282,7 @@ function apply() {
   const active = chips.filter(c => c.getAttribute('aria-pressed') === 'true').map(c => c.dataset.filter);
   shown = 0;
   for (const tr of rows) {
-    const hit = (tokens.length === 0 || tokens.every(token => tr.dataset.search.includes(token))) &&
+    const hit = (tokens.length === 0 || tokens.every(token => token === 'clean' ? tr.dataset.verdict === 'clean' : tr.dataset.search.includes(token))) &&
       (!active.length || active.every(f => tr.dataset[f] === 'true'));
     tr.hidden = !hit;
     if (hit) shown++;
@@ -381,14 +385,17 @@ def main():
         name = r["oad_name"] or r["code"]
         v_label, v_class = verdict_of(opinion)
         province = (r.get("province") or "").replace("Nothern", "Northern")
-        search = " ".join((name, province, m.get("category") or "",
-                           p_ab, p_full, opinion, v_label)).lower()
+        verdict_token = {"Clean": "clean", "Clean, with notes": "clean-notes",
+                         "Qualified": "qualified", "Adverse": "adverse",
+                         "Disclaimer": "disclaimer"}.get(v_label, "outstanding")
+        search = " ".join((name, province, m.get("category") or "", r.get("oad_level") or "",
+                           p_ab, p_full, "audit", "cash", v_label)).lower()
         search = "".join(ch for ch in __import__('unicodedata').normalize('NFD', search)
                          if not __import__('unicodedata').combining(ch))
         audit_concern = bool(opinion and v_label != "Clean")
         low_cash = bool(cash and float(cash) < 1)
         rows.append(
-            f'<tr data-search="{esc(search)}" data-audit-concern="{str(audit_concern).lower()}" data-low-cash="{str(low_cash).lower()}">'
+            f'<tr data-search="{esc(search)}" data-verdict="{verdict_token}" data-audit-concern="{str(audit_concern).lower()}" data-low-cash="{str(low_cash).lower()}">'
             f'<td><a href="{slug}.html">{esc(name)}</a></td>'
             f'<td class="nw dim">{esc(province)}</td>'
             f'<td class="nw">{esc(m.get("category") or "—")}</td>'
@@ -415,7 +422,7 @@ South African municipality, from published sources. No ranking, no scores, no ca
 Municipal Money (finance, 2024), the Auditor-General (outcomes to 2024-25), the IEC
 (largest party after 2021) and Stats SA (free basic services). Captured 9–10 November 2026.
 No causal claims — see the caveats on any page.</p>
-<details open><summary>How to read this</summary>
+<details><summary>How to read this</summary>
 <div class="note">
 <p><strong>One row per municipality.</strong> "Metro" is a big city that governs itself;
 "local" is a town or rural municipality within a district; "district" sits above several locals and
@@ -439,7 +446,7 @@ grade.</p>
   <span class="count" id="count" aria-live="polite">{len(cards)} municipalities</span>
 </div>
 <div class="chips" aria-label="Quick filters">
-  <button class="chip" type="button" data-filter="auditConcern" aria-pressed="false">Audit concerns</button>
+  <button class="chip" type="button" data-filter="auditConcern" aria-pressed="false">Findings or worse</button>
   <button class="chip" type="button" data-filter="lowCash" aria-pressed="false">Cash below 1 month</button>
 </div>
 <div class="mobile-sort"><label for="mobile-sort">Sort</label><select id="mobile-sort">
