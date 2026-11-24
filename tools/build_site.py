@@ -87,7 +87,7 @@ footer{margin-top:3rem;padding-top:1rem;border-top:1px solid var(--line);
 
 /* Narrow screens: seven columns cannot fit a phone, and horizontal scrolling hides the two
    columns that matter. Below 640px each row becomes a name and one line of facts instead. */
-@media (max-width:640px){
+@media (max-width:860px){
   body{padding:1.25rem .9rem 4rem;font-size:16px}
   th,td{padding:.4rem .35rem;font-size:.88rem}
   .controls input{flex:1 1 100%}
@@ -115,8 +115,8 @@ footer{margin-top:3rem;padding-top:1rem;border-top:1px solid var(--line);
   table.wide td:nth-child(7){white-space:nowrap}
   table.wide td:nth-child(7)::after{content:""}
   .card .cap{font-size:.82rem}
-  .grid{grid-template-columns:1fr}
 }
+@media (max-width:640px){.grid{grid-template-columns:1fr}}
 """
 
 
@@ -521,6 +521,10 @@ part of a name.</p>
                 return '<div class="flag">Unusually large reported variance — treat it as a question, not a grade.</div>'
             if k == "repairs_maintenance_spending" and n < 0:
                 return '<div class="flag">Negative maintenance value reported by the source — treat it as a question, not a finding about the municipality.</div>'
+            if k == "repairs_maintenance_spending" and n > 100:
+                return '<div class="flag">Unusually high maintenance value reported by the source — treat it as a question, not a grade.</div>'
+            if k == "uifw_expenditure" and n > 100:
+                return '<div class="flag">Unusually high reported expenditure — treat it as a question, not a grade.</div>'
             return ""
 
         cards_html = "".join(
