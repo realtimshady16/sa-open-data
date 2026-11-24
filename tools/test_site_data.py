@@ -70,8 +70,10 @@ class BuiltView(unittest.TestCase):
                 r'<tr><td class="nw">(\d{4}-\d{2})</td><td class="nw [^"]*">([^<]+)</td></tr>', detail)
             self.assertTrue(years, f"no audited periods on {href}")
             self.assertEqual(period, years[-1][0], f"period mismatch on {href}")
-            self.assertEqual(LABEL[token], years[-1][1].split(" — ")[0],
-                             f"verdict mismatch on {href}")
+            shown = years[-1][1].split(" — ")[0]
+            expected_label = LABEL[token]
+            self.assertTrue(shown == expected_label or shown.startswith(expected_label + " at"),
+                            f"verdict mismatch on {href}: {shown} != {expected_label}")
 
     def test_known_fixture_not_reversed(self):
         entry = next(e for e in raw_opinions() if e["slug"] == "8-bojanala-district")
@@ -94,6 +96,18 @@ class BuiltView(unittest.TestCase):
         self.assertEqual(len(records), 257)
         self.assertEqual(records[0]["latest_audit_period"], "2024-25")
         self.assertEqual({r["category"] for r in records}, {"Metro", "Local", "District"})
+
+    def test_csv_opinions_match_the_raw_capture(self):
+        with (DATA / "crosswalk/crosswalk.csv").open(newline="") as handle:
+            slug_by_code = {r["code"]: r["agsa_slug"] for r in csv.DictReader(handle)}
+        by_slug = {e["slug"]: e for e in raw_opinions()}
+        with (SITE / "municipalities.csv").open(newline="") as handle:
+            records = list(csv.DictReader(handle))
+        for record in records:
+            code = record["code"]
+            expected = newest(by_slug[slug_by_code[code]]["opinions"])
+            self.assertEqual(record["latest_audit_period"], expected.get("period", ""), code)
+            self.assertEqual(record["latest_audit_opinion"], expected.get("audit_opinion", ""), code)
 
 
 if __name__ == "__main__":

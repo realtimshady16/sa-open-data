@@ -45,6 +45,7 @@ th{color:var(--dim);font-weight:600;font-size:.74rem;text-transform:uppercase;le
    font-family:ui-sans-serif,system-ui,sans-serif;position:sticky;top:0;background:var(--bg);
    box-shadow:0 1px 0 var(--line);z-index:2;white-space:nowrap}
 th[data-num="1"]{text-align:right}
+th[data-sort="5"]{text-align:left}
 th[data-sort]{cursor:pointer;user-select:none}
 th[data-sort]:hover{color:var(--fg)}
 th[data-sort] button{all:unset;cursor:pointer}
@@ -82,6 +83,7 @@ option{background:var(--card);color:var(--fg)}
 .mobile-sort{display:none;gap:.45rem;align-items:center;flex-wrap:wrap;margin:.35rem 0 .7rem}
 .period{font-family:ui-sans-serif,system-ui,sans-serif;font-size:.72rem;color:var(--dim);margin-left:.3rem}
 .download{font-size:.82rem}
+@media (max-width:900px){.note-csv{display:none}}
 .legend{color:var(--dim);font-size:.85rem;margin:.6rem 0 1rem;line-height:1.7}
 .compact-note{display:none;color:var(--dim);font-size:.78rem;margin:.45rem 0 .6rem;line-height:1.5}
 .flag{color:var(--warn);font-size:.76rem;line-height:1.4;margin-top:.5rem}
@@ -501,6 +503,7 @@ chips.forEach(chip => chip.addEventListener('click', () => {
 }));
 province.addEventListener('change', apply);
 reset.addEventListener('click', resetAll);
+window.addEventListener('popstate', () => { const [s, d] = readState(); sortBy(s, d); apply(); });
 sortBy(startSort, startDir);   // default: the audit signal, worst first
 apply();
 
@@ -523,6 +526,13 @@ function sortBy(i, dir) {
       const bv = b.children[i].dataset.v ?? b.children[i].textContent.trim().replace(/[,\u2014]/g,'');
       if (numeric) {
         const an = parseFloat(av), bn = parseFloat(bv);
+        // An unfinished audit is a gap, not a good result: keep it last in both directions.
+        if (i === 5) {
+          const aUnknown = an >= 5, bUnknown = bn >= 5;
+          if (aUnknown && !bUnknown) return 1;
+          if (!aUnknown && bUnknown) return -1;
+          if (aUnknown && bUnknown) return an - bn;
+        }
         if (isNaN(an) && isNaN(bn)) return 0;
         if (isNaN(an)) return 1;            // blanks sort last in both directions
         if (isNaN(bn)) return -1;
@@ -640,7 +650,7 @@ def main():
             f'<td class="nw{party_na}" data-v="{esc(p_full)}"><span class="sr">Largest party, 2021: </span><span class="mini" aria-hidden="true">Party </span>{esc(party_label)}</td>'
             f'<td class="nw {v_class}" title="{esc(opinion)}" data-v="{audit_rank(opinion)}">'
             f'<span class="sr">Latest audit: </span><span class="mini" aria-hidden="true">Audit </span>'
-            f'{esc(v_label)}<span class="period">{esc(period)}</span>{trend_html}</td>'
+            f'{esc(v_label)} <span class="period">{esc(period)}</span>{trend_html}</td>'
             f'<td class="num {cash_class(cash)}{cash_na}" data-v="{esc(cash or "")}"><span class="sr">Cash on hand, months: </span><span class="mini" aria-hidden="true">Cash </span>{num(cash)}</td>'
             f'</tr>')
 
@@ -688,6 +698,7 @@ grade.</p>
   </div>
   <span class="count" id="count" aria-live="polite">{len(cards)} municipalities</span>
   <a class="download" href="municipalities.csv" download>Download CSV</a>
+  <span class="download note-csv">Blank in the CSV = not published, never zero.</span>
   <button class="chip" type="button" id="clear-all" hidden>Clear all</button>
   <label class="sr" for="province">Province</label>
   <select id="province" aria-label="Filter by province"><option value="">All provinces</option></select>
@@ -706,8 +717,8 @@ grade.</p>
   <option value="6">Cash (months)</option>
 </select><button id="sort-dir" type="button">↑ Worst audits first</button></div>
 <p class="legend"><span class="ok">Clean</span> = no findings; <span class="warn">clean, with notes</span> = findings; <span class="bad">qualified, adverse or disclaimer</span> = material concern. ↑↓ after a verdict is the net change across the captured audit years.</p>
-<p class="legend">Metro, local and district are the three kinds of municipality. Party is the 2021 largest party; — means no direct-election result. Cash — means not computed; red under 1 month, amber under 3; 0.0 is the source value rounded to one decimal. Sorted by latest audit, worst first — use the column headings (or Sort on a narrow screen) to change it.</p>
-<p class="compact-note">No ranking, no causal claims. ↑↓ after a verdict = net audit change across the captured years.</p>
+<p class="legend">Metro, local and district are the three kinds of municipality. Party is the 2021 largest party; — means no direct-election result. Cash — means not computed; red under 1 month, amber under 3; 0.0 is the source value rounded to one decimal. Default sort: latest audit, worst first — change it with the column headings or Sort on a narrow screen.</p>
+<p class="compact-note">No ranking, no causal claims. ↑↓ after a verdict = net audit change across the captured years. Blank in the CSV = not published, never zero.</p>
 <div class="tablewrap" id="municipalities">
 <table class="wide" style="font-size:.9rem"><caption class="sr">South African municipalities, their latest audit verdict, cash on hand and 2021 largest party</caption><thead><tr>
 {th(0, "Municipality")}{th(1, "Province")}{th(2, "Category")}
@@ -753,6 +764,8 @@ grade.</p>
         # source does not say. The columns are still in datasets/ for anyone who knows the code.
         def audit_display(opinion):
             label, _ = verdict_of(opinion)
+            if opinion.lower().startswith(label.lower()):
+                return opinion          # "Audit not finalised — Audit not finalised at …" says it twice
             return label if label.lower() == opinion.lower() else f"{label} — {opinion}"
 
         op_rows = "".join(
