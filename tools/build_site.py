@@ -72,14 +72,17 @@ td.nw{white-space:nowrap}
 .chip{cursor:pointer}.chip:hover{border-color:var(--acc);color:var(--acc)}
 .chips .chip[aria-pressed="true"]{border-color:var(--acc);color:var(--acc);background:rgba(201,116,58,.22)}
 .mobile-sort{display:none;gap:.45rem;align-items:center;margin:.35rem 0 .7rem}
-.legend{color:var(--dim);font-size:.82rem;margin:.3rem 0 .8rem}
+.legend{color:var(--dim);font-size:.82rem;margin:.6rem 0 1rem;line-height:1.7}
 .flag{color:var(--warn);font-size:.76rem;line-height:1.4;margin-top:.5rem}
 .count{color:var(--dim);font-size:.85rem;font-variant-numeric:tabular-nums}
 .empty{padding:1.4rem .5rem;color:var(--dim)}
-.empty button{margin-left:.5rem}
+.empty button{display:block;margin-top:.7rem}
 .sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
     clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .mini{display:none}
+.catcode{display:none}
+.trend{font-family:ui-sans-serif,system-ui,sans-serif;font-size:.72rem;margin-left:.3rem;
+       padding:0 .25rem;border:1px solid currentColor;border-radius:2px;vertical-align:.05em}
 
 /* cards: content height, never stretched to the tallest sibling */
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(11.5rem,1fr));gap:.9rem;
@@ -96,31 +99,16 @@ summary:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
 footer{margin-top:3rem;padding-top:1rem;border-top:1px solid var(--line);
        color:var(--dim);font-size:.82rem}
 
-/* Seven columns cannot fit a narrow screen. 641–860px keeps the four columns that carry the
-   story; below 640px each row becomes a name plus one line of labelled facts. */
+/* Seven columns cannot fit a tablet, and hiding columns would show less than a phone does.
+   Up to 860px every fact moves into one labelled line per municipality. */
 @media (max-width:860px){
   body{padding:1.25rem .9rem 4rem;font-size:16px}
   th,td{padding:.4rem .35rem;font-size:.88rem}
   .controls input{flex:1 1 100%}
   .mobile-sort{display:flex}
   .tablewrap{overflow-x:visible;margin:0}
+  .legend{display:none}
   .card .cap{font-size:.82rem}
-}
-@media (min-width:641px) and (max-width:860px){
-  table.wide th:nth-child(3),table.wide td:nth-child(3),
-  table.wide th:nth-child(4),table.wide td:nth-child(4),
-  table.wide th:nth-child(5),table.wide td:nth-child(5){display:none}
-  table.wide th,table.wide td{white-space:nowrap}
-}
-@media (max-width:640px){
-  .grid{grid-template-columns:1fr}
-  .intro-note,.legend{display:none}
-  .controls{position:sticky;top:0;z-index:3;background:var(--bg);padding:.35rem 0;margin:.3rem 0 .5rem;
-    border-bottom:1px solid var(--line)}
-  .searchbox input,.searchbox button,.mobile-sort select,.mobile-sort button,.chips .chip,.chips select{min-height:44px}
-  .chips{flex-wrap:nowrap;overflow-x:auto;padding-bottom:.35rem;margin:.35rem 0 .5rem;scrollbar-width:thin}
-  .chips .chip,.chips select{flex:0 0 auto}
-  h1{margin:.2rem 0 .8rem}
   table.wide thead, table.wide thead th{display:none}
   table.wide th[data-sort]::after{content:none}
   table.wide, table.wide tbody, table.wide tr, table.wide td{display:block;width:auto}
@@ -136,10 +124,20 @@ footer{margin-top:3rem;padding-top:1rem;border-top:1px solid var(--line);
   table.wide td:nth-child(n+2).bad{color:var(--bad)}
   table.wide td.na{display:none}
   table.wide .mini{display:inline}
-  table.wide .catcode{display:none}
-  table.wide .catlong{display:inline}
   .tablewrap{overflow-x:auto}
   td.nw{white-space:normal;overflow-wrap:anywhere}
+}
+@media (max-width:640px){
+  .grid{grid-template-columns:1fr}
+  .intro-note,.legend{display:none}
+  .controls{position:sticky;top:0;z-index:3;background:var(--bg);padding:.35rem 0;margin:.3rem 0 .5rem;
+    border-bottom:1px solid var(--line)}
+  .searchbox input,.searchbox button,.mobile-sort select,.mobile-sort button,.chips .chip,.chips select{min-height:44px}
+  .chips{flex-wrap:nowrap;overflow-x:auto;padding-bottom:.35rem;margin:.35rem 0 .5rem;scrollbar-width:thin;
+    -webkit-mask-image:linear-gradient(to right,#000 90%,transparent 100%);
+    mask-image:linear-gradient(to right,#000 90%,transparent 100%)}
+  .chips .chip,.chips select{flex:0 0 auto}
+  h1{margin:.2rem 0 .8rem}
 }
 """
 
@@ -286,6 +284,27 @@ def category(code):
     return CATS.get((code or "").strip().upper(), ("", "—"))
 
 
+def audit_change(opinions):
+    """Net verdict-level change across captured audits: a scan cue, not a full history."""
+    seq = sorted((o for o in (opinions or []) if o.get("audit_opinion")
+                  and audit_rank(o["audit_opinion"]) <= 4),
+                 key=lambda o: o.get("period") or "")
+    if len(seq) < 3:
+        return "", "", "", ""
+    first, last = seq[0], seq[-1]
+    delta = audit_rank(last["audit_opinion"]) - audit_rank(first["audit_opinion"])
+    if delta >= 2:
+        glyph, cls, word = "↑" + str(delta), "ok", "improved improving"
+    elif delta <= -2:
+        glyph, cls, word = "↓" + str(-delta), "bad", "worsened worsening"
+    else:
+        return "", "", "", ""
+    title = (f"Net audit change, {first.get('period', '?')} to {last.get('period', '?')}: {word.split()[0]} "
+             f"by {abs(delta)} verdict levels ({verdict_of(first['audit_opinion'])[0]} to "
+             f"{verdict_of(last['audit_opinion'])[0]}).")
+    return glyph, cls, title, word
+
+
 def cash_class(v):
     try:
         f = float(v)
@@ -300,9 +319,10 @@ INDEX_JS = r"""
 const rows = [...document.querySelectorAll('tbody#rows tr')];
 const q = document.getElementById('q');
 const clearQ = document.getElementById('clear-q');
+const clearAll = document.getElementById('clear-all');
 const count = document.getElementById('count');
 const empty = document.getElementById('empty');
-const chips = [...document.querySelectorAll('.chips button.chip')];
+const chips = [...document.querySelectorAll('.chips button.chip[data-key]')];
 const province = document.getElementById('province');
 const sortSelect = document.getElementById('mobile-sort');
 const sortDir = document.getElementById('sort-dir');
@@ -311,6 +331,10 @@ const reset = document.getElementById('reset');
 // The key's vocabulary is a query language too. Match whole phrases before falling back to
 // free text: "no findings" must return the 18 clean rows, not rows mentioning "notes".
 const PHRASES = [
+  ['qualified with findings','qualified'],
+  ['qualified with no findings','qualified'],
+  ['unqualified no findings','clean'],
+  ['clean no findings','clean'],
   ['unqualified with no findings','clean'],
   ['unqualified with findings','clean-notes'],
   ['clean with notes','clean-notes'],
@@ -363,8 +387,8 @@ function searchHit(tr, raw) {
 }
 function labelFor(i, dir) {
   const arrow = dir === 1 ? '↑ ' : '↓ ';
-  return i === 5 ? arrow + (dir === 1 ? 'Worst first' : 'Best first') :
-    arrow + (dir === 1 ? 'A–Z / low–high' : 'Z–A / high–low');
+  return i === 5 ? arrow + (dir === 1 ? 'Worst audits first' : 'Best audits first') :
+    arrow + (dir === 1 ? 'A–Z / low to high' : 'Z–A / high to low');
 }
 function apply() {
   const active = chips.filter(c => c.getAttribute('aria-pressed') === 'true')
@@ -381,11 +405,14 @@ function apply() {
   }
   count.textContent = (q.value.trim() || active.length) ? shown + ' of ' + rows.length + ' shown' : rows.length + ' municipalities';
   clearQ.hidden = q.value.length === 0;
+  clearAll.hidden = active.length === 0;
   empty.hidden = shown > 0;
   if (!shown) {
     const parts = [];
     if (q.value.trim()) parts.push('“' + q.value.trim() + '”');
-    if (active.length) parts.push([...new Set(active.map(f => f.label))].join(' with '));
+    const labels = [...new Set(active.map(f => f.label))];
+    if (labels.length === 1) parts.push(labels[0]);
+    if (labels.length > 1) parts.push(labels.slice(0, -1).join(', ') + ' and ' + labels[labels.length - 1]);
     empty.querySelector('.why').textContent = 'Nothing matches ' + parts.join(' with ') + '.';
   }
 }
@@ -397,7 +424,11 @@ function resetAll() {
   q.focus();
 }
 q.addEventListener('input', apply);
-clearQ.addEventListener('click', resetAll);
+q.addEventListener('keydown', event => {
+  if (event.key === 'Enter' && shown === 0) { event.preventDefault(); reset.focus(); }
+});
+clearQ.addEventListener('click', () => { q.value = ''; apply(); q.focus(); });
+clearAll.addEventListener('click', resetAll);
 chips.forEach(chip => chip.addEventListener('click', () => {
   chip.setAttribute('aria-pressed', chip.getAttribute('aria-pressed') !== 'true');
   apply();
@@ -507,8 +538,13 @@ def main():
         party_label = p_ab if p_ab != p_full else p_full
         party_na = " na" if p_ab == "—" else ""
         cash_na = " na" if cash in (None, "", "None") else ""
+        trend_glyph, trend_cls, trend_title, trend_word = audit_change(ags.get("opinions") or [])
+        trend_html = ""
+        if trend_glyph:
+            trend_html = (f'<span class="trend {trend_cls}" aria-hidden="true" title="{esc(trend_title)}">{trend_glyph}</span>'
+                          f'<span class="sr">{esc(trend_title)}</span>')
         search = " ".join((name, province, m.get("category") or "", r.get("oad_level") or "",
-                           p_ab, p_full, "audit", "cash", v_label)).lower()
+                           p_ab, p_full, "audit", "cash", v_label, trend_word)).lower()
         search = "".join(ch for ch in __import__('unicodedata').normalize('NFD', search)
                          if not __import__('unicodedata').combining(ch))
         audit_concern = bool(opinion and v_label != "Clean")
@@ -520,14 +556,14 @@ def main():
             f'data-audit-concern="{str(audit_concern).lower()}" '
             f'data-low-cash="{str(low_cash).lower()}">'
             f'<td><a href="{slug}.html">{esc(name)}</a></td>'
-            f'<td class="nw dim"><span class="sr">Province: </span><span class="mini" aria-hidden="true">prov </span>{esc(province)}</td>'
-            f'<td class="nw"><span class="sr">Category: </span><span class="mini" aria-hidden="true">cat </span>'
-            f'<span class="catcode">{cat_code}</span><span class="catlong" aria-hidden="true">{cat_word}</span></td>'
-            f'<td class="num" data-v="{esc(m.get("population") or "")}"><span class="sr">Population: </span><span class="mini" aria-hidden="true">pop </span>{num(m.get("population"), 0)}</td>'
-            f'<td class="nw{party_na}" data-v="{esc(p_full)}"><span class="sr">Largest party, 2021: </span><span class="mini" aria-hidden="true">party </span>{esc(party_label)}</td>'
+            f'<td class="nw dim"><span class="sr">Province: </span><span class="mini" aria-hidden="true">Province </span>{esc(province)}</td>'
+            f'<td class="nw"><span class="sr">Category: </span><span class="mini" aria-hidden="true">Category </span>'
+            f'<span class="catcode" aria-hidden="true">{cat_code}</span><span class="catlong">{cat_word}</span></td>'
+            f'<td class="num" data-v="{esc(m.get("population") or "")}"><span class="sr">Population: </span><span class="mini" aria-hidden="true">Population </span>{num(m.get("population"), 0)}</td>'
+            f'<td class="nw{party_na}" data-v="{esc(p_full)}"><span class="sr">Largest party, 2021: </span><span class="mini" aria-hidden="true">Party </span>{esc(party_label)}</td>'
             f'<td class="nw {v_class}" title="{esc(opinion)}" data-v="{audit_rank(opinion)}">'
-            f'<span class="sr">Latest audit: </span><span class="mini" aria-hidden="true">audit </span>{esc(v_label)}</td>'
-            f'<td class="num {cash_class(cash)}{cash_na}" data-v="{esc(cash or "")}"><span class="sr">Cash on hand, months: </span><span class="mini" aria-hidden="true">cash </span>{num(cash)}</td>'
+            f'<span class="sr">Latest audit: </span><span class="mini" aria-hidden="true">Audit </span>{esc(v_label)}{trend_html}</td>'
+            f'<td class="num {cash_class(cash)}{cash_na}" data-v="{esc(cash or "")}"><span class="sr">Cash on hand, months: </span><span class="mini" aria-hidden="true">Cash </span>{num(cash)}</td>'
             f'</tr>')
 
     def th(i, label, num_col=False, extra=""):
@@ -542,10 +578,8 @@ South African municipality, from published sources. No ranking, no scores, no ca
 <style>{CSS}</style></head><body><a class="skip" href="#municipalities">Skip to municipalities</a><main>
 <div class="kicker">SA open data · local view</div>
 <h1>Every South African municipality,<br>and what its books say</h1>
-<p class="note intro-note">Built from four published datasets joined on the demarcation code:
-Municipal Money (finance, 2024), the Auditor-General (outcomes to 2024-25), the IEC
-(largest party after 2021) and Stats SA (free basic services). Captured 9–10 November 2026.
-No causal claims — see the caveats on any page.</p>
+<p class="note intro-note">Four published datasets joined on the demarcation code · finance 2024,
+audits to 2024–25, councils 2021 · captured 9–10 November 2026. No ranking or causal claims.</p>
 <details><summary>How to read this</summary>
 <div class="note">
 <p><strong>One row per municipality.</strong> "Metro" is a big city that governs itself;
@@ -558,6 +592,9 @@ Districts are not directly elected, so their rows show a dash.</p>
 unqualified with no findings; anything else means the auditors found a problem, and the
 <a href="key.html">key</a> explains each verdict in one line. Search understands those phrases too —
 try "unqualified", "with findings", "qualified" or "disclaimer".</p>
+<p><strong>↑ / ↓ beside a verdict</strong> is the net change in audit level from the earliest to the
+latest year in this capture — a scan cue, not a full history. Open a municipality for all eight
+years.</p>
 <p><strong>Cash</strong> is how many months the municipality could keep paying its bills from
 cash if income stopped. Under one month is a crisis. It is a point-in-time figure and a
 municipality can hold cash it cannot spend freely, so treat outliers as a question, not a
@@ -567,30 +604,31 @@ grade.</p>
 <h2>Pick a municipality</h2>
 <div class="controls">
   <div class="searchbox">
-    <input id="q" type="search" placeholder="Name, province, party, or a verdict like “no findings”"
+    <input id="q" type="search" placeholder="Search name, party or “no findings”"
            aria-label="Filter municipalities" autocomplete="off">
-    <button type="button" id="clear-q" aria-label="Clear search" hidden>×</button>
+    <button type="button" id="clear-q" aria-label="Clear search only" hidden>×</button>
   </div>
   <span class="count" id="count" aria-live="polite">{len(cards)} municipalities</span>
+  <label class="sr" for="province">Province</label>
+  <select id="province" aria-label="Filter by province"><option value="">All provinces</option></select>
 </div>
 <div class="chips" aria-label="Quick filters">
+  <button class="chip" type="button" id="clear-all" hidden>Clear all</button>
   <button class="chip" type="button" data-key="serious" data-value="true" aria-pressed="false">Qualified or worse</button>
   <button class="chip" type="button" data-key="lowCash" data-value="true" aria-pressed="false">Cash below 1 month</button>
   <button class="chip" type="button" data-key="cat" data-value="metro" aria-pressed="false">Metro</button>
   <button class="chip" type="button" data-key="cat" data-value="local" aria-pressed="false">Local</button>
   <button class="chip" type="button" data-key="cat" data-value="district" aria-pressed="false">District</button>
-  <label class="sr" for="province">Province</label>
-  <select id="province" aria-label="Filter by province"><option value="">All provinces</option></select>
 </div>
 <div class="mobile-sort"><label for="mobile-sort">Sort</label><select id="mobile-sort">
   <option value="0">Municipality</option><option value="1">Province</option>
   <option value="2">Category</option><option value="3">Population</option>
   <option value="4">Party (2021)</option><option value="5">Latest audit</option>
   <option value="6">Cash (months)</option>
-</select><button id="sort-dir" type="button">↑ Worst first</button></div>
-<p class="legend"><span class="ok">Clean</span> = no findings; <span class="warn">clean, with notes</span> = findings; <span class="bad">qualified, adverse or disclaimer</span> = material concern. Cat A = metro, B = local, C = district. Party is the 2021 largest party; — means no direct-election result. Cash — means not computed; red under 1 month, amber under 3; 0.0 is the source value rounded to one decimal. Sorted by latest audit, worst first — change with Sort.</p>
+</select><button id="sort-dir" type="button">↑ Worst audits first</button></div>
+<p class="legend"><span class="ok">Clean</span> = no findings; <span class="warn">clean, with notes</span> = findings; <span class="bad">qualified, adverse or disclaimer</span> = material concern. Cat A = metro, B = local, C = district. Party is the 2021 largest party; — means no direct-election result. Cash — means not computed; red under 1 month, amber under 3; 0.0 is the source value rounded to one decimal. Sorted by latest audit, worst first — change with Sort. ↑↓ after a verdict is the net change across the captured audit years.</p>
 <div class="tablewrap" id="municipalities">
-<table class="wide" style="font-size:.9rem"><thead><tr>
+<table class="wide" style="font-size:.9rem"><caption class="sr">South African municipalities, their latest audit verdict, cash on hand and 2021 largest party</caption><thead><tr>
 {th(0, "Municipality")}{th(1, "Province")}{th(2, "Cat")}
 {th(3, "Population", True)}{th(4, "Party (2021)")}{th(5, "Latest audit", True)}
 {th(6, "Cash (months)", True)}
