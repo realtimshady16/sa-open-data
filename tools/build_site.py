@@ -47,6 +47,7 @@ th{color:var(--dim);font-weight:600;font-size:.74rem;text-transform:uppercase;le
 th[data-sort]{cursor:pointer;user-select:none}
 th[data-sort]:hover{color:var(--fg)}
 th[data-sort] button{all:unset;cursor:pointer}
+th[data-sort] button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
 th[data-sort]::after{content:"↕";opacity:.55;margin-left:.35em;font-size:.9em}
 th[data-sort].asc::after{content:"↑";opacity:1}
 th[data-sort].desc::after{content:"↓";opacity:1}
@@ -100,6 +101,9 @@ footer{margin-top:3rem;padding-top:1rem;border-top:1px solid var(--line);
   table.wide td:first-child{font-size:1.02rem;line-height:1.3}
   table.wide td:nth-child(2){margin-top:.1rem}
   table.wide td:nth-child(n+2){display:inline;font-size:.84rem;color:var(--dim)}
+  table.wide td:nth-child(n+2).ok{color:var(--ok)}
+  table.wide td:nth-child(n+2).warn{color:var(--warn)}
+  table.wide td:nth-child(n+2).bad{color:var(--bad)}
   table.wide td:nth-child(3){display:none}                 /* category: not useful on a phone */
   table.wide td:nth-child(n+2)::after{content:" · ";color:var(--line)}
   table.wide td:nth-child(4)::before{content:"pop "}
@@ -107,9 +111,9 @@ footer{margin-top:3rem;padding-top:1rem;border-top:1px solid var(--line);
   table.wide td:nth-child(6)::before{content:"audit "}
   table.wide td:nth-child(7)::before{content:"cash "}
   table.wide td:nth-child(7)::after{content:""}
-  .grid{grid-template-columns:1fr}
   .card .cap{font-size:.82rem}
 }
+@media (max-width:640px){.grid{grid-template-columns:1fr}}
 """
 
 
@@ -316,8 +320,8 @@ document.querySelectorAll('th[data-sort]').forEach(th => th.addEventListener('cl
 }));
 sortSelect.addEventListener('change', () => {
   const i = +sortSelect.value;
-  if (document.querySelector('th[data-sort="' + i + '"]').dataset.num === '1') direction = -1;
-  sortDir.textContent = direction === 1 ? 'Ascending' : 'Descending';
+  direction = document.querySelector('th[data-sort="' + i + '"]').dataset.num === '1' ? -1 : 1;
+  sortDir.textContent = direction === 1 ? 'A–Z / low–high' : 'Z–A / high–low';
   sortBy(i, direction);
 });
 sortDir.addEventListener('click', () => {
