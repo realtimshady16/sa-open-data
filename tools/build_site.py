@@ -60,7 +60,7 @@ td.nw{white-space:nowrap}
   color:var(--fg);font:inherit;font-size:.95rem;padding:.5rem .7rem;border-radius:3px}
 .controls input::placeholder{color:var(--dim)}
 .chips{display:flex;gap:.45rem;flex-wrap:wrap;margin:.45rem 0 .7rem}
-.chip,.mobile-sort select,.mobile-sort button{background:var(--card);border:1px solid var(--line);color:var(--fg);font:inherit;font-size:.82rem;padding:.38rem .6rem;border-radius:3px}
+.chip,.mobile-sort select,.mobile-sort button{background:var(--card);border:1px solid var(--line);color:var(--fg);font:inherit;font-size:.82rem;padding:.38rem .6rem;min-height:40px;border-radius:3px}
 .chip{cursor:pointer}.chip:hover,.chip[aria-pressed="true"]{border-color:var(--acc);color:var(--acc)}
 .mobile-sort{display:none;gap:.45rem;align-items:center;margin:.35rem 0 .7rem}
 .legend{color:var(--dim);font-size:.82rem;margin:.3rem 0 .8rem}
@@ -313,7 +313,12 @@ document.querySelectorAll('th[data-sort]').forEach(th => th.addEventListener('cl
   direction = th.classList.contains('asc') ? -1 : 1;
   sortBy(+th.dataset.sort, direction);
 }));
-sortSelect.addEventListener('change', () => sortBy(+sortSelect.value, direction));
+sortSelect.addEventListener('change', () => {
+  const i = +sortSelect.value;
+  if (document.querySelector('th[data-sort="' + i + '"]').dataset.num === '1') direction = -1;
+  sortDir.textContent = direction === 1 ? 'Ascending' : 'Descending';
+  sortBy(i, direction);
+});
 sortDir.addEventListener('click', () => {
   direction *= -1;
   sortDir.textContent = direction === 1 ? 'A–Z / low–high' : 'Z–A / high–low';
