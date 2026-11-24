@@ -81,8 +81,10 @@ option{background:var(--card);color:var(--fg)}
 #clear-all{border-color:var(--acc);color:var(--acc)}
 .chips .chip[aria-pressed="true"]{border-color:var(--acc);color:var(--acc);background:rgba(201,116,58,.22)}
 .mobile-sort{display:none;gap:.45rem;align-items:center;flex-wrap:wrap;margin:.35rem 0 .7rem}
-.period{font-family:ui-sans-serif,system-ui,sans-serif;font-size:.72rem;color:var(--dim);margin-left:.3rem}
+.period{font-family:ui-sans-serif,system-ui,sans-serif;font-size:.72rem;color:var(--dim);
+  margin-left:.3rem;margin-right:.25rem}
 .download{font-size:.82rem}
+a.download{display:inline-flex;align-items:center;min-height:44px}
 @media (max-width:900px){.note-csv{display:none}}
 .legend{color:var(--dim);font-size:.85rem;margin:.6rem 0 1rem;line-height:1.7}
 .compact-note{display:none;color:var(--dim);font-size:.78rem;margin:.45rem 0 .6rem;line-height:1.5}
@@ -403,8 +405,9 @@ rows.forEach(tr => tr.addEventListener('click', event => {
 // A filtered view is a shareable view: keep it in the query string without a server.
 function readState() {
   const p = new URLSearchParams(location.search);
-  if (p.has('q')) q.value = p.get('q');
-  if (p.has('prov')) province.value = p.get('prov');
+  q.value = p.get('q') || '';                 // a bare URL means no filters at all
+  province.value = p.get('prov') || '';
+  chips.forEach(c => c.setAttribute('aria-pressed', 'false'));
   const cats = (p.get('cat') || '').split(',').filter(Boolean);
   chips.forEach(c => {
     if (c.dataset.key === 'cat') c.setAttribute('aria-pressed', cats.includes(c.dataset.value));
@@ -628,9 +631,12 @@ def main():
         trend_glyph, trend_cls, trend_title, trend_word = audit_change(ags.get("opinions") or [])
         trend_html = ""
         if trend_glyph:
-            trend_html = (f'<span class="trend {trend_cls}" aria-hidden="true" title="{esc(trend_title)}">{trend_glyph}</span>'
-                          f'<span class="sr">{esc(trend_title)}</span>')
-        search = " ".join((name, province, m.get("category") or "", r.get("oad_level") or "",
+            trend_html = (f'<span class="trend {trend_cls}" role="img" '
+                          f'aria-label="{esc(trend_title)}" title="{esc(trend_title)}">{trend_glyph}</span>')
+        alias = (r.get("agsa_name") or "").strip()
+        alias_title = (f' title="Also listed as {esc(alias)}"' if alias and alias.lower() != name.lower()
+                       else "")
+        search = " ".join((name, alias, province, m.get("category") or "", r.get("oad_level") or "",
                            p_ab, p_full, "audit", "cash", v_label, trend_word, period)).lower()
         search = "".join(ch for ch in __import__('unicodedata').normalize('NFD', search)
                          if not __import__('unicodedata').combining(ch))
@@ -642,16 +648,17 @@ def main():
             f'data-serious="{str(serious).lower()}" '
             f'data-audit-concern="{str(audit_concern).lower()}" '
             f'data-low-cash="{str(low_cash).lower()}">'
-            f'<td><a href="{slug}.html">{esc(name)}</a></td>'
-            f'<td class="nw dim"><span class="sr">Province: </span><span class="mini" aria-hidden="true">Province </span>{esc(province)}</td>'
-            f'<td class="nw"><span class="sr">Category: </span><span class="mini" aria-hidden="true">Category </span>'
+            f'<td><a href="{slug}.html"{alias_title}>{esc(name)}</a></td>'
+            f'<td class="nw dim" aria-label="Province: {esc(province)}"><span class="mini" aria-hidden="true">Province </span>{esc(province)}</td>'
+            f'<td class="nw" aria-label="Category: {cat_word}"><span class="mini" aria-hidden="true">Category </span>'
             f'<span class="catcode" aria-hidden="true">{cat_code}</span><span class="catlong">{cat_word}</span></td>'
-            f'<td class="num" data-v="{esc(m.get("population") or "")}"><span class="sr">Population: </span><span class="mini" aria-hidden="true">Population </span>{num(m.get("population"), 0)}</td>'
-            f'<td class="nw{party_na}" data-v="{esc(p_full)}"><span class="sr">Largest party, 2021: </span><span class="mini" aria-hidden="true">Party </span>{esc(party_label)}</td>'
-            f'<td class="nw {v_class}" title="{esc(opinion)}" data-v="{audit_rank(opinion)}">'
-            f'<span class="sr">Latest audit: </span><span class="mini" aria-hidden="true">Audit </span>'
+            f'<td class="num" data-v="{esc(m.get("population") or "")}" aria-label="Population: {num(m.get("population"), 0)}"><span class="mini" aria-hidden="true">Population </span>{num(m.get("population"), 0)}</td>'
+            f'<td class="nw{party_na}" data-v="{esc(p_full)}" aria-label="Largest party, 2021: {esc(party_label)}"><span class="mini" aria-hidden="true">Party </span>{esc(party_label)}</td>'
+            f'<td class="nw {v_class}" title="{esc(opinion)}" data-v="{audit_rank(opinion)}" '
+            f'aria-label="Latest audit, {esc(period)}: {esc(v_label)}">'
+            f'<span class="mini" aria-hidden="true">Audit </span>'
             f'{esc(v_label)} <span class="period">{esc(period)}</span>{trend_html}</td>'
-            f'<td class="num {cash_class(cash)}{cash_na}" data-v="{esc(cash or "")}"><span class="sr">Cash on hand, months: </span><span class="mini" aria-hidden="true">Cash </span>{num(cash)}</td>'
+            f'<td class="num {cash_class(cash)}{cash_na}" data-v="{esc(cash or "")}" aria-label="Cash on hand, months: {num(cash)}"><span class="mini" aria-hidden="true">Cash </span>{num(cash)}</td>'
             f'</tr>')
 
     def th(i, label, num_col=False, extra=""):
@@ -660,6 +667,7 @@ def main():
 
     index = f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="data:,">
 <title>South African municipalities — {len(cards)} places, one table</title>
 <meta name="description" content="Finance, audit outcomes and 2021 election results for every
 South African municipality, from published sources. No ranking, no scores, no causal claims.">
@@ -698,7 +706,7 @@ grade.</p>
   </div>
   <span class="count" id="count" aria-live="polite">{len(cards)} municipalities</span>
   <a class="download" href="municipalities.csv" download>Download CSV</a>
-  <span class="download note-csv">Blank in the CSV = not published, never zero.</span>
+  <span class="download note-csv">Blank in the CSV = no value available (see legend); 0.0 is a real rounded value.</span>
   <button class="chip" type="button" id="clear-all" hidden>Clear all</button>
   <label class="sr" for="province">Province</label>
   <select id="province" aria-label="Filter by province"><option value="">All provinces</option></select>
@@ -718,7 +726,7 @@ grade.</p>
 </select><button id="sort-dir" type="button">↑ Worst audits first</button></div>
 <p class="legend"><span class="ok">Clean</span> = no findings; <span class="warn">clean, with notes</span> = findings; <span class="bad">qualified, adverse or disclaimer</span> = material concern. ↑↓ after a verdict is the net change across the captured audit years.</p>
 <p class="legend">Metro, local and district are the three kinds of municipality. Party is the 2021 largest party; — means no direct-election result. Cash — means not computed; red under 1 month, amber under 3; 0.0 is the source value rounded to one decimal. Default sort: latest audit, worst first — change it with the column headings or Sort on a narrow screen.</p>
-<p class="compact-note">No ranking, no causal claims. ↑↓ after a verdict = net audit change across the captured years. Blank in the CSV = not published, never zero.</p>
+<p class="compact-note">No ranking, no causal claims. ↑↓ after a verdict = net audit change across the captured years. Blank in the CSV = no value available; 0.0 is a real rounded value.</p>
 <div class="tablewrap" id="municipalities">
 <table class="wide" style="font-size:.9rem"><caption class="sr">South African municipalities, their latest audit verdict, cash on hand and 2021 largest party</caption><thead><tr>
 {th(0, "Municipality")}{th(1, "Province")}{th(2, "Category")}
@@ -776,7 +784,7 @@ grade.</p>
             for label, cls, help_text in OPINION_GUIDE.values())
         parties = sorted((co.get("parties") or []), key=lambda p: -(p.get("total") or 0))[:5]
         party_rows = "".join(
-            f"<tr><td>{esc((p['party'] or '').title())}</td>"
+            f"<tr><td>{esc(prettify(p['party'] or ''))}</td>"
             f"<td class=\"num nw\">{p.get('total')}</td></tr>"
             for p in parties)
         def metric_flag(k, value):
@@ -841,6 +849,7 @@ a hung council and not zero seats. The local municipalities inside this district
 their own page and their own 2021 result.</p>"""
         page = f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="data:,">
 <title>{esc(r['oad_name'])} — finance, audit, government</title>
 <meta name="description" content="{esc(r['oad_name'])}: {esc(r['province'])}, audit outcomes and
 2021 election result from published sources. Finance year 2024, audits to 2024-25.">
@@ -887,6 +896,7 @@ hung council. Data CC BY 4.0 · <a href="https://github.com/realtimshady16/sa-op
 
     key = f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="data:,">
 <title>Key — how to read this data</title>
 <style>{CSS}</style></head><body><main>
 <div class="kicker"><a href="index.html">← all municipalities</a> · key</div>
