@@ -340,6 +340,9 @@ def num(v, dp=1, suffix=""):
 def main():
     OUT.mkdir(exist_ok=True)
     xwalk = list(csv.DictReader(open(D / "crosswalk/crosswalk.csv")))
+    # Preserve source bytes, but do not repeat a known display typo across 31 public pages.
+    for row in xwalk:
+        row["province"] = (row.get("province") or "").replace("Nothern", "Northern")
     mm = {r["code"]: r for r in csv.DictReader(open(D / "municipal-money/municipalities-2026-11-10.csv"))}
     ind = defaultdict(dict)
     for r in csv.DictReader(open(D / "municipal-money/indicators-long-2026-11-10.csv")):
