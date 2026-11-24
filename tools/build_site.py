@@ -489,8 +489,14 @@ part of a name.</p>
                 return ""
             if k == "cash_coverage" and n > 24:
                 return '<div class="flag">Unusually high — a source value to investigate, not a grade.</div>'
+            if k == "current_debtors_collection_rate" and n == 0:
+                return '<div class="flag">Reported as 0.0% by the source — treat it as a question, not a finding about the municipality.</div>'
+            if k == "current_debtors_collection_rate" and n > 400:
+                return '<div class="flag">Exceptionally high — it may include historic collections; check the source before interpreting it.</div>'
             if k == "current_debtors_collection_rate" and n > 120:
                 return '<div class="flag">Above 100% usually means old debt was collected too.</div>'
+            if k == "capital_budget_spending" and abs(n) > 100:
+                return '<div class="flag">Unusually large reported variance — treat it as a question, not a grade.</div>'
             return ""
 
         cards_html = "".join(
