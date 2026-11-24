@@ -68,17 +68,17 @@ td.nw{white-space:nowrap}
 .searchbox button[hidden]{display:none}
 .controls input::placeholder{color:var(--dim)}
 .chips{display:flex;gap:.45rem;flex-wrap:wrap;align-items:center;margin:.45rem 0 .7rem}
-.chip,.mobile-sort select,.mobile-sort button{background:var(--card);border:1px solid var(--line);color:var(--fg);font:inherit;font-size:.82rem;padding:.38rem .6rem;min-height:40px;border-radius:3px}
+.chip,.mobile-sort select,.mobile-sort button{background:var(--card);border:1px solid var(--line);color:var(--fg);font:inherit;font-size:.82rem;padding:.38rem .6rem;min-height:44px;border-radius:3px}
 .controls select,.chips select{appearance:none;-webkit-appearance:none;background-color:var(--card);
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23a89684' stroke-width='1.5'/%3E%3C/svg%3E");
   background-repeat:no-repeat;background-position:right .6rem center;
   border:1px solid var(--line);color:var(--fg);font:inherit;font-size:.82rem;border-radius:3px;
-  padding:.38rem 1.9rem .38rem .6rem;min-height:40px}
+  padding:.38rem 1.9rem .38rem .6rem;min-height:44px}
 option{background:var(--card);color:var(--fg)}
 .chip{cursor:pointer}.chip:hover{border-color:var(--acc);color:var(--acc)}
 #clear-all{border-color:var(--acc);color:var(--acc)}
 .chips .chip[aria-pressed="true"]{border-color:var(--acc);color:var(--acc);background:rgba(201,116,58,.22)}
-.mobile-sort{display:none;gap:.45rem;align-items:center;margin:.35rem 0 .7rem}
+.mobile-sort{display:none;gap:.45rem;align-items:center;flex-wrap:wrap;margin:.35rem 0 .7rem}
 .legend{color:var(--dim);font-size:.85rem;margin:.6rem 0 1rem;line-height:1.7}
 .compact-note{display:none;color:var(--dim);font-size:.78rem;margin:.45rem 0 .6rem;line-height:1.5}
 .flag{color:var(--warn);font-size:.76rem;line-height:1.4;margin-top:.5rem}
@@ -120,7 +120,6 @@ footer{margin-top:3rem;padding-top:1rem;border-top:1px solid var(--line);
   .tablewrap{overflow-x:visible;margin:0}
   .legend{display:none}
   .compact-note{display:block}
-  table.wide td:nth-child(n+3)::before{content:"· ";color:var(--dim);opacity:.55}
   table.wide .mini{opacity:.75}
   .card .cap{font-size:.82rem}
   table.wide thead, table.wide thead th{display:none}
@@ -302,6 +301,12 @@ CATS = {"A": ("metro", "Metro"), "B": ("local", "Local"),
 
 def category(code):
     return CATS.get((code or "").strip().upper(), ("", "—"))
+
+
+def latest_opinion(opinions):
+    """The source stores newest first; pick by period, never by list position."""
+    dated = [o for o in (opinions or []) if o.get("audit_opinion")]
+    return max(dated, key=lambda o: o.get("period") or "") if dated else {}
 
 
 def audit_change(opinions):
@@ -544,8 +549,7 @@ def main():
     # ---- index ---------------------------------------------------------------
     rows = []
     for slug, r, m, ags, co, i in cards:
-        op = (ags.get("opinions") or [{}])
-        latest = next((o for o in reversed(op) if o.get("audit_opinion")), {})
+        latest = latest_opinion(ags.get("opinions"))
         opinion = latest.get("audit_opinion") or ""
         p_ab, p_full = party(co.get("largest_party"))
         cash = i.get("cash_coverage")
@@ -599,7 +603,7 @@ def main():
 <title>South African municipalities — {len(cards)} places, one table</title>
 <meta name="description" content="Finance, audit outcomes and 2021 election results for every
 South African municipality, from published sources. No ranking, no scores, no causal claims.">
-<style>{CSS}</style></head><body><a class="skip" href="#municipalities">Skip to municipalities</a><main>
+<style>{CSS}</style><noscript><style>.controls,.chips,.mobile-sort{{display:none}}</style></noscript></head><body><a class="skip" href="#municipalities">Skip to municipalities</a><main>
 <div class="kicker">SA open data · local view</div>
 <h1>Every South African municipality,<br>and what its books say</h1>
 <p class="note intro-note">Four published datasets joined on the demarcation code · finance 2024,
@@ -670,6 +674,10 @@ grade.</p>
     for slug, r, m, ags, co, i in cards:
         ops = sorted((o for o in (ags.get("opinions") or []) if o.get("audit_opinion")),
                      key=lambda o: o.get("period") or "")
+        newest = latest_opinion(ags.get("opinions"))
+        if ops and newest and (newest.get("period"), newest.get("audit_opinion")) != \
+                (ops[-1].get("period"), ops[-1].get("audit_opinion")):
+            raise SystemExit(f"index and detail disagree about the latest audit for {slug}")
 
         # The source also carries information_reliable / information_useful flags. They are not
         # in the render: across 2 056 audit periods they do not track the opinion at all (263
