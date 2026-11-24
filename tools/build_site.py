@@ -81,6 +81,7 @@ td.nw{white-space:nowrap}
 .ok{color:var(--ok)}.warn{color:var(--warn)}.bad{color:var(--bad)}.dim{color:var(--dim)}
 details{margin:1rem 0;border:1px solid var(--line);border-radius:3px;padding:.6rem .8rem}
 summary{cursor:pointer;color:var(--acc);font-size:.9rem}
+summary:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
 footer{margin-top:3rem;padding-top:1rem;border-top:1px solid var(--line);
        color:var(--dim);font-size:.82rem}
 
@@ -303,6 +304,9 @@ function sortBy(i, dir) {
     document.querySelectorAll('th[data-sort]').forEach(o => { o.classList.remove('asc','desc'); o.removeAttribute('aria-sort'); });
     th.classList.add(dir === 1 ? 'asc' : 'desc');
     th.setAttribute('aria-sort', dir === 1 ? 'ascending' : 'descending');
+    sortSelect.value = String(i);
+    sortDir.textContent = i === 5 ? (dir === 1 ? 'Worst first' : 'Best first') :
+      (dir === 1 ? 'A–Z / low–high' : 'Z–A / high–low');
     const body = document.getElementById('rows');
     rows.sort((a, b) => {
       const av = a.children[i].dataset.v ?? a.children[i].textContent.trim().replace(/[,\u2014]/g,'');
@@ -324,8 +328,7 @@ document.querySelectorAll('th[data-sort]').forEach(th => th.addEventListener('cl
 }));
 sortSelect.addEventListener('change', () => {
   const i = +sortSelect.value;
-  direction = document.querySelector('th[data-sort="' + i + '"]').dataset.num === '1' ? -1 : 1;
-  sortDir.textContent = direction === 1 ? 'A–Z / low–high' : 'Z–A / high–low';
+  direction = i === 5 ? 1 : (document.querySelector('th[data-sort="' + i + '"]').dataset.num === '1' ? -1 : 1);
   sortBy(i, direction);
 });
 sortDir.addEventListener('click', () => {
@@ -450,8 +453,10 @@ grade.</p>
   <button class="chip" type="button" data-filter="lowCash" aria-pressed="false">Cash below 1 month</button>
 </div>
 <div class="mobile-sort"><label for="mobile-sort">Sort</label><select id="mobile-sort">
-  <option value="0">Municipality</option><option value="3">Population</option>
-  <option value="5">Latest audit</option><option value="6">Cash (months)</option>
+  <option value="0">Municipality</option><option value="1">Province</option>
+  <option value="2">Category</option><option value="3">Population</option>
+  <option value="4">Party (2021)</option><option value="5">Latest audit</option>
+  <option value="6">Cash (months)</option>
 </select><button id="sort-dir" type="button">A–Z / low–high</button></div>
 <p class="legend"><span class="ok">Clean</span> = no findings; <span class="warn">clean, with notes</span> = findings; <span class="bad">qualified, adverse or disclaimer</span> = material concern. Cat A = metro, B = local, C = district. Party is the 2021 largest party; — means no direct-election result. Cash — means not computed; 0.0 is the source value rounded to one decimal.</p>
 <div class="tablewrap" id="municipalities">
@@ -500,6 +505,8 @@ part of a name.</p>
                 return ""
             if k == "cash_coverage" and n > 24:
                 return '<div class="flag">Unusually high — a source value to investigate, not a grade.</div>'
+            if k == "cash_coverage" and n < 0:
+                return '<div class="flag">Negative coverage reported by the source — treat it as a question, not a finding about the municipality.</div>'
             if k == "cash_coverage" and 0 <= n < 0.05:
                 return '<div class="flag">Reported near zero by the source — treat it as a question, not proof of no cash.</div>'
             if k == "current_debtors_collection_rate" and n < 0:
@@ -512,6 +519,8 @@ part of a name.</p>
                 return '<div class="flag">Above 100% usually means old debt was collected too.</div>'
             if k == "capital_budget_spending" and abs(n) > 100:
                 return '<div class="flag">Unusually large reported variance — treat it as a question, not a grade.</div>'
+            if k == "repairs_maintenance_spending" and n < 0:
+                return '<div class="flag">Negative maintenance value reported by the source — treat it as a question, not a finding about the municipality.</div>'
             return ""
 
         cards_html = "".join(
