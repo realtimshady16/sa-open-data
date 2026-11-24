@@ -49,8 +49,8 @@ th[data-sort]:hover{color:var(--fg)}
 th[data-sort] button{all:unset;cursor:pointer}
 th[data-sort] button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
 th[data-sort]::after{content:"↕";opacity:.55;margin-left:.35em;font-size:.9em}
-th[data-sort].asc::after{content:"↑";opacity:1}
-th[data-sort].desc::after{content:"↓";opacity:1}
+th[data-sort].asc::after{content:"▴";opacity:1}
+th[data-sort].desc::after{content:"▾";opacity:1}
 td.num{text-align:right;font-variant-numeric:tabular-nums}
 tbody tr:hover{background:var(--card)}
 tbody#rows tr{cursor:pointer}
@@ -63,16 +63,24 @@ td.nw{white-space:nowrap}
   color:var(--fg);font:inherit;font-size:.95rem;padding:.5rem .7rem;border-radius:3px}
 .searchbox input{width:100%;min-width:0;padding-right:2.2rem}
 .controls input[type=search]::-webkit-search-cancel-button{-webkit-appearance:none}
-.searchbox button{position:absolute;right:.35rem;top:50%;transform:translateY(-50%);min-height:32px;
-  padding:.1rem .45rem;border:0;background:transparent;color:var(--dim);font-size:1.1rem;cursor:pointer}
+.searchbox button{position:absolute;right:.35rem;top:50%;transform:translateY(-50%);min-height:44px;
+  min-width:44px;padding:.1rem .45rem;border:0;background:transparent;color:var(--dim);font-size:1.1rem;cursor:pointer}
 .searchbox button[hidden]{display:none}
 .controls input::placeholder{color:var(--dim)}
 .chips{display:flex;gap:.45rem;flex-wrap:wrap;align-items:center;margin:.45rem 0 .7rem}
-.chip,.chips select,.mobile-sort select,.mobile-sort button{background:var(--card);border:1px solid var(--line);color:var(--fg);font:inherit;font-size:.82rem;padding:.38rem .6rem;min-height:40px;border-radius:3px}
+.chip,.mobile-sort select,.mobile-sort button{background:var(--card);border:1px solid var(--line);color:var(--fg);font:inherit;font-size:.82rem;padding:.38rem .6rem;min-height:40px;border-radius:3px}
+.controls select,.chips select{appearance:none;-webkit-appearance:none;background-color:var(--card);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23a89684' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right .6rem center;
+  border:1px solid var(--line);color:var(--fg);font:inherit;font-size:.82rem;border-radius:3px;
+  padding:.38rem 1.9rem .38rem .6rem;min-height:40px}
+option{background:var(--card);color:var(--fg)}
 .chip{cursor:pointer}.chip:hover{border-color:var(--acc);color:var(--acc)}
+#clear-all{border-color:var(--acc);color:var(--acc)}
 .chips .chip[aria-pressed="true"]{border-color:var(--acc);color:var(--acc);background:rgba(201,116,58,.22)}
 .mobile-sort{display:none;gap:.45rem;align-items:center;margin:.35rem 0 .7rem}
-.legend{color:var(--dim);font-size:.82rem;margin:.6rem 0 1rem;line-height:1.7}
+.legend{color:var(--dim);font-size:.85rem;margin:.6rem 0 1rem;line-height:1.7}
+.compact-note{display:none;color:var(--dim);font-size:.78rem;margin:.45rem 0 .6rem;line-height:1.5}
 .flag{color:var(--warn);font-size:.76rem;line-height:1.4;margin-top:.5rem}
 .count{color:var(--dim);font-size:.85rem;font-variant-numeric:tabular-nums}
 .empty{padding:1.4rem .5rem;color:var(--dim)}
@@ -93,8 +101,11 @@ td.nw{white-space:nowrap}
 .card .cap{color:var(--dim);font-size:.8rem;line-height:1.45;margin-top:.5rem}
 .note{color:var(--dim);font-size:.88rem;border-left:2px solid var(--line);padding-left:.9rem}
 .ok{color:var(--ok)}.warn{color:var(--warn)}.bad{color:var(--bad)}.dim{color:var(--dim)}
-details{margin:1rem 0;border:1px solid var(--line);border-radius:3px;padding:.6rem .8rem}
-summary{cursor:pointer;color:var(--acc);font-size:.9rem;padding:.6rem .4rem;min-height:44px;display:inline-block}
+details{margin:1rem 0;border:1px solid var(--line);border-radius:3px;padding:.3rem .7rem}
+summary{cursor:pointer;color:var(--fg);font-size:.9rem;font-weight:600;padding:.45rem .3rem;
+  min-height:44px;display:inline-block;line-height:2}
+summary::before{content:"▸ ";color:var(--acc)}
+details[open] summary::before{content:"▾ "}
 summary:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
 footer{margin-top:3rem;padding-top:1rem;border-top:1px solid var(--line);
        color:var(--dim);font-size:.82rem}
@@ -108,6 +119,9 @@ footer{margin-top:3rem;padding-top:1rem;border-top:1px solid var(--line);
   .mobile-sort{display:flex}
   .tablewrap{overflow-x:visible;margin:0}
   .legend{display:none}
+  .compact-note{display:block}
+  table.wide td:nth-child(n+3)::before{content:"· ";color:var(--dim);opacity:.55}
+  table.wide .mini{opacity:.75}
   .card .cap{font-size:.82rem}
   table.wide thead, table.wide thead th{display:none}
   table.wide th[data-sort]::after{content:none}
@@ -132,12 +146,18 @@ footer{margin-top:3rem;padding-top:1rem;border-top:1px solid var(--line);
   .intro-note,.legend{display:none}
   .controls{position:sticky;top:0;z-index:3;background:var(--bg);padding:.35rem 0;margin:.3rem 0 .5rem;
     border-bottom:1px solid var(--line)}
-  .searchbox input,.searchbox button,.mobile-sort select,.mobile-sort button,.chips .chip,.chips select{min-height:44px}
-  .chips{flex-wrap:nowrap;overflow-x:auto;padding-bottom:.35rem;margin:.35rem 0 .5rem;scrollbar-width:thin;
-    -webkit-mask-image:linear-gradient(to right,#000 90%,transparent 100%);
-    mask-image:linear-gradient(to right,#000 90%,transparent 100%)}
+  .searchbox input,.searchbox button,.mobile-sort select,.mobile-sort button,
+  .chips .chip,.controls select,.chips select{min-height:44px}
+  .searchbox button{min-width:44px}
+  .count{min-width:8.5rem;flex:0 0 auto}
+  .chips{flex-wrap:wrap;overflow:visible;padding-bottom:0;margin:.35rem 0 .5rem}
   .chips .chip,.chips select{flex:0 0 auto}
-  h1{margin:.2rem 0 .8rem}
+  details{display:none}                 /* the key is linked in the footer and in the compact note */
+  h1{font-size:1.5rem;margin:.2rem 0 .6rem}
+}
+@media (min-width:861px) and (max-width:900px){
+  table.wide{font-size:.84rem}
+  th,td{padding-left:.28rem;padding-right:.28rem}
 }
 """
 
@@ -386,9 +406,10 @@ function searchHit(tr, raw) {
   return rest.trim().split(/\s+/).filter(Boolean).every(t => tr.dataset.search.includes(t));
 }
 function labelFor(i, dir) {
-  const arrow = dir === 1 ? '↑ ' : '↓ ';
-  return i === 5 ? arrow + (dir === 1 ? 'Worst audits first' : 'Best audits first') :
-    arrow + (dir === 1 ? 'A–Z / low to high' : 'Z–A / high to low');
+  const arrow = dir === 1 ? '▴ ' : '▾ ';
+  if (i === 5) return arrow + (dir === 1 ? 'Worst audits first' : 'Best audits first');
+  if (i === 3 || i === 6) return arrow + (dir === 1 ? 'Low to high' : 'High to low');
+  return arrow + (dir === 1 ? 'A–Z' : 'Z–A');
 }
 function apply() {
   const active = chips.filter(c => c.getAttribute('aria-pressed') === 'true')
@@ -403,9 +424,11 @@ function apply() {
     tr.hidden = !hit;
     if (hit) shown++;
   }
-  count.textContent = (q.value.trim() || active.length) ? shown + ' of ' + rows.length + ' shown' : rows.length + ' municipalities';
+  count.textContent = (q.value.trim() || active.length) ?
+    shown + ' of ' + rows.length + ' shown' + (active.length ? ' · filtered' : '') :
+    rows.length + ' municipalities';
   clearQ.hidden = q.value.length === 0;
-  clearAll.hidden = active.length === 0;
+  clearAll.hidden = !(q.value.trim() || active.length);
   empty.hidden = shown > 0;
   if (!shown) {
     const parts = [];
@@ -536,8 +559,9 @@ def main():
         cat_code = esc(m.get("category") or "—")
         serious = bool(opinion) and audit_rank(opinion) <= 2
         party_label = p_ab if p_ab != p_full else p_full
-        party_na = " na" if p_ab == "—" else ""
-        cash_na = " na" if cash in (None, "", "None") else ""
+        # Keep the same structure on every row: an unpublished value prints as an honest dash.
+        party_na = ""
+        cash_na = ""
         trend_glyph, trend_cls, trend_title, trend_word = audit_change(ags.get("opinions") or [])
         trend_html = ""
         if trend_glyph:
@@ -609,11 +633,11 @@ grade.</p>
     <button type="button" id="clear-q" aria-label="Clear search only" hidden>×</button>
   </div>
   <span class="count" id="count" aria-live="polite">{len(cards)} municipalities</span>
+  <button class="chip" type="button" id="clear-all" hidden>Clear all</button>
   <label class="sr" for="province">Province</label>
   <select id="province" aria-label="Filter by province"><option value="">All provinces</option></select>
 </div>
 <div class="chips" aria-label="Quick filters">
-  <button class="chip" type="button" id="clear-all" hidden>Clear all</button>
   <button class="chip" type="button" data-key="serious" data-value="true" aria-pressed="false">Qualified or worse</button>
   <button class="chip" type="button" data-key="lowCash" data-value="true" aria-pressed="false">Cash below 1 month</button>
   <button class="chip" type="button" data-key="cat" data-value="metro" aria-pressed="false">Metro</button>
@@ -626,10 +650,11 @@ grade.</p>
   <option value="4">Party (2021)</option><option value="5">Latest audit</option>
   <option value="6">Cash (months)</option>
 </select><button id="sort-dir" type="button">↑ Worst audits first</button></div>
-<p class="legend"><span class="ok">Clean</span> = no findings; <span class="warn">clean, with notes</span> = findings; <span class="bad">qualified, adverse or disclaimer</span> = material concern. Cat A = metro, B = local, C = district. Party is the 2021 largest party; — means no direct-election result. Cash — means not computed; red under 1 month, amber under 3; 0.0 is the source value rounded to one decimal. Sorted by latest audit, worst first — change with Sort. ↑↓ after a verdict is the net change across the captured audit years.</p>
+<p class="legend"><span class="ok">Clean</span> = no findings; <span class="warn">clean, with notes</span> = findings; <span class="bad">qualified, adverse or disclaimer</span> = material concern. Metro, local and district are the three kinds of municipality. Party is the 2021 largest party; — means no direct-election result. Cash — means not computed; red under 1 month, amber under 3; 0.0 is the source value rounded to one decimal. Sorted by latest audit, worst first — use the column headings (or Sort on a narrow screen) to change it. ↑↓ after a verdict is the net change across the captured audit years.</p>
+<p class="compact-note">No ranking, no causal claims. ↑↓ after a verdict = net audit change across the captured years.</p>
 <div class="tablewrap" id="municipalities">
 <table class="wide" style="font-size:.9rem"><caption class="sr">South African municipalities, their latest audit verdict, cash on hand and 2021 largest party</caption><thead><tr>
-{th(0, "Municipality")}{th(1, "Province")}{th(2, "Cat")}
+{th(0, "Municipality")}{th(1, "Province")}{th(2, "Category")}
 {th(3, "Population", True)}{th(4, "Party (2021)")}{th(5, "Latest audit", True)}
 {th(6, "Cash (months)", True)}
 </tr></thead><tbody id="rows">{''.join(rows)}</tbody></table>
@@ -734,7 +759,7 @@ their own page and their own 2021 result.</p>"""
 <style>{CSS}</style></head><body><a class="skip" href="#content">Skip to municipality data</a><main id="content">
 <div class="kicker"><a href="index.html">← all municipalities</a> · <a href="key.html">key</a> · {esc(r['code'])} · {esc(r['oad_level'])}</div>
 <h1>{esc(r['oad_name'] or r['code'])}</h1>
-<p class="note">{esc(r['province'])}{' · category ' + esc(m.get('category') or '—') if m.get('category') else ''}
+<p class="note">{esc(r['province'])}{' · ' + category(m.get('category'))[1] if m.get('category') and category(m.get('category'))[1] != '—' else ''}
 {' · population ' + num(m.get('population'), 0) if m.get('population') else ''}</p>
 
 <h2>Financial position, 2024</h2>
