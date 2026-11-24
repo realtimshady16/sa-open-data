@@ -25,6 +25,7 @@ CSS = """
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--fg);
      font:17px/1.65 ui-serif,Georgia,"Iowan Old Style",serif;padding:2rem 1.25rem 5rem}
+.skip{position:absolute;left:-9999px}.skip:focus{left:1rem;top:1rem;z-index:4;background:var(--bg);padding:.5rem}
 main{max-width:62rem;margin:0 auto}
 a{color:var(--acc);text-decoration:none;border-bottom:1px solid rgba(201,116,58,.35)}
 a:hover{border-bottom-color:var(--acc)}
@@ -144,8 +145,8 @@ OPINION_GUIDE = {
 METRIC_HELP = {
     "cash_coverage": ("Cash on hand", " months",
                       "How many months the municipality could keep paying its bills from "
-                      "cash if all income stopped tomorrow. Below one month is a crisis; "
-                      "three or more is comfortable."),
+                      "cash if all income stopped tomorrow. It is an indicator to investigate, "
+                      "not a score or a prediction."),
     "uifw_expenditure": ("Money spent wrongly", "%",
                          "Unauthorised, irregular, fruitless and wasteful expenditure as a "
                          "share of day-to-day spending. Lower is better. High figures often "
@@ -403,14 +404,14 @@ def main():
 <title>South African municipalities — {len(cards)} places, one table</title>
 <meta name="description" content="Finance, audit outcomes and 2021 election results for every
 South African municipality, from published sources. No ranking, no scores, no causal claims.">
-<style>{CSS}</style></head><body><main>
+<style>{CSS}</style></head><body><a class="skip" href="#municipalities">Skip to municipalities</a><main>
 <div class="kicker">SA open data · local view</div>
 <h1>Every South African municipality,<br>and what its books say</h1>
 <p class="note">Built from four published datasets joined on the demarcation code:
 Municipal Money (finance, 2024), the Auditor-General (outcomes to 2024-25), the IEC
 (largest party after 2021) and Stats SA (free basic services). Captured 9–10 November 2026.
 No causal claims — see the caveats on any page.</p>
-<details><summary>How to read this</summary>
+<details open><summary>How to read this</summary>
 <div class="note">
 <p><strong>One row per municipality.</strong> "Metro" is a big city that governs itself;
 "local" is a town or rural municipality within a district; "district" sits above several locals and
@@ -441,15 +442,15 @@ grade.</p>
   <option value="0">Municipality</option><option value="3">Population</option>
   <option value="5">Latest audit</option><option value="6">Cash (months)</option>
 </select><button id="sort-dir" type="button">A–Z / low–high</button></div>
-<p class="legend"><span class="ok">Clean</span> = no findings; <span class="warn">clean, with notes</span> = findings; <span class="bad">qualified, adverse or disclaimer</span> = material concern. Cash below one month is a crisis.</p>
-<div class="tablewrap">
+<p class="legend"><span class="ok">Clean</span> = no findings; <span class="warn">clean, with notes</span> = findings; <span class="bad">qualified, adverse or disclaimer</span> = material concern. Cat A = metro, B = local, C = district. Party is the 2021 largest party; — means no direct-election result. Cash — means not computed; 0.0 is the source value rounded to one decimal.</p>
+<div class="tablewrap" id="municipalities">
 <table class="wide" style="font-size:.9rem"><thead><tr>
 {th(0, "Municipality")}{th(1, "Province")}{th(2, "Cat")}
 {th(3, "Population", True)}{th(4, "Party (2021)")}{th(5, "Latest audit", True)}
 {th(6, "Cash (months)", True)}
 </tr></thead><tbody id="rows">{''.join(rows)}</tbody></table>
 </div>
-<p class="empty" id="empty" hidden>No municipality matches that. Try a province, a party, or
+<p class="empty" id="empty" role="status" hidden>No municipality matches that. Try a province, a party, or
 part of a name.</p>
 <footer><a href="key.html">How to read this</a> · data CC BY 4.0 · code MIT ·
 <a href="https://github.com/realtimshady16/sa-open-data">source</a></footer>
@@ -528,7 +529,7 @@ their own page and their own 2021 result.</p>"""
 <title>{esc(r['oad_name'])} — finance, audit, government</title>
 <meta name="description" content="{esc(r['oad_name'])}: {esc(r['province'])}, audit outcomes and
 2021 election result from published sources. Finance year 2024, audits to 2024-25.">
-<style>{CSS}</style></head><body><main>
+<style>{CSS}</style></head><body><a class="skip" href="#content">Skip to municipality data</a><main id="content">
 <div class="kicker"><a href="index.html">← all municipalities</a> · <a href="key.html">key</a> · {esc(r['code'])} · {esc(r['oad_level'])}</div>
 <h1>{esc(r['oad_name'] or r['code'])}</h1>
 <p class="note">{esc(r['province'])}{' · category ' + esc(m.get('category') or '—') if m.get('category') else ''}
@@ -536,10 +537,8 @@ their own page and their own 2021 result.</p>"""
 
 <h2>Financial position, 2024</h2>
 <div class="grid">{cards_html}</div>
-<p class="note">Cash coverage is months of operating expenditure covered by cash (higher is safer).
-UIFW is unauthorised, irregular, fruitless and wasteful expenditure as a share of operating
-expenditure (higher is worse). Capital vs budget is a signed variance — negative means the capital
-budget was underspent. A blank means not computed, never zero.</p>
+<p class="note">A blank means not computed, never zero. These are indicators to investigate,
+not a municipal ranking or a prediction of performance.</p>
 
 <h2>Audit outcomes</h2>
 <div class="tablewrap">
