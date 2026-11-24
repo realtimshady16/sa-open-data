@@ -20,7 +20,7 @@ OUT = ROOT / "site"
 
 CSS = """
 :root{--bg:#141110;--fg:#e8ded2;--dim:#a89684;--line:#2e2723;--acc:#c9743a;
-      --ok:#7d9f74;--warn:#c9a24a;--bad:#b8543f;--card:#1a1614}
+      --ok:#7d9f74;--warn:#c9a24a;--bad:#cf6444;--card:#1a1614}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--fg);
@@ -45,7 +45,8 @@ th{color:var(--dim);font-weight:600;font-size:.74rem;text-transform:uppercase;le
    box-shadow:0 1px 0 var(--line);z-index:2;white-space:nowrap}
 th[data-sort]{cursor:pointer;user-select:none}
 th[data-sort]:hover{color:var(--fg)}
-th[data-sort]::after{content:"↕";opacity:.3;margin-left:.35em;font-size:.9em}
+th[data-sort] button{all:unset;cursor:pointer}
+th[data-sort]::after{content:"↕";opacity:.55;margin-left:.35em;font-size:.9em}
 th[data-sort].asc::after{content:"↑";opacity:1}
 th[data-sort].desc::after{content:"↓";opacity:1}
 td.num{text-align:right;font-variant-numeric:tabular-nums}
@@ -83,7 +84,7 @@ footer{margin-top:3rem;padding-top:1rem;border-top:1px solid var(--line);
 
 /* Narrow screens: seven columns cannot fit a phone, and horizontal scrolling hides the two
    columns that matter. Below 640px each row becomes a name and one line of facts instead. */
-@media (max-width:640px){
+@media (max-width:1050px){
   body{padding:1.25rem .9rem 4rem;font-size:16px}
   th,td{padding:.4rem .35rem;font-size:.88rem}
   .controls input{flex:1 1 100%}
@@ -236,6 +237,13 @@ def verdict_of(opinion):
     return (opinion or "—"), audit_class(opinion)
 
 
+def audit_rank(opinion):
+    """Lower is a more serious outcome, so risk-first sorting is meaningful."""
+    label, _ = verdict_of(opinion)
+    return {"Disclaimer": 0, "Adverse": 1, "Qualified": 2,
+            "Clean, with notes": 3, "Clean": 4, "Not yet audited": 5}.get(label, 6)
+
+
 def cash_class(v):
     try:
         f = float(v)
@@ -246,7 +254,7 @@ def cash_class(v):
 
 # Small, dependency-free controls: filter the 257 rows, and keep sorting available on a phone.
 # Inline and dependency-free, because the whole point is that this page works with no server.
-INDEX_JS = """
+INDEX_JS = r"""
 const rows = [...document.querySelectorAll('tbody#rows tr')];
 const q = document.getElementById('q');
 const count = document.getElementById('count');
@@ -261,16 +269,16 @@ rows.forEach(tr => tr.addEventListener('click', event => {
 }));
 
 function apply() {
-  const needle = q.value.trim().toLowerCase();
+  const tokens = q.value.normalize('NFD').replace(/\p{Diacritic}/gu, '').trim().toLowerCase().split(/\s+/).filter(Boolean);
+  const active = chips.filter(c => c.getAttribute('aria-pressed') === 'true').map(c => c.dataset.filter);
   shown = 0;
   for (const tr of rows) {
-    const active = chips.filter(c => c.getAttribute('aria-pressed') === 'true').map(c => c.dataset.filter);
-    const hit = (!needle || tr.dataset.search.includes(needle)) &&
+    const hit = (tokens.length === 0 || tokens.every(token => tr.dataset.search.includes(token))) &&
       (!active.length || active.every(f => tr.dataset[f] === 'true'));
     tr.hidden = !hit;
     if (hit) shown++;
   }
-  count.textContent = needle ? shown + ' of ' + rows.length + ' shown' : rows.length + ' municipalities';
+  count.textContent = (tokens.length || active.length) ? shown + ' of ' + rows.length + ' shown' : rows.length + ' municipalities';
   empty.hidden = shown > 0;
 }
 q.addEventListener('input', apply);
@@ -297,7 +305,7 @@ function sortBy(i, dir) {
         if (isNaN(bn)) return -1;
         return (an - bn) * dir;
       }
-      return av.localeCompare(bv) * dir;
+      return av.localeCompare(bv, 'en', {sensitivity:'base'}) * dir;
     });
     for (const tr of rows) body.appendChild(tr);
 }
@@ -359,25 +367,28 @@ def main():
         cash = i.get("cash_coverage")
         name = r["oad_name"] or r["code"]
         v_label, v_class = verdict_of(opinion)
-        search = " ".join((name, r.get("province") or "", m.get("category") or "",
+        province = (r.get("province") or "").replace("Nothern", "Northern")
+        search = " ".join((name, province, m.get("category") or "",
                            p_ab, p_full, opinion, v_label)).lower()
+        search = "".join(ch for ch in __import__('unicodedata').normalize('NFD', search)
+                         if not __import__('unicodedata').combining(ch))
         audit_concern = bool(opinion and v_label != "Clean")
         low_cash = bool(cash and float(cash) < 1)
         rows.append(
             f'<tr data-search="{esc(search)}" data-audit-concern="{str(audit_concern).lower()}" data-low-cash="{str(low_cash).lower()}">'
             f'<td><a href="{slug}.html">{esc(name)}</a></td>'
-            f'<td class="nw dim">{esc(r["province"])}</td>'
+            f'<td class="nw dim">{esc(province)}</td>'
             f'<td class="nw">{esc(m.get("category") or "—")}</td>'
             f'<td class="num" data-v="{esc(m.get("population") or "")}">{num(m.get("population"), 0)}</td>'
             f'<td class="nw" data-v="{esc(p_full)}">{esc(p_ab) if p_ab != p_full else esc(p_full)}</td>'
-            f'<td class="nw {v_class}" title="{esc(opinion)}" data-v="{esc(opinion)}">'
+            f'<td class="nw {v_class}" title="{esc(opinion)}" data-v="{audit_rank(opinion)}">'
             f'{esc(v_label)}</td>'
             f'<td class="num {cash_class(cash)}" data-v="{esc(cash or "")}">{num(cash)}</td>'
             f'</tr>')
 
     def th(i, label, num_col=False, extra=""):
         return (f'<th data-sort="{i}"' + (' data-num="1"' if num_col else '') +
-                (f' {extra}' if extra else '') + f'>{label}</th>')
+                (f' {extra}' if extra else '') + f'><button type="button">{label}</button></th>')
 
     index = f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -412,7 +423,7 @@ grade.</p>
 <div class="controls">
   <input id="q" type="search" placeholder="Filter by name, province, party or audit outcome"
          aria-label="Filter municipalities" autocomplete="off">
-  <span class="count" id="count">{len(cards)} municipalities</span>
+  <span class="count" id="count" aria-live="polite">{len(cards)} municipalities</span>
 </div>
 <div class="chips" aria-label="Quick filters">
   <button class="chip" type="button" data-filter="auditConcern" aria-pressed="false">Audit concerns</button>
@@ -426,7 +437,7 @@ grade.</p>
 <div class="tablewrap">
 <table class="wide" style="font-size:.9rem"><thead><tr>
 {th(0, "Municipality")}{th(1, "Province")}{th(2, "Cat")}
-{th(3, "Population", True)}{th(4, "Party (2021)")}{th(5, "Latest audit")}
+{th(3, "Population", True)}{th(4, "Party (2021)")}{th(5, "Latest audit", True)}
 {th(6, "Cash (months)", True)}
 </tr></thead><tbody id="rows">{''.join(rows)}</tbody></table>
 </div>
@@ -447,10 +458,13 @@ part of a name.</p>
         # "unqualified with no findings" periods are flagged unreliable, 447 "qualified" ones are
         # flagged reliable), so labelling them "books reliable / useful" asserts something the
         # source does not say. The columns are still in datasets/ for anyone who knows the code.
+        def audit_display(opinion):
+            label, _ = verdict_of(opinion)
+            return label if label.lower() == opinion.lower() else f"{label} — {opinion}"
+
         op_rows = "".join(
             f"<tr><td class=\"nw\">{esc(o['period'])}</td>"
-            f"<td class=\"nw {verdict_of(o['audit_opinion'])[1]}\">{esc(verdict_of(o['audit_opinion'])[0])}</td>"
-            f"<td class=\"dim\">{esc(o['audit_opinion'])}</td></tr>" for o in ops)
+            f"<td class=\"nw {verdict_of(o['audit_opinion'])[1]}\">{esc(audit_display(o['audit_opinion']))}</td></tr>" for o in ops)
         legend_rows = "".join(
             f"<tr><td class=\"{cls}\"><strong>{label}</strong></td><td>{esc(help_text)}</td></tr>"
             for label, cls, help_text in OPINION_GUIDE.values())
@@ -481,10 +495,13 @@ part of a name.</p>
         # not directly contested. Rendering that absence with the local-municipality template
         # used to print "— seats" and assert a hung council that never existed.
         if co:
+            leaders = [p for p in (co.get("parties") or []) if p.get("total") == co.get("largest_seats")]
+            leading_sentence = (f"The largest party was <strong>{esc((co.get('largest_party') or '—').title())}</strong> with {esc(co.get('largest_seats') or '—')} seats."
+                                if len(leaders) <= 1 else
+                                f"The most seats were shared by <strong>{esc(' and '.join((p.get('party') or '—').title() for p in leaders))}</strong> with {esc(co.get('largest_seats') or '—')} each.")
             governing_html = f"""<p>{esc(co.get('total_seats') or '—')} seats up for election in 2021.
 {'One party holds more than half, so it governs alone.' if co.get('majority') else 'No party holds more than half, so a coalition or a minority government had to be formed.'}
-The largest party was <strong>{esc((co.get('largest_party') or '—').title())}</strong>
-with {esc(co.get('largest_seats') or '—')} seats.</p>
+{leading_sentence}</p>
 <p class="note">Largest party is <em>not</em> the same as the governing party in a hung council.
 The mayor can come from a smaller coalition partner.</p>
 <div class="tablewrap" style="max-width:26rem">
@@ -518,14 +535,13 @@ budget was underspent. A blank means not computed, never zero.</p>
 
 <h2>Audit outcomes</h2>
 <div class="tablewrap">
-<table><thead><tr><th>Year</th><th>Verdict</th><th>Auditor's words</th></tr></thead>
-<tbody>{op_rows or '<tr><td colspan="3">No audited periods in this capture.</td></tr>'}</tbody></table>
+<table><thead><tr><th>Year</th><th>Verdict</th></tr></thead>
+<tbody>{op_rows or '<tr><td colspan="2">No audited periods in this capture.</td></tr>'}</tbody></table>
 </div>
 <details><summary>What the verdicts mean</summary>
 <table><tbody>{legend_rows}</tbody></table></details>
-<p class="note">One row per financial year, oldest first. "Auditor's words" is the
-unmodified phrase from the Auditor-General's release; the verdict beside it is the same phrase
-translated. The source also flags whether reported <em>performance</em> information was reliable
+<p class="note">One row per financial year, oldest first. Where the plain-language verdict differs
+from the Auditor-General's phrase, the source phrase follows it after the dash. The source also flags whether reported <em>performance</em> information was reliable
 and useful — it is in the data files, but it is not shown here, because a flag that does not
 track the audit opinion would read as a judgement on the financial statements.</p>
 
