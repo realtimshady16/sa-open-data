@@ -58,12 +58,19 @@ td.nw{white-space:nowrap}
 
 /* index controls */
 .controls{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap;margin:1rem 0 .6rem}
+.searchbox{position:relative;flex:1 1 16rem;min-width:12rem;display:flex}
 .controls input{flex:1 1 16rem;min-width:12rem;background:var(--card);border:1px solid var(--line);
   color:var(--fg);font:inherit;font-size:.95rem;padding:.5rem .7rem;border-radius:3px}
+.searchbox input{width:100%;min-width:0;padding-right:2.2rem}
+.controls input[type=search]::-webkit-search-cancel-button{-webkit-appearance:none}
+.searchbox button{position:absolute;right:.35rem;top:50%;transform:translateY(-50%);min-height:32px;
+  padding:.1rem .45rem;border:0;background:transparent;color:var(--dim);font-size:1.1rem;cursor:pointer}
+.searchbox button[hidden]{display:none}
 .controls input::placeholder{color:var(--dim)}
-.chips{display:flex;gap:.45rem;flex-wrap:wrap;margin:.45rem 0 .7rem}
-.chip,.mobile-sort select,.mobile-sort button{background:var(--card);border:1px solid var(--line);color:var(--fg);font:inherit;font-size:.82rem;padding:.38rem .6rem;min-height:40px;border-radius:3px}
-.chip{cursor:pointer}.chip:hover,.chip[aria-pressed="true"]{border-color:var(--acc);color:var(--acc)}
+.chips{display:flex;gap:.45rem;flex-wrap:wrap;align-items:center;margin:.45rem 0 .7rem}
+.chip,.chips select,.mobile-sort select,.mobile-sort button{background:var(--card);border:1px solid var(--line);color:var(--fg);font:inherit;font-size:.82rem;padding:.38rem .6rem;min-height:40px;border-radius:3px}
+.chip{cursor:pointer}.chip:hover{border-color:var(--acc);color:var(--acc)}
+.chips .chip[aria-pressed="true"]{border-color:var(--acc);color:var(--acc);background:rgba(201,116,58,.22)}
 .mobile-sort{display:none;gap:.45rem;align-items:center;margin:.35rem 0 .7rem}
 .legend{color:var(--dim);font-size:.82rem;margin:.3rem 0 .8rem}
 .flag{color:var(--warn);font-size:.76rem;line-height:1.4;margin-top:.5rem}
@@ -72,6 +79,7 @@ td.nw{white-space:nowrap}
 .empty button{margin-left:.5rem}
 .sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
     clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.mini{display:none}
 
 /* cards: content height, never stretched to the tallest sibling */
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(11.5rem,1fr));gap:.9rem;
@@ -83,43 +91,56 @@ td.nw{white-space:nowrap}
 .note{color:var(--dim);font-size:.88rem;border-left:2px solid var(--line);padding-left:.9rem}
 .ok{color:var(--ok)}.warn{color:var(--warn)}.bad{color:var(--bad)}.dim{color:var(--dim)}
 details{margin:1rem 0;border:1px solid var(--line);border-radius:3px;padding:.6rem .8rem}
-summary{cursor:pointer;color:var(--acc);font-size:.9rem}
+summary{cursor:pointer;color:var(--acc);font-size:.9rem;padding:.6rem .4rem;min-height:44px;display:inline-block}
 summary:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
 footer{margin-top:3rem;padding-top:1rem;border-top:1px solid var(--line);
        color:var(--dim);font-size:.82rem}
 
-/* Narrow screens: seven columns cannot fit a phone, and horizontal scrolling hides the two
-   columns that matter. Below 640px each row becomes a name and one line of facts instead. */
+/* Seven columns cannot fit a narrow screen. 641–860px keeps the four columns that carry the
+   story; below 640px each row becomes a name plus one line of labelled facts. */
 @media (max-width:860px){
   body{padding:1.25rem .9rem 4rem;font-size:16px}
   th,td{padding:.4rem .35rem;font-size:.88rem}
   .controls input{flex:1 1 100%}
   .mobile-sort{display:flex}
   .tablewrap{overflow-x:visible;margin:0}
+  .card .cap{font-size:.82rem}
+}
+@media (min-width:641px) and (max-width:860px){
+  table.wide th:nth-child(3),table.wide td:nth-child(3),
+  table.wide th:nth-child(4),table.wide td:nth-child(4),
+  table.wide th:nth-child(5),table.wide td:nth-child(5){display:none}
+  table.wide th,table.wide td{white-space:nowrap}
+}
+@media (max-width:640px){
+  .grid{grid-template-columns:1fr}
+  .intro-note,.legend{display:none}
+  .controls{position:sticky;top:0;z-index:3;background:var(--bg);padding:.35rem 0;margin:.3rem 0 .5rem;
+    border-bottom:1px solid var(--line)}
+  .searchbox input,.searchbox button,.mobile-sort select,.mobile-sort button,.chips .chip,.chips select{min-height:44px}
+  .chips{flex-wrap:nowrap;overflow-x:auto;padding-bottom:.35rem;margin:.35rem 0 .5rem;scrollbar-width:thin}
+  .chips .chip,.chips select{flex:0 0 auto}
+  h1{margin:.2rem 0 .8rem}
   table.wide thead, table.wide thead th{display:none}
   table.wide th[data-sort]::after{content:none}
   table.wide, table.wide tbody, table.wide tr, table.wide td{display:block;width:auto}
-  table.wide tr{padding:.6rem 0;border-bottom:1px solid var(--line)}
+  table.wide tr{display:flex;flex-wrap:wrap;gap:.12rem .5rem;align-items:baseline;
+    padding:.6rem 0;border-bottom:1px solid var(--line)}
   table.wide tr[hidden]{display:none}
   table.wide tr:hover{background:transparent}
-  table.wide td{border:none;padding:0;text-align:left;white-space:normal}
-  table.wide td:first-child{font-size:1.02rem;line-height:1.3}
-  table.wide td:nth-child(2){margin-top:.1rem}
-  table.wide td:nth-child(n+2){display:inline;font-size:.84rem;color:var(--dim)}
+  table.wide td{border:none;padding:0;text-align:left;white-space:nowrap}
+  table.wide td:first-child{flex:0 0 100%;font-size:1.02rem;line-height:1.3}
+  table.wide td:nth-child(n+2){font-size:.84rem;color:var(--dim)}
   table.wide td:nth-child(n+2).ok{color:var(--ok)}
   table.wide td:nth-child(n+2).warn{color:var(--warn)}
   table.wide td:nth-child(n+2).bad{color:var(--bad)}
-  table.wide td:nth-child(3){display:none}                 /* category: not useful on a phone */
-  table.wide td:nth-child(n+2)::after{content:" · ";color:var(--line)}
-  table.wide td:nth-child(4)::before{content:"pop "}
-  table.wide td:nth-child(5)::before{content:"party "}
-  table.wide td:nth-child(6)::before{content:"audit "}
-  table.wide td:nth-child(7)::before{content:"cash "}
-  table.wide td:nth-child(7){white-space:nowrap}
-  table.wide td:nth-child(7)::after{content:""}
-  .card .cap{font-size:.82rem}
+  table.wide td.na{display:none}
+  table.wide .mini{display:inline}
+  table.wide .catcode{display:none}
+  table.wide .catlong{display:inline}
+  .tablewrap{overflow-x:auto}
+  td.nw{white-space:normal;overflow-wrap:anywhere}
 }
-@media (max-width:640px){.grid{grid-template-columns:1fr}}
 """
 
 
@@ -257,16 +278,12 @@ def audit_rank(opinion):
             "Clean, with notes": 3, "Clean": 4, "Not yet audited": 5}.get(label, 6)
 
 
-# Search aliases for the Auditor-General's own wording. Kept separate from the general
-# text index: "qualified" must never match a row whose phrase is "unqualified".
-VERDICT_ALIASES = {
-    "clean": "unqualified with no findings no findings",
-    "clean-notes": "unqualified with findings with findings",
-    "qualified": "qualified material concern",
-    "adverse": "adverse material concern",
-    "disclaimer": "disclaimer material concern",
-    "outstanding": "outstanding not yet audited not finalised not finalized",
-}
+CATS = {"A": ("metro", "Metro"), "B": ("local", "Local"),
+        "C": ("district", "District")}
+
+
+def category(code):
+    return CATS.get((code or "").strip().upper(), ("", "—"))
 
 
 def cash_class(v):
@@ -282,59 +299,112 @@ def cash_class(v):
 INDEX_JS = r"""
 const rows = [...document.querySelectorAll('tbody#rows tr')];
 const q = document.getElementById('q');
+const clearQ = document.getElementById('clear-q');
 const count = document.getElementById('count');
 const empty = document.getElementById('empty');
-const chips = [...document.querySelectorAll('.chip')];
+const chips = [...document.querySelectorAll('.chips button.chip')];
+const province = document.getElementById('province');
 const sortSelect = document.getElementById('mobile-sort');
 const sortDir = document.getElementById('sort-dir');
 const reset = document.getElementById('reset');
-const verdictWords = /^(clean|unqualified|qualified|adverse|disclaimer|outstanding|findings|audited|finalised|finalized)$/;
+
+// The key's vocabulary is a query language too. Match whole phrases before falling back to
+// free text: "no findings" must return the 18 clean rows, not rows mentioning "notes".
+const PHRASES = [
+  ['unqualified with no findings','clean'],
+  ['unqualified with findings','clean-notes'],
+  ['clean with notes','clean-notes'],
+  ['not yet audited','outstanding'],
+  ['not finalised','outstanding'],
+  ['not finalized','outstanding'],
+  ['not audited','outstanding'],
+  ['material concern','serious'],
+  ['no findings','clean'],
+  ['with findings','clean-notes'],
+  ['outstanding','outstanding'],
+  ['unqualified','unqualified'],
+  ['clean','clean'],
+  ['qualified','qualified'],
+  ['adverse','adverse'],
+  ['disclaimer','disclaimer']
+];
+const SERIOUS = ['qualified','adverse','disclaimer'];
 let direction = 1;
 let shown = rows.length;
+
 rows.forEach(tr => tr.addEventListener('click', event => {
   if (!event.target.closest('a')) tr.querySelector('a').click();
 }));
 
-function escRe(s){ return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
-function labelFor(i, dir){
-  return i === 5 ? (dir === 1 ? 'Worst first' : 'Best first') :
-    (dir === 1 ? 'A\u2013Z / low\u2013high' : 'Z\u2013A / high\u2013low');
+[...new Set(rows.map(tr => tr.dataset.province))].sort().forEach(p => {
+  const option = document.createElement('option');
+  option.value = p;
+  option.textContent = p;
+  province.appendChild(option);
+});
+
+function verdictOk(tr, target) {
+  const v = tr.dataset.verdict;
+  if (target === 'unqualified') return v === 'clean' || v === 'clean-notes';
+  if (target === 'serious') return SERIOUS.includes(v);
+  return v === target;
 }
-function verdictHit(tr, token) {
-  if (token === 'clean') return tr.dataset.verdict === 'clean';
-  return new RegExp('(^|[^a-z])' + escRe(token) + '(?![a-z])', 'i').test(tr.dataset.verdicts || '');
+function searchHit(tr, raw) {
+  let rest = ' ' + raw.normalize('NFD').replace(/\p{Diacritic}/gu, '').toLowerCase()
+    .replace(/[^a-z0-9\s]/g, ' ').replace(/\s+/g, ' ').trim() + ' ';
+  for (const [phrase, target] of PHRASES) {
+    const re = new RegExp('(^|\\s)' + phrase + '(?=\\s|$)');
+    if (re.test(rest)) {
+      if (!verdictOk(tr, target)) return false;
+      rest = rest.replace(re, ' ');
+    }
+  }
+  return rest.trim().split(/\s+/).filter(Boolean).every(t => tr.dataset.search.includes(t));
+}
+function labelFor(i, dir) {
+  const arrow = dir === 1 ? '↑ ' : '↓ ';
+  return i === 5 ? arrow + (dir === 1 ? 'Worst first' : 'Best first') :
+    arrow + (dir === 1 ? 'A–Z / low–high' : 'Z–A / high–low');
 }
 function apply() {
-  const tokens = q.value.normalize('NFD').replace(/\p{Diacritic}/gu, '').trim().toLowerCase().split(/\s+/).filter(Boolean);
-  const activeChips = chips.filter(c => c.getAttribute('aria-pressed') === 'true');
-  const active = activeChips.map(c => c.dataset.filter);
+  const active = chips.filter(c => c.getAttribute('aria-pressed') === 'true')
+    .map(c => ({key:c.dataset.key, value:c.dataset.value, label:c.textContent.trim()}));
+  if (province.value) active.push({key:'province', value:province.value, label:province.value});
+  const groups = {};
+  active.forEach(f => { (groups[f.key] ||= new Set()).add(f.value); });
   shown = 0;
   for (const tr of rows) {
-    const textHit = tokens.every(token => verdictWords.test(token) ? verdictHit(tr, token) : tr.dataset.search.includes(token));
-    const hit = textHit && (!active.length || active.every(f => tr.dataset[f] === 'true'));
+    const filtersHit = Object.entries(groups).every(([key, values]) => values.has(tr.dataset[key]));
+    const hit = searchHit(tr, q.value) && filtersHit;
     tr.hidden = !hit;
     if (hit) shown++;
   }
-  count.textContent = (tokens.length || active.length) ? shown + ' of ' + rows.length + ' shown' : rows.length + ' municipalities';
+  count.textContent = (q.value.trim() || active.length) ? shown + ' of ' + rows.length + ' shown' : rows.length + ' municipalities';
+  clearQ.hidden = q.value.length === 0;
   empty.hidden = shown > 0;
   if (!shown) {
     const parts = [];
-    if (tokens.length) parts.push('“' + q.value.trim() + '”');
-    if (active.length) parts.push(activeChips.map(c => c.textContent.trim()).join(' and '));
+    if (q.value.trim()) parts.push('“' + q.value.trim() + '”');
+    if (active.length) parts.push([...new Set(active.map(f => f.label))].join(' with '));
     empty.querySelector('.why').textContent = 'Nothing matches ' + parts.join(' with ') + '.';
   }
 }
+function resetAll() {
+  q.value = '';
+  chips.forEach(c => c.setAttribute('aria-pressed', 'false'));
+  province.value = '';
+  apply();
+  q.focus();
+}
 q.addEventListener('input', apply);
+clearQ.addEventListener('click', resetAll);
 chips.forEach(chip => chip.addEventListener('click', () => {
   chip.setAttribute('aria-pressed', chip.getAttribute('aria-pressed') !== 'true');
   apply();
 }));
-reset.addEventListener('click', () => {
-  q.value = '';
-  chips.forEach(c => c.setAttribute('aria-pressed', 'false'));
-  apply();
-  q.focus();
-});
+province.addEventListener('change', apply);
+reset.addEventListener('click', resetAll);
+sortBy(5, 1);          // the point of the archive is the audit signal: worst first on arrival
 apply();
 
 function sortBy(i, dir) {
@@ -356,6 +426,9 @@ function sortBy(i, dir) {
         if (isNaN(bn)) return -1;
         return (an - bn) * dir;
       }
+      const aBlank = !av.trim(), bBlank = !bv.trim();
+      if (aBlank && !bBlank) return 1;      // blanks last for text sorts too
+      if (!aBlank && bBlank) return -1;
       return av.localeCompare(bv, 'en', {sensitivity:'base'}) * dir;
     });
     for (const tr of rows) body.appendChild(tr);
@@ -428,8 +501,12 @@ def main():
         verdict_token = {"Clean": "clean", "Clean, with notes": "clean-notes",
                          "Qualified": "qualified", "Adverse": "adverse",
                          "Disclaimer": "disclaimer"}.get(v_label, "outstanding")
-        verdict_terms = " ".join(sorted({opinion.lower(), v_label.lower(),
-                                          VERDICT_ALIASES.get(verdict_token, "")} - {""}))
+        cat_key, cat_word = category(m.get("category"))
+        cat_code = esc(m.get("category") or "—")
+        serious = bool(opinion) and audit_rank(opinion) <= 2
+        party_label = p_ab if p_ab != p_full else p_full
+        party_na = " na" if p_ab == "—" else ""
+        cash_na = " na" if cash in (None, "", "None") else ""
         search = " ".join((name, province, m.get("category") or "", r.get("oad_level") or "",
                            p_ab, p_full, "audit", "cash", v_label)).lower()
         search = "".join(ch for ch in __import__('unicodedata').normalize('NFD', search)
@@ -437,17 +514,20 @@ def main():
         audit_concern = bool(opinion and v_label != "Clean")
         low_cash = bool(cash and float(cash) < 1)
         rows.append(
-            f'<tr data-search="{esc(search)}" data-verdicts="{esc(verdict_terms)}" '
-            f'data-verdict="{verdict_token}" data-audit-concern="{str(audit_concern).lower()}" '
+            f'<tr data-search="{esc(search)}" data-verdict="{verdict_token}" '
+            f'data-province="{esc(province)}" data-cat="{cat_key}" '
+            f'data-serious="{str(serious).lower()}" '
+            f'data-audit-concern="{str(audit_concern).lower()}" '
             f'data-low-cash="{str(low_cash).lower()}">'
             f'<td><a href="{slug}.html">{esc(name)}</a></td>'
-            f'<td class="nw dim"><span class="sr">Province: </span>{esc(province)}</td>'
-            f'<td class="nw"><span class="sr">Category: </span>{esc(m.get("category") or "—")}</td>'
-            f'<td class="num" data-v="{esc(m.get("population") or "")}"><span class="sr">Population: </span>{num(m.get("population"), 0)}</td>'
-            f'<td class="nw" data-v="{esc(p_full)}"><span class="sr">Largest party, 2021: </span>{esc(p_ab) if p_ab != p_full else esc(p_full)}</td>'
+            f'<td class="nw dim"><span class="sr">Province: </span><span class="mini" aria-hidden="true">prov </span>{esc(province)}</td>'
+            f'<td class="nw"><span class="sr">Category: </span><span class="mini" aria-hidden="true">cat </span>'
+            f'<span class="catcode">{cat_code}</span><span class="catlong" aria-hidden="true">{cat_word}</span></td>'
+            f'<td class="num" data-v="{esc(m.get("population") or "")}"><span class="sr">Population: </span><span class="mini" aria-hidden="true">pop </span>{num(m.get("population"), 0)}</td>'
+            f'<td class="nw{party_na}" data-v="{esc(p_full)}"><span class="sr">Largest party, 2021: </span><span class="mini" aria-hidden="true">party </span>{esc(party_label)}</td>'
             f'<td class="nw {v_class}" title="{esc(opinion)}" data-v="{audit_rank(opinion)}">'
-            f'<span class="sr">Latest audit: </span>{esc(v_label)}</td>'
-            f'<td class="num {cash_class(cash)}" data-v="{esc(cash or "")}"><span class="sr">Cash on hand, months: </span>{num(cash)}</td>'
+            f'<span class="sr">Latest audit: </span><span class="mini" aria-hidden="true">audit </span>{esc(v_label)}</td>'
+            f'<td class="num {cash_class(cash)}{cash_na}" data-v="{esc(cash or "")}"><span class="sr">Cash on hand, months: </span><span class="mini" aria-hidden="true">cash </span>{num(cash)}</td>'
             f'</tr>')
 
     def th(i, label, num_col=False, extra=""):
@@ -462,7 +542,7 @@ South African municipality, from published sources. No ranking, no scores, no ca
 <style>{CSS}</style></head><body><a class="skip" href="#municipalities">Skip to municipalities</a><main>
 <div class="kicker">SA open data · local view</div>
 <h1>Every South African municipality,<br>and what its books say</h1>
-<p class="note">Built from four published datasets joined on the demarcation code:
+<p class="note intro-note">Built from four published datasets joined on the demarcation code:
 Municipal Money (finance, 2024), the Auditor-General (outcomes to 2024-25), the IEC
 (largest party after 2021) and Stats SA (free basic services). Captured 9–10 November 2026.
 No causal claims — see the caveats on any page.</p>
@@ -486,21 +566,29 @@ grade.</p>
 
 <h2>Pick a municipality</h2>
 <div class="controls">
-  <input id="q" type="search" placeholder="Filter by name, province, party or audit outcome"
-         aria-label="Filter municipalities" autocomplete="off">
+  <div class="searchbox">
+    <input id="q" type="search" placeholder="Name, province, party, or a verdict like “no findings”"
+           aria-label="Filter municipalities" autocomplete="off">
+    <button type="button" id="clear-q" aria-label="Clear search" hidden>×</button>
+  </div>
   <span class="count" id="count" aria-live="polite">{len(cards)} municipalities</span>
 </div>
 <div class="chips" aria-label="Quick filters">
-  <button class="chip" type="button" data-filter="auditConcern" aria-pressed="false">Findings or worse</button>
-  <button class="chip" type="button" data-filter="lowCash" aria-pressed="false">Cash below 1 month</button>
+  <button class="chip" type="button" data-key="serious" data-value="true" aria-pressed="false">Qualified or worse</button>
+  <button class="chip" type="button" data-key="lowCash" data-value="true" aria-pressed="false">Cash below 1 month</button>
+  <button class="chip" type="button" data-key="cat" data-value="metro" aria-pressed="false">Metro</button>
+  <button class="chip" type="button" data-key="cat" data-value="local" aria-pressed="false">Local</button>
+  <button class="chip" type="button" data-key="cat" data-value="district" aria-pressed="false">District</button>
+  <label class="sr" for="province">Province</label>
+  <select id="province" aria-label="Filter by province"><option value="">All provinces</option></select>
 </div>
 <div class="mobile-sort"><label for="mobile-sort">Sort</label><select id="mobile-sort">
   <option value="0">Municipality</option><option value="1">Province</option>
   <option value="2">Category</option><option value="3">Population</option>
   <option value="4">Party (2021)</option><option value="5">Latest audit</option>
   <option value="6">Cash (months)</option>
-</select><button id="sort-dir" type="button">A–Z / low–high</button></div>
-<p class="legend"><span class="ok">Clean</span> = no findings; <span class="warn">clean, with notes</span> = findings; <span class="bad">qualified, adverse or disclaimer</span> = material concern. Cat A = metro, B = local, C = district. Party is the 2021 largest party; — means no direct-election result. Cash — means not computed; 0.0 is the source value rounded to one decimal.</p>
+</select><button id="sort-dir" type="button">↑ Worst first</button></div>
+<p class="legend"><span class="ok">Clean</span> = no findings; <span class="warn">clean, with notes</span> = findings; <span class="bad">qualified, adverse or disclaimer</span> = material concern. Cat A = metro, B = local, C = district. Party is the 2021 largest party; — means no direct-election result. Cash — means not computed; red under 1 month, amber under 3; 0.0 is the source value rounded to one decimal. Sorted by latest audit, worst first — change with Sort.</p>
 <div class="tablewrap" id="municipalities">
 <table class="wide" style="font-size:.9rem"><thead><tr>
 {th(0, "Municipality")}{th(1, "Province")}{th(2, "Cat")}
