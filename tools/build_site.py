@@ -28,7 +28,7 @@ body{margin:0;background:var(--bg);color:var(--fg);
 main{max-width:62rem;margin:0 auto}
 a{color:var(--acc);text-decoration:none;border-bottom:1px solid rgba(201,116,58,.35)}
 a:hover{border-bottom-color:var(--acc)}
-a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
 h1{font-size:clamp(1.6rem,4vw,2.1rem);line-height:1.15;margin:.2rem 0 1.4rem;letter-spacing:-.02em}
 h2{font-size:.78rem;text-transform:uppercase;letter-spacing:.14em;color:var(--dim);
    margin:2.6rem 0 .7rem;font-family:ui-sans-serif,system-ui,sans-serif;font-weight:600}
@@ -50,6 +50,7 @@ th[data-sort].asc::after{content:"↑";opacity:1}
 th[data-sort].desc::after{content:"↓";opacity:1}
 td.num{text-align:right;font-variant-numeric:tabular-nums}
 tbody tr:hover{background:var(--card)}
+tbody#rows tr{cursor:pointer}
 td.nw{white-space:nowrap}
 
 /* index controls */
@@ -57,6 +58,12 @@ td.nw{white-space:nowrap}
 .controls input{flex:1 1 16rem;min-width:12rem;background:var(--card);border:1px solid var(--line);
   color:var(--fg);font:inherit;font-size:.95rem;padding:.5rem .7rem;border-radius:3px}
 .controls input::placeholder{color:var(--dim)}
+.chips{display:flex;gap:.45rem;flex-wrap:wrap;margin:.45rem 0 .7rem}
+.chip,.mobile-sort select,.mobile-sort button{background:var(--card);border:1px solid var(--line);color:var(--fg);font:inherit;font-size:.82rem;padding:.38rem .6rem;border-radius:3px}
+.chip{cursor:pointer}.chip:hover,.chip[aria-pressed="true"]{border-color:var(--acc);color:var(--acc)}
+.mobile-sort{display:none;gap:.45rem;align-items:center;margin:.35rem 0 .7rem}
+.legend{color:var(--dim);font-size:.82rem;margin:.3rem 0 .8rem}
+.flag{color:var(--warn);font-size:.76rem;line-height:1.4;margin-top:.5rem}
 .count{color:var(--dim);font-size:.85rem;font-variant-numeric:tabular-nums}
 .empty{padding:1.4rem .5rem;color:var(--dim)}
 
@@ -80,6 +87,7 @@ footer{margin-top:3rem;padding-top:1rem;border-top:1px solid var(--line);
   body{padding:1.25rem .9rem 4rem;font-size:16px}
   th,td{padding:.4rem .35rem;font-size:.88rem}
   .controls input{flex:1 1 100%}
+  .mobile-sort{display:flex}
   .tablewrap{overflow-x:visible;margin:0}
   table.wide thead, table.wide thead th{display:none}
   table.wide th[data-sort]::after{content:none}
@@ -93,6 +101,8 @@ footer{margin-top:3rem;padding-top:1rem;border-top:1px solid var(--line);
   table.wide td:nth-child(3){display:none}                 /* category: not useful on a phone */
   table.wide td:nth-child(n+2)::after{content:" · ";color:var(--line)}
   table.wide td:nth-child(4)::before{content:"pop "}
+  table.wide td:nth-child(5)::before{content:"party "}
+  table.wide td:nth-child(6)::before{content:"audit "}
   table.wide td:nth-child(7)::before{content:"cash "}
   table.wide td:nth-child(7)::after{content:""}
   .grid{grid-template-columns:1fr}
@@ -144,13 +154,14 @@ METRIC_HELP = {
                                      "Spending on repairs and maintenance as a share of the "
                                      "value of the assets it is supposed to maintain. Low "
                                      "numbers mean infrastructure is being run down."),
-    "current_debtors_collection_rate": ("Bills actually paid", "%",
+    "current_debtors_collection_rate": ("Revenue collected", "%",
                                         "Of what the municipality billed residents and "
                                         "businesses, how much it actually collected. Low "
-                                        "numbers mean services go unpaid for."),
-    "capital_budget_spending": ("Building budget used", "%",
-                                "How much of the capital (building and infrastructure) budget "
-                                "was actually spent. Negative means underspent."),
+                                        "numbers mean services go unpaid for. It can exceed 100% "
+                                        "when old debt is recovered."),
+    "capital_budget_spending": ("Capital budget variance", "%",
+                                "Actual capital spending minus the budget, as a share of the "
+                                "budget. Negative means underspent."),
 }
 
 
@@ -233,20 +244,29 @@ def cash_class(v):
     return "bad" if f < 1 else ("warn" if f < 3 else "")
 
 
-# Two dozen lines of vanilla JS: filter the 257 rows, sort a column, keep the count honest.
+# Small, dependency-free controls: filter the 257 rows, and keep sorting available on a phone.
 # Inline and dependency-free, because the whole point is that this page works with no server.
 INDEX_JS = """
 const rows = [...document.querySelectorAll('tbody#rows tr')];
 const q = document.getElementById('q');
 const count = document.getElementById('count');
 const empty = document.getElementById('empty');
+const chips = [...document.querySelectorAll('.chip')];
+const sortSelect = document.getElementById('mobile-sort');
+const sortDir = document.getElementById('sort-dir');
+let direction = 1;
 let shown = rows.length;
+rows.forEach(tr => tr.addEventListener('click', event => {
+  if (!event.target.closest('a')) tr.querySelector('a').click();
+}));
 
 function apply() {
   const needle = q.value.trim().toLowerCase();
   shown = 0;
   for (const tr of rows) {
-    const hit = !needle || tr.dataset.search.includes(needle);
+    const active = chips.filter(c => c.getAttribute('aria-pressed') === 'true').map(c => c.dataset.filter);
+    const hit = (!needle || tr.dataset.search.includes(needle)) &&
+      (!active.length || active.every(f => tr.dataset[f] === 'true'));
     tr.hidden = !hit;
     if (hit) shown++;
   }
@@ -254,14 +274,18 @@ function apply() {
   empty.hidden = shown > 0;
 }
 q.addEventListener('input', apply);
+chips.forEach(chip => chip.addEventListener('click', () => {
+  chip.setAttribute('aria-pressed', chip.getAttribute('aria-pressed') !== 'true');
+  apply();
+}));
 apply();
 
-document.querySelectorAll('th[data-sort]').forEach(th => {
-  th.addEventListener('click', () => {
-    const i = +th.dataset.sort, numeric = th.dataset.num === '1';
-    const dir = th.classList.contains('asc') ? -1 : 1;
-    document.querySelectorAll('th[data-sort]').forEach(o => o.classList.remove('asc','desc'));
+function sortBy(i, dir) {
+    const th = document.querySelector('th[data-sort="' + i + '"]');
+    const numeric = th.dataset.num === '1';
+    document.querySelectorAll('th[data-sort]').forEach(o => { o.classList.remove('asc','desc'); o.removeAttribute('aria-sort'); });
     th.classList.add(dir === 1 ? 'asc' : 'desc');
+    th.setAttribute('aria-sort', dir === 1 ? 'ascending' : 'descending');
     const body = document.getElementById('rows');
     rows.sort((a, b) => {
       const av = a.children[i].dataset.v ?? a.children[i].textContent.trim().replace(/[,\u2014]/g,'');
@@ -276,7 +300,16 @@ document.querySelectorAll('th[data-sort]').forEach(th => {
       return av.localeCompare(bv) * dir;
     });
     for (const tr of rows) body.appendChild(tr);
-  });
+}
+document.querySelectorAll('th[data-sort]').forEach(th => th.addEventListener('click', () => {
+  direction = th.classList.contains('asc') ? -1 : 1;
+  sortBy(+th.dataset.sort, direction);
+}));
+sortSelect.addEventListener('change', () => sortBy(+sortSelect.value, direction));
+sortDir.addEventListener('click', () => {
+  direction *= -1;
+  sortDir.textContent = direction === 1 ? 'A–Z / low–high' : 'Z–A / high–low';
+  sortBy(+sortSelect.value, direction);
 });
 """
 
@@ -328,8 +361,10 @@ def main():
         v_label, v_class = verdict_of(opinion)
         search = " ".join((name, r.get("province") or "", m.get("category") or "",
                            p_ab, p_full, opinion, v_label)).lower()
+        audit_concern = bool(opinion and v_label != "Clean")
+        low_cash = bool(cash and float(cash) < 1)
         rows.append(
-            f'<tr data-search="{esc(search)}">'
+            f'<tr data-search="{esc(search)}" data-audit-concern="{str(audit_concern).lower()}" data-low-cash="{str(low_cash).lower()}">'
             f'<td><a href="{slug}.html">{esc(name)}</a></td>'
             f'<td class="nw dim">{esc(r["province"])}</td>'
             f'<td class="nw">{esc(m.get("category") or "—")}</td>'
@@ -359,7 +394,7 @@ No causal claims — see the caveats on any page.</p>
 <details><summary>How to read this</summary>
 <div class="note">
 <p><strong>One row per municipality.</strong> "Metro" is a big city that governs itself;
-"local" is a town or district municipality's child; "district" sits above several locals and
+"local" is a town or rural municipality within a district; "district" sits above several locals and
 shares services like water and roads between them.</p>
 <p><strong>Largest party</strong> is who won the most seats in 2021 — not necessarily who
 governs. If no party holds more than half, a coalition or minority government ran the place.
@@ -379,6 +414,15 @@ grade.</p>
          aria-label="Filter municipalities" autocomplete="off">
   <span class="count" id="count">{len(cards)} municipalities</span>
 </div>
+<div class="chips" aria-label="Quick filters">
+  <button class="chip" type="button" data-filter="auditConcern" aria-pressed="false">Audit concerns</button>
+  <button class="chip" type="button" data-filter="lowCash" aria-pressed="false">Cash below 1 month</button>
+</div>
+<div class="mobile-sort"><label for="mobile-sort">Sort</label><select id="mobile-sort">
+  <option value="0">Municipality</option><option value="3">Population</option>
+  <option value="5">Latest audit</option><option value="6">Cash (months)</option>
+</select><button id="sort-dir" type="button">A–Z / low–high</button></div>
+<p class="legend"><span class="ok">Clean</span> = no findings; <span class="warn">clean, with notes</span> = findings; <span class="bad">qualified, adverse or disclaimer</span> = material concern. Cash below one month is a crisis.</p>
 <div class="tablewrap">
 <table class="wide" style="font-size:.9rem"><thead><tr>
 {th(0, "Municipality")}{th(1, "Province")}{th(2, "Cat")}
@@ -415,10 +459,21 @@ part of a name.</p>
             f"<tr><td>{esc((p['party'] or '').title())}</td>"
             f"<td class=\"num nw\">{p.get('total')}</td></tr>"
             for p in parties)
+        def metric_flag(k, value):
+            try:
+                n = float(value)
+            except (TypeError, ValueError):
+                return ""
+            if k == "cash_coverage" and n > 24:
+                return '<div class="flag">Unusually high — a source value to investigate, not a grade.</div>'
+            if k == "current_debtors_collection_rate" and n > 120:
+                return '<div class="flag">Above 100% usually means old debt was collected too.</div>'
+            return ""
+
         cards_html = "".join(
             f'<div class="card"><div class="v">{num(i.get(k), 1, METRIC_HELP[k][1])}</div>'
             f'<div class="l">{METRIC_HELP[k][0]}</div>'
-            f'<div class="cap">{METRIC_HELP[k][2]}</div></div>'
+            f'<div class="cap">{METRIC_HELP[k][2]}</div>{metric_flag(k, i.get(k))}</div>'
             for k in ("cash_coverage", "uifw_expenditure", "repairs_maintenance_spending",
                       "current_debtors_collection_rate", "capital_budget_spending"))
 
