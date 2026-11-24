@@ -44,6 +44,7 @@ th,td{text-align:left;padding:.42rem .45rem;border-bottom:1px solid var(--line);
 th{color:var(--dim);font-weight:600;font-size:.74rem;text-transform:uppercase;letter-spacing:.1em;
    font-family:ui-sans-serif,system-ui,sans-serif;position:sticky;top:0;background:var(--bg);
    box-shadow:0 1px 0 var(--line);z-index:2;white-space:nowrap}
+th[data-num="1"]{text-align:right}
 th[data-sort]{cursor:pointer;user-select:none}
 th[data-sort]:hover{color:var(--fg)}
 th[data-sort] button{all:unset;cursor:pointer}
@@ -60,7 +61,7 @@ td.nw{white-space:nowrap}
 .controls{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap;margin:1rem 0 .6rem}
 .searchbox{position:relative;flex:1 1 16rem;min-width:12rem;display:flex}
 .controls input{flex:1 1 16rem;min-width:12rem;background:var(--card);border:1px solid var(--line);
-  color:var(--fg);font:inherit;font-size:.95rem;padding:.5rem .7rem;border-radius:3px}
+  color:var(--fg);font:inherit;font-size:.95rem;padding:.5rem .7rem;border-radius:3px;min-height:44px}
 .searchbox input{width:100%;min-width:0;padding-right:2.2rem}
 .controls input[type=search]::-webkit-search-cancel-button{-webkit-appearance:none}
 .searchbox button{position:absolute;right:.35rem;top:50%;transform:translateY(-50%);min-height:44px;
@@ -79,6 +80,8 @@ option{background:var(--card);color:var(--fg)}
 #clear-all{border-color:var(--acc);color:var(--acc)}
 .chips .chip[aria-pressed="true"]{border-color:var(--acc);color:var(--acc);background:rgba(201,116,58,.22)}
 .mobile-sort{display:none;gap:.45rem;align-items:center;flex-wrap:wrap;margin:.35rem 0 .7rem}
+.period{font-family:ui-sans-serif,system-ui,sans-serif;font-size:.72rem;color:var(--dim);margin-left:.3rem}
+.download{font-size:.82rem}
 .legend{color:var(--dim);font-size:.85rem;margin:.6rem 0 1rem;line-height:1.7}
 .compact-note{display:none;color:var(--dim);font-size:.78rem;margin:.45rem 0 .6rem;line-height:1.5}
 .flag{color:var(--warn);font-size:.76rem;line-height:1.4;margin-top:.5rem}
@@ -157,6 +160,8 @@ footer{margin-top:3rem;padding-top:1rem;border-top:1px solid var(--line);
 @media (min-width:861px) and (max-width:900px){
   table.wide{font-size:.84rem}
   th,td{padding-left:.28rem;padding-right:.28rem}
+  th{white-space:normal;line-height:1.3}
+  th[data-sort="5"]{min-width:6.5rem}
 }
 """
 
@@ -186,8 +191,9 @@ OPINION_GUIDE = {
          "The auditors could not get enough evidence to form an opinion at all. This is the "
          "worst outcome, and it usually means records were missing or withheld."),
     "outstanding":
-        ("Not yet audited", "dim",
-         "The audit for that year was not complete in this capture."),
+        ("Audit not finalised", "dim",
+         "The 2024-25 audit was not finalised in this capture. That is a gap in the record, "
+         "not a clean opinion and not a finding against the municipality."),
 }
 
 METRIC_HELP = {
@@ -292,7 +298,7 @@ def audit_rank(opinion):
     """Lower is a more serious outcome, so risk-first sorting is meaningful."""
     label, _ = verdict_of(opinion)
     return {"Disclaimer": 0, "Adverse": 1, "Qualified": 2,
-            "Clean, with notes": 3, "Clean": 4, "Not yet audited": 5}.get(label, 6)
+            "Clean, with notes": 3, "Clean": 4, "Audit not finalised": 5}.get(label, 6)
 
 
 CATS = {"A": ("metro", "Metro"), "B": ("local", "Local"),
@@ -354,7 +360,7 @@ const sortDir = document.getElementById('sort-dir');
 const reset = document.getElementById('reset');
 
 // The key's vocabulary is a query language too. Match whole phrases before falling back to
-// free text: "no findings" must return the 18 clean rows, not rows mentioning "notes".
+// free text: "no findings" must return the 39 clean rows, not rows mentioning "notes".
 const PHRASES = [
   ['qualified with findings','qualified'],
   ['qualified with no findings','qualified'],
@@ -391,6 +397,37 @@ rows.forEach(tr => tr.addEventListener('click', event => {
   option.textContent = p;
   province.appendChild(option);
 });
+
+// A filtered view is a shareable view: keep it in the query string without a server.
+function readState() {
+  const p = new URLSearchParams(location.search);
+  if (p.has('q')) q.value = p.get('q');
+  if (p.has('prov')) province.value = p.get('prov');
+  const cats = (p.get('cat') || '').split(',').filter(Boolean);
+  chips.forEach(c => {
+    if (c.dataset.key === 'cat') c.setAttribute('aria-pressed', cats.includes(c.dataset.value));
+    else if (c.dataset.key === 'serious' && p.get('serious') === '1') c.setAttribute('aria-pressed', 'true');
+    else if (c.dataset.key === 'lowCash' && p.get('cash') === '1') c.setAttribute('aria-pressed', 'true');
+  });
+  const raw = p.get('sort');
+  const si = raw === null ? NaN : Number(raw);
+  return [Number.isInteger(si) && si >= 0 && si <= 6 ? si : 5, p.get('dir') === '0' ? -1 : 1];
+}
+function writeState() {
+  const p = new URLSearchParams();
+  if (q.value.trim()) p.set('q', q.value.trim());
+  if (province.value) p.set('prov', province.value);
+  const cats = chips.filter(c => c.dataset.key === 'cat' && c.getAttribute('aria-pressed') === 'true')
+    .map(c => c.dataset.value);
+  if (cats.length) p.set('cat', cats.join(','));
+  if (chips.some(c => c.dataset.key === 'serious' && c.getAttribute('aria-pressed') === 'true')) p.set('serious', '1');
+  if (chips.some(c => c.dataset.key === 'lowCash' && c.getAttribute('aria-pressed') === 'true')) p.set('cash', '1');
+  const i = +sortSelect.value;
+  if (i !== 5 || direction !== 1) { p.set('sort', String(i)); p.set('dir', direction === 1 ? '1' : '0'); }
+  const query = p.toString();
+  try { history.replaceState(null, '', location.pathname + (query ? '?' + query : '') + location.hash); } catch (e) {}
+}
+const [startSort, startDir] = readState();
 
 function verdictOk(tr, target) {
   const v = tr.dataset.verdict;
@@ -443,6 +480,7 @@ function apply() {
     if (labels.length > 1) parts.push(labels.slice(0, -1).join(', ') + ' and ' + labels[labels.length - 1]);
     empty.querySelector('.why').textContent = 'Nothing matches ' + parts.join(' with ') + '.';
   }
+  writeState();
 }
 function resetAll() {
   q.value = '';
@@ -463,10 +501,11 @@ chips.forEach(chip => chip.addEventListener('click', () => {
 }));
 province.addEventListener('change', apply);
 reset.addEventListener('click', resetAll);
-sortBy(5, 1);          // the point of the archive is the audit signal: worst first on arrival
+sortBy(startSort, startDir);   // default: the audit signal, worst first
 apply();
 
 function sortBy(i, dir) {
+    direction = dir;
     const th = document.querySelector('th[data-sort="' + i + '"]');
     const numeric = th.dataset.num === '1';
     document.querySelectorAll('th[data-sort]').forEach(o => { o.classList.remove('asc','desc'); o.removeAttribute('aria-sort'); });
@@ -474,6 +513,10 @@ function sortBy(i, dir) {
     th.setAttribute('aria-sort', dir === 1 ? 'ascending' : 'descending');
     sortSelect.value = String(i);
     sortDir.textContent = labelFor(i, dir);
+    const headBtn = th.querySelector('button');
+    headBtn.textContent = i === 5 ?
+      (dir === 1 ? 'Audit · worst first' : 'Audit · best first') :
+      (headBtn.dataset.base || headBtn.textContent);
     const body = document.getElementById('rows');
     rows.sort((a, b) => {
       const av = a.children[i].dataset.v ?? a.children[i].textContent.trim().replace(/[,\u2014]/g,'');
@@ -491,11 +534,16 @@ function sortBy(i, dir) {
       return av.localeCompare(bv, 'en', {sensitivity:'base'}) * dir;
     });
     for (const tr of rows) body.appendChild(tr);
+    writeState();
 }
-document.querySelectorAll('th[data-sort]').forEach(th => th.addEventListener('click', () => {
-  direction = th.classList.contains('asc') ? -1 : 1;
-  sortBy(+th.dataset.sort, direction);
-}));
+document.querySelectorAll('th[data-sort]').forEach(th => {
+  const button = th.querySelector('button');
+  button.dataset.base = button.textContent;
+  th.addEventListener('click', () => {
+    direction = th.classList.contains('asc') ? -1 : 1;
+    sortBy(+th.dataset.sort, direction);
+  });
+});
 sortSelect.addEventListener('change', () => {
   const i = +sortSelect.value;
   direction = i === 5 ? 1 : (document.querySelector('th[data-sort="' + i + '"]').dataset.num === '1' ? -1 : 1);
@@ -551,6 +599,7 @@ def main():
     for slug, r, m, ags, co, i in cards:
         latest = latest_opinion(ags.get("opinions"))
         opinion = latest.get("audit_opinion") or ""
+        period = latest.get("period") or ""
         p_ab, p_full = party(co.get("largest_party"))
         cash = i.get("cash_coverage")
         name = r["oad_name"] or r["code"]
@@ -572,7 +621,7 @@ def main():
             trend_html = (f'<span class="trend {trend_cls}" aria-hidden="true" title="{esc(trend_title)}">{trend_glyph}</span>'
                           f'<span class="sr">{esc(trend_title)}</span>')
         search = " ".join((name, province, m.get("category") or "", r.get("oad_level") or "",
-                           p_ab, p_full, "audit", "cash", v_label, trend_word)).lower()
+                           p_ab, p_full, "audit", "cash", v_label, trend_word, period)).lower()
         search = "".join(ch for ch in __import__('unicodedata').normalize('NFD', search)
                          if not __import__('unicodedata').combining(ch))
         audit_concern = bool(opinion and v_label != "Clean")
@@ -590,7 +639,8 @@ def main():
             f'<td class="num" data-v="{esc(m.get("population") or "")}"><span class="sr">Population: </span><span class="mini" aria-hidden="true">Population </span>{num(m.get("population"), 0)}</td>'
             f'<td class="nw{party_na}" data-v="{esc(p_full)}"><span class="sr">Largest party, 2021: </span><span class="mini" aria-hidden="true">Party </span>{esc(party_label)}</td>'
             f'<td class="nw {v_class}" title="{esc(opinion)}" data-v="{audit_rank(opinion)}">'
-            f'<span class="sr">Latest audit: </span><span class="mini" aria-hidden="true">Audit </span>{esc(v_label)}{trend_html}</td>'
+            f'<span class="sr">Latest audit: </span><span class="mini" aria-hidden="true">Audit </span>'
+            f'{esc(v_label)}<span class="period">{esc(period)}</span>{trend_html}</td>'
             f'<td class="num {cash_class(cash)}{cash_na}" data-v="{esc(cash or "")}"><span class="sr">Cash on hand, months: </span><span class="mini" aria-hidden="true">Cash </span>{num(cash)}</td>'
             f'</tr>')
 
@@ -603,7 +653,7 @@ def main():
 <title>South African municipalities — {len(cards)} places, one table</title>
 <meta name="description" content="Finance, audit outcomes and 2021 election results for every
 South African municipality, from published sources. No ranking, no scores, no causal claims.">
-<style>{CSS}</style><noscript><style>.controls,.chips,.mobile-sort{{display:none}}</style></noscript></head><body><a class="skip" href="#municipalities">Skip to municipalities</a><main>
+<style>{CSS}</style><noscript><style>.controls,.chips,.mobile-sort,#pick{{display:none}}</style></noscript></head><body><a class="skip" href="#municipalities">Skip to municipalities</a><main>
 <div class="kicker">SA open data · local view</div>
 <h1>Every South African municipality,<br>and what its books say</h1>
 <p class="note intro-note">Four published datasets joined on the demarcation code · finance 2024,
@@ -629,7 +679,7 @@ municipality can hold cash it cannot spend freely, so treat outliers as a questi
 grade.</p>
 </div></details>
 
-<h2>Pick a municipality</h2>
+<h2 id="pick">Pick a municipality</h2>
 <div class="controls">
   <div class="searchbox">
     <input id="q" type="search" placeholder="Search name, party or “no findings”"
@@ -637,6 +687,7 @@ grade.</p>
     <button type="button" id="clear-q" aria-label="Clear search only" hidden>×</button>
   </div>
   <span class="count" id="count" aria-live="polite">{len(cards)} municipalities</span>
+  <a class="download" href="municipalities.csv" download>Download CSV</a>
   <button class="chip" type="button" id="clear-all" hidden>Clear all</button>
   <label class="sr" for="province">Province</label>
   <select id="province" aria-label="Filter by province"><option value="">All provinces</option></select>
@@ -654,7 +705,8 @@ grade.</p>
   <option value="4">Party (2021)</option><option value="5">Latest audit</option>
   <option value="6">Cash (months)</option>
 </select><button id="sort-dir" type="button">↑ Worst audits first</button></div>
-<p class="legend"><span class="ok">Clean</span> = no findings; <span class="warn">clean, with notes</span> = findings; <span class="bad">qualified, adverse or disclaimer</span> = material concern. Metro, local and district are the three kinds of municipality. Party is the 2021 largest party; — means no direct-election result. Cash — means not computed; red under 1 month, amber under 3; 0.0 is the source value rounded to one decimal. Sorted by latest audit, worst first — use the column headings (or Sort on a narrow screen) to change it. ↑↓ after a verdict is the net change across the captured audit years.</p>
+<p class="legend"><span class="ok">Clean</span> = no findings; <span class="warn">clean, with notes</span> = findings; <span class="bad">qualified, adverse or disclaimer</span> = material concern. ↑↓ after a verdict is the net change across the captured audit years.</p>
+<p class="legend">Metro, local and district are the three kinds of municipality. Party is the 2021 largest party; — means no direct-election result. Cash — means not computed; red under 1 month, amber under 3; 0.0 is the source value rounded to one decimal. Sorted by latest audit, worst first — use the column headings (or Sort on a narrow screen) to change it.</p>
 <p class="compact-note">No ranking, no causal claims. ↑↓ after a verdict = net audit change across the captured years.</p>
 <div class="tablewrap" id="municipalities">
 <table class="wide" style="font-size:.9rem"><caption class="sr">South African municipalities, their latest audit verdict, cash on hand and 2021 largest party</caption><thead><tr>
@@ -669,6 +721,21 @@ grade.</p>
 <a href="https://github.com/realtimshady16/sa-open-data">source</a></footer>
 </main><script>{INDEX_JS}</script></body></html>"""
     (OUT / "index.html").write_text(index)
+
+    # The same view, as flat data: no API, no login, no key. Dates and opinions stay verbatim.
+    with (OUT / "municipalities.csv").open("w", newline="") as handle:
+        writer = csv.writer(handle)
+        writer.writerow(["code", "municipality", "province", "category", "population",
+                         "largest_party_2021", "latest_audit_period", "latest_audit_opinion",
+                         "cash_months_2024"])
+        for _slug, r, m, ags, co, i in cards:
+            newest = latest_opinion(ags.get("opinions"))
+            writer.writerow([r["code"], r["oad_name"] or r["code"],
+                             (r.get("province") or "").replace("Nothern", "Northern"),
+                             category(m.get("category"))[1], m.get("population") or "",
+                             party(co.get("largest_party"))[1],
+                             newest.get("period") or "", newest.get("audit_opinion") or "",
+                             i.get("cash_coverage") or ""])
 
     # ---- one page per entity -------------------------------------------------
     for slug, r, m, ags, co, i in cards:

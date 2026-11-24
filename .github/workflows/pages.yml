@@ -10,6 +10,7 @@ on:
     paths:
       - "datasets/**"
       - "tools/build_site.py"
+      - "tools/test_site_data.py"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
 
@@ -35,6 +36,11 @@ jobs:
       # build_site.py is standard library only: no requirements file, no pip step, no network.
       - name: Build the site
         run: python3 tools/build_site.py
+
+      # Independent of the generator's own latest-period rule: catches a view that drifts
+      # from the raw capture even when index and detail pages agree with each other.
+      - name: Check the view against the raw capture
+        run: python3 -m unittest tools/test_site_data.py -v
 
       - uses: actions/configure-pages@v5
 
