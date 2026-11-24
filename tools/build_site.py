@@ -493,9 +493,11 @@ part of a name.</p>
                 return ""
             if k == "cash_coverage" and n > 24:
                 return '<div class="flag">Unusually high — a source value to investigate, not a grade.</div>'
-            if k == "cash_coverage" and n < 0.05:
+            if k == "cash_coverage" and 0 <= n < 0.05:
                 return '<div class="flag">Reported near zero by the source — treat it as a question, not proof of no cash.</div>'
-            if k == "current_debtors_collection_rate" and n < 0.05:
+            if k == "current_debtors_collection_rate" and n < 0:
+                return '<div class="flag">Negative rate reported by the source — treat it as a question, not a finding about the municipality.</div>'
+            if k == "current_debtors_collection_rate" and 0 <= n < 0.05:
                 return '<div class="flag">Reported as 0.0% by the source — treat it as a question, not a finding about the municipality.</div>'
             if k == "current_debtors_collection_rate" and n > 400:
                 return '<div class="flag">Exceptionally high — it may include historic collections; check the source before interpreting it.</div>'
