@@ -69,6 +69,9 @@ td.nw{white-space:nowrap}
 .flag{color:var(--warn);font-size:.76rem;line-height:1.4;margin-top:.5rem}
 .count{color:var(--dim);font-size:.85rem;font-variant-numeric:tabular-nums}
 .empty{padding:1.4rem .5rem;color:var(--dim)}
+.empty button{margin-left:.5rem}
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+    clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
 /* cards: content height, never stretched to the tallest sibling */
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(11.5rem,1fr));gap:.9rem;
@@ -254,6 +257,18 @@ def audit_rank(opinion):
             "Clean, with notes": 3, "Clean": 4, "Not yet audited": 5}.get(label, 6)
 
 
+# Search aliases for the Auditor-General's own wording. Kept separate from the general
+# text index: "qualified" must never match a row whose phrase is "unqualified".
+VERDICT_ALIASES = {
+    "clean": "unqualified with no findings no findings",
+    "clean-notes": "unqualified with findings with findings",
+    "qualified": "qualified material concern",
+    "adverse": "adverse material concern",
+    "disclaimer": "disclaimer material concern",
+    "outstanding": "outstanding not yet audited not finalised not finalized",
+}
+
+
 def cash_class(v):
     try:
         f = float(v)
@@ -272,30 +287,54 @@ const empty = document.getElementById('empty');
 const chips = [...document.querySelectorAll('.chip')];
 const sortSelect = document.getElementById('mobile-sort');
 const sortDir = document.getElementById('sort-dir');
+const reset = document.getElementById('reset');
+const verdictWords = /^(clean|unqualified|qualified|adverse|disclaimer|outstanding|findings|audited|finalised|finalized)$/;
 let direction = 1;
 let shown = rows.length;
 rows.forEach(tr => tr.addEventListener('click', event => {
   if (!event.target.closest('a')) tr.querySelector('a').click();
 }));
 
+function escRe(s){ return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+function labelFor(i, dir){
+  return i === 5 ? (dir === 1 ? 'Worst first' : 'Best first') :
+    (dir === 1 ? 'A\u2013Z / low\u2013high' : 'Z\u2013A / high\u2013low');
+}
+function verdictHit(tr, token) {
+  if (token === 'clean') return tr.dataset.verdict === 'clean';
+  return new RegExp('(^|[^a-z])' + escRe(token) + '(?![a-z])', 'i').test(tr.dataset.verdicts || '');
+}
 function apply() {
   const tokens = q.value.normalize('NFD').replace(/\p{Diacritic}/gu, '').trim().toLowerCase().split(/\s+/).filter(Boolean);
-  const active = chips.filter(c => c.getAttribute('aria-pressed') === 'true').map(c => c.dataset.filter);
+  const activeChips = chips.filter(c => c.getAttribute('aria-pressed') === 'true');
+  const active = activeChips.map(c => c.dataset.filter);
   shown = 0;
   for (const tr of rows) {
-    const hit = (tokens.length === 0 || tokens.every(token => token === 'clean' ? tr.dataset.verdict === 'clean' : tr.dataset.search.includes(token))) &&
-      (!active.length || active.every(f => tr.dataset[f] === 'true'));
+    const textHit = tokens.every(token => verdictWords.test(token) ? verdictHit(tr, token) : tr.dataset.search.includes(token));
+    const hit = textHit && (!active.length || active.every(f => tr.dataset[f] === 'true'));
     tr.hidden = !hit;
     if (hit) shown++;
   }
   count.textContent = (tokens.length || active.length) ? shown + ' of ' + rows.length + ' shown' : rows.length + ' municipalities';
   empty.hidden = shown > 0;
+  if (!shown) {
+    const parts = [];
+    if (tokens.length) parts.push('“' + q.value.trim() + '”');
+    if (active.length) parts.push(activeChips.map(c => c.textContent.trim()).join(' and '));
+    empty.querySelector('.why').textContent = 'Nothing matches ' + parts.join(' with ') + '.';
+  }
 }
 q.addEventListener('input', apply);
 chips.forEach(chip => chip.addEventListener('click', () => {
   chip.setAttribute('aria-pressed', chip.getAttribute('aria-pressed') !== 'true');
   apply();
 }));
+reset.addEventListener('click', () => {
+  q.value = '';
+  chips.forEach(c => c.setAttribute('aria-pressed', 'false'));
+  apply();
+  q.focus();
+});
 apply();
 
 function sortBy(i, dir) {
@@ -305,8 +344,7 @@ function sortBy(i, dir) {
     th.classList.add(dir === 1 ? 'asc' : 'desc');
     th.setAttribute('aria-sort', dir === 1 ? 'ascending' : 'descending');
     sortSelect.value = String(i);
-    sortDir.textContent = i === 5 ? (dir === 1 ? 'Worst first' : 'Best first') :
-      (dir === 1 ? 'A–Z / low–high' : 'Z–A / high–low');
+    sortDir.textContent = labelFor(i, dir);
     const body = document.getElementById('rows');
     rows.sort((a, b) => {
       const av = a.children[i].dataset.v ?? a.children[i].textContent.trim().replace(/[,\u2014]/g,'');
@@ -333,7 +371,6 @@ sortSelect.addEventListener('change', () => {
 });
 sortDir.addEventListener('click', () => {
   direction *= -1;
-  sortDir.textContent = direction === 1 ? 'A–Z / low–high' : 'Z–A / high–low';
   sortBy(+sortSelect.value, direction);
 });
 """
@@ -391,6 +428,8 @@ def main():
         verdict_token = {"Clean": "clean", "Clean, with notes": "clean-notes",
                          "Qualified": "qualified", "Adverse": "adverse",
                          "Disclaimer": "disclaimer"}.get(v_label, "outstanding")
+        verdict_terms = " ".join(sorted({opinion.lower(), v_label.lower(),
+                                          VERDICT_ALIASES.get(verdict_token, "")} - {""}))
         search = " ".join((name, province, m.get("category") or "", r.get("oad_level") or "",
                            p_ab, p_full, "audit", "cash", v_label)).lower()
         search = "".join(ch for ch in __import__('unicodedata').normalize('NFD', search)
@@ -398,15 +437,17 @@ def main():
         audit_concern = bool(opinion and v_label != "Clean")
         low_cash = bool(cash and float(cash) < 1)
         rows.append(
-            f'<tr data-search="{esc(search)}" data-verdict="{verdict_token}" data-audit-concern="{str(audit_concern).lower()}" data-low-cash="{str(low_cash).lower()}">'
+            f'<tr data-search="{esc(search)}" data-verdicts="{esc(verdict_terms)}" '
+            f'data-verdict="{verdict_token}" data-audit-concern="{str(audit_concern).lower()}" '
+            f'data-low-cash="{str(low_cash).lower()}">'
             f'<td><a href="{slug}.html">{esc(name)}</a></td>'
-            f'<td class="nw dim">{esc(province)}</td>'
-            f'<td class="nw">{esc(m.get("category") or "—")}</td>'
-            f'<td class="num" data-v="{esc(m.get("population") or "")}">{num(m.get("population"), 0)}</td>'
-            f'<td class="nw" data-v="{esc(p_full)}">{esc(p_ab) if p_ab != p_full else esc(p_full)}</td>'
+            f'<td class="nw dim"><span class="sr">Province: </span>{esc(province)}</td>'
+            f'<td class="nw"><span class="sr">Category: </span>{esc(m.get("category") or "—")}</td>'
+            f'<td class="num" data-v="{esc(m.get("population") or "")}"><span class="sr">Population: </span>{num(m.get("population"), 0)}</td>'
+            f'<td class="nw" data-v="{esc(p_full)}"><span class="sr">Largest party, 2021: </span>{esc(p_ab) if p_ab != p_full else esc(p_full)}</td>'
             f'<td class="nw {v_class}" title="{esc(opinion)}" data-v="{audit_rank(opinion)}">'
-            f'{esc(v_label)}</td>'
-            f'<td class="num {cash_class(cash)}" data-v="{esc(cash or "")}">{num(cash)}</td>'
+            f'<span class="sr">Latest audit: </span>{esc(v_label)}</td>'
+            f'<td class="num {cash_class(cash)}" data-v="{esc(cash or "")}"><span class="sr">Cash on hand, months: </span>{num(cash)}</td>'
             f'</tr>')
 
     def th(i, label, num_col=False, extra=""):
@@ -435,7 +476,8 @@ governs. If no party holds more than half, a coalition or minority government ra
 Districts are not directly elected, so their rows show a dash.</p>
 <p><strong>Latest audit</strong> is the Auditor-General's verdict on the books. "Clean" is
 unqualified with no findings; anything else means the auditors found a problem, and the
-<a href="key.html">key</a> explains each verdict in one line.</p>
+<a href="key.html">key</a> explains each verdict in one line. Search understands those phrases too —
+try "unqualified", "with findings", "qualified" or "disclaimer".</p>
 <p><strong>Cash</strong> is how many months the municipality could keep paying its bills from
 cash if income stopped. Under one month is a crisis. It is a point-in-time figure and a
 municipality can hold cash it cannot spend freely, so treat outliers as a question, not a
@@ -466,8 +508,8 @@ grade.</p>
 {th(6, "Cash (months)", True)}
 </tr></thead><tbody id="rows">{''.join(rows)}</tbody></table>
 </div>
-<p class="empty" id="empty" role="status" hidden>No municipality matches that. Try a province, a party, or
-part of a name.</p>
+<p class="empty" id="empty" role="status" hidden><span class="why">No municipality matches.</span>
+<button class="chip" type="button" id="reset">Clear filters</button></p>
 <footer><a href="key.html">How to read this</a> · data CC BY 4.0 · code MIT ·
 <a href="https://github.com/realtimshady16/sa-open-data">source</a></footer>
 </main><script>{INDEX_JS}</script></body></html>"""
